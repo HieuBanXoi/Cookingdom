@@ -1,6 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Collider))]
 public class ItemKnifeSpriteMaskCutter : MonoBehaviour
@@ -19,20 +20,42 @@ public class ItemKnifeSpriteMaskCutter : MonoBehaviour
     public Ease slideEase = Ease.OutQuad;
 
     [Header("--- SPRITE MASKS ---")]
-    public bool useKnifeChildSlicedMask = false;
-    [Tooltip("Mask reveal phan do an da thai o ben trai dao.")]
-    public Transform slicedMask;
-    [Tooltip("Mask reveal phan do an chua thai o ben phai dao.")]
-    public Transform uncutMask;
-    [Tooltip("Object sprite do an chua thai. Se tat khi dao cat xong neu duoc gan.")]
-    public GameObject uncutObject;
+    [FormerlySerializedAs("slicedMask")]
+    [Tooltip("Mask con cua dao, reveal phan do an da cat trong luc dao di chuyen.")]
+    public Transform knifeChildMask;
+    [FormerlySerializedAs("doneMask")]
+    [Tooltip("Object do an da cat xong, khong dung SpriteMaskInteraction. Se bat len khi cat xong.")]
+    public GameObject itemDone;
+    [Tooltip("GameObject chua cac sprite cu dang dung SpriteMaskInteraction. Se tat khi cat xong.")]
+    public GameObject maskInteractionSpritesObject;
     [Tooltip("Chieu rong cua sprite mask khi scale X = 1.")]
     public float maskWidthAtScaleOne = 1f;
     public bool resetOnEnable = true;
 
+    [Header("--- DONE MOVE ---")]
+    [Tooltip("Target localPosition de dao di toi sau khi cat xong.")]
+    public Transform knifeDoneTarget;
+    public float knifeDoneMoveDuration = 0.25f;
+    public Ease knifeDoneMoveEase = Ease.InBack;
+
+    [Header("--- GIZMOS ---")]
+    public bool drawGizmos = true;
+    [Tooltip("Transform dung lam he toa do local de ve gizmos. De trong se dung transform hien tai.")]
+    public Transform gizmoLocalRoot;
+    public float gizmoHeight = 0.8f;
+    public float gizmoTickHeight = 0.12f;
+    public float gizmoLocalY = 0f;
+    public float gizmoLocalZ = 0f;
+    public Color rangeGizmoColor = Color.yellow;
+    public Color leftGizmoColor = Color.red;
+    public Color rightGizmoColor = Color.green;
+    public Color currentCutGizmoColor = Color.cyan;
+    public Color bladeGizmoColor = Color.magenta;
+
     [Header("--- EVENTS ---")]
     public UnityEvent onCut;
     public UnityEvent onCutComplete;
+    public UnityEvent onKnifeArriveDoneTarget;
 
     private bool isCutting;
     private bool isComplete;
@@ -64,10 +87,12 @@ public class ItemKnifeSpriteMaskCutter : MonoBehaviour
         isCutting = false;
         isComplete = false;
         currentX = leftX;
-        if (uncutObject != null) uncutObject.SetActive(true);
+        if (maskInteractionSpritesObject != null) maskInteractionSpritesObject.SetActive(true);
+        if (itemDone != null) itemDone.SetActive(false);
 
         if (knifeTransform != null)
         {
+            knifeTransform.gameObject.SetActive(true);
             knifeTransform.DOKill();
             knifeBaseLocalPos.x = leftX - bladeLocalXOffset;
             knifeTransform.localPosition = knifeBaseLocalPos;
@@ -107,9 +132,7 @@ public class ItemKnifeSpriteMaskCutter : MonoBehaviour
             isCutting = false;
             if (currentX >= rightX)
             {
-                isComplete = true;
-                if (uncutObject != null) uncutObject.SetActive(false);
-                onCutComplete?.Invoke();
+                CompleteCut();
             }
         });
     }
@@ -118,56 +141,147 @@ public class ItemKnifeSpriteMaskCutter : MonoBehaviour
     {
         float clampedX = Mathf.Clamp(currentX, leftX, rightX);
         float slicedWidth = clampedX - leftX;
-        float uncutWidth = rightX - clampedX;
 
-        if (useKnifeChildSlicedMask)
-        {
-            ApplyKnifeChildSlicedMask(slicedWidth);
-        }
-        else
-        {
-            ApplyMaskRect(slicedMask, leftX + slicedWidth * 0.5f, slicedWidth);
-        }
-
-        ApplyMaskRect(uncutMask, clampedX + uncutWidth * 0.5f, uncutWidth);
+        ApplyKnifeChildMask(slicedWidth);
     }
 
-    private void ApplyKnifeChildSlicedMask(float width)
+    private void CompleteCut()
     {
-        if (slicedMask == null) return;
+        isComplete = true;
+        if (maskInteractionSpritesObject != null) maskInteractionSpritesObject.SetActive(false);
+        if (itemDone != null) itemDone.SetActive(true);
+        if (knifeChildMask != null) knifeChildMask.gameObject.SetActive(false);
+
+        if (knifeTransform == null)
+        {
+            onCutComplete?.Invoke();
+            return;
+        }
+
+        if (knifeDoneTarget == null)
+        {
+            knifeTransform.gameObject.SetActive(false);
+            onCutComplete?.Invoke();
+            return;
+        }
+
+        cutSequence = DOTween.Sequence();
+        cutSequence.Append(knifeTransform.DOLocalMove(knifeDoneTarget.localPosition, knifeDoneMoveDuration).SetEase(knifeDoneMoveEase));
+        cutSequence.OnComplete(() =>
+        {
+            onKnifeArriveDoneTarget?.Invoke();
+            knifeTransform.gameObject.SetActive(false);
+            onCutComplete?.Invoke();
+        });
+    }
+
+    private void ApplyKnifeChildMask(float width)
+    {
+        if (knifeChildMask == null) return;
 
         bool hasWidth = width > 0.001f;
-        slicedMask.gameObject.SetActive(hasWidth);
+        knifeChildMask.gameObject.SetActive(hasWidth);
         if (!hasWidth) return;
 
-        Vector3 pos = slicedMask.localPosition;
+        Vector3 pos = knifeChildMask.localPosition;
         pos.x = bladeLocalXOffset - width * 0.5f;
-        slicedMask.localPosition = pos;
+        knifeChildMask.localPosition = pos;
 
-        Vector3 scale = slicedMask.localScale;
+        Vector3 scale = knifeChildMask.localScale;
         scale.x = width / Mathf.Max(0.001f, maskWidthAtScaleOne);
-        slicedMask.localScale = scale;
-    }
-
-    private void ApplyMaskRect(Transform maskTransform, float centerX, float width)
-    {
-        if (maskTransform == null) return;
-
-        bool hasWidth = width > 0.001f;
-        maskTransform.gameObject.SetActive(hasWidth);
-        if (!hasWidth) return;
-
-        Vector3 pos = maskTransform.localPosition;
-        pos.x = centerX;
-        maskTransform.localPosition = pos;
-
-        Vector3 scale = maskTransform.localScale;
-        scale.x = width / Mathf.Max(0.001f, maskWidthAtScaleOne);
-        maskTransform.localScale = scale;
+        knifeChildMask.localScale = scale;
     }
 
     public float GetProgress01()
     {
         return Mathf.InverseLerp(leftX, rightX, currentX);
     }
+
+    private void OnDrawGizmos()
+    {
+        if (!drawGizmos) return;
+
+        Transform root = gizmoLocalRoot != null ? gizmoLocalRoot : transform;
+        float previewCutX = GetPreviewCutX();
+        float previewBladeX = previewCutX - bladeLocalXOffset;
+
+        DrawLocalVerticalLine(root, leftX, gizmoHeight, leftGizmoColor);
+        DrawLocalVerticalLine(root, rightX, gizmoHeight, rightGizmoColor);
+        DrawLocalHorizontalLine(root, leftX, rightX, rangeGizmoColor);
+
+        float safeStep = Mathf.Abs(cutStep);
+        if (safeStep > 0.001f)
+        {
+            for (float x = leftX + safeStep; x < rightX - 0.001f; x += safeStep)
+            {
+                DrawLocalVerticalLine(root, x, gizmoTickHeight, rangeGizmoColor);
+            }
+        }
+
+        DrawLocalVerticalLine(root, previewCutX, gizmoHeight, currentCutGizmoColor);
+        DrawLocalVerticalLine(root, previewBladeX, gizmoHeight * 0.7f, bladeGizmoColor);
+
+        if (knifeTransform != null)
+        {
+            Vector3 knifeLocal = GetLocalPointInRoot(root, knifeTransform);
+            Vector3 downLocal = knifeLocal + knifeDownLocalOffset;
+            Gizmos.color = bladeGizmoColor;
+            Gizmos.DrawLine(root.TransformPoint(knifeLocal), root.TransformPoint(downLocal));
+            Gizmos.DrawWireSphere(root.TransformPoint(downLocal), 0.04f);
+        }
+
+#if UNITY_EDITOR
+        DrawLocalLabel(root, leftX, gizmoHeight, "leftX");
+        DrawLocalLabel(root, rightX, gizmoHeight, "rightX");
+        DrawLocalLabel(root, previewCutX, gizmoHeight, "cut localX");
+        DrawLocalLabel(root, previewBladeX, gizmoHeight * 0.7f, "blade localX");
+#endif
+    }
+
+    private float GetPreviewCutX()
+    {
+        if (Application.isPlaying)
+        {
+            return Mathf.Clamp(currentX, leftX, rightX);
+        }
+
+        if (knifeTransform != null)
+        {
+            return Mathf.Clamp(knifeTransform.localPosition.x + bladeLocalXOffset, leftX, rightX);
+        }
+
+        return leftX;
+    }
+
+    private Vector3 GetLocalPointInRoot(Transform root, Transform target)
+    {
+        return root.InverseTransformPoint(target.position);
+    }
+
+    private Vector3 GetLocalPoint(float localX)
+    {
+        return new Vector3(localX, gizmoLocalY, gizmoLocalZ);
+    }
+
+    private void DrawLocalVerticalLine(Transform root, float localX, float halfHeight, Color color)
+    {
+        Vector3 bottom = GetLocalPoint(localX) + Vector3.down * halfHeight;
+        Vector3 top = GetLocalPoint(localX) + Vector3.up * halfHeight;
+        Gizmos.color = color;
+        Gizmos.DrawLine(root.TransformPoint(bottom), root.TransformPoint(top));
+    }
+
+    private void DrawLocalHorizontalLine(Transform root, float fromLocalX, float toLocalX, Color color)
+    {
+        Gizmos.color = color;
+        Gizmos.DrawLine(root.TransformPoint(GetLocalPoint(fromLocalX)), root.TransformPoint(GetLocalPoint(toLocalX)));
+    }
+
+#if UNITY_EDITOR
+    private void DrawLocalLabel(Transform root, float localX, float halfHeight, string label)
+    {
+        Vector3 localPos = GetLocalPoint(localX) + Vector3.up * (halfHeight + 0.08f);
+        UnityEditor.Handles.Label(root.TransformPoint(localPos), $"{label}: {localX:0.###}");
+    }
+#endif
 }

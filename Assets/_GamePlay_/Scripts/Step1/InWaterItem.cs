@@ -1,5 +1,3 @@
-using NUnit.Framework;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class InWaterItem : Item
@@ -36,6 +34,7 @@ public class InWaterItem : Item
     public void MoveToWater()
     {
         isInWater = true;
+        onProcess = true;
     }
     public void CheckLastPlate()
     {
@@ -46,11 +45,25 @@ public class InWaterItem : Item
             itemDraggable.enabled = false;
             collider1.enabled = false;
             isOnPlate = true;
+            ItemDone();
+            PhaseManager.Ins.DoOneStep();
         }
         else
         {
             ply_TimerEvent.enabled = true;
-            ply_TimerEvent.StartTimer();
+            if (sink.isWaterIn)
+            {
+                ply_BobEffect.enabled = true;
+
+                ply_TimerEvent.StartTimer();
+
+            }
         }
+    }
+    public void SpawnBlinkEffect()
+    {
+        BlinkEffect blinkEffect = Ply_Pool.Ins.Spawn<BlinkEffect>(PoolType.BlinkFX, transform.position, transform.rotation);
+        blinkEffect.transform.SetParent(this.transform);
+        blinkEffect.DeSpawnByTime();
     }
 }

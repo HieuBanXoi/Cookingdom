@@ -3,20 +3,30 @@ using UnityEngine;
 public class Bread : Item
 {
     public Knife knife;
-    public CuttiingBoard cuttiingBoard;
+    public CuttingBoard cuttingBoard;
     public Transform targetPlate;
     public bool isOnBoard = false;
+    public ItemType targetPlateType;
+    public string flyToDish = null;
+    public bool isFlyToDishAnim = false;
+    public bool cantCutOnFirst = false;
+
     public void KnifeOut()
     {
         knife.gameObject.SetActive(true);
     }
-    public void TurnOffClick()
+    public virtual void TurnOffClick()
     {
-        itemClickable.enabled = false;
+        if (itemClickable != null)
+        {
+            itemClickable.enabled = false;
+
+        }
         itemDraggable.enabled = true;
-        itemDraggable.targetItemType = ItemType.DiaBanhMi;
-        itemDraggable.returnTransform = cuttiingBoard.transform;
+        itemDraggable.targetItemType = targetPlateType;
+        itemDraggable.returnTransform = cuttingBoard.transform;
         itemMoveToTarget.defaultTarget = targetPlate;
+        ResetType();
     }
     public void Undraggable()
     {
@@ -30,14 +40,43 @@ public class Bread : Item
     {
         if (isOnBoard)
         {
-            animator.SetTrigger("FlyToDish");
+            if (isFlyToDishAnim)
+            {
+                animator.SetTrigger(flyToDish);
+            }
+            cuttingBoard.IsFoodOn(false);
             itemType = ItemType.None;
+            ItemDone();
+            PhaseManager.Ins.DoOneStep();
         }
         else
         {
-            knife.itemMoveToTarget.defaultTarget = transform;
-            itemType = ItemType.FoodOnCuttingBoard;
-
+            FlyToCuttingBoard();
         }
+    }
+    public virtual void FlyToCuttingBoard()
+    {
+        onProcess = true;
+        knife.itemMoveToTarget.defaultTarget = transform;
+        if (!cantCutOnFirst)
+        {
+            ItemOnCuttingBoard();
+        }
+    }
+    public void ResetType()
+    {
+        itemType = ItemType.None;
+    }
+    public void TurnOnClickable()
+    {
+        itemClickable.enabled = true;
+    }
+    public void TurnOffClickable()
+    {
+        itemClickable.enabled = false;
+    }
+    public void ItemOnCuttingBoard()
+    {
+        itemType = ItemType.FoodOnCuttingBoard;
     }
 }

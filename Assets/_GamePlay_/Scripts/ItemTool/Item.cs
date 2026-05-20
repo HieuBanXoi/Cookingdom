@@ -4,6 +4,10 @@ using UnityEngine.Events;
 
 public class Item : MonoBehaviour
 {
+    [Header("--- HAND TUTORIAL ---")]
+    public bool isDone = false;
+    public bool onProcess = false;
+
     public ItemDraggable itemDraggable;
     public ItemClickable itemClickable;
     public ItemStirring itemStirring;
@@ -69,5 +73,37 @@ public class Item : MonoBehaviour
     public void KnifeIn()
     {
         onKnifeIn?.Invoke();
+    }
+
+    public void SpawnHeart(bool isBreak)
+    {
+        if (Ply_Pool.Ins == null) return;
+        if (isBreak)
+        {
+            HeartBreakEffect heartEffect = Ply_Pool.Ins.Spawn<HeartBreakEffect>(PoolType.HeartBreakFX, transform.position, transform.rotation);
+            if (heartEffect == null) return;
+            heartEffect.transform.localRotation = Quaternion.identity;
+            heartEffect.PlaySpawn();
+        }
+        else
+        {
+            HeartEffect heartEffect = Ply_Pool.Ins.Spawn<HeartEffect>(PoolType.HeartFX, transform.position, transform.rotation);
+            if (heartEffect == null) return;
+            heartEffect.transform.localRotation = Quaternion.identity;
+            heartEffect.PlaySpawn();
+        }
+
+    }
+
+    public void ItemDone()
+    {
+        SpawnHeart(false);
+        if (HandTutManager.Ins != null)
+        {
+            HandTutManager.Ins.ItemDone(this);
+            return;
+        }
+        isDone = true;
+
     }
 }

@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 5b11ed02b93acfe4ea582d1f7a88bb79
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 799321568299883906
+    second: Garlic 9_0
+  - first:
+      213: -5288574361403135501
+    second: Garlic 9_1
+  - first:
+      213: -8165492984268579232
+    second: Garlic 9_2
+  - first:
+      213: -6330187843430959148
+    second: Garlic 9_3
+  - first:
+      213: 8758099662861825345
+    second: Garlic 9_4
+  - first:
+      213: 861184187847200075
+    second: Garlic 9_5
+  - first:
+      213: 3304005953900196465
+    second: Garlic 9_6
+  - first:
+      213: 7181094607732359854
+    second: Garlic 9_7
+  - first:
+      213: -4149490889577059991
+    second: Garlic 9_8
+  - first:
+      213: 8650123129973348745
+    second: Garlic 9_9
+  - first:
+      213: -2676530850540259404
+    second: Garlic 9_10
+  - first:
+      213: -49689770842654830
+    second: Garlic 9_11
+  - first:
+      213: 924929867053944453
+    second: Garlic 9_12
+  - first:
+      213: 4355709219295724172
+    second: Garlic 9_13
+  - first:
+      213: -9134562493122725242
+    second: Garlic 9_14
+  - first:
+      213: -5113589996455010948
+    second: Garlic 9_15
+  - first:
+      213: 6391002406443751640
+    second: Garlic 9_16
+  - first:
+      213: -1992587011497334205
+    second: Garlic 9_17
+  - first:
+      213: -5303214593562392537
+    second: Garlic 9_18
+  - first:
+      213: 4965147325622231495
+    second: Garlic 9_19
+  - first:
+      213: 1663372321913095292
+    second: Garlic 9_20
+  - first:
+      213: 1331633057928924272
+    second: Garlic 9_21
+  - first:
+      213: -437458463918535005
+    second: Garlic 9_22
+  - first:
+      213: 3806855507357756497
+    second: Garlic 9_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Garlic 9_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 176
+        width: 49
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28d92db3bb2c71b00800000000000000
+      internalID: 799321568299883906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 73
+        width: 165
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f9e35c63a53b96b0800000000000000
+      internalID: -5288574361403135501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_2
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 252
+        width: 73
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06e1ab8b4675eae80800000000000000
+      internalID: -8165492984268579232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_3
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 247
+        width: 37
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d73dc6f1b7a628a0800000000000000
+      internalID: -6330187843430959148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 156
+        width: 24
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 145f850bd350b8970800000000000000
+      internalID: 8758099662861825345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_5
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 167
+        width: 119
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4dc0d2c47a83fb00800000000000000
+      internalID: 861184187847200075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_6
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 199
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1723ff1e8ef2add20800000000000000
+      internalID: 3304005953900196465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_7
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 123
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea24c58af7f58a360800000000000000
+      internalID: 7181094607732359854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_8
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 128
+        width: 56
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9692a08550c0a66c0800000000000000
+      internalID: -4149490889577059991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_9
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 131
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 989937908296b0870800000000000000
+      internalID: 8650123129973348745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_10
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 138
+        width: 28
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b77c2f4f5d0bdad0800000000000000
+      internalID: -2676530850540259404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_11
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 120
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 297f3fbaa677f4ff0800000000000000
+      internalID: -49689770842654830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_12
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 105
+        width: 37
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58e46e740d206dc00800000000000000
+      internalID: 924929867053944453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_13
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 48
+        width: 58
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8204091576927c30800000000000000
+      internalID: 4355709219295724172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68a30da3fc38b3180800000000000000
+      internalID: -9134562493122725242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_15
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 78
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7dde4ebdf0e809b0800000000000000
+      internalID: -5113589996455010948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_16
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 42
+        width: 59
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d81fb2e3d661b850800000000000000
+      internalID: 6391002406443751640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_17
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 66
+        width: 46
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34ae4a39ba8e854e0800000000000000
+      internalID: -1992587011497334205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_18
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 101
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 728cb0fbc623766b0800000000000000
+      internalID: -5303214593562392537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_19
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 71
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c1a139af2fb7e440800000000000000
+      internalID: 4965147325622231495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_20
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 47
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c74c8d8505c751710800000000000000
+      internalID: 1663372321913095292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_21
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 0
+        width: 113
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c450df539ea7210800000000000000
+      internalID: 1331633057928924272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_22
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 42
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aec52648d5dde9f0800000000000000
+      internalID: -437458463918535005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Garlic 9_23
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 12
+        width: 66
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15c6c431aeaa4d430800000000000000
+      internalID: 3806855507357756497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Garlic 9_0: 799321568299883906
+      Garlic 9_1: -5288574361403135501
+      Garlic 9_10: -2676530850540259404
+      Garlic 9_11: -49689770842654830
+      Garlic 9_12: 924929867053944453
+      Garlic 9_13: 4355709219295724172
+      Garlic 9_14: -9134562493122725242
+      Garlic 9_15: -5113589996455010948
+      Garlic 9_16: 6391002406443751640
+      Garlic 9_17: -1992587011497334205
+      Garlic 9_18: -5303214593562392537
+      Garlic 9_19: 4965147325622231495
+      Garlic 9_2: -8165492984268579232
+      Garlic 9_20: 1663372321913095292
+      Garlic 9_21: 1331633057928924272
+      Garlic 9_22: -437458463918535005
+      Garlic 9_23: 3806855507357756497
+      Garlic 9_3: -6330187843430959148
+      Garlic 9_4: 8758099662861825345
+      Garlic 9_5: 861184187847200075
+      Garlic 9_6: 3304005953900196465
+      Garlic 9_7: 7181094607732359854
+      Garlic 9_8: -4149490889577059991
+      Garlic 9_9: 8650123129973348745
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

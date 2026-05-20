@@ -10,6 +10,8 @@ public class Sink : Item
     public GameObject waterIn;
     public UnityEvent onWaterIn;
     public UnityEvent onNoWaterIn;
+    public ItemDraggable napNgoai;
+    public ItemDraggable napTrong;
 
     public void TurnOnWater()
     {
@@ -48,6 +50,7 @@ public class Sink : Item
             animator.SetTrigger("OnlyWaterIn");
         }
 
+        CheckEndPhaseCondition();
     }
     public void Close()
     {
@@ -80,6 +83,8 @@ public class Sink : Item
 
             }
         }
+
+        CheckEndPhaseCondition();
     }
     public void IsWaterIn()
     {
@@ -90,5 +95,33 @@ public class Sink : Item
     {
         isWaterIn = false;
         onNoWaterIn?.Invoke();
+    }
+    public void TurnOffMoveActionIn()
+    {
+        napTrong.enabled = false;
+    }
+    public void TurnOnMoveActionIn()
+    {
+        napTrong.enabled = true;
+    }
+    public void TurnOffMoveActionOut()
+    {
+        napNgoai.enabled = false;
+    }
+    public void TurnOnMoveActionOut()
+    {
+        napNgoai.enabled = true;
+    }
+
+    public bool CheckEndPhaseCondition()
+    {
+        bool canEndPhase = HandTutManager.Ins == null || HandTutManager.Ins.CheckEndPhaseCondition();
+
+        if (canEndPhase && PhaseManager.Ins != null && PhaseManager.Ins.IsCurrentPhaseStepComplete())
+        {
+            PhaseManager.Ins.TryEndCurrentPhase();
+        }
+
+        return canEndPhase;
     }
 }

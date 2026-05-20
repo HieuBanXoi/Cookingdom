@@ -21,12 +21,16 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
 
     [Header("--- HIỆU ỨNG CHUYỂN PHASE ---")]
     public float transitionDuration = 1.0f;
+    public float delayBeforeNextPhase = 2.0f;
     public float offScreenLeftX = -15f;
     public float offScreenRightX = 15f;
     public float centerScreenX = 0f;
 
     public int currentPhaseIndex = 0;
     public int currentStepCount = 0;
+
+    private bool isChangingPhase;
+    private Tween phaseDelayTween;
 
     public Transform CurrentPhaseObject
     {
@@ -61,25 +65,59 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
         }
     }
 
+    private void OnDisable()
+    {
+        phaseDelayTween?.Kill();
+    }
+
     /// <summary>
     /// Gọi hàm này từ bất kỳ script nào bằng lệnh: PhaseManager.Ins.DoOneStep();
     /// Trả về true nếu là bước cuối cùng của Phase và bắt đầu chuyển Phase.
     /// </summary>
     public bool DoOneStep()
     {
+        if (isChangingPhase) return false;
         if (currentPhaseIndex >= phases.Count) return false; // Đã hoàn thành hết các phase
 
         currentStepCount++;
-        Debug.Log($"Tiến độ Phase {currentPhaseIndex + 1}: Step {currentStepCount}/{phases[currentPhaseIndex].totalSteps}");
 
         // Nếu số lần DoOneStep đạt mức yêu cầu của phase hiện tại => Chuyển Phase
         if (currentStepCount >= phases[currentPhaseIndex].totalSteps)
         {
-            GoToNextPhase();
-            return true;
+            return TryEndCurrentPhase();
         }
 
         return false;
+    }
+
+    public bool IsCurrentPhaseStepComplete()
+    {
+        if (currentPhaseIndex < 0 || currentPhaseIndex >= phases.Count) return false;
+
+        return currentStepCount >= phases[currentPhaseIndex].totalSteps;
+    }
+
+    public bool TryEndCurrentPhase()
+    {
+        if (isChangingPhase) return false;
+        if (!IsCurrentPhaseStepComplete()) return false;
+
+        if (HandTutManager.Ins != null && !HandTutManager.Ins.CheckEndPhaseCondition())
+        {
+            return false;
+        }
+
+        DelayGoToNextPhase();
+        return true;
+    }
+
+    private void DelayGoToNextPhase()
+    {
+        isChangingPhase = true;
+        if (GameManager.Ins != null) GameManager.Ins.isPlaying = false;
+
+        phaseDelayTween?.Kill();
+        phaseDelayTween = DOVirtual.DelayedCall(delayBeforeNextPhase, GoToNextPhase);
     }
 
     private void GoToNextPhase()
@@ -120,13 +158,20 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
                 newObj.transform.DOMoveX(centerScreenX, transitionDuration)
                     .SetEase(Ease.InOutQuad).OnComplete(() =>
                     {
+                        isChangingPhase = false;
                         if (GameManager.Ins != null) GameManager.Ins.isPlaying = true;
                         newPhase.onPhaseReady?.Invoke();
                     });
             }
+            else
+            {
+                isChangingPhase = false;
+                if (GameManager.Ins != null) GameManager.Ins.isPlaying = true;
+            }
         }
         else
         {
+            isChangingPhase = false;
             // Đã đi qua hết tất cả các Phase trong danh sách, kết thúc game win
             Debug.Log("Hoàn thành toàn bộ Phase!");
             if (GameManager.Ins != null)
