@@ -115,7 +115,7 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
     {
         isChangingPhase = true;
         if (GameManager.Ins != null) GameManager.Ins.isPlaying = false;
-
+        Ply_SoundManager.Ins.PlayFx(FxType.Complete);
         phaseDelayTween?.Kill();
         phaseDelayTween = DOVirtual.DelayedCall(delayBeforeNextPhase, GoToNextPhase);
     }

@@ -14,6 +14,7 @@ public class Bread : Item
     public void KnifeOut()
     {
         knife.gameObject.SetActive(true);
+        Ply_SoundManager.Ins.PlayFx(FxType.PlaceKnife);
     }
     public virtual void TurnOffClick()
     {
@@ -46,6 +47,7 @@ public class Bread : Item
             }
             cuttingBoard.IsFoodOn(false);
             itemType = ItemType.None;
+            ItemDone();
             PhaseManager.Ins.DoOneStep();
         }
         else
@@ -55,6 +57,7 @@ public class Bread : Item
     }
     public virtual void FlyToCuttingBoard()
     {
+        onProcess = true;
         knife.itemMoveToTarget.defaultTarget = transform;
         if (!cantCutOnFirst)
         {

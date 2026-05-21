@@ -691,7 +691,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.53
+  m_Radius: 1.74
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &78568692
 MonoBehaviour:
@@ -731,6 +731,8 @@ MonoBehaviour:
           m_StringArgument: Cut
           m_BoolArgument: 0
         m_CallState: 2
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 18
   knife: {fileID: 1940406763}
   cuttingBoard: {fileID: 2131632066}
   targetPlate: {fileID: 1406391991}
@@ -833,6 +835,51 @@ RectTransform:
   m_AnchoredPosition: {x: -159, y: -165.47021}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &83628130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 83628131}
+  - component: {fileID: 83628132}
+  m_Layer: 0
+  m_Name: BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &83628131
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83628130}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 1.34, y: 1.34, z: 1.34}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1721698809}
+  m_Father: {fileID: 1372715519}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 340, y: 106.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &83628132
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83628130}
+  m_CullTransparentMesh: 1
 --- !u!1 &93511160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,7 +1355,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9bae1e71e195b224c9651cedb921a82d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.43529412, g: 0.8666667, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2263,6 +2310,7 @@ MonoBehaviour:
   - {fileID: 78568692}
   knife: {fileID: 1940406759}
   handTutObject: {fileID: 287876779}
+  tapToCookObject: {fileID: 1372715517}
   inWaterItems:
   - {fileID: 525630565}
   - {fileID: 1214155040}
@@ -2270,7 +2318,7 @@ MonoBehaviour:
   napBonNgoai: {fileID: 737683426}
   napBonTrong: {fileID: 1842405075}
   waterToggle: {fileID: 360637870}
-  idleDelay: 5
+  idleDelay: 4
   moveDuration: 1.2
   clickScaleDuration: 0.35
   waitAtEndDuration: 0
@@ -2857,8 +2905,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.9
-  m_Height: 3.513936
+  m_Radius: 1.44
+  m_Height: 4.19
   m_Direction: 1
   m_Center: {x: 0, y: -0.027206898, z: 0}
 --- !u!95 &270908567
@@ -2968,6 +3016,8 @@ MonoBehaviour:
           m_StringArgument: KnifeFly
           m_BoolArgument: 1
         m_CallState: 2
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 18
   knife: {fileID: 1940406763}
   cuttingBoard: {fileID: 2131632066}
   targetPlate: {fileID: 1455142296}
@@ -3923,7 +3973,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.71035266
+  m_Radius: 0.98
   m_Center: {x: 0, y: -0.03, z: 0}
 --- !u!4 &360637872
 Transform:
@@ -4163,7 +4213,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.53
+  m_Radius: 1.71
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &390930369
 MonoBehaviour:
@@ -4215,6 +4265,8 @@ MonoBehaviour:
           m_StringArgument: KnifeFly
           m_BoolArgument: 1
         m_CallState: 2
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 16
   knife: {fileID: 1940406763}
   cuttingBoard: {fileID: 2131632066}
   targetPlate: {fileID: 1452194307}
@@ -4395,6 +4447,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
 --- !u!136 &391401312
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4533,6 +4587,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
 --- !u!136 &410370532
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4615,6 +4671,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
 --- !u!135 &410738314
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4634,7 +4692,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.04
+  m_Radius: 1.22
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &411684552
 GameObject:
@@ -5522,7 +5580,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.63
+  m_Radius: 1.73
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &525630563
 MonoBehaviour:
@@ -5652,6 +5710,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 18
   ply_TimerEvent: {fileID: 525630564}
   ply_BobEffect: {fileID: 525630563}
   collider1: {fileID: 525630562}
@@ -5917,6 +5977,12 @@ MonoBehaviour:
   - type: 2
     amount: 2
     gameUnit: {fileID: 4297430748325980175, guid: 4e6a1e56090d2864da8d4dd1b0756edc, type: 3}
+  - type: 4
+    amount: 5
+    gameUnit: {fileID: 2837435936247642191, guid: 9de7c20ff97a3404fa443678548fc4f0, type: 3}
+  - type: 5
+    amount: 5
+    gameUnit: {fileID: 5024071459994866507, guid: fa02ad886d8e004418f4f29cae29d5c3, type: 3}
   poolHolder: {fileID: 995830828}
 --- !u!1 &563111186
 GameObject:
@@ -6069,6 +6135,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
 --- !u!136 &565988444
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6651,6 +6719,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
 --- !u!135 &654509968
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7236,18 +7306,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDone: 0
   onProcess: 0
-  itemDraggable: {fileID: 0}
+  itemDraggable: {fileID: 737683426}
   itemClickable: {fileID: 0}
   itemStirring: {fileID: 0}
   itemKnifeSpriteMaskCutter: {fileID: 0}
   itemSpriteMaskPainter: {fileID: 0}
-  itemMoveToTarget: {fileID: 0}
+  itemMoveToTarget: {fileID: 737683425}
   animator: {fileID: 0}
   itemType: 0
   spriteRenderer: {fileID: 1251312042}
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 1
 --- !u!135 &737683428
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7267,7 +7339,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.704178
+  m_Radius: 0.91
   m_Center: {x: 0, y: -0.029168248, z: 0}
 --- !u!1 &747912059
 GameObject:
@@ -7534,6 +7606,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
 --- !u!136 &761858138
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8304,6 +8378,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
 --- !u!136 &883535205
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9173,6 +9249,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
 --- !u!1 &987310394
 GameObject:
   m_ObjectHideFlags: 0
@@ -9566,7 +9644,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.53
+  m_Radius: 1.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1002950314
 MonoBehaviour:
@@ -9598,6 +9676,7 @@ MonoBehaviour:
   knifeDoneTarget: {fileID: 529126067}
   knifeDoneMoveDuration: 0.15
   knifeDoneMoveEase: 26
+  cutPieceColor: 1
   drawGizmos: 1
   gizmoLocalRoot: {fileID: 0}
   gizmoHeight: 0.8
@@ -9692,6 +9771,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 18
   knife: {fileID: 1940406763}
   cuttingBoard: {fileID: 2131632066}
   targetPlate: {fileID: 565988441}
@@ -10160,6 +10241,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
 --- !u!136 &1066404176
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10488,7 +10571,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a6a356c1c5be06d4abb57fe6f7b6c8e7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.43529412, g: 0.8666667, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11232,6 +11315,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1659095169}
+  - {fileID: 1372715519}
   - {fileID: 563111187}
   - {fileID: 78655126}
   - {fileID: 1010260992}
@@ -11621,7 +11705,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.74
+  m_Radius: 2.03
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1214155040
 MonoBehaviour:
@@ -11649,6 +11733,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 15
   ply_TimerEvent: {fileID: 1214155035}
   ply_BobEffect: {fileID: 1214155036}
   collider1: {fileID: 1214155039}
@@ -11740,7 +11826,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9bae1e71e195b224c9651cedb921a82d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.435849, g: 0.8649894, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12938,6 +13024,65 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1372715517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1372715519}
+  - component: {fileID: 1372715518}
+  m_Layer: 0
+  m_Name: TapToCook
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &1372715518
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372715517}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: efe1d2b073edd634c85a6bf53c3a36c8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!224 &1372715519
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372715517}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 83628131}
+  m_Father: {fileID: 1196831633}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 70}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1373345993
 GameObject:
   m_ObjectHideFlags: 0
@@ -13610,6 +13755,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
 --- !u!136 &1406391994
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13748,6 +13895,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
 --- !u!136 &1422466918
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14147,6 +14296,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
 --- !u!136 &1452194310
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14308,6 +14459,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
 --- !u!1 &1455275163
 GameObject:
   m_ObjectHideFlags: 0
@@ -14587,8 +14740,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.33
-  m_Height: 4.7916217
+  m_Radius: 1.37
+  m_Height: 5.33
   m_Direction: 0
   m_Center: {x: -0.0063054697, y: 0, z: 0}
 --- !u!114 &1459949867
@@ -14629,6 +14782,8 @@ MonoBehaviour:
           m_StringArgument: Cut
           m_BoolArgument: 0
         m_CallState: 2
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 17
   knife: {fileID: 1940406763}
   cuttingBoard: {fileID: 2131632066}
   targetPlate: {fileID: 1066404173}
@@ -15085,6 +15240,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 18
   knife: {fileID: 1940406763}
   cuttingBoard: {fileID: 2131632066}
   targetPlate: {fileID: 761858135}
@@ -15113,7 +15270,7 @@ MonoBehaviour:
   bladeLocalXOffset: 0
   leftX: -1.57
   rightX: 1.61
-  cutStep: 0.75
+  cutStep: 0.72
   knifeDownLocalOffset: {x: 0, y: -0.27, z: 0}
   chopDuration: 0.03
   slideDuration: 0.03
@@ -15127,6 +15284,7 @@ MonoBehaviour:
   knifeDoneTarget: {fileID: 529126067}
   knifeDoneMoveDuration: 0.25
   knifeDoneMoveEase: 26
+  cutPieceColor: 0
   drawGizmos: 1
   gizmoLocalRoot: {fileID: 0}
   gizmoHeight: 0.8
@@ -16274,6 +16432,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
 --- !u!136 &1614941487
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16484,7 +16644,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.53
+  m_Radius: 1.93
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1618025257
 MonoBehaviour:
@@ -16593,6 +16753,8 @@ MonoBehaviour:
           m_StringArgument: KnifeFly
           m_BoolArgument: 1
         m_CallState: 2
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 18
   knife: {fileID: 1940406763}
   cuttingBoard: {fileID: 2131632066}
   targetPlate: {fileID: 391401309}
@@ -17536,6 +17698,142 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1721698808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1721698809}
+  - component: {fileID: 1721698811}
+  - component: {fileID: 1721698810}
+  m_Layer: 0
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1721698809
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721698808}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 83628131}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 3.6}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1721698810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721698808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Tap To Cook
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 6b504921f7b99fe4a862af4fc963ffde, type: 2}
+  m_sharedMaterial: {fileID: 5375066065756455533, guid: 6b504921f7b99fe4a862af4fc963ffde, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281530111
+  m_fontColor: {r: 1, g: 0.9630614, b: 0.19607842, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 100.9
+  m_fontSizeBase: 100.9
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: -4.1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1721698811
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721698808}
+  m_CullTransparentMesh: 1
 --- !u!1 &1729541917
 GameObject:
   m_ObjectHideFlags: 0
@@ -17739,6 +18037,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
 --- !u!1 &1800256473
 GameObject:
   m_ObjectHideFlags: 0
@@ -18209,7 +18509,7 @@ MonoBehaviour:
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 987108390}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -18274,18 +18574,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDone: 0
   onProcess: 0
-  itemDraggable: {fileID: 0}
+  itemDraggable: {fileID: 1842405075}
   itemClickable: {fileID: 0}
   itemStirring: {fileID: 0}
   itemKnifeSpriteMaskCutter: {fileID: 0}
   itemSpriteMaskPainter: {fileID: 0}
-  itemMoveToTarget: {fileID: 0}
+  itemMoveToTarget: {fileID: 1842405074}
   animator: {fileID: 0}
   itemType: 0
   spriteRenderer: {fileID: 1872929347}
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 18
 --- !u!135 &1842405077
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18305,7 +18607,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.704178
+  m_Radius: 0.86
   m_Center: {x: 0, y: -0.029168248, z: 0}
 --- !u!1 &1843080063
 GameObject:
@@ -18931,7 +19233,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.53
+  m_Radius: 1.68
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1899365721
 MonoBehaviour:
@@ -18971,6 +19273,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 18
   knife: {fileID: 1940406763}
   cuttingBoard: {fileID: 2131632066}
   targetPlate: {fileID: 410370529}
@@ -19737,8 +20041,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1113737, y: 3.7286625, z: 1}
-  m_Center: {x: -0.05568683, y: -0.00000023841858, z: 0}
+  m_Size: {x: 1.4790106, y: 3.9002266, z: 1}
+  m_Center: {x: -0.018923283, y: -0.012254953, z: 0}
 --- !u!114 &1940406763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19765,6 +20069,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 14
   knifeIdle: {fileID: 104167609}
   knifeOnDrag: {fileID: 93511160}
 --- !u!1 &1956303944
@@ -19986,21 +20292,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06bcf16a53012554f8676e04001829c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fxAudios:
+  - fxType: 0
+    audioClip: {fileID: 8300000, guid: 60f0c4cf59df7a744b189cffce477bde, type: 3}
+  - fxType: 1
+    audioClip: {fileID: 8300000, guid: e5cc2f488600259499d7cf0b4154534f, type: 3}
+  - fxType: 2
+    audioClip: {fileID: 8300000, guid: ba4754190df806b499cb57d1c754fa6b, type: 3}
+  - fxType: 3
+    audioClip: {fileID: 8300000, guid: 461cae36594265442a28d5c0bafb9611, type: 3}
+  - fxType: 4
+    audioClip: {fileID: 8300000, guid: 107c4c43e5637474ca39886234bd5c8f, type: 3}
+  - fxType: 5
+    audioClip: {fileID: 8300000, guid: c96d6751f9b6f6f48bb3f4c7c939769a, type: 3}
+  - fxType: 6
+    audioClip: {fileID: 8300000, guid: d96a48f0728b9cf4c89ef542ae229ecd, type: 3}
+  - fxType: 7
+    audioClip: {fileID: 8300000, guid: 2a3e39cebf6e3d44083f9231463c443a, type: 3}
+  - fxType: 8
+    audioClip: {fileID: 8300000, guid: bcc20b2bbf235304791027df2a10cf0a, type: 3}
+  - fxType: 9
+    audioClip: {fileID: 8300000, guid: d739d20962f6bc14887e160c37a243df, type: 3}
+  - fxType: 10
+    audioClip: {fileID: 8300000, guid: bf5fa92206181c74d9dfd7a8bccc8d92, type: 3}
+  - fxType: 11
+    audioClip: {fileID: 8300000, guid: e7a161e3bac8feb438b05338c889a15c, type: 3}
+  - fxType: 12
+    audioClip: {fileID: 8300000, guid: dc0874b98496e324cbd02ac1ca08925e, type: 3}
+  - fxType: 13
+    audioClip: {fileID: 8300000, guid: fcb2bc3d65f599e4b8c4cefe7b2d1341, type: 3}
+  - fxType: 14
+    audioClip: {fileID: 8300000, guid: 2e2cb903ce3129948bca9aee0fb08939, type: 3}
+  - fxType: 15
+    audioClip: {fileID: 8300000, guid: a32bced51ae44c44f9510101cef642c8, type: 3}
+  - fxType: 16
+    audioClip: {fileID: 8300000, guid: 766671b8e6771464b842e1e46e968662, type: 3}
+  - fxType: 17
+    audioClip: {fileID: 8300000, guid: e66b1f06708dca643bda55ae54e58456, type: 3}
+  - fxType: 18
+    audioClip: {fileID: 8300000, guid: 966f005389bae3e4bb5f488c1d8d5e66, type: 3}
   audioClips:
   - {fileID: 8300000, guid: 60f0c4cf59df7a744b189cffce477bde, type: 3}
-  - {fileID: 8300000, guid: 7f0d20000df9be645a9cd53d803202fc, type: 3}
+  - {fileID: 8300000, guid: e5cc2f488600259499d7cf0b4154534f, type: 3}
   - {fileID: 8300000, guid: ba4754190df806b499cb57d1c754fa6b, type: 3}
   - {fileID: 8300000, guid: 461cae36594265442a28d5c0bafb9611, type: 3}
-  - {fileID: 8300000, guid: 57ab2fcc77321814d988b823b9818faa, type: 3}
   - {fileID: 8300000, guid: 107c4c43e5637474ca39886234bd5c8f, type: 3}
   - {fileID: 8300000, guid: c96d6751f9b6f6f48bb3f4c7c939769a, type: 3}
+  - {fileID: 8300000, guid: d96a48f0728b9cf4c89ef542ae229ecd, type: 3}
   - {fileID: 8300000, guid: 2a3e39cebf6e3d44083f9231463c443a, type: 3}
-  - {fileID: 8300000, guid: 85b22ca7f0a2ffc418ecc30ff28f103f, type: 3}
   - {fileID: 8300000, guid: bcc20b2bbf235304791027df2a10cf0a, type: 3}
-  - {fileID: 8300000, guid: 017b9709728080f4c968e387530514d4, type: 3}
-  - {fileID: 8300000, guid: 3da391c9e1bc9cd42a9dc3712813f10a, type: 3}
   - {fileID: 8300000, guid: d739d20962f6bc14887e160c37a243df, type: 3}
   - {fileID: 8300000, guid: bf5fa92206181c74d9dfd7a8bccc8d92, type: 3}
+  - {fileID: 8300000, guid: e7a161e3bac8feb438b05338c889a15c, type: 3}
+  - {fileID: 8300000, guid: dc0874b98496e324cbd02ac1ca08925e, type: 3}
+  - {fileID: 8300000, guid: fcb2bc3d65f599e4b8c4cefe7b2d1341, type: 3}
+  - {fileID: 8300000, guid: 2e2cb903ce3129948bca9aee0fb08939, type: 3}
+  - {fileID: 8300000, guid: a32bced51ae44c44f9510101cef642c8, type: 3}
+  - {fileID: 8300000, guid: 766671b8e6771464b842e1e46e968662, type: 3}
+  - {fileID: 8300000, guid: e66b1f06708dca643bda55ae54e58456, type: 3}
+  - {fileID: 8300000, guid: 966f005389bae3e4bb5f488c1d8d5e66, type: 3}
   sound: {fileID: 2101441070}
 --- !u!1 &1968342770
 GameObject:
@@ -20265,7 +20615,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.53
+  m_Radius: 1.74
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1972613576
 MonoBehaviour:
@@ -20305,6 +20655,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 18
   knife: {fileID: 1940406763}
   cuttingBoard: {fileID: 2131632066}
   targetPlate: {fileID: 1614941484}
@@ -20766,6 +21118,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
   isClose: 0
   isWaterDrop: 0
   isWaterIn: 0
@@ -20920,7 +21274,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 68c4079e3ad03be4f8bec6766dc68e94, type: 3}
   m_Resource: {fileID: 8300000, guid: 68c4079e3ad03be4f8bec6766dc68e94, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.317
+  m_Volume: 0.144
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -21460,8 +21814,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.443672, y: 3.0187633, z: 0.2}
-  m_Center: {x: -0.091835976, y: 0.006307342, z: 0}
+  m_Size: {x: 6.143481, y: 3.4222982, z: 0.2}
+  m_Center: {x: -0.033518553, y: 0.07790236, z: 0}
 --- !u!114 &2131632066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21488,6 +21842,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
+  playMoveToTargetFinishSound: 0
+  moveToTargetFinishFxType: 1
 --- !u!1 &2143199900
 GameObject:
   m_ObjectHideFlags: 0

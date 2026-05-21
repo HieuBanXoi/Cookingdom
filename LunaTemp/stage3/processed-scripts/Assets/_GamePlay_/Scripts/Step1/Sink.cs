@@ -17,6 +17,7 @@ public class Sink : Item
     {
         animator.enabled = true;
         isWaterDrop = true;
+        Ply_SoundManager.Ins.PlayFxLoop(FxType.WaterStream);
         if (isClose)
         {
             if (isWaterIn)
@@ -39,6 +40,7 @@ public class Sink : Item
     public void TurnOffWater()
     {
         isWaterDrop = false;
+        Ply_SoundManager.Ins.StopFxLoop(FxType.WaterStream);
         if (!isClose)
         {
             animator.SetTrigger("TurnOffWater");
@@ -50,6 +52,7 @@ public class Sink : Item
             animator.SetTrigger("OnlyWaterIn");
         }
 
+        CheckEndPhaseCondition();
     }
     public void Close()
     {
@@ -82,6 +85,8 @@ public class Sink : Item
 
             }
         }
+
+        CheckEndPhaseCondition();
     }
     public void IsWaterIn()
     {
@@ -109,4 +114,23 @@ public class Sink : Item
     {
         napNgoai.enabled = true;
     }
+
+    public bool CheckEndPhaseCondition()
+    {
+        bool canEndPhase = HandTutManager.Ins == null || HandTutManager.Ins.CheckEndPhaseCondition();
+
+        if (canEndPhase && PhaseManager.Ins != null && PhaseManager.Ins.IsCurrentPhaseStepComplete())
+        {
+            PhaseManager.Ins.TryEndCurrentPhase();
+        }
+
+        return canEndPhase;
+    }
+    public void PlayWaterOutSound()
+    {
+        if (Ply_SoundManager.Ins == null) return;
+
+        Ply_SoundManager.Ins.PlayFx(FxType.WaterOut);
+    }
+
 }

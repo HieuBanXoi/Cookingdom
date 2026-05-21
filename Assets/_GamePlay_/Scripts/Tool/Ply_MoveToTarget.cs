@@ -25,10 +25,12 @@ public class Ply_MoveToTarget : MonoBehaviour
     public bool lockInputWhileMoving = true;
 
     private Transform originalParent;
+    private Item item;
 
     private void Awake()
     {
         originalParent = transform.parent;
+        item = GetComponent<Item>();
     }
 
     /// <summary>
@@ -138,6 +140,12 @@ public class Ply_MoveToTarget : MonoBehaviour
         {
             GameManager.Ins.isPlaying = true;
         }
+
+        if (item != null)
+        {
+            item.PlayMoveToTargetFinishSound();
+        }
+
         onComplete?.Invoke();
     }
 

@@ -19,6 +19,10 @@ public class Item : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public UnityEvent onKnifeIn;
 
+    [Header("--- MOVE TO TARGET SOUND ---")]
+    public bool playMoveToTargetFinishSound = false;
+    public FxType moveToTargetFinishFxType = FxType.BreadToDish;
+
     private void Awake()
     {
         CacheComponents();
@@ -95,6 +99,11 @@ public class Item : MonoBehaviour
 
     }
 
+    public virtual void OnDragFailReturnComplete()
+    {
+        SpawnHeart(true);
+    }
+
     public void ItemDone()
     {
         SpawnHeart(false);
@@ -105,5 +114,39 @@ public class Item : MonoBehaviour
         }
         isDone = true;
 
+    }
+    public void SpawnGreenPiece()
+    {
+        GreenPiece greenPiece = Ply_Pool.Ins.Spawn<GreenPiece>(PoolType.GreenPiece, transform.position, transform.rotation);
+        greenPiece.DeSpawnByTime();
+    }
+    public void SpawnYellowPiece()
+    {
+        YellowPiece yellowPiece = Ply_Pool.Ins.Spawn<YellowPiece>(PoolType.YellowPiece, transform.position, transform.rotation);
+        yellowPiece.DeSpawnByTime();
+    }
+
+    public void PlayCutSound()
+    {
+        if (Ply_SoundManager.Ins == null) return;
+
+        Ply_SoundManager.Ins.PlayFx(FxType.KnifeCut);
+    }
+    public void PlaySliceSound()
+    {
+        if (Ply_SoundManager.Ins == null) return;
+
+        Ply_SoundManager.Ins.PlayFx(FxType.KnifeSlice);
+    }
+
+    public void PlayMoveToTargetFinishSound()
+    {
+        if (!playMoveToTargetFinishSound || Ply_SoundManager.Ins == null) return;
+
+        Ply_SoundManager.Ins.PlayFx(moveToTargetFinishFxType);
+    }
+    public void PlayKnifeSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.PlaceKnife);
     }
 }

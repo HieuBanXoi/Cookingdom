@@ -237,7 +237,7 @@ public class ItemDraggable : MonoBehaviour
 
         if (item != null)
         {
-            item.SpawnHeart(true);
+            item.OnDragFailReturnComplete();
         }
     }
 

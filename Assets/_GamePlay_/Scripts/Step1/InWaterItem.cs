@@ -33,6 +33,12 @@ public class InWaterItem : Item
     }
     public void MoveToWater()
     {
+        if (sink.isWaterIn && !isInWater)
+        {
+            Ply_SoundManager.Ins.PlayFx(FxType.DropToWater);
+
+        }
+
         isInWater = true;
         onProcess = true;
     }
@@ -62,6 +68,7 @@ public class InWaterItem : Item
     }
     public void SpawnBlinkEffect()
     {
+        Ply_SoundManager.Ins.PlayFx(FxType.Complete);
         BlinkEffect blinkEffect = Ply_Pool.Ins.Spawn<BlinkEffect>(PoolType.BlinkFX, transform.position, transform.rotation);
         blinkEffect.transform.SetParent(this.transform);
         blinkEffect.DeSpawnByTime();

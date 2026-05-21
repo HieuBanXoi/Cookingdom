@@ -106,16 +106,18 @@ public class UIManager : Ply_Singleton<UIManager>
 
     private void ScreenScale()
     {
+        float targetOrthographicSize;
+
         if (useContinuousScaling)
         {
             // Tăng đều: Giữ nguyên khung hình theo tỷ lệ màn hình thực tế so với mốc cơ bản
             if (!isVertical)
             {
-                cam.orthographicSize = landscapeSize;
+                targetOrthographicSize = landscapeSize;
             }
             else
             {
-                cam.orthographicSize = baseOrthographicSize * (scaleHeightOnWidth / baseAspect);
+                targetOrthographicSize = baseOrthographicSize * (scaleHeightOnWidth / baseAspect);
             }
         }
         else
@@ -123,27 +125,30 @@ public class UIManager : Ply_Singleton<UIManager>
             // Không tăng đều (Discrete): Dùng các mốc fix cứng
             if (!isVertical)
             {
-                cam.orthographicSize = landscapeSize;
-                return;
+                targetOrthographicSize = landscapeSize;
             }
-
-            float matchedSize = defaultPortraitSize;
-            float highestMatchedRatio = 0f;
-
-            if (discreteScaleSteps != null)
+            else
             {
-                foreach (var step in discreteScaleSteps)
+                float matchedSize = defaultPortraitSize;
+                float highestMatchedRatio = 0f;
+
+                if (discreteScaleSteps != null)
                 {
-                    if (scaleHeightOnWidth > step.heightOnWidthRatio && step.heightOnWidthRatio > highestMatchedRatio)
+                    foreach (var step in discreteScaleSteps)
                     {
-                        highestMatchedRatio = step.heightOnWidthRatio;
-                        matchedSize = step.orthographicSize;
+                        if (scaleHeightOnWidth > step.heightOnWidthRatio && step.heightOnWidthRatio > highestMatchedRatio)
+                        {
+                            highestMatchedRatio = step.heightOnWidthRatio;
+                            matchedSize = step.orthographicSize;
+                        }
                     }
                 }
+
+                targetOrthographicSize = matchedSize;
             }
-            cam.orthographicSize = matchedSize;
         }
 
+        cam.orthographicSize = Mathf.Max(targetOrthographicSize, baseOrthographicSize);
 
     }
 

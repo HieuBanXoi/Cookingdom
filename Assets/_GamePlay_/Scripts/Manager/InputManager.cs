@@ -14,6 +14,11 @@ public class InputManager : Ply_Singleton<InputManager>
 
     private void Update()
     {
+        if (HandTutManager.Ins != null && HandTutManager.Ins.ShouldBlockGameplayInput)
+        {
+            return;
+        }
+
         // Nếu không trong trạng thái chơi VÀ không có vật thể nào đang được kéo dở thì mới chặn hoàn toàn Input
         if (!GameManager.Ins.isPlaying && !isDragging)
         {

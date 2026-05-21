@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public enum FxType
@@ -8,39 +7,62 @@ public enum FxType
     Drop,
     Jump,
     Flash,
-    KnifeCuts,
     KnifeSlice,
     KnifeSwing,
+    KnifeCut,
     PlateMove,
-    Cooking,
     SpoonStirring,
-    OinIn,
-    OilPut,
     Swipe,
     Complete,
-    FoodJump,
-    DropWater,
-    Clock
+    WaterStream,
+    WaterOut,
+    DropToWater,
+    PlaceKnife,
+    PlaceMussel,
+    LeafToDish,
+    FishToDish,
+    BreadToDish
 }
 
 public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
 {
-    public AudioClip[] audioClips;
+    [Serializable]
+    public class FxAudio
+    {
+        public FxType fxType;
+        public AudioClip audioClip;
+    }
+
+    public FxAudio[] fxAudios;
+    [HideInInspector] public AudioClip[] audioClips;
     public AudioSource sound;
-    private AudioSource[] fx = new AudioSource[20];
+    private AudioSource[] fx;
 
     bool isMute = false;
+
+    public override void Awake()
+    {
+        base.Awake();
+        SyncFxAudios();
+        ResizeFxSources();
+    }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        SyncFxAudios();
+    }
+#endif
 
     public void PlayFx(FxType fxType)
     {
         if (!isMute)
         {
-            if (fx[(int)fxType] == null)
-            {
-                fx[(int)fxType] = new GameObject("Audio_" + fxType).AddComponent<AudioSource>();
-                fx[(int)fxType].clip = audioClips[(int)fxType];
-            }
-            fx[(int)fxType].PlayOneShot(audioClips[(int)fxType]);
+            AudioClip clip = GetAudioClip(fxType);
+            if (clip == null) return;
+
+            AudioSource source = GetOrCreateFxSource(fxType);
+            source.PlayOneShot(clip);
         }
     }
     public void PlayFx(int fxType)
@@ -49,7 +71,13 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
     }
     public void Mute()
     {
-        sound.Stop();
+        if (sound != null)
+        {
+            sound.Stop();
+        }
+
+        if (fx == null) return;
+
         for (int i = 0; i < fx.Length; i++)
         {
             if (fx[i] != null)
@@ -63,15 +91,15 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
     {
         if (!isMute)
         {
-            if (fx[(int)fxType] == null)
+            AudioClip clip = GetAudioClip(fxType);
+            if (clip == null) return;
+
+            AudioSource source = GetOrCreateFxSource(fxType);
+            source.clip = clip;
+            source.loop = true;
+            if (!source.isPlaying)
             {
-                fx[(int)fxType] = new GameObject("Audio_" + fxType).AddComponent<AudioSource>();
-                fx[(int)fxType].clip = audioClips[(int)fxType];
-            }
-            fx[(int)fxType].loop = true;
-            if (!fx[(int)fxType].isPlaying)
-            {
-                fx[(int)fxType].Play();
+                source.Play();
             }
         }
     }
@@ -83,15 +111,110 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
 
     public void StopFxLoop(FxType fxType)
     {
-        if (fx[(int)fxType] != null)
+        int index = (int)fxType;
+        if (fx != null && index >= 0 && index < fx.Length && fx[index] != null)
         {
-            fx[(int)fxType].loop = false;
-            fx[(int)fxType].Stop();
+            fx[index].loop = false;
+            fx[index].Stop();
         }
     }
 
     public void StopFxLoop(int fxType)
     {
         StopFxLoop((FxType)fxType);
+    }
+
+    private AudioClip GetAudioClip(FxType fxType)
+    {
+        if (fxAudios == null || fxAudios.Length != GetFxTypeCount())
+        {
+            SyncFxAudios();
+        }
+
+        int index = (int)fxType;
+        if (fxAudios == null || index < 0 || index >= fxAudios.Length) return null;
+
+        return fxAudios[index].audioClip;
+    }
+
+    private AudioSource GetOrCreateFxSource(FxType fxType)
+    {
+        int index = (int)fxType;
+        if (fx == null || index >= fx.Length)
+        {
+            ResizeFxSources();
+        }
+
+        if (fx[index] == null)
+        {
+            fx[index] = new GameObject("Audio_" + fxType).AddComponent<AudioSource>();
+            fx[index].transform.SetParent(transform);
+        }
+
+        return fx[index];
+    }
+
+    private void ResizeFxSources()
+    {
+        int count = GetFxTypeCount();
+        if (fx == null)
+        {
+            fx = new AudioSource[count];
+            return;
+        }
+
+        if (fx.Length != count)
+        {
+            Array.Resize(ref fx, count);
+        }
+    }
+
+    [ContextMenu("Sync Fx Audios")]
+    private void SyncFxAudios()
+    {
+        FxType[] types = (FxType[])Enum.GetValues(typeof(FxType));
+        FxAudio[] oldFxAudios = fxAudios;
+        AudioClip[] oldAudioClips = audioClips;
+
+        fxAudios = new FxAudio[types.Length];
+        audioClips = new AudioClip[types.Length];
+
+        for (int i = 0; i < types.Length; i++)
+        {
+            FxAudio fxAudio = FindFxAudio(oldFxAudios, types[i]);
+            if (fxAudio == null)
+            {
+                fxAudio = new FxAudio();
+            }
+
+            fxAudio.fxType = types[i];
+            if (fxAudio.audioClip == null && oldAudioClips != null && i < oldAudioClips.Length)
+            {
+                fxAudio.audioClip = oldAudioClips[i];
+            }
+
+            fxAudios[i] = fxAudio;
+            audioClips[i] = fxAudio.audioClip;
+        }
+    }
+
+    private FxAudio FindFxAudio(FxAudio[] source, FxType fxType)
+    {
+        if (source == null) return null;
+
+        for (int i = 0; i < source.Length; i++)
+        {
+            if (source[i] != null && source[i].fxType == fxType)
+            {
+                return source[i];
+            }
+        }
+
+        return null;
+    }
+
+    private int GetFxTypeCount()
+    {
+        return Enum.GetValues(typeof(FxType)).Length;
     }
 }

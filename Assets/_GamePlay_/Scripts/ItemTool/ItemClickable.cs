@@ -65,5 +65,10 @@ public class ItemClickable : MonoBehaviour
     {
         canClick = true;
     }
+    public void PlayPopSound()
+    {
+        if (Ply_SoundManager.Ins == null) return;
 
+        Ply_SoundManager.Ins.PlayFx(FxType.Click);
+    }
 }

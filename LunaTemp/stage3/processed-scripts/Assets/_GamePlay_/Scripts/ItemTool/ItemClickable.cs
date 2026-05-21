@@ -32,7 +32,6 @@ public class ItemClickable : MonoBehaviour
         }
 
         currentClicks++;
-        Debug.Log($"Click lần thứ {currentClicks}");
 
         // Nếu danh sách sự kiện theo thứ tự được sử dụng, nó sẽ thay thế hoàn toàn cho onClick chung.
         if (sequentialOnClicks != null && sequentialOnClicks.Count > 0)
@@ -66,5 +65,10 @@ public class ItemClickable : MonoBehaviour
     {
         canClick = true;
     }
+    public void PlayPopSound()
+    {
+        if (Ply_SoundManager.Ins == null) return;
 
+        Ply_SoundManager.Ins.PlayFx(FxType.Click);
+    }
 }

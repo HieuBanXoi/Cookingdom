@@ -80,23 +80,42 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
         if (currentPhaseIndex >= phases.Count) return false; // Đã hoàn thành hết các phase
 
         currentStepCount++;
-        Debug.Log($"Tiến độ Phase {currentPhaseIndex + 1}: Step {currentStepCount}/{phases[currentPhaseIndex].totalSteps}");
 
         // Nếu số lần DoOneStep đạt mức yêu cầu của phase hiện tại => Chuyển Phase
         if (currentStepCount >= phases[currentPhaseIndex].totalSteps)
         {
-            DelayGoToNextPhase();
-            return true;
+            return TryEndCurrentPhase();
         }
 
         return false;
+    }
+
+    public bool IsCurrentPhaseStepComplete()
+    {
+        if (currentPhaseIndex < 0 || currentPhaseIndex >= phases.Count) return false;
+
+        return currentStepCount >= phases[currentPhaseIndex].totalSteps;
+    }
+
+    public bool TryEndCurrentPhase()
+    {
+        if (isChangingPhase) return false;
+        if (!IsCurrentPhaseStepComplete()) return false;
+
+        if (HandTutManager.Ins != null && !HandTutManager.Ins.CheckEndPhaseCondition())
+        {
+            return false;
+        }
+
+        DelayGoToNextPhase();
+        return true;
     }
 
     private void DelayGoToNextPhase()
     {
         isChangingPhase = true;
         if (GameManager.Ins != null) GameManager.Ins.isPlaying = false;
-
+        Ply_SoundManager.Ins.PlayFx(FxType.Complete);
         phaseDelayTween?.Kill();
         phaseDelayTween = DOVirtual.DelayedCall(delayBeforeNextPhase, GoToNextPhase);
     }

@@ -1,0 +1,269 @@
+fileFormatVersion: 2
+guid: dd602d9489424f8459be8df3f2c91750
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5730842616168261868
+    second: Vege 7_0
+  - first:
+      213: 5353223919124911687
+    second: Vege 7_1
+  - first:
+      213: 3738309632892396738
+    second: Vege 7_2
+  - first:
+      213: 3407450901730722369
+    second: Vege 7_3
+  - first:
+      213: -2661409165825472237
+    second: Vege 7_4
+  - first:
+      213: -6730514154542410567
+    second: Vege 7_5
+  - first:
+      213: -5240244768745092154
+    second: Vege 7_6
+  - first:
+      213: 7693662683062395916
+    second: Vege 7_7
+  - first:
+      213: -7676172143326352018
+    second: Vege 7_8
+  - first:
+      213: 7193767852843328069
+    second: Vege 7_9
+  - first:
+      213: -1304188312485040749
+    second: Vege 7_10
+  - first:
+      213: 9152546289145411061
+    second: Vege 7_11
+  - first:
+      213: 5412705491335965622
+    second: Vege 7_12
+  - first:
+      213: 1690389053377028536
+    second: Vege 7_13
+  - first:
+      213: 6188968871107960349
+    second: Vege 7_14
+  - first:
+      213: 4635239635974256553
+    second: Vege 7_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Vege 7_0
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 29
+        width: 44
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 319fde5b1390a16449ce91bb0ddd2001
+      internalID: 1471008386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vege 7_1
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 69
+        width: 31
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea6a3bb42cf5cf146938b8cffb1d4df3
+      internalID: -1565441067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vege 7_2
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 59
+        width: 35
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ac8f80158959e74c8795bb6a36cf589
+      internalID: -471618841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vege 7_3
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 135
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4cc545797e27394d845edc80181d510
+      internalID: 940972506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 306d69f1e201d3040a04e897c3dbc1f8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Vege 7_0: 1471008386
+      Vege 7_1: -1565441067
+      Vege 7_10: 53177314
+      Vege 7_11: 997264875
+      Vege 7_12: 897139919
+      Vege 7_13: 1865012012
+      Vege 7_14: -1897490894
+      Vege 7_15: 886614889
+      Vege 7_2: -471618841
+      Vege 7_3: 940972506
+      Vege 7_4: 1407573980
+      Vege 7_5: -374805989
+      Vege 7_6: -767076526
+      Vege 7_7: -555992590
+      Vege 7_8: 1661661790
+      Vege 7_9: -389045279
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

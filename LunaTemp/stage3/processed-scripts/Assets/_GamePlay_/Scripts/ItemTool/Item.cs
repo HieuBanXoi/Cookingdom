@@ -4,6 +4,10 @@ using UnityEngine.Events;
 
 public class Item : MonoBehaviour
 {
+    [Header("--- HAND TUTORIAL ---")]
+    public bool isDone = false;
+    public bool onProcess = false;
+
     public ItemDraggable itemDraggable;
     public ItemClickable itemClickable;
     public ItemStirring itemStirring;
@@ -14,6 +18,10 @@ public class Item : MonoBehaviour
     public ItemType itemType;
     public SpriteRenderer spriteRenderer;
     public UnityEvent onKnifeIn;
+
+    [Header("--- MOVE TO TARGET SOUND ---")]
+    public bool playMoveToTargetFinishSound = false;
+    public FxType moveToTargetFinishFxType = FxType.BreadToDish;
 
     private void Awake()
     {
@@ -69,5 +77,76 @@ public class Item : MonoBehaviour
     public void KnifeIn()
     {
         onKnifeIn?.Invoke();
+    }
+
+    public void SpawnHeart(bool isBreak)
+    {
+        if (Ply_Pool.Ins == null) return;
+        if (isBreak)
+        {
+            HeartBreakEffect heartEffect = Ply_Pool.Ins.Spawn<HeartBreakEffect>(PoolType.HeartBreakFX, transform.position, transform.rotation);
+            if (heartEffect == null) return;
+            heartEffect.transform.localRotation = Quaternion.identity;
+            heartEffect.PlaySpawn();
+        }
+        else
+        {
+            HeartEffect heartEffect = Ply_Pool.Ins.Spawn<HeartEffect>(PoolType.HeartFX, transform.position, transform.rotation);
+            if (heartEffect == null) return;
+            heartEffect.transform.localRotation = Quaternion.identity;
+            heartEffect.PlaySpawn();
+        }
+
+    }
+
+    public virtual void OnDragFailReturnComplete()
+    {
+        SpawnHeart(true);
+    }
+
+    public void ItemDone()
+    {
+        SpawnHeart(false);
+        if (HandTutManager.Ins != null)
+        {
+            HandTutManager.Ins.ItemDone(this);
+            return;
+        }
+        isDone = true;
+
+    }
+    public void SpawnGreenPiece()
+    {
+        GreenPiece greenPiece = Ply_Pool.Ins.Spawn<GreenPiece>(PoolType.GreenPiece, transform.position, transform.rotation);
+        greenPiece.DeSpawnByTime();
+    }
+    public void SpawnYellowPiece()
+    {
+        YellowPiece yellowPiece = Ply_Pool.Ins.Spawn<YellowPiece>(PoolType.YellowPiece, transform.position, transform.rotation);
+        yellowPiece.DeSpawnByTime();
+    }
+
+    public void PlayCutSound()
+    {
+        if (Ply_SoundManager.Ins == null) return;
+
+        Ply_SoundManager.Ins.PlayFx(FxType.KnifeCut);
+    }
+    public void PlaySliceSound()
+    {
+        if (Ply_SoundManager.Ins == null) return;
+
+        Ply_SoundManager.Ins.PlayFx(FxType.KnifeSlice);
+    }
+
+    public void PlayMoveToTargetFinishSound()
+    {
+        if (!playMoveToTargetFinishSound || Ply_SoundManager.Ins == null) return;
+
+        Ply_SoundManager.Ins.PlayFx(moveToTargetFinishFxType);
+    }
+    public void PlayKnifeSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.PlaceKnife);
     }
 }

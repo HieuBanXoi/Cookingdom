@@ -33,7 +33,14 @@ public class InWaterItem : Item
     }
     public void MoveToWater()
     {
+        if (sink.isWaterIn && !isInWater)
+        {
+            Ply_SoundManager.Ins.PlayFx(FxType.DropToWater);
+
+        }
+
         isInWater = true;
+        onProcess = true;
     }
     public void CheckLastPlate()
     {
@@ -44,12 +51,26 @@ public class InWaterItem : Item
             itemDraggable.enabled = false;
             collider1.enabled = false;
             isOnPlate = true;
+            ItemDone();
             PhaseManager.Ins.DoOneStep();
         }
         else
         {
             ply_TimerEvent.enabled = true;
-            ply_TimerEvent.StartTimer();
+            if (sink.isWaterIn)
+            {
+                ply_BobEffect.enabled = true;
+
+                ply_TimerEvent.StartTimer();
+
+            }
         }
+    }
+    public void SpawnBlinkEffect()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.Complete);
+        BlinkEffect blinkEffect = Ply_Pool.Ins.Spawn<BlinkEffect>(PoolType.BlinkFX, transform.position, transform.rotation);
+        blinkEffect.transform.SetParent(this.transform);
+        blinkEffect.DeSpawnByTime();
     }
 }

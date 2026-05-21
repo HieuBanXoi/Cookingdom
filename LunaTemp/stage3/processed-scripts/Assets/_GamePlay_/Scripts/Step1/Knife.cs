@@ -22,4 +22,17 @@ public class Knife : Item
         target.KnifeIn();
 
     }
+
+    public override void OnDragFailReturnComplete()
+    {
+        base.OnDragFailReturnComplete();
+
+        if (Ply_SoundManager.Ins == null) return;
+
+        PlayKnifeSound();
+    }
+    public void PlayKnifeSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.PlaceKnife);
+    }
 }

@@ -9,8 +9,9 @@
   ],
   "groups": [
     [
-      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Effect/HeartEffect.cs",
-      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Steps/Step1/Plate.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Effect/BlinkEffect.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Step1/InWaterItem.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/HandTutManager.cs",
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/Item.cs",
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemDraggable.cs",
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/InputManager.cs",
@@ -22,15 +23,15 @@
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemKnifeSpriteMaskCutter.cs",
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemType.cs",
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Step1/CuttingBoard.cs",
-      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Step1/InWaterItem.cs",
-      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_TimerEvent.cs",
-      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_BobEffect.cs",
-      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Step1/Sink.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Step1/SinkBlock.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_MoveToTarget.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Step1/Knife.cs",
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/CacheComponent.cs",
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/HandTutorial.cs",
-      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Step1/Knife.cs",
-      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_MoveToTarget.cs",
-      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Step1/SinkBlock.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_SoundManager.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemClickable.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Step1/Sink.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Steps/Step1/Plate.cs",
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Steps/Step1/ToolObject.cs",
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Steps/Step3/ItemFlyIn.cs",
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Steps/Step3/Spoon.cs",
@@ -41,26 +42,67 @@
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/UIManager.cs",
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/StateMachine/WinState.cs",
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_ScrollingConveyor.cs",
-      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_SoundManager.cs",
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemStirring.cs",
-      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemClickable.cs",
-      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_Pool.cs",
-      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Effect/MergeEffect.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Effect/HeartEffect.cs",
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_GameUnit.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Effect/GreenPiece.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_Pool.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Effect/HeartBreakEffect.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Effect/YellowPiece.cs",
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/ProgressBar.cs",
-      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemSpriteMaskPainter.cs"
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Effect/MergeEffect.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemSpriteMaskPainter.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_BobEffect.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_ToggleEvent.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_TimerEvent.cs"
     ],
     [
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/HandCircularTutorial.cs"
-    ],
-    [
-      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_ToggleEvent.cs"
     ],
     [
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_TweenJuice.cs"
     ],
     [
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Yielders.cs"
+    ],
+    [
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Demo/Scripts/ETFXButtonScript.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Demo/Scripts/ETFXFireProjectile.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Demo/Scripts/ETFXProjectileScript.cs"
+    ],
+    [
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Demo/Scripts/ETFXEffectController.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Demo/Scripts/ETFXMouseOrbit.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Demo/Scripts/ETFXEffectControllerPooled.cs"
+    ],
+    [
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Demo/Scripts/ETFXEffectCycler.cs"
+    ],
+    [
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Demo/Scripts/ETFXLoopScript.cs"
+    ],
+    [
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Demo/Scripts/ETFXSceneManager.cs"
+    ],
+    [
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Demo/Scripts/ETFXSpriteBouncer.cs"
+    ],
+    [
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Demo/Scripts/ETFXTarget.cs"
+    ],
+    [
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Demo/Scripts/VFX Library/ParticleEffectsLibrary.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Demo/Scripts/VFX Library/UICanvasManager.cs",
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Demo/Scripts/VFX Library/PEButtonScript.cs"
+    ],
+    [
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Scripts/ETFXLightFade.cs"
+    ],
+    [
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Scripts/ETFXPitchRandomizer.cs"
+    ],
+    [
+      "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Scripts/ETFXRotation.cs"
     ],
     [
       "D:/PlayableAds/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleAudio.cs"

@@ -6,6 +6,12 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(Collider))]
 public class ItemKnifeSpriteMaskCutter : MonoBehaviour
 {
+    public enum CutPieceColor
+    {
+        Green,
+        Yellow
+    }
+
     [Header("--- KNIFE ---")]
     public Transform knifeTransform;
     [Tooltip("Khoang cach tu pivot cua dao den mep luoi dao tren truc X local.")]
@@ -38,6 +44,9 @@ public class ItemKnifeSpriteMaskCutter : MonoBehaviour
     public float knifeDoneMoveDuration = 0.25f;
     public Ease knifeDoneMoveEase = Ease.InBack;
 
+    [Header("--- PIECE FX ---")]
+    public CutPieceColor cutPieceColor = CutPieceColor.Green;
+
     [Header("--- GIZMOS ---")]
     public bool drawGizmos = true;
     [Tooltip("Transform dung lam he toa do local de ve gizmos. De trong se dung transform hien tai.")]
@@ -62,9 +71,11 @@ public class ItemKnifeSpriteMaskCutter : MonoBehaviour
     private float currentX;
     private Vector3 knifeBaseLocalPos;
     private Sequence cutSequence;
+    private Item item;
 
     private void Awake()
     {
+        item = GetComponent<Item>();
         if (knifeTransform == null) knifeTransform = transform;
         knifeBaseLocalPos = knifeTransform.localPosition;
     }
@@ -107,6 +118,8 @@ public class ItemKnifeSpriteMaskCutter : MonoBehaviour
 
         isCutting = true;
         onCut?.Invoke();
+        if (item != null) item.PlayCutSound();
+        SpawnCutPiece();
 
         Vector3 startPos = knifeTransform.localPosition;
         Vector3 downPos = startPos + knifeDownLocalOffset;
@@ -135,6 +148,19 @@ public class ItemKnifeSpriteMaskCutter : MonoBehaviour
                 CompleteCut();
             }
         });
+    }
+
+    private void SpawnCutPiece()
+    {
+        if (item == null) return;
+
+        if (cutPieceColor == CutPieceColor.Green)
+        {
+            item.SpawnGreenPiece();
+            return;
+        }
+
+        item.SpawnYellowPiece();
     }
 
     private void UpdateMasks()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PoolType { HeartFX, HeartBreakFX, BlinkFX, ProgressBar }
+public enum PoolType { HeartFX, HeartBreakFX, BlinkFX, ProgressBar, GreenPiece, YellowPiece }
 
 public class Ply_Pool : Ply_Singleton<Ply_Pool>
 {

@@ -14,6 +14,11 @@ public class InputManager : Ply_Singleton<InputManager>
 
     private void Update()
     {
+        if (HandTutManager.Ins != null && HandTutManager.Ins.ShouldBlockGameplayInput)
+        {
+            return;
+        }
+
         // Nếu không trong trạng thái chơi VÀ không có vật thể nào đang được kéo dở thì mới chặn hoàn toàn Input
         if (!GameManager.Ins.isPlaying && !isDragging)
         {
@@ -43,7 +48,6 @@ public class InputManager : Ply_Singleton<InputManager>
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit[] hits = Physics.RaycastAll(ray, 100f, itemLayer);
-        Debug.Log("HandleMouseDown");
 
         if (hits.Length == 0) return;
 
@@ -70,8 +74,6 @@ public class InputManager : Ply_Singleton<InputManager>
             // Ưu tiên xử lý Draggable (nếu đang được bật)
             if (topItem.itemDraggable != null && topItem.itemDraggable.enabled)
             {
-                Debug.Log("drag");
-
                 currentDraggable = topItem.itemDraggable;
                 currentDraggable.BeginDrag();
                 isDragging = true;

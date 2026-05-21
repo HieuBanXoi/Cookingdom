@@ -26,6 +26,7 @@ public class ItemDraggable : MonoBehaviour
 
     private Transform originalParent;
     private Vector3 originalLocalPos;
+    private Vector3 originalScale;
     private float originalZ;
     private Vector3 offset;
     private float zCoord;
@@ -35,6 +36,8 @@ public class ItemDraggable : MonoBehaviour
     private Ply_BobEffect bobEffect;
     private int originalSortingOrder;
     private bool shadowDefaultActive;
+    private Tween scaleTween;
+    private bool hasOriginalScale;
 
 
     void Start()
@@ -45,6 +48,8 @@ public class ItemDraggable : MonoBehaviour
         bobEffect = ComponentCache<Ply_BobEffect>.Get(transform);
         originalParent = transform.parent;
         originalLocalPos = transform.localPosition;
+        originalScale = transform.localScale;
+        hasOriginalScale = true;
         originalZ = transform.position.z;
         myRenderer = GetComponentInChildren<Renderer>();
         if (myRenderer != null)
@@ -93,7 +98,7 @@ public class ItemDraggable : MonoBehaviour
             returnTween = transform.DOMove(targetPos, 0.3f).SetEase(Ease.OutBack);
         }
 
-        returnTween?.OnComplete(PlayBobEffectIfEnabled);
+        returnTween?.OnComplete(OnReturnToStartComplete);
     }
 
     public void BeginDrag()
@@ -101,6 +106,8 @@ public class ItemDraggable : MonoBehaviour
         if (!enabled || !isDraggable) return;
 
         transform.DOKill(); // Dừng tween bay về nếu người chơi cầm lại vật thể giữa chừng
+
+        PlayDragScale();
 
         SetShadowActive(false);
 
@@ -161,12 +168,12 @@ public class ItemDraggable : MonoBehaviour
 
         if (isHitValid)
         {
-            Debug.Log("DropSuccess");
+            ResetScale();
             onDropSuccess?.Invoke();
         }
         else
         {
-            Debug.Log("DropFail");
+            ResetScale();
             onDropFail?.Invoke();
             ReturnToStart();
         }
@@ -202,6 +209,36 @@ public class ItemDraggable : MonoBehaviour
 
         bobEffect.CacheStartPosition();
         bobEffect.Play();
+    }
+
+    private void ResetScale()
+    {
+        scaleTween?.Kill();
+        scaleTween = null;
+        if (!hasOriginalScale) return;
+
+        transform.localScale = originalScale;
+    }
+
+    private void PlayDragScale()
+    {
+        scaleTween?.Kill();
+        scaleTween = transform.DOScale(originalScale * 1.1f, 0.15f).SetEase(Ease.OutBack);
+    }
+
+    private void OnDisable()
+    {
+        ResetScale();
+    }
+
+    private void OnReturnToStartComplete()
+    {
+        PlayBobEffectIfEnabled();
+
+        if (item != null)
+        {
+            item.OnDragFailReturnComplete();
+        }
     }
 
     public void ChangeTargetItemType(Transform transform)
