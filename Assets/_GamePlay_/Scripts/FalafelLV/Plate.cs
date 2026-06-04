@@ -64,4 +64,12 @@ public class Plate : ToolObject
         HeartEffect heartEffect = Ply_Pool.Ins.Spawn<HeartEffect>(PoolType.HeartFX, transform.position, transform.rotation);
         heartEffect.transform.SetParent(transform);
     }
+    public void DoneAnimation()
+    {
+        if (itemDraggable == null) return;
+        itemDraggable.targetItemType = ItemType.None;
+        itemDraggable.enabled = true;
+        animator.enabled = false;
+        itemMoveToTarget.defaultTarget = null;
+    }
 }

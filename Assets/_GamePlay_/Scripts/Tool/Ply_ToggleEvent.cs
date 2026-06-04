@@ -55,14 +55,6 @@ public class Ply_ToggleEvent : MonoBehaviour
         ApplyState(true);
     }
 
-    private void OnMouseDown()
-    {
-        if (applyStateOnClick)
-        {
-            ApplyState();
-        }
-    }
-
     private void ApplyState(bool invokeEvent)
     {
         if (targetObject != null)
@@ -71,7 +63,6 @@ public class Ply_ToggleEvent : MonoBehaviour
         }
 
         if (!invokeEvent) return;
-        Debug.Log("OnClick");
         if (isOn)
         {
             isOn = false;

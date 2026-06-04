@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
@@ -22,6 +23,7 @@ public class Item : MonoBehaviour
     [Header("--- MOVE TO TARGET SOUND ---")]
     public bool playMoveToTargetFinishSound = false;
     public FxType moveToTargetFinishFxType = FxType.BreadToDish;
+    public Bowl bowl;
 
     private void Awake()
     {
@@ -148,5 +150,16 @@ public class Item : MonoBehaviour
     public void PlayKnifeSound()
     {
         Ply_SoundManager.Ins.PlayFx(FxType.PlaceKnife);
+    }
+    public void PlayBowlAnim(String triggerName)
+    {
+        if (bowl != null)
+        {
+            bowl.animator.SetTrigger(triggerName);
+        }
+    }
+    public void PlayNextBowlAnim()
+    {
+        PlayBowlAnim("Next");
     }
 }

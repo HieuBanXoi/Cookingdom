@@ -3,7 +3,8 @@ using DG.Tweening;
 
 public class InputManager : Ply_Singleton<InputManager>
 {
-    public LayerMask groundPiece;
+
+    public LayerMask toggleButtonLayerMask;
     public LayerMask defaultLayer;
     public LayerMask itemLayer;
     public bool isDragging = false;
@@ -11,6 +12,8 @@ public class InputManager : Ply_Singleton<InputManager>
     private ItemDraggable currentDraggable;
     private ItemStirring currentStirring;
     private ItemSpriteMaskPainter currentSpriteMaskPainter;
+
+
 
     private void Update()
     {
@@ -46,7 +49,16 @@ public class InputManager : Ply_Singleton<InputManager>
 
     private void HandleMouseDown()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Camera mainCamera = Camera.main;
+        if (mainCamera == null) return;
+
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+        if (TryHandleToggleButton(ray))
+        {
+            return;
+        }
+
         RaycastHit[] hits = Physics.RaycastAll(ray, 100f, itemLayer);
 
         if (hits.Length == 0) return;
@@ -114,6 +126,17 @@ public class InputManager : Ply_Singleton<InputManager>
                 if (Ply_TransformConveyor.Ins != null) Ply_TransformConveyor.Ins.isMoving = true;
             }
         }
+    }
+
+    private bool TryHandleToggleButton(Ray ray)
+    {
+        if (!Physics.Raycast(ray, out RaycastHit hit, 100f, toggleButtonLayerMask)) return false;
+
+        Ply_ToggleEvent toggleEvent = hit.collider.GetComponentInParent<Ply_ToggleEvent>();
+        if (toggleEvent == null || !toggleEvent.enabled || !toggleEvent.applyStateOnClick) return false;
+
+        toggleEvent.ApplyState();
+        return true;
     }
 
     private void HandleMouseDrag()
