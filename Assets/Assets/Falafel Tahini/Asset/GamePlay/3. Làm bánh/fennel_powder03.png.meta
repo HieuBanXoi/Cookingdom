@@ -1,0 +1,754 @@
+fileFormatVersion: 2
+guid: e46e485e151fa1549bcc0816e3e2e28f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2491790229688032795
+    second: fennel_powder03_0
+  - first:
+      213: 2173030682040079617
+    second: fennel_powder03_1
+  - first:
+      213: -1827381817826395024
+    second: fennel_powder03_2
+  - first:
+      213: -2824819443455889718
+    second: fennel_powder03_3
+  - first:
+      213: 1238875762407784839
+    second: fennel_powder03_4
+  - first:
+      213: -7258502419638877194
+    second: fennel_powder03_5
+  - first:
+      213: 1579282611217537484
+    second: fennel_powder03_6
+  - first:
+      213: -2972132051353725573
+    second: fennel_powder03_7
+  - first:
+      213: 6767295721321234183
+    second: fennel_powder03_8
+  - first:
+      213: 2358675545124431389
+    second: fennel_powder03_9
+  - first:
+      213: 2458608163842450651
+    second: fennel_powder03_10
+  - first:
+      213: 784065541878619473
+    second: fennel_powder03_11
+  - first:
+      213: 4775214700078170660
+    second: fennel_powder03_12
+  - first:
+      213: -8224468199215953963
+    second: fennel_powder03_13
+  - first:
+      213: 793264117282450836
+    second: fennel_powder03_14
+  - first:
+      213: -2722631917963203941
+    second: fennel_powder03_15
+  - first:
+      213: 2144790565351747423
+    second: fennel_powder03_16
+  - first:
+      213: 372350912808593262
+    second: fennel_powder03_17
+  - first:
+      213: -9048981130225552380
+    second: fennel_powder03_18
+  - first:
+      213: 8235623806570683035
+    second: fennel_powder03_19
+  - first:
+      213: 2805950352900020916
+    second: fennel_powder03_20
+  - first:
+      213: 3344156908758098871
+    second: fennel_powder03_21
+  - first:
+      213: 8608029792664714040
+    second: fennel_powder03_22
+  - first:
+      213: 1347764194507224876
+    second: fennel_powder03_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fennel_powder03_0
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 12
+        width: 180
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e1e7a8fcf16b6dd0800000000000000
+      internalID: -2491790229688032795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_1
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 142
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 105160164e7282e10800000000000000
+      internalID: 2173030682040079617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 61
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c33772be5d3a6e0800000000000000
+      internalID: -1827381817826395024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 120
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acee136cea93cc8d0800000000000000
+      internalID: -2824819443455889718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_4
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 119
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 781482b21fe513110800000000000000
+      internalID: 1238875762407784839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 106
+        width: 33
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f38c1ca18e944b90800000000000000
+      internalID: -7258502419638877194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_6
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 85
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc99291ea2dbae510800000000000000
+      internalID: 1579282611217537484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_7
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 94
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b75128575add0c6d0800000000000000
+      internalID: -2972132051353725573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_8
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 57
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70f7f579a934aed50800000000000000
+      internalID: 6767295721321234183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_9
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 74
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d16ea8759e2bbb020800000000000000
+      internalID: 2358675545124431389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_10
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 43
+        width: 43
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd464b7491bbe1220800000000000000
+      internalID: 2458608163842450651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_11
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 69
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d9c48c47f81ea00800000000000000
+      internalID: 784065541878619473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_12
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 24
+        width: 47
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42202643878f44240800000000000000
+      internalID: 4775214700078170660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_13
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 56
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d78c377fb1dcdd80800000000000000
+      internalID: -8224468199215953963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_14
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 19
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49d2fa3038d320b00800000000000000
+      internalID: 793264117282450836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_15
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 34
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9aa9ab12b4473ad0800000000000000
+      internalID: -2722631917963203941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_16
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 7
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f6665d7a3d3cd10800000000000000
+      internalID: 2144790565351747423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_17
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 2
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e67afb1be2bda2500800000000000000
+      internalID: 372350912808593262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_18
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 0
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40471b90b9f8b6280800000000000000
+      internalID: -9048981130225552380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_19
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 12
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9a5566c730da4270800000000000000
+      internalID: 8235623806570683035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_20
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 7
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4badcf9bafcb0f620800000000000000
+      internalID: 2805950352900020916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_21
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 6
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b3e1bb8df4d86e20800000000000000
+      internalID: 3344156908758098871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_22
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 0
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83b72c73d7dd57770800000000000000
+      internalID: 8608029792664714040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fennel_powder03_23
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 0
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c27f796e46834b210800000000000000
+      internalID: 1347764194507224876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      fennel_powder03_0: -2491790229688032795
+      fennel_powder03_1: 2173030682040079617
+      fennel_powder03_10: 2458608163842450651
+      fennel_powder03_11: 784065541878619473
+      fennel_powder03_12: 4775214700078170660
+      fennel_powder03_13: -8224468199215953963
+      fennel_powder03_14: 793264117282450836
+      fennel_powder03_15: -2722631917963203941
+      fennel_powder03_16: 2144790565351747423
+      fennel_powder03_17: 372350912808593262
+      fennel_powder03_18: -9048981130225552380
+      fennel_powder03_19: 8235623806570683035
+      fennel_powder03_2: -1827381817826395024
+      fennel_powder03_20: 2805950352900020916
+      fennel_powder03_21: 3344156908758098871
+      fennel_powder03_22: 8608029792664714040
+      fennel_powder03_23: 1347764194507224876
+      fennel_powder03_3: -2824819443455889718
+      fennel_powder03_4: 1238875762407784839
+      fennel_powder03_5: -7258502419638877194
+      fennel_powder03_6: 1579282611217537484
+      fennel_powder03_7: -2972132051353725573
+      fennel_powder03_8: 6767295721321234183
+      fennel_powder03_9: 2358675545124431389
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

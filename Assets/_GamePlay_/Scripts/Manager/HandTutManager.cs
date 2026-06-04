@@ -10,12 +10,6 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     public GameObject handTutObject;
     public GameObject tapToCookObject;
 
-    [Header("--- IN WATER TUTORIAL ---")]
-    public List<InWaterItem> inWaterItems = new List<InWaterItem>();
-    public Sink sink;
-    public ItemDraggable napBonNgoai;
-    public ItemDraggable napBonTrong;
-    public Ply_ToggleEvent waterToggle;
 
     [Header("--- TIMING ---")]
     public float idleDelay = 5f;
@@ -31,8 +25,6 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     private float idleTimer;
     private Vector3 defaultHandScale = Vector3.one;
     private Sequence handSequence;
-    private bool isWaitingEndPhaseCondition;
-    private bool isInitialSinkTutorialActive = true;
     private bool isWaitingTapToCook;
     private bool ignoreInputUntilRelease;
 
@@ -52,7 +44,6 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     private void Start()
     {
         RemoveDoneAndNullItems();
-        RemoveDoneAndNullInWaterItems();
         isWaitingTapToCook = tapToCookObject != null && tapToCookObject.activeInHierarchy;
     }
 
@@ -91,15 +82,6 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         }
 
         idleTimer += Time.deltaTime;
-        if (isInitialSinkTutorialActive && handSequence == null)
-        {
-            if (TryShowInitialSinkHandTut())
-            {
-                idleTimer = 0f;
-                return;
-            }
-        }
-
         if (idleTimer >= idleDelay && handSequence == null)
         {
             idleTimer = 0f;
@@ -149,28 +131,12 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         }
 
         ResetIdleTimer();
-        if (isInitialSinkTutorialActive && TryShowInitialSinkHandTut())
-        {
-            return;
-        }
-
         ShowNextHandTut();
     }
 
     private void ShowNextHandTut()
     {
         RemoveDoneAndNullItems();
-        RemoveDoneAndNullInWaterItems();
-
-        if (TryShowEndPhaseConditionHandTut())
-        {
-            return;
-        }
-
-        if (TryShowInWaterHandTut())
-        {
-            return;
-        }
 
         Item targetItem = GetProcessingItem();
         if (targetItem == null)
@@ -210,151 +176,6 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
     public bool CheckEndPhaseCondition()
     {
-        if (sink == null || !sink.gameObject.activeInHierarchy)
-        {
-            isWaitingEndPhaseCondition = false;
-            return true;
-        }
-
-        isWaitingEndPhaseCondition = sink.isWaterDrop;
-        return !isWaitingEndPhaseCondition;
-    }
-
-    private bool TryShowEndPhaseConditionHandTut()
-    {
-        if (!isWaitingEndPhaseCondition)
-        {
-            return false;
-        }
-
-        if (sink == null || !sink.gameObject.activeInHierarchy)
-        {
-            isWaitingEndPhaseCondition = false;
-            return false;
-        }
-
-        if (PhaseManager.Ins != null && !PhaseManager.Ins.IsCurrentPhaseStepComplete())
-        {
-            isWaitingEndPhaseCondition = false;
-            return false;
-        }
-
-        if (sink.isWaterDrop && waterToggle != null)
-        {
-            PlayClickHint(waterToggle.transform);
-            return true;
-        }
-
-        isWaitingEndPhaseCondition = false;
-        return false;
-    }
-
-    private bool TryShowInWaterHandTut()
-    {
-        InWaterItem processingItem = GetProcessingInWaterItem();
-        if (processingItem == null)
-        {
-            return false;
-        }
-
-        InWaterItem draggableItem = GetReadyDraggableInWaterItem();
-        if (draggableItem != null)
-        {
-            PlayMoveHint(draggableItem.transform, draggableItem.itemMoveToTarget.defaultTarget);
-            return true;
-        }
-
-        if (sink == null)
-        {
-            return false;
-        }
-
-        if (!sink.isClose)
-        {
-            return TryPlayDraggableHint(napBonNgoai);
-        }
-
-        if (!sink.isWaterIn && waterToggle != null)
-        {
-            PlayClickHint(waterToggle.transform);
-            return true;
-        }
-
-        return false;
-    }
-
-    private bool TryShowInitialSinkHandTut()
-    {
-        if (sink == null || !sink.gameObject.activeInHierarchy)
-        {
-            isInitialSinkTutorialActive = false;
-            return false;
-        }
-
-        if (sink.isClose && sink.isWaterIn)
-        {
-            isInitialSinkTutorialActive = false;
-            return false;
-        }
-
-        if (!sink.isClose)
-        {
-            return TryPlayDraggableHint(napBonNgoai);
-        }
-
-        if (!sink.isWaterIn && waterToggle != null)
-        {
-            PlayClickHint(waterToggle.transform);
-            return true;
-        }
-
-        return false;
-    }
-
-    private InWaterItem GetProcessingInWaterItem()
-    {
-        for (int i = 0; i < inWaterItems.Count; i++)
-        {
-            InWaterItem item = inWaterItems[i];
-            if (item != null && item.onProcess && !item.isDone)
-            {
-                return item;
-            }
-        }
-
-        return null;
-    }
-
-    private InWaterItem GetReadyDraggableInWaterItem()
-    {
-        for (int i = 0; i < inWaterItems.Count; i++)
-        {
-            InWaterItem item = inWaterItems[i];
-            if (item == null || !item.onProcess || item.isDone) continue;
-
-            if (IsDraggableReady(item) && item.itemMoveToTarget != null && item.itemMoveToTarget.defaultTarget != null)
-            {
-                return item;
-            }
-        }
-
-        return null;
-    }
-
-    private bool TryPlayDraggableHint(ItemDraggable draggable)
-    {
-        if (draggable == null || !draggable.enabled || !draggable.isDraggable)
-        {
-            return false;
-        }
-
-        Item item = ComponentCache<Item>.Get(draggable.transform);
-        if (item == null || item.itemMoveToTarget == null || item.itemMoveToTarget.defaultTarget == null)
-        {
-            return false;
-        }
-
-        PlayMoveHint(draggable.transform, item.itemMoveToTarget.defaultTarget);
         return true;
     }
 
@@ -471,29 +292,12 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         }
     }
 
-    private void RemoveDoneAndNullInWaterItems()
-    {
-        for (int i = inWaterItems.Count - 1; i >= 0; i--)
-        {
-            if (inWaterItems[i] == null || inWaterItems[i].isDone)
-            {
-                inWaterItems.RemoveAt(i);
-            }
-        }
-    }
-
     public void ItemDone(Item item)
     {
         if (item == null) return;
 
         item.isDone = true;
         items.Remove(item);
-        InWaterItem inWaterItem = item as InWaterItem;
-        if (inWaterItem != null)
-        {
-            inWaterItems.Remove(inWaterItem);
-        }
-
         HideHandTut();
         ResetIdleTimer();
     }

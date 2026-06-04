@@ -20,7 +20,6 @@ public class CuttingItem : Bread
         itemKnifeSpriteMaskCutter.enabled = false;
         itemDraggable.enabled = true;
         itemDraggable.targetItemType = targetPlateType;
-        itemDraggable.returnTransform = cuttingBoard.transform;
         itemMoveToTarget.defaultTarget = targetPlate;
     }
     public void TurnOnKnifeCutter()
