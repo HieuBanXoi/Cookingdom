@@ -67,6 +67,7 @@ public class Plate : ToolObject
     public void DoneAnimation()
     {
         if (itemDraggable == null) return;
+        Debug.Log("Done animation: Resetting itemDraggable and itemMoveToTarget for cake on plate.");
         itemDraggable.targetItemType = ItemType.None;
         itemDraggable.enabled = true;
         animator.enabled = false;

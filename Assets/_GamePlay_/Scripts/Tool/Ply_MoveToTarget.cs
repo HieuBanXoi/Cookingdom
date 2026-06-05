@@ -23,6 +23,7 @@ public class Ply_MoveToTarget : MonoBehaviour
     public bool setParentToTarget = false;
     public UnityEngine.Events.UnityEvent onComplete;
     public bool lockInputWhileMoving = true;
+    public bool resetParentBeforeMove = true;
 
     private Transform originalParent;
     private Item item;
@@ -60,8 +61,17 @@ public class Ply_MoveToTarget : MonoBehaviour
         }
 
         // Xóa các Tween cũ để tránh xung đột
+        Vector3 worldPosition = transform.position;
+        Quaternion worldRotation = transform.rotation;
+        Vector3 worldScale = transform.lossyScale;
+
         transform.DOKill();
-        transform.SetParent(originalParent);
+        if (resetParentBeforeMove)
+        {
+            transform.SetParent(originalParent, true);
+            transform.SetPositionAndRotation(worldPosition, worldRotation);
+            SetWorldScale(worldScale);
+        }
 
         if (lockInputWhileMoving && GameManager.Ins != null)
         {
@@ -133,7 +143,13 @@ public class Ply_MoveToTarget : MonoBehaviour
     {
         if (setParentToTarget && defaultTarget != null)
         {
-            transform.SetParent(defaultTarget);
+            Vector3 worldPosition = transform.position;
+            Quaternion worldRotation = transform.rotation;
+            Vector3 worldScale = transform.lossyScale;
+
+            transform.SetParent(defaultTarget, true);
+            transform.SetPositionAndRotation(worldPosition, worldRotation);
+            SetWorldScale(worldScale);
         }
 
         if (lockInputWhileMoving && GameManager.Ins != null)
@@ -157,5 +173,21 @@ public class Ply_MoveToTarget : MonoBehaviour
     public void SetDefaultTarget(Transform t)
     {
         defaultTarget = t;
+    }
+
+    private void SetWorldScale(Vector3 worldScale)
+    {
+        if (transform.parent == null)
+        {
+            transform.localScale = worldScale;
+            return;
+        }
+
+        Vector3 parentScale = transform.parent.lossyScale;
+        transform.localScale = new Vector3(
+            parentScale.x != 0f ? worldScale.x / parentScale.x : transform.localScale.x,
+            parentScale.y != 0f ? worldScale.y / parentScale.y : transform.localScale.y,
+            parentScale.z != 0f ? worldScale.z / parentScale.z : transform.localScale.z
+        );
     }
 }

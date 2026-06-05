@@ -211,8 +211,7 @@ public class Cake : Item
     {
         if (fryShakeTarget != null) return;
 
-        CacheSpriteColor();
-        fryShakeTarget = spriteRenderer != null ? spriteRenderer.transform : transform;
+        fryShakeTarget = transform;
         fryShakeStartLocalPosition = fryShakeTarget.localPosition;
         hasFryShakeStartLocalPosition = true;
     }
@@ -231,12 +230,12 @@ public class Cake : Item
             .SetEase(Ease.Linear);
     }
 
-    private void StopFryShake()
+    private void StopFryShake(bool resetPosition = true)
     {
         fryShakeTween?.Kill();
         fryShakeTween = null;
 
-        if (hasFryShakeStartLocalPosition && fryShakeTarget != null)
+        if (resetPosition && hasFryShakeStartLocalPosition && fryShakeTarget != null)
         {
             fryShakeTarget.localPosition = fryShakeStartLocalPosition;
         }
@@ -245,7 +244,7 @@ public class Cake : Item
     private void StopFryShakeByDrag()
     {
         canPlayFryShake = false;
-        StopFryShake();
+        StopFryShake(false);
     }
 
     public override void OnDragFailReturnComplete()
