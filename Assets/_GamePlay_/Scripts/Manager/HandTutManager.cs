@@ -9,6 +9,10 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     public Transform knife;
     public GameObject handTutObject;
     public GameObject tapToCookObject;
+    public Item oilItem;
+    public Ply_ToggleEvent stoveToggleEvent;
+    public int noDelayItemCount = 3;
+    public bool waitForBowlIntro = true;
 
 
     [Header("--- TIMING ---")]
@@ -27,6 +31,12 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     private Sequence handSequence;
     private bool isWaitingTapToCook;
     private bool ignoreInputUntilRelease;
+    private bool isWaitingStoveToggle;
+    private bool hasCompletedStoveToggle;
+    private bool showHandTutAfterRelease;
+    private bool hasStartedHandTut;
+    private bool hasHiddenTapToCook;
+    private readonly List<Item> noDelayItems = new List<Item>();
 
     public bool ShouldBlockGameplayInput => isWaitingTapToCook || ignoreInputUntilRelease;
 
@@ -44,12 +54,26 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     private void Start()
     {
         RemoveDoneAndNullItems();
-        isWaitingTapToCook = tapToCookObject != null && tapToCookObject.activeInHierarchy;
+        CacheNoDelayItems();
+        isWaitingTapToCook = false;
+        hasStartedHandTut = !waitForBowlIntro;
+        if (tapToCookObject != null)
+        {
+            tapToCookObject.SetActive(true);
+        }
     }
 
     private void Update()
     {
         if (handTutObject == null) return;
+
+        if (!hasHiddenTapToCook && tapToCookObject != null && tapToCookObject.activeInHierarchy && HasPlayerInputDown())
+        {
+            hasHiddenTapToCook = true;
+            tapToCookObject.SetActive(false);
+        }
+
+        if (!hasStartedHandTut) return;
 
         if (isWaitingTapToCook)
         {
@@ -66,6 +90,12 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
             if (HasPlayerInput()) return;
 
             ignoreInputUntilRelease = false;
+            if (showHandTutAfterRelease)
+            {
+                showHandTutAfterRelease = false;
+                ShowNextHandTut();
+                return;
+            }
         }
 
         if (HasPlayerInput())
@@ -82,7 +112,8 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         }
 
         idleTimer += Time.deltaTime;
-        if (idleTimer >= idleDelay && handSequence == null)
+        float currentIdleDelay = ShouldSkipDelayForCurrentItem() ? 0f : idleDelay;
+        if (idleTimer >= currentIdleDelay && handSequence == null)
         {
             idleTimer = 0f;
             ShowNextHandTut();
@@ -123,6 +154,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     private void StartHandTutAfterTapToCook()
     {
         isWaitingTapToCook = false;
+        hasStartedHandTut = true;
         ignoreInputUntilRelease = true;
 
         if (tapToCookObject != null)
@@ -134,16 +166,31 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         ShowNextHandTut();
     }
 
+    public void StartHandTut()
+    {
+        hasStartedHandTut = true;
+        isWaitingTapToCook = false;
+
+        ResetIdleTimer();
+        ShowNextHandTut();
+    }
+
     private void ShowNextHandTut()
     {
         RemoveDoneAndNullItems();
 
-        Item targetItem = GetProcessingItem();
-        if (targetItem == null)
+        if (isWaitingStoveToggle)
         {
-            targetItem = GetFirstNotDoneItem();
+            if (stoveToggleEvent != null)
+            {
+                PlayClickHint(stoveToggleEvent.transform);
+                return;
+            }
+
+            isWaitingStoveToggle = false;
         }
 
+        Item targetItem = GetFirstTutorialReadyItem();
         if (targetItem == null)
         {
             HideHandTut();
@@ -179,12 +226,12 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         return true;
     }
 
-    private Item GetProcessingItem()
+    private Item GetFirstTutorialReadyItem()
     {
         for (int i = 0; i < items.Count; i++)
         {
             Item item = items[i];
-            if (item != null && item.onProcess && !item.isDone)
+            if (item != null && !item.isDone && CanShowTutorialForItem(item))
             {
                 return item;
             }
@@ -193,18 +240,21 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         return null;
     }
 
-    private Item GetFirstNotDoneItem()
+    private bool CanShowTutorialForItem(Item item)
     {
-        for (int i = 0; i < items.Count; i++)
+        if (item == null || item.isDone) return false;
+
+        if (IsClickableReady(item)) return true;
+        if (IsKnifeSpriteMaskCutterReady(item)) return true;
+
+        if (IsDraggableReady(item))
         {
-            Item item = items[i];
-            if (item != null && !item.isDone)
-            {
-                return item;
-            }
+            if (item.itemDraggable.targetItemType == ItemType.None) return false;
+
+            return item.itemMoveToTarget != null && item.itemMoveToTarget.defaultTarget != null;
         }
 
-        return null;
+        return knife != null;
     }
 
     private bool IsClickableReady(Item item)
@@ -281,6 +331,27 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         idleTimer = 0f;
     }
 
+    private void CacheNoDelayItems()
+    {
+        noDelayItems.Clear();
+
+        for (int i = 0; i < items.Count && noDelayItems.Count < noDelayItemCount; i++)
+        {
+            if (items[i] != null)
+            {
+                noDelayItems.Add(items[i]);
+            }
+        }
+    }
+
+    private bool ShouldSkipDelayForCurrentItem()
+    {
+        if (isWaitingStoveToggle) return false;
+
+        Item targetItem = GetFirstTutorialReadyItem();
+        return targetItem != null && noDelayItems.Contains(targetItem);
+    }
+
     private void RemoveDoneAndNullItems()
     {
         for (int i = items.Count - 1; i >= 0; i--)
@@ -298,6 +369,41 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
         item.isDone = true;
         items.Remove(item);
+        if (!hasCompletedStoveToggle && oilItem != null && item == oilItem)
+        {
+            StartStoveToggleTutorial();
+        }
+
+        HideHandTut();
+        ResetIdleTimer();
+    }
+
+    public void OilDone()
+    {
+        if (oilItem != null)
+        {
+            ItemDone(oilItem);
+            return;
+        }
+
+        StartStoveToggleTutorial();
+        HideHandTut();
+        ResetIdleTimer();
+    }
+
+    private void StartStoveToggleTutorial()
+    {
+        isWaitingStoveToggle = true;
+        ignoreInputUntilRelease = true;
+        showHandTutAfterRelease = true;
+    }
+
+    public void StoveToggleDone(Ply_ToggleEvent toggleEvent)
+    {
+        if (stoveToggleEvent != null && toggleEvent != stoveToggleEvent) return;
+
+        hasCompletedStoveToggle = true;
+        isWaitingStoveToggle = false;
         HideHandTut();
         ResetIdleTimer();
     }

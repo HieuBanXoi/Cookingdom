@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
@@ -21,7 +22,8 @@ public class Item : MonoBehaviour
 
     [Header("--- MOVE TO TARGET SOUND ---")]
     public bool playMoveToTargetFinishSound = false;
-    public FxType moveToTargetFinishFxType = FxType.BreadToDish;
+    public FxType moveToTargetFinishFxType = FxType.Complete;
+    public Bowl bowl;
 
     private void Awake()
     {
@@ -104,6 +106,14 @@ public class Item : MonoBehaviour
         SpawnHeart(true);
     }
 
+    public void TeleportToStart()
+    {
+        if (itemDraggable != null)
+        {
+            itemDraggable.TeleportToStart();
+        }
+    }
+
     public void ItemDone()
     {
         SpawnHeart(false);
@@ -126,18 +136,6 @@ public class Item : MonoBehaviour
         yellowPiece.DeSpawnByTime();
     }
 
-    public void PlayCutSound()
-    {
-        if (Ply_SoundManager.Ins == null) return;
-
-        Ply_SoundManager.Ins.PlayFx(FxType.KnifeCut);
-    }
-    public void PlaySliceSound()
-    {
-        if (Ply_SoundManager.Ins == null) return;
-
-        Ply_SoundManager.Ins.PlayFx(FxType.KnifeSlice);
-    }
 
     public void PlayMoveToTargetFinishSound()
     {
@@ -145,8 +143,21 @@ public class Item : MonoBehaviour
 
         Ply_SoundManager.Ins.PlayFx(moveToTargetFinishFxType);
     }
-    public void PlayKnifeSound()
+    public void PlayBowlAnim(String triggerName)
     {
-        Ply_SoundManager.Ins.PlayFx(FxType.PlaceKnife);
+        if (bowl != null)
+        {
+            bowl.animator.SetTrigger(triggerName);
+        }
+    }
+    public void PlayNextBowlAnim()
+    {
+        PlayBowlAnim("Next");
+    }
+    public void PlayOilInSound()
+    {
+        if (Ply_SoundManager.Ins == null) return;
+
+        Ply_SoundManager.Ins.PlayFx(FxType.OilIn);
     }
 }

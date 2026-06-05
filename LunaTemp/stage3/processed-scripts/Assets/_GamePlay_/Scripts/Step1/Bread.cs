@@ -3,7 +3,6 @@ using UnityEngine;
 public class Bread : Item
 {
     public Knife knife;
-    public CuttingBoard cuttingBoard;
     public Transform targetPlate;
     public bool isOnBoard = false;
     public ItemType targetPlateType;
@@ -14,7 +13,6 @@ public class Bread : Item
     public void KnifeOut()
     {
         knife.gameObject.SetActive(true);
-        Ply_SoundManager.Ins.PlayFx(FxType.PlaceKnife);
     }
     public virtual void TurnOffClick()
     {
@@ -25,7 +23,6 @@ public class Bread : Item
         }
         itemDraggable.enabled = true;
         itemDraggable.targetItemType = targetPlateType;
-        itemDraggable.returnTransform = cuttingBoard.transform;
         itemMoveToTarget.defaultTarget = targetPlate;
         ResetType();
     }
@@ -45,7 +42,6 @@ public class Bread : Item
             {
                 animator.SetTrigger(flyToDish);
             }
-            cuttingBoard.IsFoodOn(false);
             itemType = ItemType.None;
             ItemDone();
             PhaseManager.Ins.DoOneStep();
@@ -59,10 +55,6 @@ public class Bread : Item
     {
         onProcess = true;
         knife.itemMoveToTarget.defaultTarget = transform;
-        if (!cantCutOnFirst)
-        {
-            ItemOnCuttingBoard();
-        }
     }
     public void ResetType()
     {
@@ -75,9 +67,5 @@ public class Bread : Item
     public void TurnOffClickable()
     {
         itemClickable.enabled = false;
-    }
-    public void ItemOnCuttingBoard()
-    {
-        itemType = ItemType.FoodOnCuttingBoard;
     }
 }

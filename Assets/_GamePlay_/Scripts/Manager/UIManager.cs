@@ -26,6 +26,8 @@ public class UIManager : Ply_Singleton<UIManager>
     public GameObject winUI;
     public GameObject loseUI;
     public GameObject tutorial;
+    public GameObject verticalUI;
+    public GameObject horizontalUI;
     public Transform downloadBtn;
 
     public float screenWidth;
@@ -120,6 +122,16 @@ public class UIManager : Ply_Singleton<UIManager>
 
     private void ScreenScale()
     {
+        if (verticalUI != null)
+        {
+            verticalUI.SetActive(isVertical);
+        }
+
+        if (horizontalUI != null)
+        {
+            horizontalUI.SetActive(!isVertical);
+        }
+
         float targetOrthographicSize = Mathf.Max(GetTargetOrthographicSize(), baseOrthographicSize);
         ApplyCameraScale(targetOrthographicSize);
     }

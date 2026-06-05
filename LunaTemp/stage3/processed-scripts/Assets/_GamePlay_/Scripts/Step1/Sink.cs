@@ -17,7 +17,6 @@ public class Sink : Item
     {
         animator.enabled = true;
         isWaterDrop = true;
-        Ply_SoundManager.Ins.PlayFxLoop(FxType.WaterStream);
         if (isClose)
         {
             if (isWaterIn)
@@ -40,7 +39,6 @@ public class Sink : Item
     public void TurnOffWater()
     {
         isWaterDrop = false;
-        Ply_SoundManager.Ins.StopFxLoop(FxType.WaterStream);
         if (!isClose)
         {
             animator.SetTrigger("TurnOffWater");
@@ -125,12 +123,6 @@ public class Sink : Item
         }
 
         return canEndPhase;
-    }
-    public void PlayWaterOutSound()
-    {
-        if (Ply_SoundManager.Ins == null) return;
-
-        Ply_SoundManager.Ins.PlayFx(FxType.WaterOut);
     }
 
 }

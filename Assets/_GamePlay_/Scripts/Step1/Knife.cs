@@ -29,6 +29,5 @@ public class Knife : Item
 
         if (Ply_SoundManager.Ins == null) return;
 
-        PlayKnifeSound();
     }
 }

@@ -49,6 +49,11 @@ public class InputManager : Ply_Singleton<InputManager>
 
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
+        if (TryHandleCapybara(ray))
+        {
+            return;
+        }
+
         if (TryHandleToggleButton(ray))
         {
             return;
@@ -133,6 +138,32 @@ public class InputManager : Ply_Singleton<InputManager>
             || item.itemClickable != null && item.itemClickable.enabled;
     }
 
+    private bool TryHandleCapybara(Ray ray)
+    {
+        RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
+        if (hits.Length == 0) return false;
+
+        Capybara closestCapybara = null;
+        float minDistance = float.MaxValue;
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            Capybara capybara = hits[i].collider.GetComponentInParent<Capybara>();
+            if (capybara == null) continue;
+
+            if (hits[i].distance < minDistance)
+            {
+                minDistance = hits[i].distance;
+                closestCapybara = capybara;
+            }
+        }
+
+        if (closestCapybara == null) return false;
+
+        closestCapybara.ClickCapybara();
+        return true;
+    }
+
     private bool TryHandleToggleButton(Ray ray)
     {
         if (!Physics.Raycast(ray, out RaycastHit hit, 100f, toggleButtonLayerMask)) return false;
@@ -141,6 +172,11 @@ public class InputManager : Ply_Singleton<InputManager>
         if (toggleEvent == null || !toggleEvent.enabled || !toggleEvent.applyStateOnClick) return false;
 
         toggleEvent.ApplyState();
+        if (HandTutManager.Ins != null)
+        {
+            HandTutManager.Ins.StoveToggleDone(toggleEvent);
+        }
+
         return true;
     }
 

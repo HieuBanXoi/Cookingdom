@@ -1,9 +1,9 @@
 using UnityEngine;
-using DG.Tweening;
 
 public class InputManager : Ply_Singleton<InputManager>
 {
-    public LayerMask groundPiece;
+
+    public LayerMask toggleButtonLayerMask;
     public LayerMask defaultLayer;
     public LayerMask itemLayer;
     public bool isDragging = false;
@@ -12,6 +12,8 @@ public class InputManager : Ply_Singleton<InputManager>
     private ItemStirring currentStirring;
     private ItemSpriteMaskPainter currentSpriteMaskPainter;
 
+
+
     private void Update()
     {
         if (HandTutManager.Ins != null && HandTutManager.Ins.ShouldBlockGameplayInput)
@@ -19,25 +21,21 @@ public class InputManager : Ply_Singleton<InputManager>
             return;
         }
 
-        // Nếu không trong trạng thái chơi VÀ không có vật thể nào đang được kéo dở thì mới chặn hoàn toàn Input
         if (!GameManager.Ins.isPlaying && !isDragging)
         {
             return;
         }
 
-        // Khi nhấn chuột xuống
         if (Input.GetMouseButtonDown(0) && GameManager.Ins.isPlaying)
         {
             HandleMouseDown();
         }
 
-        // Khi giữ và kéo chuột
         if (Input.GetMouseButton(0))
         {
             HandleMouseDrag();
         }
 
-        // Khi nhả chuột ra
         if (Input.GetMouseButtonUp(0))
         {
             HandleMouseUp();
@@ -46,74 +44,140 @@ public class InputManager : Ply_Singleton<InputManager>
 
     private void HandleMouseDown()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Camera mainCamera = Camera.main;
+        if (mainCamera == null) return;
+
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+        if (TryHandleCapybara(ray))
+        {
+            return;
+        }
+
+        if (TryHandleToggleButton(ray))
+        {
+            return;
+        }
+
         RaycastHit[] hits = Physics.RaycastAll(ray, 100f, itemLayer);
 
         if (hits.Length == 0) return;
 
-        Item topItem = null;
-        int maxSortingOrder = int.MinValue;
+        Item interactableItem = GetClosestInteractableItem(hits);
 
-        // Tìm item có sortingOrder cao nhất trong số các object bắn trúng
-        for (int i = 0; i < hits.Length; i++)
-        {
-            var hit = hits[i];
-            var renderer = hit.collider.GetComponentInChildren<Renderer>();
-            if (renderer != null && renderer.sortingOrder > maxSortingOrder)
-            {
-                maxSortingOrder = renderer.sortingOrder;
-                topItem = ComponentCache<Item>.Get(hit.collider);
-            }
-        }
-
-        // Nếu tìm thấy một item hợp lệ (có renderer), thực hiện hành động
-        if (topItem != null)
+        if (interactableItem != null)
         {
             bool isInteracted = false;
 
-            // Ưu tiên xử lý Draggable (nếu đang được bật)
-            if (topItem.itemDraggable != null && topItem.itemDraggable.enabled)
+            if (interactableItem.itemDraggable != null && interactableItem.itemDraggable.enabled)
             {
-                currentDraggable = topItem.itemDraggable;
+                currentDraggable = interactableItem.itemDraggable;
                 currentDraggable.BeginDrag();
                 isDragging = true;
                 isInteracted = true;
             }
-            // Kế đến là Stirring (nếu đang được bật)
-            else if (topItem.itemStirring != null && topItem.itemStirring.enabled)
+            else if (interactableItem.itemStirring != null && interactableItem.itemStirring.enabled)
             {
-                currentStirring = topItem.itemStirring;
+                currentStirring = interactableItem.itemStirring;
                 currentStirring.BeginStir();
                 isDragging = true;
                 isInteracted = true;
             }
-            // Cuối cùng là Clickable (nếu đang được bật)
-            else if (topItem.itemSpriteMaskPainter != null && topItem.itemSpriteMaskPainter.enabled)
+            else if (interactableItem.itemSpriteMaskPainter != null && interactableItem.itemSpriteMaskPainter.enabled)
             {
-                currentSpriteMaskPainter = topItem.itemSpriteMaskPainter;
+                currentSpriteMaskPainter = interactableItem.itemSpriteMaskPainter;
                 currentSpriteMaskPainter.BeginPaint();
                 isDragging = true;
                 isInteracted = true;
             }
-            else if (topItem.itemKnifeSpriteMaskCutter != null && topItem.itemKnifeSpriteMaskCutter.enabled)
+            else if (interactableItem.itemKnifeSpriteMaskCutter != null && interactableItem.itemKnifeSpriteMaskCutter.enabled)
             {
-                topItem.itemKnifeSpriteMaskCutter.PerformCut();
+                interactableItem.itemKnifeSpriteMaskCutter.PerformCut();
                 isInteracted = true;
             }
-            else if (topItem.itemClickable != null && topItem.itemClickable.enabled)
+            else if (interactableItem.itemClickable != null && interactableItem.itemClickable.enabled)
             {
-                topItem.itemClickable.PerformClick();
+                interactableItem.itemClickable.PerformClick();
                 isInteracted = true;
             }
 
             if (isInteracted)
             {
-
-
                 if (GameManager.Ins != null) GameManager.Ins.TurnOffTut();
                 if (Ply_TransformConveyor.Ins != null) Ply_TransformConveyor.Ins.isMoving = true;
             }
         }
+    }
+
+    private Item GetClosestInteractableItem(RaycastHit[] hits)
+    {
+        Item interactableItem = null;
+        float minDistance = float.MaxValue;
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            Item hitItem = ComponentCache<Item>.Get(hits[i].collider);
+            if (hitItem == null || !CanInteract(hitItem)) continue;
+
+            if (hits[i].distance < minDistance)
+            {
+                minDistance = hits[i].distance;
+                interactableItem = hitItem;
+            }
+        }
+
+        return interactableItem;
+    }
+
+    private bool CanInteract(Item item)
+    {
+        return item.itemDraggable != null && item.itemDraggable.enabled
+            || item.itemStirring != null && item.itemStirring.enabled
+            || item.itemSpriteMaskPainter != null && item.itemSpriteMaskPainter.enabled
+            || item.itemKnifeSpriteMaskCutter != null && item.itemKnifeSpriteMaskCutter.enabled
+            || item.itemClickable != null && item.itemClickable.enabled;
+    }
+
+    private bool TryHandleCapybara([Bridge.Ref] Ray ray)
+    {
+        RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
+        if (hits.Length == 0) return false;
+
+        Capybara closestCapybara = null;
+        float minDistance = float.MaxValue;
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            Capybara capybara = hits[i].collider.GetComponentInParent<Capybara>();
+            if (capybara == null) continue;
+
+            if (hits[i].distance < minDistance)
+            {
+                minDistance = hits[i].distance;
+                closestCapybara = capybara;
+            }
+        }
+
+        if (closestCapybara == null) return false;
+
+        closestCapybara.ClickCapybara();
+        return true;
+    }
+
+    private bool TryHandleToggleButton([Bridge.Ref] Ray ray)
+    {
+        if (!Physics.Raycast(ray, out RaycastHit hit, 100f, toggleButtonLayerMask)) return false;
+
+        Ply_ToggleEvent toggleEvent = hit.collider.GetComponentInParent<Ply_ToggleEvent>();
+        if (toggleEvent == null || !toggleEvent.enabled || !toggleEvent.applyStateOnClick) return false;
+
+        toggleEvent.ApplyState();
+        if (HandTutManager.Ins != null)
+        {
+            HandTutManager.Ins.StoveToggleDone(toggleEvent);
+        }
+
+        return true;
     }
 
     private void HandleMouseDrag()

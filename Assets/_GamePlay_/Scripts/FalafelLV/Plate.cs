@@ -22,7 +22,6 @@ public class Plate : ToolObject
         }
         DOVirtual.DelayedCall(1.5f, () =>
         {
-            Ply_SoundManager.Ins.PlayFx(FxType.KnifeSwing);
 
             if (GameManager.Ins != null) GameManager.Ins.isPlaying = false;
             this.transform.DOMove(waittingPoint.position, 1f).OnComplete(() =>
@@ -44,7 +43,6 @@ public class Plate : ToolObject
                 if (GameManager.Ins != null) GameManager.Ins.isPlaying = true;
                 return;
             }
-            Ply_SoundManager.Ins.PlayFx(FxType.KnifeSwing);
 
             if (GameManager.Ins != null) GameManager.Ins.isPlaying = false;
             this.transform.DOMove(waittingPoint.position, 1f).OnComplete(() =>
@@ -67,10 +65,13 @@ public class Plate : ToolObject
     public void DoneAnimation()
     {
         if (itemDraggable == null) return;
-        Debug.Log("Done animation: Resetting itemDraggable and itemMoveToTarget for cake on plate.");
         itemDraggable.targetItemType = ItemType.None;
         itemDraggable.enabled = true;
         animator.enabled = false;
         itemMoveToTarget.defaultTarget = null;
+    }
+    public void OilDone()
+    {
+        HandTutManager.Ins.OilDone();
     }
 }

@@ -8,11 +8,12 @@ using UnityEngine.UI;
 [System.Serializable]
 public class ScreenScaleStep
 {
-    [Tooltip("Nếu tỷ lệ Chiều cao / Chiều rộng lớn hơn mức này")]
+    [Tooltip("Neu ty le Chieu cao / Chieu rong lon hon muc nay")]
     public float heightOnWidthRatio;
     public float orthographicSize;
 
     public ScreenScaleStep() { }
+
     public ScreenScaleStep(float ratio, float size)
     {
         heightOnWidthRatio = ratio;
@@ -25,8 +26,9 @@ public class UIManager : Ply_Singleton<UIManager>
     public GameObject winUI;
     public GameObject loseUI;
     public GameObject tutorial;
+    public GameObject verticalUI;
+    public GameObject horizontalUI;
     public Transform downloadBtn;
-    public Image image;
 
     public float screenWidth;
     public float screenHeight;
@@ -35,19 +37,19 @@ public class UIManager : Ply_Singleton<UIManager>
     public Camera cam;
 
     [Header("--- SCREEN SCALE SETTINGS ---")]
-    [Tooltip("Tích chọn để camera tự động tăng đều kích thước dựa theo tỷ lệ màn hình. Bỏ tích để dùng danh sách các mốc ở dưới.")]
+    [Tooltip("Bat de camera tang size lien tuc theo ty le man hinh. Tat de dung cac moc discrete ben duoi.")]
     public bool useContinuousScaling = false;
 
     [Header("- Continuous Scaling -")]
-    [Tooltip("Orthographic Size cơ bản (thường dùng cho màn hình 16:9 dọc)")]
+    [Tooltip("Orthographic size co ban, thuong dung cho man 16:9 doc.")]
     public float baseOrthographicSize = 6f;
-    [Tooltip("Tỷ lệ Chiều cao / Chiều rộng cơ bản (VD: 16:9 = 1.777)")]
+    [Tooltip("Ty le Chieu cao / Chieu rong co ban. VD: 16:9 = 1.777")]
     public float baseAspect = 1.777f;
 
     [Header("- Discrete Scaling -")]
     public float landscapeSize = 6f;
     public float defaultPortraitSize = 6f;
-    [Tooltip("Danh sách các mốc size màn hình. Có thể chỉnh sửa, thêm, xóa các mốc trực tiếp trên Editor.")]
+    [Tooltip("Danh sach cac moc size theo ty le man hinh.")]
     public List<ScreenScaleStep> discreteScaleSteps = new List<ScreenScaleStep>
     {
         new ScreenScaleStep(1.4f, 6f),
@@ -57,22 +59,36 @@ public class UIManager : Ply_Singleton<UIManager>
         new ScreenScaleStep(2.3f, 6.75f)
     };
 
+    [Header("--- PERSPECTIVE FIT SETTINGS ---")]
+    [Tooltip("Bat de camera chay Perspective va fit bang khoang cach thay vi orthographicSize.")]
+    public bool usePerspectiveCamera = true;
+    [Tooltip("Tam man hinh can giu co dinh. Neu bo trong, he thong lay mot diem phia truoc camera luc Start.")]
+    public Transform perspectiveFocus;
+    [Tooltip("Khoang cach toi tam nhin khi khong gan perspectiveFocus. De 0 de tu tinh theo baseOrthographicSize va FOV.")]
+    public float perspectiveFocusDistance = 0f;
+    [Tooltip("He so du phong de noi dung khong sat mep man hinh.")]
+    public float perspectivePadding = 1.05f;
+    [Tooltip("Bat neu muon fit theo Renderer bounds that. Can gan boundsRoot hoac boundsRenderers.")]
+    public bool fitRendererBounds = false;
+    public Transform boundsRoot;
+    public List<Renderer> boundsRenderers = new List<Renderer>();
+
+    private Vector3 perspectiveFocusPoint;
+    private bool hasPerspectiveCache;
 
     protected void Start()
     {
         winUI.SetActive(false);
         loseUI.SetActive(false);
         downloadBtn.gameObject.SetActive(true);
+        CachePerspectiveCamera();
         UpdateUI();
-
     }
 
     private void Update()
     {
-        // Kiểm tra xem kích thước màn hình có thay đổi không (ví dụ: người chơi xoay thiết bị)
         if (Screen.width != screenWidth || Screen.height != screenHeight)
         {
-            // Cập nhật ngay biến tạm để tránh việc gọi Coroutine liên tục trong các frame tiếp theo
             screenWidth = Screen.width;
             screenHeight = Screen.height;
             StartCoroutine(DelayUpdateUIRoutine());
@@ -81,12 +97,12 @@ public class UIManager : Ply_Singleton<UIManager>
 
     private IEnumerator DelayUpdateUIRoutine()
     {
-        yield return null; // Đợi 1 frame để Luna Engine và Canvas cập nhật xong tỷ lệ nội bộ
+        yield return null;
         UpdateUI();
     }
+
     public void UpdateUI()
     {
-
         GetScreenSize();
         GetSreenType();
         ScreenScale();
@@ -97,72 +113,243 @@ public class UIManager : Ply_Singleton<UIManager>
         screenHeight = Screen.height;
         screenWidth = Screen.width;
     }
+
     private void GetSreenType()
     {
-        isVertical = (screenHeight > screenWidth);
+        isVertical = screenHeight > screenWidth;
         scaleHeightOnWidth = screenHeight / screenWidth;
     }
 
-
     private void ScreenScale()
     {
-        float targetOrthographicSize;
+        if (verticalUI != null)
+        {
+            verticalUI.SetActive(isVertical);
+        }
 
+        if (horizontalUI != null)
+        {
+            horizontalUI.SetActive(!isVertical);
+        }
+
+        float targetOrthographicSize = Mathf.Max(GetTargetOrthographicSize(), baseOrthographicSize);
+        ApplyCameraScale(targetOrthographicSize);
+    }
+
+    private float GetTargetOrthographicSize()
+    {
         if (useContinuousScaling)
         {
-            // Tăng đều: Giữ nguyên khung hình theo tỷ lệ màn hình thực tế so với mốc cơ bản
             if (!isVertical)
             {
-                targetOrthographicSize = landscapeSize;
+                return landscapeSize;
             }
-            else
-            {
-                targetOrthographicSize = baseOrthographicSize * (scaleHeightOnWidth / baseAspect);
-            }
+
+            return baseOrthographicSize * (scaleHeightOnWidth / baseAspect);
         }
-        else
+
+        if (!isVertical)
         {
-            // Không tăng đều (Discrete): Dùng các mốc fix cứng
-            if (!isVertical)
-            {
-                targetOrthographicSize = landscapeSize;
-            }
-            else
-            {
-                float matchedSize = defaultPortraitSize;
-                float highestMatchedRatio = 0f;
+            return landscapeSize;
+        }
 
-                if (discreteScaleSteps != null)
+        float matchedSize = defaultPortraitSize;
+        float highestMatchedRatio = 0f;
+
+        if (discreteScaleSteps != null)
+        {
+            foreach (ScreenScaleStep step in discreteScaleSteps)
+            {
+                if (scaleHeightOnWidth > step.heightOnWidthRatio && step.heightOnWidthRatio > highestMatchedRatio)
                 {
-                    foreach (var step in discreteScaleSteps)
-                    {
-                        if (scaleHeightOnWidth > step.heightOnWidthRatio && step.heightOnWidthRatio > highestMatchedRatio)
-                        {
-                            highestMatchedRatio = step.heightOnWidthRatio;
-                            matchedSize = step.orthographicSize;
-                        }
-                    }
+                    highestMatchedRatio = step.heightOnWidthRatio;
+                    matchedSize = step.orthographicSize;
                 }
-
-                targetOrthographicSize = matchedSize;
             }
         }
 
-        cam.orthographicSize = Mathf.Max(targetOrthographicSize, baseOrthographicSize);
+        return matchedSize;
+    }
 
+    private void ApplyCameraScale(float targetOrthographicSize)
+    {
+        if (cam == null)
+        {
+            cam = Camera.main;
+        }
+
+        if (cam == null)
+        {
+            return;
+        }
+
+        if (usePerspectiveCamera)
+        {
+            cam.orthographic = false;
+        }
+
+        if (cam.orthographic)
+        {
+            cam.orthographicSize = targetOrthographicSize;
+            return;
+        }
+
+        CachePerspectiveCamera();
+
+        if (fitRendererBounds && TryGetRendererBounds(out Bounds bounds))
+        {
+            FitPerspectiveCameraToBounds(bounds);
+            return;
+        }
+
+        FitPerspectiveCameraToSize(targetOrthographicSize);
+    }
+
+    private void CachePerspectiveCamera()
+    {
+        if (hasPerspectiveCache)
+        {
+            return;
+        }
+
+        if (cam == null)
+        {
+            cam = Camera.main;
+        }
+
+        if (cam == null)
+        {
+            return;
+        }
+
+        float focusDistance = GetInitialPerspectiveFocusDistance();
+        perspectiveFocusPoint = perspectiveFocus != null
+            ? perspectiveFocus.position
+            : cam.transform.position + cam.transform.forward * focusDistance;
+        hasPerspectiveCache = true;
+    }
+
+    private float GetInitialPerspectiveFocusDistance()
+    {
+        if (perspectiveFocus != null)
+        {
+            float focusDistance = Vector3.Dot(perspectiveFocus.position - cam.transform.position, cam.transform.forward);
+            return Mathf.Max(focusDistance, cam.nearClipPlane + 0.01f);
+        }
+
+        if (perspectiveFocusDistance > 0f)
+        {
+            return perspectiveFocusDistance;
+        }
+
+        float halfFov = cam.fieldOfView * 0.5f * Mathf.Deg2Rad;
+        return Mathf.Max(baseOrthographicSize / Mathf.Tan(halfFov), cam.nearClipPlane + 0.01f);
+    }
+
+    private void FitPerspectiveCameraToSize(float targetOrthographicSize)
+    {
+        float halfFov = cam.fieldOfView * 0.5f * Mathf.Deg2Rad;
+        float targetDistance = targetOrthographicSize / Mathf.Tan(halfFov);
+        targetDistance *= Mathf.Max(1f, perspectivePadding);
+
+        if (perspectiveFocus != null)
+        {
+            perspectiveFocusPoint = perspectiveFocus.position;
+        }
+
+        cam.transform.position = perspectiveFocusPoint - cam.transform.forward * targetDistance;
+    }
+
+    private bool TryGetRendererBounds(out Bounds bounds)
+    {
+        bool hasBounds = false;
+        bounds = new Bounds();
+
+        if (boundsRoot != null)
+        {
+            Renderer[] rootRenderers = boundsRoot.GetComponentsInChildren<Renderer>(false);
+            foreach (Renderer targetRenderer in rootRenderers)
+            {
+                EncapsulateRenderer(targetRenderer, ref bounds, ref hasBounds);
+            }
+        }
+
+        if (boundsRenderers != null)
+        {
+            foreach (Renderer targetRenderer in boundsRenderers)
+            {
+                EncapsulateRenderer(targetRenderer, ref bounds, ref hasBounds);
+            }
+        }
+
+        return hasBounds;
+    }
+
+    private void EncapsulateRenderer(Renderer targetRenderer, ref Bounds bounds, ref bool hasBounds)
+    {
+        if (targetRenderer == null || !targetRenderer.enabled)
+        {
+            return;
+        }
+
+        if (!hasBounds)
+        {
+            bounds = targetRenderer.bounds;
+            hasBounds = true;
+            return;
+        }
+
+        bounds.Encapsulate(targetRenderer.bounds);
+    }
+
+    private void FitPerspectiveCameraToBounds([Bridge.Ref] Bounds bounds)
+    {
+        Vector3 forward = cam.transform.forward;
+        Vector3 right = cam.transform.right;
+        Vector3 up = cam.transform.up;
+
+        float verticalTan = Mathf.Tan(cam.fieldOfView * 0.5f * Mathf.Deg2Rad);
+        float horizontalTan = verticalTan * cam.aspect;
+        float requiredDistance = cam.nearClipPlane + 0.01f;
+
+        Vector3 center = bounds.center;
+        Vector3 extents = bounds.extents;
+
+        for (int x = -1; x <= 1; x += 2)
+        {
+            for (int y = -1; y <= 1; y += 2)
+            {
+                for (int z = -1; z <= 1; z += 2)
+                {
+                    Vector3 corner = center + Vector3.Scale(extents, new Vector3(x, y, z));
+                    Vector3 fromCenter = corner - center;
+
+                    float localX = Mathf.Abs(Vector3.Dot(fromCenter, right));
+                    float localY = Mathf.Abs(Vector3.Dot(fromCenter, up));
+                    float localZ = Vector3.Dot(fromCenter, forward);
+
+                    requiredDistance = Mathf.Max(requiredDistance, localX / horizontalTan - localZ);
+                    requiredDistance = Mathf.Max(requiredDistance, localY / verticalTan - localZ);
+                }
+            }
+        }
+
+        requiredDistance *= Mathf.Max(1f, perspectivePadding);
+        cam.transform.position = center - forward * requiredDistance;
     }
 
     public void ActiveGameWinUI(bool isActive)
     {
         winUI.SetActive(isActive);
     }
+
     public void ActiveGameLoseUI(bool isActive)
     {
         loseUI.SetActive(isActive);
     }
+
     public void ActiveTutorialUI(bool isActive)
     {
         tutorial.SetActive(isActive);
     }
-
 }

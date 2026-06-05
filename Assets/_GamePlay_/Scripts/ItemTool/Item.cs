@@ -22,7 +22,7 @@ public class Item : MonoBehaviour
 
     [Header("--- MOVE TO TARGET SOUND ---")]
     public bool playMoveToTargetFinishSound = false;
-    public FxType moveToTargetFinishFxType = FxType.BreadToDish;
+    public FxType moveToTargetFinishFxType = FxType.Complete;
     public Bowl bowl;
 
     private void Awake()
@@ -136,28 +136,12 @@ public class Item : MonoBehaviour
         yellowPiece.DeSpawnByTime();
     }
 
-    public void PlayCutSound()
-    {
-        if (Ply_SoundManager.Ins == null) return;
-
-        Ply_SoundManager.Ins.PlayFx(FxType.KnifeCut);
-    }
-    public void PlaySliceSound()
-    {
-        if (Ply_SoundManager.Ins == null) return;
-
-        Ply_SoundManager.Ins.PlayFx(FxType.KnifeSlice);
-    }
 
     public void PlayMoveToTargetFinishSound()
     {
         if (!playMoveToTargetFinishSound || Ply_SoundManager.Ins == null) return;
 
         Ply_SoundManager.Ins.PlayFx(moveToTargetFinishFxType);
-    }
-    public void PlayKnifeSound()
-    {
-        Ply_SoundManager.Ins.PlayFx(FxType.PlaceKnife);
     }
     public void PlayBowlAnim(String triggerName)
     {
@@ -169,5 +153,11 @@ public class Item : MonoBehaviour
     public void PlayNextBowlAnim()
     {
         PlayBowlAnim("Next");
+    }
+    public void PlayOilInSound()
+    {
+        if (Ply_SoundManager.Ins == null) return;
+
+        Ply_SoundManager.Ins.PlayFx(FxType.OilIn);
     }
 }

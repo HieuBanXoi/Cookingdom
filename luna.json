@@ -1,8 +1,8 @@
 {
     "version": "7.1.0",
     "projectId": "8cfa86f1caa935a41ac1489c608212f7",
-    "applicationID": 0,
-    "creativeName": "",
+    "applicationID": 27404,
+    "creativeName": "PLY_Cookingdom_Lv103",
     "pgServer": "EU",
     "window": {
         "‐⁙": true
@@ -625,10 +625,6 @@
                 "excluded": true
             },
             {
-                "name": "System.IO.TextReader",
-                "excluded": true
-            },
-            {
                 "name": "System.IO.StreamReader",
                 "excluded": true
             },
@@ -645,15 +641,7 @@
                 "excluded": true
             },
             {
-                "name": "System.IO.StringReader",
-                "excluded": true
-            },
-            {
                 "name": "System.IO.StringWriter",
-                "excluded": true
-            },
-            {
-                "name": "System.IO.TextReader.NullTextReader",
                 "excluded": true
             },
             {
@@ -798,10 +786,6 @@
             },
             {
                 "name": "System.FileNotFoundException",
-                "excluded": true
-            },
-            {
-                "name": "System.IO.Path",
                 "excluded": true
             },
             {
@@ -1741,10 +1725,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.Random",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.RangeAttribute",
                 "excluded": true
             },
@@ -2281,10 +2261,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.MeshFilter",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.ParticleSystem",
                 "excluded": true
             },
@@ -2362,10 +2338,6 @@
             },
             {
                 "name": "UnityEngine.LineRenderer",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.MeshRenderer",
                 "excluded": true
             },
             {
@@ -4786,7 +4758,7 @@
             },
             {
                 "name": "UnityEngine.Rendering.CompareFunction",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.Rendering.ComputeQueueType",
@@ -5422,7 +5394,7 @@
             },
             {
                 "name": "UnityEngine.TextureFormat",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.TextureImporterAlphaSource",
@@ -7193,10 +7165,6 @@
                 "excluded": true
             },
             {
-                "name": "DG.Tweening.Core.Extensions",
-                "excluded": true
-            },
-            {
                 "name": "DG.Tweening.DOCurve.CubicBezier",
                 "excluded": true
             },
@@ -7206,10 +7174,6 @@
             },
             {
                 "name": "DG.Tweening.Plugins.Core.PathCore.ControlPoint",
-                "excluded": true
-            },
-            {
-                "name": "DG.Tweening.Plugins.Core.SpecialPluginsUtils",
                 "excluded": true
             },
             {
@@ -7269,10 +7233,6 @@
                 "excluded": true
             },
             {
-                "name": "DG.Tweening.Plugins.Vector3ArrayPlugin",
-                "excluded": true
-            },
-            {
                 "name": "DG.Tweening.Plugins.Vector4Plugin",
                 "excluded": true
             },
@@ -7282,10 +7242,6 @@
             },
             {
                 "name": "DG.Tweening.Plugins.Color2Plugin",
-                "excluded": true
-            },
-            {
-                "name": "DG.Tweening.Plugins.ColorPlugin",
                 "excluded": true
             },
             {
@@ -7450,7 +7406,7 @@
             },
             {
                 "name": "DG.Tweening.ShakeRandomnessMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "DG.Tweening.SpiralMode",
@@ -7501,10 +7457,6 @@
                 "excluded": true
             },
             {
-                "name": "DG.Tweening.DOTweenModuleSprite",
-                "excluded": true
-            },
-            {
                 "name": "DG.Tweening.DOTweenModuleUI",
                 "excluded": true
             },
@@ -7525,19 +7477,11 @@
                 "excluded": true
             },
             {
-                "name": "ToolObject",
-                "excluded": true
-            },
-            {
                 "name": "MergeEffect",
                 "excluded": true
             },
             {
                 "name": "ProgressBar",
-                "excluded": true
-            },
-            {
-                "name": "SinkBlock",
                 "excluded": true
             },
             {
@@ -7550,14 +7494,6 @@
             },
             {
                 "name": "ItemFlyIn",
-                "excluded": true
-            },
-            {
-                "name": "Plate",
-                "excluded": true
-            },
-            {
-                "name": "Spoon",
                 "excluded": true
             },
             {
@@ -8563,6 +8499,370 @@
             {
                 "name": "DG.Tweening.Plugins.Core.ITPlugin$4",
                 "excluded": false
+            },
+            {
+                "name": "Spine.IInterpolation",
+                "excluded": true
+            },
+            {
+                "name": "Spine.PointAttachment",
+                "excluded": true
+            },
+            {
+                "name": "Spine.SkeletonBinary",
+                "excluded": true
+            },
+            {
+                "name": "Spine.UnityColor",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Pow",
+                "excluded": true
+            },
+            {
+                "name": "Spine.PowOut",
+                "excluded": true
+            },
+            {
+                "name": "Spine.AttachmentLoader",
+                "excluded": false
+            },
+            {
+                "name": "Spine.Format",
+                "excluded": true
+            },
+            {
+                "name": "Spine.IBoneTimeline",
+                "excluded": true
+            },
+            {
+                "name": "Spine.IHasRendererObject",
+                "excluded": false
+            },
+            {
+                "name": "Spine.IHasTextureRegion",
+                "excluded": true
+            },
+            {
+                "name": "Spine.ISlotTimeline",
+                "excluded": true
+            },
+            {
+                "name": "Spine.IUpdatable",
+                "excluded": false
+            },
+            {
+                "name": "Spine.TextureLoader",
+                "excluded": false
+            },
+            {
+                "name": "Spine.BoneMatrix",
+                "excluded": true
+            },
+            {
+                "name": "Spine.SpineSkeletonExtensions",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.ActivateBasedOnFlipDirection",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.AnimationTools.TimelineExtensions",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.AttachmentTools.AttachmentCloneExtensions",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.AttachmentTools.AttachmentRegionExtensions",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.BlendModeMaterialsAsset.AtlasMaterialCache",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.BoneFollower",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.BoneFollowerGraphic",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.BoundingBoxFollower",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.BoundingBoxFollowerGraphic",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.EventDataReferenceAsset",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.ISpineComponentExtensions",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.MeshGeneratorBuffers",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.NoOpTextureLoader",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.RegionlessAttachmentLoader",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonDataCompatibility.CompatibilityProblemInfo",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonExtensions",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonGraphicCustomMaterials",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonMecanim.MecanimTranslator",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonMecanim.MecanimTranslator.AnimationClipEqualityComparer",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonMecanim.MecanimTranslator.ClipInfos",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonMecanim.MecanimTranslator.IntEqualityComparer",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonRootMotionBase",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonPartsRenderer",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonRendererCustomMaterials",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonRenderSeparator",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonRootMotionBase.RootMotionInfo",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonSubmeshGraphic",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonUtility",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonUtilityBone",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonUtilityConstraint",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SpineAttributeBase",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SpineAtlasRegion",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SpineAttachment.Hierarchy",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.WaitForSpineEvent",
+                "excluded": true
+            },
+            {
+                "name": "SpineSlotDebugger",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.BlendModeMaterialsAsset",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonMecanimRootMotion",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonRootMotion",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SpineAnimation",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SpineAttachment",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SpineBone",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SpineEvent",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SpineIkConstraint",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SpinePathConstraint",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SpineSkin",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SpineSlot",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SpineSpriteAtlasAsset",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SpineTransformConstraint",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.AnimationReferenceAsset",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.PointFollower",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonGraphic",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonMecanim",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.ISpineComponent",
+                "excluded": false
+            },
+            {
+                "name": "Spine.Unity.AtlasAssetBase",
+                "excluded": false
+            },
+            {
+                "name": "Spine.Unity.BlendModeMaterials.ReplacementMaterial",
+                "excluded": false
+            },
+            {
+                "name": "Spine.Unity.SkeletonDataModifierAsset",
+                "excluded": false
+            },
+            {
+                "name": "Spine.Unity.BoneFollower.AxisOrientation",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonDataCompatibility",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonDataCompatibility.SourceType",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonDataCompatibility.VersionInfo",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonMecanim.MecanimTranslator.MixMode",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonUtilityBone.Mode",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SkeletonUtilityBone.UpdatePhase",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.SpineSpriteAtlasAsset.SavedRegionInfo",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.UpdateMode",
+                "excluded": false
+            },
+            {
+                "name": "SpineSlotDebugger.BakedSlotType",
+                "excluded": true
+            },
+            {
+                "name": "SpineSlotDebugger.BakedVisibleSlot",
+                "excluded": true
+            },
+            {
+                "name": "SpineSlotDebugger.OverrideMode",
+                "excluded": true
+            },
+            {
+                "name": "SpineSlotDebugger.SlotAttachmentOverride",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.IHasSkeletonDataAsset",
+                "excluded": false
+            },
+            {
+                "name": "Spine.Unity.IAnimationStateComponent",
+                "excluded": false
+            },
+            {
+                "name": "Spine.Unity.IHasSkeletonComponent",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.IHasSkeletonRenderer",
+                "excluded": true
+            },
+            {
+                "name": "Spine.Unity.ISkeletonAnimation",
+                "excluded": false
+            },
+            {
+                "name": "Spine.Unity.ISkeletonComponent",
+                "excluded": false
             }
         ],
         "unusedMethods": [
@@ -9046,7 +9346,7 @@
                     },
                     {
                         "name": "tryParseInt",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "parseIntStyles",
@@ -9090,7 +9390,7 @@
                     },
                     {
                         "name": "clipu8",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "clip16",
@@ -14364,7 +14664,7 @@
                     },
                     {
                         "name": "Sample",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "InternalSample",
@@ -14388,7 +14688,7 @@
                     },
                     {
                         "name": "NextDouble",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "NextBytes",
@@ -15360,7 +15660,7 @@
                     },
                     {
                         "name": "LinearToGammaSpace",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "MoveTowardsAngle",
@@ -16722,7 +17022,7 @@
                 "instanceMethods": [
                     {
                         "name": "text#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "bytes#get",
@@ -16850,7 +17150,7 @@
                     },
                     {
                         "name": "name#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "name#set",
@@ -17194,7 +17494,7 @@
                     },
                     {
                         "name": "IsChildOf",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "InverseTransformPoint",
@@ -17662,7 +17962,7 @@
                     },
                     {
                         "name": "fieldOfView#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "fieldOfView#set",
@@ -18108,7 +18408,7 @@
                     },
                     {
                         "name": "sharedMaterials#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "localToWorldMatrix#get",
@@ -18192,7 +18492,7 @@
                     },
                     {
                         "name": "lightProbeUsage#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "reflectionProbeUsage#get",
@@ -18200,7 +18500,7 @@
                     },
                     {
                         "name": "reflectionProbeUsage#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "init",
@@ -18596,7 +18896,7 @@
                     },
                     {
                         "name": "color#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "color#set",
@@ -19292,7 +19592,7 @@
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnCanvasChanged",
@@ -19362,7 +19662,7 @@
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnTransformParentChanged",
@@ -19572,7 +19872,7 @@
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ConfigureForEntity",
@@ -20984,7 +21284,7 @@
                     },
                     {
                         "name": "ResizeInternalArray",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ResizeInternalArray$1",
@@ -22392,15 +22692,15 @@
                 "instanceMethods": [
                     {
                         "name": "getDefaultValue",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ctor",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Reset",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "getHashCode",
@@ -22412,7 +22712,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -22510,7 +22810,7 @@
                     },
                     {
                         "name": "DOStartupSpecials",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DOStartupDurationBased",
@@ -22554,15 +22854,15 @@
                 "instanceMethods": [
                     {
                         "name": "getDefaultValue",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ctor",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Reset",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "getHashCode",
@@ -22574,7 +22874,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -22825,38 +23125,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "TryShowEndPhaseConditionHandTut",
-                        "excluded": false
-                    },
-                    {
-                        "name": "TryShowInWaterHandTut",
-                        "excluded": false
-                    },
-                    {
-                        "name": "TryShowInitialSinkHandTut",
-                        "excluded": false
-                    },
-                    {
-                        "name": "GetProcessingInWaterItem",
-                        "excluded": false
-                    },
-                    {
-                        "name": "GetReadyDraggableInWaterItem",
-                        "excluded": false
-                    },
-                    {
-                        "name": "TryPlayDraggableHint",
-                        "excluded": false
-                    },
-                    {
-                        "name": "GetProcessingItem",
-                        "excluded": false
-                    },
-                    {
-                        "name": "GetFirstNotDoneItem",
-                        "excluded": false
-                    },
-                    {
                         "name": "IsClickableReady",
                         "excluded": false
                     },
@@ -22897,10 +23165,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "RemoveDoneAndNullInWaterItems",
-                        "excluded": false
-                    },
-                    {
                         "name": "ItemDone",
                         "excluded": false
                     },
@@ -22911,6 +23175,38 @@
                     {
                         "name": "ItemDone$1",
                         "excluded": true
+                    },
+                    {
+                        "name": "GetFirstTutorialReadyItem",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CanShowTutorialForItem",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OilDone",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StartStoveToggleTutorial",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StoveToggleDone",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CacheNoDelayItems",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ShouldSkipDelayForCurrentItem",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StartHandTut",
+                        "excluded": false
                     }
                 ]
             },
@@ -22940,6 +23236,22 @@
                     },
                     {
                         "name": "HandleMouseUp",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetClosestInteractableItem",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CanInteract",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TryHandleCapybara",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TryHandleToggleButton",
                         "excluded": false
                     }
                 ]
@@ -23191,6 +23503,38 @@
                     {
                         "name": "ActiveTutorialUI",
                         "excluded": false
+                    },
+                    {
+                        "name": "GetTargetOrthographicSize",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ApplyCameraScale",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CachePerspectiveCamera",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetInitialPerspectiveFocusDistance",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FitPerspectiveCameraToSize",
+                        "excluded": true
+                    },
+                    {
+                        "name": "TryGetRendererBounds",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EncapsulateRenderer",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FitPerspectiveCameraToBounds",
+                        "excluded": true
                     }
                 ]
             },
@@ -24604,7 +24948,7 @@
                     },
                     {
                         "name": "AddListener",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "RemoveListener",
@@ -24682,7 +25026,7 @@
                     },
                     {
                         "name": "mainTexture#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "mainTexture#set",
@@ -25000,7 +25344,7 @@
                     },
                     {
                         "name": "name#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "vertices#get",
@@ -25116,7 +25460,7 @@
                     },
                     {
                         "name": "subMeshCount#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "blendShapeCount#get",
@@ -25296,7 +25640,7 @@
                     },
                     {
                         "name": "SetTriangles$4",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "GetTriangles",
@@ -30118,7 +30462,7 @@
                     },
                     {
                         "name": "ToAlpha",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Punch",
@@ -30126,7 +30470,7 @@
                     },
                     {
                         "name": "Shake",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Shake$1",
@@ -30134,11 +30478,11 @@
                     },
                     {
                         "name": "Shake$2",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ToArray",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Sequence",
@@ -30356,7 +30700,7 @@
                     },
                     {
                         "name": "ChangeSprite",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "GetInPlate",
@@ -30383,24 +30727,28 @@
                         "excluded": false
                     },
                     {
-                        "name": "PlayCutSound",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PlaySliceSound",
-                        "excluded": false
-                    },
-                    {
                         "name": "OnDragFailReturnComplete",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "PlayMoveToTargetFinishSound",
                         "excluded": false
                     },
                     {
-                        "name": "PlayKnifeSound",
+                        "name": "TeleportToStart",
                         "excluded": true
+                    },
+                    {
+                        "name": "PlayBowlAnim",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayNextBowlAnim",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayOilInSound",
+                        "excluded": false
                     }
                 ]
             },
@@ -30500,6 +30848,10 @@
                     },
                     {
                         "name": "UnDraggable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TeleportToStart",
                         "excluded": false
                     }
                 ]
@@ -30754,7 +31106,7 @@
                     },
                     {
                         "name": "ExecuteMove3D",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "FinishAction",
@@ -30766,7 +31118,11 @@
                     },
                     {
                         "name": "SetDefaultTarget",
-                        "excluded": true
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetWorldScale",
+                        "excluded": false
                     }
                 ]
             },
@@ -30793,44 +31149,6 @@
                     {
                         "name": "$clone",
                         "excluded": true
-                    }
-                ]
-            },
-            {
-                "className": "Ply_TimerEvent",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "OnEnable",
-                        "excluded": false
-                    },
-                    {
-                        "name": "OnDisable",
-                        "excluded": false
-                    },
-                    {
-                        "name": "StartTimer",
-                        "excluded": false
-                    },
-                    {
-                        "name": "StartTimer$1",
-                        "excluded": false
-                    },
-                    {
-                        "name": "StopTimer",
-                        "excluded": false
-                    },
-                    {
-                        "name": "RestartTimer",
-                        "excluded": true
-                    },
-                    {
-                        "name": "CompleteTimer",
-                        "excluded": false
                     }
                 ]
             },
@@ -30872,10 +31190,6 @@
                     },
                     {
                         "name": "ApplyState$1",
-                        "excluded": false
-                    },
-                    {
-                        "name": "OnMouseDown",
                         "excluded": false
                     }
                 ]
@@ -30950,20 +31264,6 @@
                     },
                     {
                         "name": "TurnOffClickable",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ItemOnCuttingBoard",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "CuttingBoard",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "IsFoodOn",
                         "excluded": false
                     }
                 ]
@@ -31051,36 +31351,6 @@
                 ]
             },
             {
-                "className": "InWaterItem",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "StartTimer",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PlayAnim",
-                        "excluded": false
-                    },
-                    {
-                        "name": "MoveToWater",
-                        "excluded": false
-                    },
-                    {
-                        "name": "CheckLastPlate",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SpawnBlinkEffect",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
                 "className": "Knife",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -31098,10 +31368,6 @@
                     },
                     {
                         "name": "OnDragFailReturnComplete",
-                        "excluded": true
-                    },
-                    {
-                        "name": "PlayKnifeSound$1",
                         "excluded": true
                     }
                 ]
@@ -31174,10 +31440,6 @@
                     },
                     {
                         "name": "CheckEndPhaseCondition",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PlayWaterOutSound",
                         "excluded": false
                     }
                 ]
@@ -31434,7 +31696,7 @@
                     },
                     {
                         "name": "Raycast$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "RaycastAll",
@@ -31614,7 +31876,7 @@
                     },
                     {
                         "name": "RaycastInternal$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "RaycastInternal",
@@ -31926,7 +32188,7 @@
                     },
                     {
                         "name": "Vector3FromAngle",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Angle2D",
@@ -32268,7 +32530,7 @@
                     },
                     {
                         "name": "DOShakePosition$2",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DOShakePosition$3",
@@ -32376,7 +32638,7 @@
                     },
                     {
                         "name": "DOLocalMoveY",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DOLocalMoveZ",
@@ -32384,7 +32646,7 @@
                     },
                     {
                         "name": "DORotate",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DORotateQuaternion",
@@ -32874,7 +33136,7 @@
                     },
                     {
                         "name": "SetOptions$4",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetOptions$6",
@@ -32886,7 +33148,7 @@
                     },
                     {
                         "name": "SetOptions$11",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetOptions$10",
@@ -34074,7 +34336,7 @@
                     },
                     {
                         "name": "IsActive",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "IsBackwards",
@@ -34295,10 +34557,6 @@
                     {
                         "name": "Tick",
                         "excluded": false
-                    },
-                    {
-                        "name": "Tick\",this)}this.c$-=t;if(this.c$<=0){pc.Application.getApplication().events.off(\"update",
-                        "excluded": false
                     }
                 ]
             },
@@ -34465,6 +34723,3090 @@
                         "excluded": true
                     }
                 ]
+            },
+            {
+                "className": "Spine.AtlasRegion",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Clone",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.ExposedList$1",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Wrap",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CheckMatch",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Items#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Items#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Capacity#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Capacity#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "$ctor2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$ctor3",
+                        "excluded": false
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Add",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GrowIfNeeded",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Resize",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnsureCapacity",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CheckRange",
+                        "excluded": true
+                    },
+                    {
+                        "name": "AddCollection",
+                        "excluded": true
+                    },
+                    {
+                        "name": "AddEnumerable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "AddRange",
+                        "excluded": true
+                    },
+                    {
+                        "name": "AddRange$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "BinarySearch",
+                        "excluded": true
+                    },
+                    {
+                        "name": "BinarySearch$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "BinarySearch$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Clear",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Contains",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ConvertAll",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopyTo",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CopyTo$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopyTo$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Exists",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Find",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FindAll",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FindAllList",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FindIndex$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FindIndex$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FindIndex",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetIndex",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FindLast",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FindLastIndex$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FindLastIndex$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FindLastIndex",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetLastIndex",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ForEach",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetEnumerator",
+                        "excluded": true
+                    },
+                    {
+                        "name": "System$Collections$Generic$IEnumerable$1$GetEnumerator",
+                        "excluded": true
+                    },
+                    {
+                        "name": "System$Collections$IEnumerable$GetEnumerator",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetRange",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IndexOf",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IndexOf$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IndexOf$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Shift",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CheckIndex",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Insert",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CheckCollection",
+                        "excluded": true
+                    },
+                    {
+                        "name": "InsertRange",
+                        "excluded": true
+                    },
+                    {
+                        "name": "InsertCollection",
+                        "excluded": true
+                    },
+                    {
+                        "name": "InsertEnumeration",
+                        "excluded": true
+                    },
+                    {
+                        "name": "LastIndexOf",
+                        "excluded": true
+                    },
+                    {
+                        "name": "LastIndexOf$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "LastIndexOf$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Remove",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RemoveAll",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RemoveAt",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Pop",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RemoveRange",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Reverse",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Reverse$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Sort",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Sort$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Sort$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Sort$3",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ToArray",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TrimExcess",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TrueForAll",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.ExposedList$1.Enumerator",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "getDefaultValue",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Current#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "System$Collections$IEnumerator$Current#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Dispose",
+                        "excluded": true
+                    },
+                    {
+                        "name": "VerifyState",
+                        "excluded": true
+                    },
+                    {
+                        "name": "moveNext",
+                        "excluded": true
+                    },
+                    {
+                        "name": "System$Collections$IEnumerator$reset",
+                        "excluded": true
+                    },
+                    {
+                        "name": "getHashCode",
+                        "excluded": true
+                    },
+                    {
+                        "name": "equals",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$clone",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Ref$1",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Value#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Value#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "v#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "v#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.AttachmentTools.AtlasUtilities",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ToAtlasRegion$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ToAtlasRegion$3",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ToAtlasRegion",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ToAtlasRegion$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ToAtlasRegion$4",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ToAtlasRegionPMAClone$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ToAtlasRegionPMAClone$3",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ToAtlasRegionPMAClone",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ToAtlasRegionPMAClone$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ToSpineAtlasPage",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetRepackedAttachments",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetRepackedAttachments$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetRepackedSkin",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetRepackedSkin$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ToSprite",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ClearCache",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ToTexture",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ToTexture$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetClone",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopyTexture",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopyTextureApplyPMA",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IsRenderable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SpineUnityFlipRect",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetUnityRect",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetUnityRect$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetSpineAtlasRect",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UVRectToTextureRect",
+                        "excluded": true
+                    },
+                    {
+                        "name": "TextureRectToUVRect",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UVRectToAtlasRegion",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetMainTexture",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTexture$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTexture",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopyTextureAttributesFrom",
+                        "excluded": true
+                    },
+                    {
+                        "name": "InverseLerp",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.AttachmentTools.AtlasUtilities.IntAndAtlasRegionKey",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "getDefaultValue",
+                        "excluded": false
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "getHashCode",
+                        "excluded": true
+                    },
+                    {
+                        "name": "equals",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$clone",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.DoubleBuffered$1",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetCurrent",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetNext",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.SkeletonGraphicCustomMaterials.AtlasMaterialOverride",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "inherits",
+                        "excluded": false
+                    },
+                    {
+                        "name": "getDefaultValue",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "equalsT",
+                        "excluded": true
+                    },
+                    {
+                        "name": "getHashCode",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$clone",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.SkeletonGraphicCustomMaterials.AtlasTextureOverride",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "inherits",
+                        "excluded": false
+                    },
+                    {
+                        "name": "getDefaultValue",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "equalsT",
+                        "excluded": true
+                    },
+                    {
+                        "name": "getHashCode",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$clone",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.SkeletonRendererCustomMaterials.AtlasMaterialOverride",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "inherits",
+                        "excluded": false
+                    },
+                    {
+                        "name": "getDefaultValue",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "equalsT",
+                        "excluded": true
+                    },
+                    {
+                        "name": "getHashCode",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$clone",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.SkeletonRendererCustomMaterials.SlotMaterialOverride",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "inherits",
+                        "excluded": false
+                    },
+                    {
+                        "name": "getDefaultValue",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "equalsT",
+                        "excluded": true
+                    },
+                    {
+                        "name": "getHashCode",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$clone",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "System.IO.TextReader",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Synchronized",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Close",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Dispose",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Dispose$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Peek",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Read",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Read$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ReadToEndAsync",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ReadToEnd",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ReadBlock",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ReadLine",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "System.IO.StringReader",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Close",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Dispose$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Peek",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Read",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Read$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ReadToEnd",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ReadLine",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "System.IO.TextReader.NullTextReader",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Read$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ReadLine",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "System.IO.Path",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Combine",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetFileNameWithoutExtension",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetDirectoryName",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetExtension",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.MeshFilter",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "mesh#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "mesh#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sharedMesh#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sharedMesh#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UpdateMeshInHandle",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.MeshRenderer",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDidApplyAnimationProperties",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "DG.Tweening.Plugins.ColorPlugin",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Reset",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetFrom$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetFrom",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ConvertToStartValue",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetRelativeEndValue",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetChangeValue",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetSpeedBasedDuration",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EvaluateAndApply",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Animation",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Timelines#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Timelines#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "toString",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.AnimationState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Tracks#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "addStart",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeStart",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addInterrupt",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeInterrupt",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addEnd",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeEnd",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addDispose",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeDispose",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addComplete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeComplete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addEvent",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeEvent",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ApplyEventTimelinesOnly",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetListener",
+                        "excluded": true
+                    },
+                    {
+                        "name": "toString",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.AnimationStateAdapter",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "addStart",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeStart",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addInterrupt",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeInterrupt",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addEnd",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeEnd",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addDispose",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeDispose",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addComplete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeComplete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addEvent",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeEvent",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.AtlasPage",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Clone",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Bone",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Children#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "WorldToLocal",
+                        "excluded": true
+                    },
+                    {
+                        "name": "LocalToWorld",
+                        "excluded": true
+                    },
+                    {
+                        "name": "toString",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.MathUtils",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Sin",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Cos",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SinDeg",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CosDeg",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Atan2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Clamp",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Skeleton",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Slots#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "DrawOrder#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PathConstraints#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "TransformConstraints#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IkConstraints#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FlipX#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FlipX#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FlipY#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FlipY#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetBounds",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.SkeletonClipping",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ClippedTriangles#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ClippedVertices#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ClippedUVs#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ClipTriangles",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.SkeletonData",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Bones#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Bones#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Slots#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Slots#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Skins#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Skins#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Events#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Events#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Animations#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Animations#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IkConstraints#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PathConstraints#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "TransformConstraints#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "toString",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.SkeletonJson",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ReadSkeletonData",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Skin",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Bones#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Constraints#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Attachments#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "toString",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Slot",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Deform#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Deform#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "HasSecondColor#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ClampColor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ClampSecondColor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "toString",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.SlotData",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "toString",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.TrackEntry",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "addEvent",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeEvent",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addStart",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeStart",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addInterrupt",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeInterrupt",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addEnd",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeEnd",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addDispose",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeDispose",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addComplete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeComplete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetListener",
+                        "excluded": true
+                    },
+                    {
+                        "name": "toString",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.TransformConstraintData",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Bones#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Bones#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Atlas",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ReadEntry",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CombinePath",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Pages#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Regions#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetEnumerator",
+                        "excluded": true
+                    },
+                    {
+                        "name": "System$Collections$IEnumerable$GetEnumerator",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FlipV",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Spine.AtlasAttachmentLoader",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "newBoundingBoxAttachment",
+                        "excluded": true
+                    },
+                    {
+                        "name": "newPathAttachment",
+                        "excluded": true
+                    },
+                    {
+                        "name": "newPointAttachment",
+                        "excluded": true
+                    },
+                    {
+                        "name": "newClippingAttachment",
+                        "excluded": true
+                    },
+                    {
+                        "name": "findRegion",
+                        "excluded": false
+                    },
+                    {
+                        "name": "loadSequence",
+                        "excluded": true
+                    },
+                    {
+                        "name": "newRegionAttachment",
+                        "excluded": false
+                    },
+                    {
+                        "name": "newMeshAttachment",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Spine.MeshAttachment",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "RegionOriginalHeight#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionOriginalHeight#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionOriginalWidth#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionOriginalWidth#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionHeight#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionHeight#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionWidth#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionWidth#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionOffsetY#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionOffsetY#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionOffsetX#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionOffsetX#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionU#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionU#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionV#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionV#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionU2#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionU2#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionV2#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionV2#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionDegrees#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionDegrees#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "updateUVs",
+                        "excluded": false
+                    },
+                    {
+                        "name": "copy",
+                        "excluded": true
+                    },
+                    {
+                        "name": "newLinkedMesh",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.RegionAttachment",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionOriginalHeight#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionOriginalHeight#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionOriginalWidth#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionOriginalWidth#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionHeight#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionHeight#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionWidth#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionWidth#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionOffsetY#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionOffsetY#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionOffsetX#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegionOffsetX#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "updateOffset",
+                        "excluded": false
+                    },
+                    {
+                        "name": "setRegion",
+                        "excluded": true
+                    },
+                    {
+                        "name": "setUVs",
+                        "excluded": false
+                    },
+                    {
+                        "name": "computeWorldVertices",
+                        "excluded": false
+                    },
+                    {
+                        "name": "copy",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.TransformConstraint",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Bones#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "toString",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Capybara",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ClickCapybara",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ShowFirstPopup",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ShowSecondPopup",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CapyDone",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SpawnHeart",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ShowCurrentPopup",
+                        "excluded": false
+                    },
+                    {
+                        "name": "HidePopup",
+                        "excluded": false
+                    },
+                    {
+                        "name": "HidePopupImmediately",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDestroy",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "HideFirstPopup",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlaySkinChange",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetSkin",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DG.Tweening.DOTweenModuleSprite",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "DOColor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "DOFade",
+                        "excluded": false
+                    },
+                    {
+                        "name": "DOGradientColor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "DOBlendableColor",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "SortChildByZPos",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SortChildrenByZPosition",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.BlendModeMaterials",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "RequiresBlendModeMaterials#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RequiresBlendModeMaterials#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "BlendModeForMaterial",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ApplyMaterials",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CloneAtlasRegionWithMaterial",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.MaterialsTextureLoader",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Load",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Unload",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.MeshGenerator",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GenerateSingleSubmeshInstruction",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RequiresMultipleSubmeshesByDrawOrder",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GenerateSkeletonRendererInstruction",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TryReplaceMaterials",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SolveTangents2DEnsureSize",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SolveTangents2DTriangles",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SolveTangents2DBuffer",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FillMeshLocal$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FillMeshLocal",
+                        "excluded": true
+                    },
+                    {
+                        "name": "VertexCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Buffers#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SubmeshIndexCount",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Begin",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AddSubmesh",
+                        "excluded": true
+                    },
+                    {
+                        "name": "BuildMesh",
+                        "excluded": true
+                    },
+                    {
+                        "name": "BuildMeshWithArrays",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ScaleVertexData",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetMeshBounds",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AddAttachmentTintBlack",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FillVertexData",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FillLateVertexData",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FillTriangles",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnsureVertexCapacity",
+                        "excluded": true
+                    },
+                    {
+                        "name": "TrimExcess",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.MeshGenerator.Settings",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Default#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "getDefaultValue",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "getHashCode",
+                        "excluded": true
+                    },
+                    {
+                        "name": "equals",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$clone",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.MeshRendererBuffers",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Initialize",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetUpdatedSharedMaterialsArray",
+                        "excluded": false
+                    },
+                    {
+                        "name": "MaterialsChangedInLastUpdate",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UpdateSharedMaterials",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetNextMesh",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Clear",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Dispose",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.MeshRendererBuffers.SmartMesh",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Clear",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Dispose",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.SkeletonDataAsset",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "CreateRuntimeInstance",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CreateRuntimeInstance$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ReadSkeletonData",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ReadSkeletonData$1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "IsLoaded#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Reset",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Clear",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetAnimationStateData",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetSkeletonData",
+                        "excluded": false
+                    },
+                    {
+                        "name": "InitializeWithData",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FillStateData",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetAtlasArray",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.SkeletonRenderer.SpriteMaskInteractionMaterials",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "AnyMaterialCreated#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.SkeletonRendererInstruction",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "GeometryNotEqual",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Clear",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Dispose",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetWithSubset",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Set",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.SpineMesh",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "NewSkeletonMesh",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.SubmeshInstruction",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "getDefaultValue",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SlotCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "toString",
+                        "excluded": true
+                    },
+                    {
+                        "name": "getHashCode",
+                        "excluded": true
+                    },
+                    {
+                        "name": "equals",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$clone",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Bowl",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AddCarrot",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AddCucumber",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CanCakeIn",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AddOneCake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnableSpoonIfReady",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Done",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TriggerNextAfterDone",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SpawnCapybaraHeartAfterDone",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FinishBowlAfterDone",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ShowCapybaraDonePopupAndLose",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayCapybaraDoneSequence",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnCapybaraDanceComplete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "TrySetCapybaraAnimation",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayCapybaraSkinChange",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetCapybaraSkin",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayIntro",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayIntro$1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ShowNewBowl",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnableAnimator",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Cake",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Fry",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StartFry",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ResumeFrying",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PauseFrying",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ResetFrying",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CacheSpriteColor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetSpriteAlpha",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CacheItemDraggable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegisterDragEvents",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CacheFryShakeTarget",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayFryShake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StopFryShake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StopFryShakeByDrag",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDragFailReturnComplete",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDestroy",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SpawnStarExploreFX",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "ToolObject",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "FlyIn",
+                        "excluded": true
+                    },
+                    {
+                        "name": "MoveToTarget",
+                        "excluded": true
+                    },
+                    {
+                        "name": "MoveAndCallBack$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "MoveAndCallBack",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CallBackAfterMove",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FlyOut",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Pan",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AddOil",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TurnOnStove",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TurnOffStove",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CanCakeIn",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CanFryCake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TurnOnFX",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChangeCakeState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StartNextCakeFry",
+                        "excluded": true
+                    },
+                    {
+                        "name": "StartFryCake$1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StartFryCake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StartFryCakeFromPlate",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ChangeCakeFryingState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnableCakePlateAnimatorIfEmpty",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RemoveCakeFromPlateAt",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RemoveCakeFromPlate",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CacheCakePlateSlots",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UpdateFryingSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayFryingSoundLoop",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StopFryingSoundLoop",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnDestroy",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.SpineAtlasAsset",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "CreateRuntimeInstance",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CreateRuntimeInstance$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CreateRuntimeInstance$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IsLoaded#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Materials#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "MaterialCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PrimaryMaterial#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Reset",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Clear",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetAtlas",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GenerateMesh",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "StarExploreFX",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "DeSpawnByTime",
+                        "excluded": false
+                    },
+                    {
+                        "name": "DeSpawn",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Plate",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "FlyIn",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FlyOut$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FlyOut$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SpawnFX",
+                        "excluded": true
+                    },
+                    {
+                        "name": "DoneAnimation",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.SkeletonRenderer",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "NewSpineGameObject",
+                        "excluded": true
+                    },
+                    {
+                        "name": "AddSpineComponent",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateMode#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateMode#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CustomMaterialOverride#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CustomSlotMaterials#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Skeleton#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SkeletonDataAsset#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addGenerateMeshOverride",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeGenerateMeshOverride",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetMeshSettings",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnDestroy",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ClearState",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EnsureMeshGeneratorCapacity",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Initialize",
+                        "excluded": false
+                    },
+                    {
+                        "name": "LateUpdate",
+                        "excluded": false
+                    },
+                    {
+                        "name": "LateUpdateMesh",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnBecameVisible",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnBecameInvisible",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FindAndApplySeparatorSlots$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FindAndApplySeparatorSlots",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ReapplySeparatorSlotNames",
+                        "excluded": true
+                    },
+                    {
+                        "name": "AssignSpriteMaskMaterials",
+                        "excluded": false
+                    },
+                    {
+                        "name": "InitSpriteMaskMaterialsInsideMask",
+                        "excluded": true
+                    },
+                    {
+                        "name": "InitSpriteMaskMaterialsOutsideMask",
+                        "excluded": true
+                    },
+                    {
+                        "name": "InitSpriteMaskMaterialsForMaskType",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetMaterialSettingsToFixDrawOrder",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spine.Unity.SkeletonAnimation",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "AddToGameObject",
+                        "excluded": true
+                    },
+                    {
+                        "name": "NewSkeletonAnimationGameObject",
+                        "excluded": true
+                    },
+                    {
+                        "name": "AnimationState#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AnimationName#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "AnimationName#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "addBeforeApply",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeBeforeApply",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addUpdateLocal",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeUpdateLocal",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addUpdateWorld",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeUpdateWorld",
+                        "excluded": true
+                    },
+                    {
+                        "name": "addUpdateComplete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "removeUpdateComplete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ClearState",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Initialize",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update$1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UpdateAnimationStatus",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ApplyAnimation",
+                        "excluded": false
+                    },
+                    {
+                        "name": "LateUpdate",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnBecameVisible",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Spoon",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CanUseSpoon$1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CanUseSpoon",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CannotUseSpoon",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegisterDragEvents",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnBeginDragSpoon",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDropSuccessSpoon",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDropFailSpoon",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TryFillSpoonFromTahini",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetSpoonFull",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetSpoonEmpty",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDestroy",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.Random",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "value#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "onUnitSphere#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "insideUnitSphere#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "state#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "state#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "insideUnitCircle#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "rotation#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SpherePoint",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Range$1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Range",
+                        "excluded": true
+                    },
+                    {
+                        "name": "InitState",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "DG.Tweening.Core.Extensions",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "SetSpecialStartupMode",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Blendable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "NoFrom",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DG.Tweening.Plugins.Core.SpecialPluginsUtils",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "SetLookAt",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetPunch",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetShake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetCameraShakePosition",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "DG.Tweening.Plugins.Vector3ArrayPlugin",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Reset",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetFrom$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetFrom",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ConvertToStartValue",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetRelativeEndValue",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetChangeValue",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetSpeedBasedDuration",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EvaluateAndApply",
+                        "excluded": false
+                    }
+                ]
             }
         ],
         "stubberDataList": [],
@@ -34562,6 +37904,66 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/Assets/UsingAsset/bg 1.png"
+                    },
+                    {
+                        "maxWidth": 512,
+                        "maxHeight": 512,
+                        "format": "png32",
+                        "compression": "none",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_GamePlay_/Font/LilitaOne-Regular SDF.asset"
+                    },
+                    {
+                        "maxWidth": 512,
+                        "maxHeight": 512,
+                        "format": "png32",
+                        "compression": "none",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_GamePlay_/Font/LilitaOne-Regular SDF 1.asset"
+                    },
+                    {
+                        "maxWidth": 2048,
+                        "maxHeight": 2048,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/Falafel Tahini/Asset/Main.spriteatlasv2"
+                    },
+                    {
+                        "maxWidth": 2048,
+                        "maxHeight": 2048,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/Falafel Tahini/Asset/anim-capi-mini/capi-mini.png"
+                    },
+                    {
+                        "maxWidth": 2048,
+                        "maxHeight": 2048,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/Falafel Tahini/Asset/Fix bß╗ò sung/BG/bg.png"
+                    },
+                    {
+                        "maxWidth": 1024,
+                        "maxHeight": 1024,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/Falafel Tahini/Asset/Fix bß╗ò sung/BG/TABLE.png"
                     }
                 ]
             },
@@ -34595,6 +37997,16 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_GamePlay_/Sound/sfx_bgm_play_4.ogg"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:29.113",
+                        "lengthInSeconds": 29.113000869750978,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/Falafel Tahini/Sound/frying-steak-74556.mp3"
                     }
                 ]
             },

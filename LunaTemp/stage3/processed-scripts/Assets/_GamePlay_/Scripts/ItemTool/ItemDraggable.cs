@@ -64,25 +64,26 @@ public class ItemDraggable : MonoBehaviour
 
     public void ReturnToStart()
     {
-        Transform target = returnTransform != null ? returnTransform : null;
         Tween returnTween = null;
+
+        transform.DOKill();
 
         if (bobEffect != null && bobEffect.isActiveAndEnabled)
         {
             bobEffect.Stop(false);
         }
 
-        if (target != null)
+        if (returnTransform != null)
         {
             if (setParentToReturnTransform)
             {
-                transform.SetParent(target);
+                transform.SetParent(returnTransform);
                 Vector3 localTargetPos = returnToExactReturnTransformPosition ? Vector3.zero : new Vector3(0, 0, originalLocalPos.z);
                 returnTween = transform.DOLocalMove(localTargetPos, 0.3f).SetEase(Ease.OutBack);
             }
             else
             {
-                Vector3 targetPos = returnToExactReturnTransformPosition ? target.position : new Vector3(target.position.x, target.position.y, originalZ);
+                Vector3 targetPos = returnToExactReturnTransformPosition ? returnTransform.position : new Vector3(returnTransform.position.x, returnTransform.position.y, originalZ);
                 returnTween = transform.DOMove(targetPos, 0.3f).SetEase(Ease.OutBack);
             }
         }
@@ -99,6 +100,51 @@ public class ItemDraggable : MonoBehaviour
         }
 
         returnTween?.OnComplete(OnReturnToStartComplete);
+    }
+
+    public void TeleportToStart()
+    {
+        transform.DOKill();
+
+        if (bobEffect != null && bobEffect.isActiveAndEnabled)
+        {
+            bobEffect.Stop(false);
+        }
+
+        ResetScale();
+
+        if (myRenderer != null)
+        {
+            myRenderer.sortingOrder = originalSortingOrder;
+        }
+
+        SetShadowActive(shadowDefaultActive);
+
+        if (returnTransform != null)
+        {
+            if (setParentToReturnTransform)
+            {
+                transform.SetParent(returnTransform);
+                transform.localPosition = returnToExactReturnTransformPosition ? Vector3.zero : new Vector3(0, 0, originalLocalPos.z);
+            }
+            else
+            {
+                transform.position = returnToExactReturnTransformPosition ? returnTransform.position : new Vector3(returnTransform.position.x, returnTransform.position.y, originalZ);
+            }
+        }
+        else if (originalParent != null)
+        {
+            transform.SetParent(originalParent);
+            transform.localPosition = originalLocalPos;
+        }
+        else
+        {
+            Vector3 targetPos = transform.position;
+            targetPos.z = originalZ;
+            transform.position = targetPos;
+        }
+
+        PlayBobEffectIfEnabled();
     }
 
     public void BeginDrag()

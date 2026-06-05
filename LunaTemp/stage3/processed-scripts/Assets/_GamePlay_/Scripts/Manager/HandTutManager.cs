@@ -9,13 +9,11 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     public Transform knife;
     public GameObject handTutObject;
     public GameObject tapToCookObject;
+    public Item oilItem;
+    public Ply_ToggleEvent stoveToggleEvent;
+    public int noDelayItemCount = 3;
+    public bool waitForBowlIntro = true;
 
-    [Header("--- IN WATER TUTORIAL ---")]
-    public List<InWaterItem> inWaterItems = new List<InWaterItem>();
-    public Sink sink;
-    public ItemDraggable napBonNgoai;
-    public ItemDraggable napBonTrong;
-    public Ply_ToggleEvent waterToggle;
 
     [Header("--- TIMING ---")]
     public float idleDelay = 5f;
@@ -31,10 +29,14 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     private float idleTimer;
     private Vector3 defaultHandScale = Vector3.one;
     private Sequence handSequence;
-    private bool isWaitingEndPhaseCondition;
-    private bool isInitialSinkTutorialActive = true;
     private bool isWaitingTapToCook;
     private bool ignoreInputUntilRelease;
+    private bool isWaitingStoveToggle;
+    private bool hasCompletedStoveToggle;
+    private bool showHandTutAfterRelease;
+    private bool hasStartedHandTut;
+    private bool hasHiddenTapToCook;
+    private readonly List<Item> noDelayItems = new List<Item>();
 
     public bool ShouldBlockGameplayInput => isWaitingTapToCook || ignoreInputUntilRelease;
 
@@ -52,13 +54,26 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     private void Start()
     {
         RemoveDoneAndNullItems();
-        RemoveDoneAndNullInWaterItems();
-        isWaitingTapToCook = tapToCookObject != null && tapToCookObject.activeInHierarchy;
+        CacheNoDelayItems();
+        isWaitingTapToCook = false;
+        hasStartedHandTut = !waitForBowlIntro;
+        if (tapToCookObject != null)
+        {
+            tapToCookObject.SetActive(true);
+        }
     }
 
     private void Update()
     {
         if (handTutObject == null) return;
+
+        if (!hasHiddenTapToCook && tapToCookObject != null && tapToCookObject.activeInHierarchy && HasPlayerInputDown())
+        {
+            hasHiddenTapToCook = true;
+            tapToCookObject.SetActive(false);
+        }
+
+        if (!hasStartedHandTut) return;
 
         if (isWaitingTapToCook)
         {
@@ -75,6 +90,12 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
             if (HasPlayerInput()) return;
 
             ignoreInputUntilRelease = false;
+            if (showHandTutAfterRelease)
+            {
+                showHandTutAfterRelease = false;
+                ShowNextHandTut();
+                return;
+            }
         }
 
         if (HasPlayerInput())
@@ -91,16 +112,8 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         }
 
         idleTimer += Time.deltaTime;
-        if (isInitialSinkTutorialActive && handSequence == null)
-        {
-            if (TryShowInitialSinkHandTut())
-            {
-                idleTimer = 0f;
-                return;
-            }
-        }
-
-        if (idleTimer >= idleDelay && handSequence == null)
+        float currentIdleDelay = ShouldSkipDelayForCurrentItem() ? 0f : idleDelay;
+        if (idleTimer >= currentIdleDelay && handSequence == null)
         {
             idleTimer = 0f;
             ShowNextHandTut();
@@ -141,6 +154,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     private void StartHandTutAfterTapToCook()
     {
         isWaitingTapToCook = false;
+        hasStartedHandTut = true;
         ignoreInputUntilRelease = true;
 
         if (tapToCookObject != null)
@@ -149,35 +163,34 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         }
 
         ResetIdleTimer();
-        if (isInitialSinkTutorialActive && TryShowInitialSinkHandTut())
-        {
-            return;
-        }
+        ShowNextHandTut();
+    }
 
+    public void StartHandTut()
+    {
+        hasStartedHandTut = true;
+        isWaitingTapToCook = false;
+
+        ResetIdleTimer();
         ShowNextHandTut();
     }
 
     private void ShowNextHandTut()
     {
         RemoveDoneAndNullItems();
-        RemoveDoneAndNullInWaterItems();
 
-        if (TryShowEndPhaseConditionHandTut())
+        if (isWaitingStoveToggle)
         {
-            return;
+            if (stoveToggleEvent != null)
+            {
+                PlayClickHint(stoveToggleEvent.transform);
+                return;
+            }
+
+            isWaitingStoveToggle = false;
         }
 
-        if (TryShowInWaterHandTut())
-        {
-            return;
-        }
-
-        Item targetItem = GetProcessingItem();
-        if (targetItem == null)
-        {
-            targetItem = GetFirstNotDoneItem();
-        }
-
+        Item targetItem = GetFirstTutorialReadyItem();
         if (targetItem == null)
         {
             HideHandTut();
@@ -210,160 +223,15 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
     public bool CheckEndPhaseCondition()
     {
-        if (sink == null || !sink.gameObject.activeInHierarchy)
-        {
-            isWaitingEndPhaseCondition = false;
-            return true;
-        }
-
-        isWaitingEndPhaseCondition = sink.isWaterDrop;
-        return !isWaitingEndPhaseCondition;
-    }
-
-    private bool TryShowEndPhaseConditionHandTut()
-    {
-        if (!isWaitingEndPhaseCondition)
-        {
-            return false;
-        }
-
-        if (sink == null || !sink.gameObject.activeInHierarchy)
-        {
-            isWaitingEndPhaseCondition = false;
-            return false;
-        }
-
-        if (PhaseManager.Ins != null && !PhaseManager.Ins.IsCurrentPhaseStepComplete())
-        {
-            isWaitingEndPhaseCondition = false;
-            return false;
-        }
-
-        if (sink.isWaterDrop && waterToggle != null)
-        {
-            PlayClickHint(waterToggle.transform);
-            return true;
-        }
-
-        isWaitingEndPhaseCondition = false;
-        return false;
-    }
-
-    private bool TryShowInWaterHandTut()
-    {
-        InWaterItem processingItem = GetProcessingInWaterItem();
-        if (processingItem == null)
-        {
-            return false;
-        }
-
-        InWaterItem draggableItem = GetReadyDraggableInWaterItem();
-        if (draggableItem != null)
-        {
-            PlayMoveHint(draggableItem.transform, draggableItem.itemMoveToTarget.defaultTarget);
-            return true;
-        }
-
-        if (sink == null)
-        {
-            return false;
-        }
-
-        if (!sink.isClose)
-        {
-            return TryPlayDraggableHint(napBonNgoai);
-        }
-
-        if (!sink.isWaterIn && waterToggle != null)
-        {
-            PlayClickHint(waterToggle.transform);
-            return true;
-        }
-
-        return false;
-    }
-
-    private bool TryShowInitialSinkHandTut()
-    {
-        if (sink == null || !sink.gameObject.activeInHierarchy)
-        {
-            isInitialSinkTutorialActive = false;
-            return false;
-        }
-
-        if (sink.isClose && sink.isWaterIn)
-        {
-            isInitialSinkTutorialActive = false;
-            return false;
-        }
-
-        if (!sink.isClose)
-        {
-            return TryPlayDraggableHint(napBonNgoai);
-        }
-
-        if (!sink.isWaterIn && waterToggle != null)
-        {
-            PlayClickHint(waterToggle.transform);
-            return true;
-        }
-
-        return false;
-    }
-
-    private InWaterItem GetProcessingInWaterItem()
-    {
-        for (int i = 0; i < inWaterItems.Count; i++)
-        {
-            InWaterItem item = inWaterItems[i];
-            if (item != null && item.onProcess && !item.isDone)
-            {
-                return item;
-            }
-        }
-
-        return null;
-    }
-
-    private InWaterItem GetReadyDraggableInWaterItem()
-    {
-        for (int i = 0; i < inWaterItems.Count; i++)
-        {
-            InWaterItem item = inWaterItems[i];
-            if (item == null || !item.onProcess || item.isDone) continue;
-
-            if (IsDraggableReady(item) && item.itemMoveToTarget != null && item.itemMoveToTarget.defaultTarget != null)
-            {
-                return item;
-            }
-        }
-
-        return null;
-    }
-
-    private bool TryPlayDraggableHint(ItemDraggable draggable)
-    {
-        if (draggable == null || !draggable.enabled || !draggable.isDraggable)
-        {
-            return false;
-        }
-
-        Item item = ComponentCache<Item>.Get(draggable.transform);
-        if (item == null || item.itemMoveToTarget == null || item.itemMoveToTarget.defaultTarget == null)
-        {
-            return false;
-        }
-
-        PlayMoveHint(draggable.transform, item.itemMoveToTarget.defaultTarget);
         return true;
     }
 
-    private Item GetProcessingItem()
+    private Item GetFirstTutorialReadyItem()
     {
         for (int i = 0; i < items.Count; i++)
         {
             Item item = items[i];
-            if (item != null && item.onProcess && !item.isDone)
+            if (item != null && !item.isDone && CanShowTutorialForItem(item))
             {
                 return item;
             }
@@ -372,18 +240,21 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         return null;
     }
 
-    private Item GetFirstNotDoneItem()
+    private bool CanShowTutorialForItem(Item item)
     {
-        for (int i = 0; i < items.Count; i++)
+        if (item == null || item.isDone) return false;
+
+        if (IsClickableReady(item)) return true;
+        if (IsKnifeSpriteMaskCutterReady(item)) return true;
+
+        if (IsDraggableReady(item))
         {
-            Item item = items[i];
-            if (item != null && !item.isDone)
-            {
-                return item;
-            }
+            if (item.itemDraggable.targetItemType == ItemType.None) return false;
+
+            return item.itemMoveToTarget != null && item.itemMoveToTarget.defaultTarget != null;
         }
 
-        return null;
+        return knife != null;
     }
 
     private bool IsClickableReady(Item item)
@@ -460,6 +331,27 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         idleTimer = 0f;
     }
 
+    private void CacheNoDelayItems()
+    {
+        noDelayItems.Clear();
+
+        for (int i = 0; i < items.Count && noDelayItems.Count < noDelayItemCount; i++)
+        {
+            if (items[i] != null)
+            {
+                noDelayItems.Add(items[i]);
+            }
+        }
+    }
+
+    private bool ShouldSkipDelayForCurrentItem()
+    {
+        if (isWaitingStoveToggle) return false;
+
+        Item targetItem = GetFirstTutorialReadyItem();
+        return targetItem != null && noDelayItems.Contains(targetItem);
+    }
+
     private void RemoveDoneAndNullItems()
     {
         for (int i = items.Count - 1; i >= 0; i--)
@@ -471,29 +363,47 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         }
     }
 
-    private void RemoveDoneAndNullInWaterItems()
-    {
-        for (int i = inWaterItems.Count - 1; i >= 0; i--)
-        {
-            if (inWaterItems[i] == null || inWaterItems[i].isDone)
-            {
-                inWaterItems.RemoveAt(i);
-            }
-        }
-    }
-
     public void ItemDone(Item item)
     {
         if (item == null) return;
 
         item.isDone = true;
         items.Remove(item);
-        InWaterItem inWaterItem = item as InWaterItem;
-        if (inWaterItem != null)
+        if (!hasCompletedStoveToggle && oilItem != null && item == oilItem)
         {
-            inWaterItems.Remove(inWaterItem);
+            StartStoveToggleTutorial();
         }
 
+        HideHandTut();
+        ResetIdleTimer();
+    }
+
+    public void OilDone()
+    {
+        if (oilItem != null)
+        {
+            ItemDone(oilItem);
+            return;
+        }
+
+        StartStoveToggleTutorial();
+        HideHandTut();
+        ResetIdleTimer();
+    }
+
+    private void StartStoveToggleTutorial()
+    {
+        isWaitingStoveToggle = true;
+        ignoreInputUntilRelease = true;
+        showHandTutAfterRelease = true;
+    }
+
+    public void StoveToggleDone(Ply_ToggleEvent toggleEvent)
+    {
+        if (stoveToggleEvent != null && toggleEvent != stoveToggleEvent) return;
+
+        hasCompletedStoveToggle = true;
+        isWaitingStoveToggle = false;
         HideHandTut();
         ResetIdleTimer();
     }

@@ -13,7 +13,6 @@ public class Bread : Item
     public void KnifeOut()
     {
         knife.gameObject.SetActive(true);
-        Ply_SoundManager.Ins.PlayFx(FxType.PlaceKnife);
     }
     public virtual void TurnOffClick()
     {

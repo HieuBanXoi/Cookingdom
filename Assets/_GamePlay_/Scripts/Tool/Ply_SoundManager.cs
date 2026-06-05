@@ -7,21 +7,12 @@ public enum FxType
     Drop,
     Jump,
     Flash,
-    KnifeSlice,
-    KnifeSwing,
-    KnifeCut,
     PlateMove,
-    SpoonStirring,
     Swipe,
     Complete,
-    WaterStream,
-    WaterOut,
-    DropToWater,
-    PlaceKnife,
-    PlaceMussel,
-    LeafToDish,
-    FishToDish,
-    BreadToDish
+    Frying,
+    OilIn,
+    CapyYay
 }
 
 public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>

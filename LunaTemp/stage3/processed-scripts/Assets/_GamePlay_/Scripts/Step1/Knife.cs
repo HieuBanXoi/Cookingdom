@@ -29,10 +29,5 @@ public class Knife : Item
 
         if (Ply_SoundManager.Ins == null) return;
 
-        PlayKnifeSound();
-    }
-    public void PlayKnifeSound()
-    {
-        Ply_SoundManager.Ins.PlayFx(FxType.PlaceKnife);
     }
 }

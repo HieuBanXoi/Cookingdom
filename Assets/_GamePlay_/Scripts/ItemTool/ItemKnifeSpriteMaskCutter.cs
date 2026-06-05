@@ -118,7 +118,6 @@ public class ItemKnifeSpriteMaskCutter : MonoBehaviour
 
         isCutting = true;
         onCut?.Invoke();
-        if (item != null) item.PlayCutSound();
         SpawnCutPiece();
 
         Vector3 startPos = knifeTransform.localPosition;
