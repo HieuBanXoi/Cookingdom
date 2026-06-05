@@ -10,6 +10,8 @@ public class Bowl : Item
     public List<Cake> cakes;
     public Transform[] cakePos;
     public Spoon spoon;
+    public Transform newBowl;
+    public Capybara capybara;
     private int cakeCountInBowl = 0;
     private bool hasEnabledSpoon = false;
     public SkeletonAnimation capybaraAnim;
@@ -19,8 +21,18 @@ public class Bowl : Item
     public float capybaraSkinMoveYOffset = 1f;
     public float capybaraSkinMoveDownDuration = 0.2f;
     public float capybaraSkinMoveUpDuration = 0.35f;
+    public bool playIntroOnStart = true;
+    public bool showCapybaraFirstPopupAfterIntro = true;
+    public float introMoveYOffset = 1f;
+    public float introMoveDuration = 0.5f;
+    public float introFadeDuration = 0.35f;
 
     private bool hasDone = false;
+
+    private void Start()
+    {
+        PlayIntro();
+    }
 
     public void AddCarrot()
     {
@@ -61,8 +73,10 @@ public class Bowl : Item
     public void Done()
     {
         if (hasDone) return;
-        gameObject.SetActive(false);
+
         hasDone = true;
+        ShowNewBowl();
+        gameObject.SetActive(false);
         PlayCapybaraDoneSequence();
     }
 
@@ -109,7 +123,14 @@ public class Bowl : Item
             {
                 SetCapybaraSkin(capybaraBassSkinName);
                 capybaraTransform.DOLocalMoveY(startLocalPosition.y, capybaraSkinMoveUpDuration)
-                    .SetEase(Ease.OutBack);
+                    .SetEase(Ease.OutBack)
+                    .OnComplete(() =>
+                    {
+                        if (capybara != null)
+                        {
+                            capybara.ShowSecondPopup();
+                        }
+                    });
             });
     }
 
@@ -121,5 +142,122 @@ public class Bowl : Item
         capybaraAnim.Skeleton.SetSkin(skinName);
         capybaraAnim.Skeleton.SetSlotsToSetupPose();
         capybaraAnim.AnimationState.Apply(capybaraAnim.Skeleton);
+    }
+
+    private void PlayIntro(bool force = false)
+    {
+        if (!force && !playIntroOnStart) return;
+
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
+
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
+
+        if (animator != null)
+        {
+            animator.enabled = false;
+        }
+
+        Vector3 targetLocalPosition = transform.localPosition;
+        transform.localPosition = targetLocalPosition + Vector3.down * introMoveYOffset;
+
+        if (spriteRenderer != null)
+        {
+            Color color = spriteRenderer.color;
+            color.a = 0f;
+            spriteRenderer.color = color;
+        }
+
+        transform.DOKill();
+        Sequence introSequence = DOTween.Sequence();
+        introSequence.Join(transform.DOLocalMove(targetLocalPosition, introMoveDuration).SetEase(Ease.OutQuad));
+
+        if (spriteRenderer != null)
+        {
+            introSequence.Join(spriteRenderer.DOFade(1f, introFadeDuration).SetEase(Ease.OutQuad));
+        }
+
+        introSequence.OnComplete(EnableAnimator);
+    }
+
+    private void ShowNewBowl()
+    {
+        if (newBowl == null) return;
+
+        if (newBowl.IsChildOf(transform))
+        {
+            newBowl.SetParent(transform.parent, true);
+        }
+
+        Bowl newBowlComponent = newBowl.GetComponent<Bowl>();
+        if (newBowlComponent != null && newBowlComponent != this)
+        {
+            newBowlComponent.playIntroOnStart = false;
+        }
+
+        newBowl.gameObject.SetActive(true);
+
+        if (newBowlComponent != null && newBowlComponent != this)
+        {
+            newBowlComponent.PlayIntro(true);
+            return;
+        }
+
+        PlayIntro(newBowl);
+    }
+
+    private void PlayIntro(Transform introTransform)
+    {
+        if (introTransform == null) return;
+
+        Animator introAnimator = introTransform.GetComponent<Animator>();
+        SpriteRenderer introSpriteRenderer = introTransform.GetComponentInChildren<SpriteRenderer>();
+
+        if (introAnimator != null)
+        {
+            introAnimator.enabled = false;
+        }
+
+        Vector3 targetLocalPosition = introTransform.localPosition;
+        introTransform.localPosition = targetLocalPosition + Vector3.down * introMoveYOffset;
+
+        if (introSpriteRenderer != null)
+        {
+            Color color = introSpriteRenderer.color;
+            color.a = 0f;
+            introSpriteRenderer.color = color;
+        }
+
+        introTransform.DOKill();
+        Sequence introSequence = DOTween.Sequence();
+        introSequence.Join(introTransform.DOLocalMove(targetLocalPosition, introMoveDuration).SetEase(Ease.OutQuad));
+
+        if (introSpriteRenderer != null)
+        {
+            introSequence.Join(introSpriteRenderer.DOFade(1f, introFadeDuration).SetEase(Ease.OutQuad));
+        }
+
+        if (introAnimator != null)
+        {
+            introSequence.OnComplete(() => introAnimator.enabled = true);
+        }
+    }
+
+    private void EnableAnimator()
+    {
+        if (animator != null)
+        {
+            animator.enabled = true;
+        }
+
+        if (showCapybaraFirstPopupAfterIntro && capybara != null)
+        {
+            capybara.ShowFirstPopup();
+        }
     }
 }
