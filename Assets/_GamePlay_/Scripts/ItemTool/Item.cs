@@ -106,6 +106,14 @@ public class Item : MonoBehaviour
         SpawnHeart(true);
     }
 
+    public void TeleportToStart()
+    {
+        if (itemDraggable != null)
+        {
+            itemDraggable.TeleportToStart();
+        }
+    }
+
     public void ItemDone()
     {
         SpawnHeart(false);

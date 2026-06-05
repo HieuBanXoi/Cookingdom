@@ -1,15 +1,18 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Pan : Item
 {
-    public Cake[] cakes;
-    public Item[] cakesOnPlate;
+    public List<Cake> cakes;
+    public List<Item> cakesOnPlate;
     public GameObject smokeFX;
     public GameObject jumpingFX;
     public float cakeFryDuration = 5f;
     public bool isOilIn = false;
     public bool isTurnOnStove = false;
     public Animator cakePlateAnimator;
+
+    private readonly List<Item> cakePlateSlots = new List<Item>();
 
     public void AddOil()
     {
@@ -58,7 +61,7 @@ public class Pan : Item
     {
         if (cakesOnPlate == null) return;
 
-        int cakeCount = cakesOnPlate.Length;
+        int cakeCount = cakesOnPlate.Count;
         if (CanCakeIn())
         {
             for (int i = 0; i < cakeCount; i++)
@@ -89,7 +92,7 @@ public class Pan : Item
     {
         if (cakes == null) return;
 
-        int cakeCount = cakes.Length;
+        int cakeCount = cakes.Count;
         for (int i = 0; i < cakeCount; i++)
         {
             if (cakes[i] == null || cakes[i].hasStartedFrying || cakes[i].isFried) continue;
@@ -101,19 +104,15 @@ public class Pan : Item
 
     public void StartFryCake(int cakeIndex)
     {
-        if (cakes == null || cakeIndex < 0 || cakeIndex >= cakes.Length) return;
+        if (cakes == null || cakeIndex < 0 || cakeIndex >= cakes.Count) return;
 
+        RemoveCakeFromPlateAt(cakeIndex);
         StartFryCake(cakes[cakeIndex]);
     }
 
     public void StartFryCakeFromPlate(int cakeIndex)
     {
         StartFryCake(cakeIndex);
-
-        if (cakesOnPlate == null || cakeIndex < 0 || cakeIndex >= cakesOnPlate.Length) return;
-        if (cakesOnPlate[cakeIndex] == null) return;
-
-        cakesOnPlate[cakeIndex].gameObject.SetActive(false);
     }
 
     public void StartFryCake(Cake cake)
@@ -129,7 +128,7 @@ public class Pan : Item
     {
         if (cakes == null) return;
 
-        int cakeCount = cakes.Length;
+        int cakeCount = cakes.Count;
         if (CanFryCake())
         {
             for (int i = 0; i < cakeCount; i++)
@@ -149,6 +148,52 @@ public class Pan : Item
                 cakes[i].PauseFrying();
             }
         }
+    }
+
+    private void EnableCakePlateAnimatorIfEmpty()
+    {
+        if (cakePlateAnimator == null || cakesOnPlate == null) return;
+        if (cakesOnPlate.Count > 0) return;
+
+        cakePlateAnimator.enabled = true;
+    }
+
+    private void RemoveCakeFromPlateAt(int cakeIndex)
+    {
+        CacheCakePlateSlots();
+        if (cakeIndex < 0 || cakeIndex >= cakePlateSlots.Count) return;
+
+        RemoveCakeFromPlate(cakePlateSlots[cakeIndex]);
+    }
+
+    private void RemoveCakeFromPlate(Item cakeOnPlate)
+    {   
+        if (cakeOnPlate == null || cakesOnPlate == null) return;
+        
+        if (!cakesOnPlate.Contains(cakeOnPlate)) return;
+        
+        if (cakeOnPlate.itemDraggable != null)
+        {
+            cakeOnPlate.itemDraggable.targetItemType = ItemType.None;
+        }
+        
+        if (cakeOnPlate.itemMoveToTarget != null)
+        {
+            cakeOnPlate.itemMoveToTarget.defaultTarget = null;
+        }
+        
+        cakeOnPlate.gameObject.SetActive(false);
+        cakesOnPlate.Remove(cakeOnPlate);
+        
+
+        EnableCakePlateAnimatorIfEmpty();
+    }
+
+    private void CacheCakePlateSlots()
+    {
+        if (cakePlateSlots.Count > 0 || cakesOnPlate == null) return;
+
+        cakePlateSlots.AddRange(cakesOnPlate);
     }
 
 }

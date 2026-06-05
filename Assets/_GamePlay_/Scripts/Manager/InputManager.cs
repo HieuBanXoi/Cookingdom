@@ -1,5 +1,4 @@
 using UnityEngine;
-using DG.Tweening;
 
 public class InputManager : Ply_Singleton<InputManager>
 {
@@ -22,25 +21,21 @@ public class InputManager : Ply_Singleton<InputManager>
             return;
         }
 
-        // Nếu không trong trạng thái chơi VÀ không có vật thể nào đang được kéo dở thì mới chặn hoàn toàn Input
         if (!GameManager.Ins.isPlaying && !isDragging)
         {
             return;
         }
 
-        // Khi nhấn chuột xuống
         if (Input.GetMouseButtonDown(0) && GameManager.Ins.isPlaying)
         {
             HandleMouseDown();
         }
 
-        // Khi giữ và kéo chuột
         if (Input.GetMouseButton(0))
         {
             HandleMouseDrag();
         }
 
-        // Khi nhả chuột ra
         if (Input.GetMouseButtonUp(0))
         {
             HandleMouseUp();
@@ -63,69 +58,79 @@ public class InputManager : Ply_Singleton<InputManager>
 
         if (hits.Length == 0) return;
 
-        Item topItem = null;
-        int maxSortingOrder = int.MinValue;
+        Item interactableItem = GetClosestInteractableItem(hits);
 
-        // Tìm item có sortingOrder cao nhất trong số các object bắn trúng
-        for (int i = 0; i < hits.Length; i++)
-        {
-            var hit = hits[i];
-            var renderer = hit.collider.GetComponentInChildren<Renderer>();
-            if (renderer != null && renderer.sortingOrder > maxSortingOrder)
-            {
-                maxSortingOrder = renderer.sortingOrder;
-                topItem = ComponentCache<Item>.Get(hit.collider);
-            }
-        }
-
-        // Nếu tìm thấy một item hợp lệ (có renderer), thực hiện hành động
-        if (topItem != null)
+        if (interactableItem != null)
         {
             bool isInteracted = false;
 
-            // Ưu tiên xử lý Draggable (nếu đang được bật)
-            if (topItem.itemDraggable != null && topItem.itemDraggable.enabled)
+            if (interactableItem.itemDraggable != null && interactableItem.itemDraggable.enabled)
             {
-                currentDraggable = topItem.itemDraggable;
+                currentDraggable = interactableItem.itemDraggable;
                 currentDraggable.BeginDrag();
                 isDragging = true;
                 isInteracted = true;
             }
-            // Kế đến là Stirring (nếu đang được bật)
-            else if (topItem.itemStirring != null && topItem.itemStirring.enabled)
+            else if (interactableItem.itemStirring != null && interactableItem.itemStirring.enabled)
             {
-                currentStirring = topItem.itemStirring;
+                currentStirring = interactableItem.itemStirring;
                 currentStirring.BeginStir();
                 isDragging = true;
                 isInteracted = true;
             }
-            // Cuối cùng là Clickable (nếu đang được bật)
-            else if (topItem.itemSpriteMaskPainter != null && topItem.itemSpriteMaskPainter.enabled)
+            else if (interactableItem.itemSpriteMaskPainter != null && interactableItem.itemSpriteMaskPainter.enabled)
             {
-                currentSpriteMaskPainter = topItem.itemSpriteMaskPainter;
+                currentSpriteMaskPainter = interactableItem.itemSpriteMaskPainter;
                 currentSpriteMaskPainter.BeginPaint();
                 isDragging = true;
                 isInteracted = true;
             }
-            else if (topItem.itemKnifeSpriteMaskCutter != null && topItem.itemKnifeSpriteMaskCutter.enabled)
+            else if (interactableItem.itemKnifeSpriteMaskCutter != null && interactableItem.itemKnifeSpriteMaskCutter.enabled)
             {
-                topItem.itemKnifeSpriteMaskCutter.PerformCut();
+                interactableItem.itemKnifeSpriteMaskCutter.PerformCut();
                 isInteracted = true;
             }
-            else if (topItem.itemClickable != null && topItem.itemClickable.enabled)
+            else if (interactableItem.itemClickable != null && interactableItem.itemClickable.enabled)
             {
-                topItem.itemClickable.PerformClick();
+                interactableItem.itemClickable.PerformClick();
                 isInteracted = true;
             }
 
             if (isInteracted)
             {
-
-
                 if (GameManager.Ins != null) GameManager.Ins.TurnOffTut();
                 if (Ply_TransformConveyor.Ins != null) Ply_TransformConveyor.Ins.isMoving = true;
             }
         }
+    }
+
+    private Item GetClosestInteractableItem(RaycastHit[] hits)
+    {
+        Item interactableItem = null;
+        float minDistance = float.MaxValue;
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            Item hitItem = ComponentCache<Item>.Get(hits[i].collider);
+            if (hitItem == null || !CanInteract(hitItem)) continue;
+
+            if (hits[i].distance < minDistance)
+            {
+                minDistance = hits[i].distance;
+                interactableItem = hitItem;
+            }
+        }
+
+        return interactableItem;
+    }
+
+    private bool CanInteract(Item item)
+    {
+        return item.itemDraggable != null && item.itemDraggable.enabled
+            || item.itemStirring != null && item.itemStirring.enabled
+            || item.itemSpriteMaskPainter != null && item.itemSpriteMaskPainter.enabled
+            || item.itemKnifeSpriteMaskCutter != null && item.itemKnifeSpriteMaskCutter.enabled
+            || item.itemClickable != null && item.itemClickable.enabled;
     }
 
     private bool TryHandleToggleButton(Ray ray)

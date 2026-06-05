@@ -29,8 +29,6 @@ public class Bowl : Item
         for (int i = 0; i < cakeCount; i++)
         {
             cakes[i].itemDraggable.targetItemType = ItemType.Bowl;
-            cakes[i].itemMoveToTarget.defaultTarget = this.transform;
-
         }
     }
 }

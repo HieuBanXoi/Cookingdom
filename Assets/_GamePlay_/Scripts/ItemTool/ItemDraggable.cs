@@ -102,6 +102,51 @@ public class ItemDraggable : MonoBehaviour
         returnTween?.OnComplete(OnReturnToStartComplete);
     }
 
+    public void TeleportToStart()
+    {
+        transform.DOKill();
+
+        if (bobEffect != null && bobEffect.isActiveAndEnabled)
+        {
+            bobEffect.Stop(false);
+        }
+
+        ResetScale();
+
+        if (myRenderer != null)
+        {
+            myRenderer.sortingOrder = originalSortingOrder;
+        }
+
+        SetShadowActive(shadowDefaultActive);
+
+        if (returnTransform != null)
+        {
+            if (setParentToReturnTransform)
+            {
+                transform.SetParent(returnTransform);
+                transform.localPosition = returnToExactReturnTransformPosition ? Vector3.zero : new Vector3(0, 0, originalLocalPos.z);
+            }
+            else
+            {
+                transform.position = returnToExactReturnTransformPosition ? returnTransform.position : new Vector3(returnTransform.position.x, returnTransform.position.y, originalZ);
+            }
+        }
+        else if (originalParent != null)
+        {
+            transform.SetParent(originalParent);
+            transform.localPosition = originalLocalPos;
+        }
+        else
+        {
+            Vector3 targetPos = transform.position;
+            targetPos.z = originalZ;
+            transform.position = targetPos;
+        }
+
+        PlayBobEffectIfEnabled();
+    }
+
     public void BeginDrag()
     {
         if (!enabled || !isDraggable) return;

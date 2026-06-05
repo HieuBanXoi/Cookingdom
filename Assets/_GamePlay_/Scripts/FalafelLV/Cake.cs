@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class Cake : Item
 {
@@ -10,12 +11,36 @@ public class Cake : Item
     public bool isFrying = false;
     public bool isFried = false;
     public UnityEvent onFryComplete;
+    public float fryShakeStrength = 0.04f;
+    public float fryShakeDuration = 0.15f;
+    public int fryShakeVibrato = 8;
+    public float starExploreSpawnInterval = 2f;
 
     private Color defaultSpriteColor;
     private bool hasDefaultSpriteColor = false;
+    private Tween fryShakeTween;
+    private Transform fryShakeTarget;
+    private Vector3 fryShakeStartLocalPosition;
+    private bool hasFryShakeStartLocalPosition = false;
+    private bool hasRegisteredDragEvents = false;
+    private float starExploreSpawnTimer = 0f;
+    private bool canSpawnStarExplore = false;
+    private bool canPlayFryShake = true;
 
     private void Update()
     {
+        if (isFried)
+        {
+            PlayFryShake();
+
+            if (canSpawnStarExplore)
+            {
+                UpdateStarExploreSpawn(Time.deltaTime);
+            }
+
+            return;
+        }
+
         if (!hasStartedFrying || isFried) return;
 
         if (pan != null)
@@ -51,9 +76,13 @@ public class Cake : Item
         {
             isFrying = false;
             isFried = true;
+            PlayFryShake();
             SetSpriteAlpha(0f);
             CacheItemDraggable();
             if (itemDraggable != null) itemDraggable.enabled = true;
+            starExploreSpawnTimer = 0f;
+            canSpawnStarExplore = true;
+            SpawnStarExploreFX();
             onFryComplete?.Invoke();
         }
     }
@@ -84,6 +113,7 @@ public class Cake : Item
         hasStartedFrying = true;
         CacheSpriteColor();
         CacheItemDraggable();
+        RegisterDragEvents();
 
         if (itemDraggable != null) itemDraggable.enabled = false;
 
@@ -108,6 +138,7 @@ public class Cake : Item
 
         CacheSpriteColor();
         isFrying = true;
+        PlayFryShake();
     }
 
     public void PauseFrying()
@@ -115,6 +146,7 @@ public class Cake : Item
         if (!hasStartedFrying || isFried) return;
 
         isFrying = false;
+        StopFryShake();
     }
 
     public void ResetFrying()
@@ -125,6 +157,10 @@ public class Cake : Item
         hasStartedFrying = false;
         isFrying = false;
         isFried = false;
+        starExploreSpawnTimer = 0f;
+        canSpawnStarExplore = false;
+        canPlayFryShake = true;
+        StopFryShake();
 
         if (spriteRenderer != null)
         {
@@ -158,5 +194,119 @@ public class Cake : Item
         {
             itemDraggable = GetComponent<ItemDraggable>();
         }
+    }
+
+    private void RegisterDragEvents()
+    {
+        if (hasRegisteredDragEvents || itemDraggable == null) return;
+
+        itemDraggable.onBeginDrag.AddListener(StopFryShakeByDrag);
+        itemDraggable.onBeginDrag.AddListener(StopStarExploreSpawn);
+        itemDraggable.onDropSuccess.AddListener(StopFryShakeByDrag);
+        itemDraggable.onDropSuccess.AddListener(StopStarExploreSpawn);
+        hasRegisteredDragEvents = true;
+    }
+
+    private void CacheFryShakeTarget()
+    {
+        if (fryShakeTarget != null) return;
+
+        CacheSpriteColor();
+        fryShakeTarget = spriteRenderer != null ? spriteRenderer.transform : transform;
+        fryShakeStartLocalPosition = fryShakeTarget.localPosition;
+        hasFryShakeStartLocalPosition = true;
+    }
+
+    private void PlayFryShake()
+    {
+        if (!canPlayFryShake || (!isFrying && !isFried)) return;
+        if (fryShakeTween != null && fryShakeTween.IsActive()) return;
+
+        CacheFryShakeTarget();
+        if (fryShakeTarget == null) return;
+
+        fryShakeTween = fryShakeTarget
+            .DOShakePosition(fryShakeDuration, fryShakeStrength, fryShakeVibrato)
+            .SetLoops(-1, LoopType.Restart)
+            .SetEase(Ease.Linear);
+    }
+
+    private void StopFryShake()
+    {
+        fryShakeTween?.Kill();
+        fryShakeTween = null;
+
+        if (hasFryShakeStartLocalPosition && fryShakeTarget != null)
+        {
+            fryShakeTarget.localPosition = fryShakeStartLocalPosition;
+        }
+    }
+
+    private void StopFryShakeByDrag()
+    {
+        canPlayFryShake = false;
+        StopFryShake();
+    }
+
+    public override void OnDragFailReturnComplete()
+    {
+        base.OnDragFailReturnComplete();
+
+        canPlayFryShake = true;
+
+        if (hasStartedFrying && (isFrying || isFried))
+        {
+            PlayFryShake();
+        }
+
+        if (isFried)
+        {
+            StartStarExploreSpawn();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (hasRegisteredDragEvents && itemDraggable != null)
+        {
+            itemDraggable.onBeginDrag.RemoveListener(StopFryShakeByDrag);
+            itemDraggable.onBeginDrag.RemoveListener(StopStarExploreSpawn);
+            itemDraggable.onDropSuccess.RemoveListener(StopFryShakeByDrag);
+            itemDraggable.onDropSuccess.RemoveListener(StopStarExploreSpawn);
+        }
+
+        StopFryShake();
+    }
+    public void SpawnStarExploreFX()
+    {
+        if (Ply_Pool.Ins == null) return;
+
+        StarExploreFX starExploreFX = Ply_Pool.Ins.Spawn<StarExploreFX>(PoolType.StarExploreFX, transform.position, Quaternion.identity);
+        if (starExploreFX == null) return;
+
+        starExploreFX.DeSpawnByTime();
+    }
+
+    private void UpdateStarExploreSpawn(float deltaTime)
+    {
+        if (starExploreSpawnInterval <= 0f) return;
+
+        starExploreSpawnTimer += deltaTime;
+        if (starExploreSpawnTimer < starExploreSpawnInterval) return;
+
+        starExploreSpawnTimer = 0f;
+        SpawnStarExploreFX();
+    }
+
+    private void StartStarExploreSpawn()
+    {
+        canSpawnStarExplore = true;
+        starExploreSpawnTimer = 0f;
+    }
+
+    private void StopStarExploreSpawn()
+    {
+        canSpawnStarExplore = false;
+        starExploreSpawnTimer = 0f;
     }
 }
