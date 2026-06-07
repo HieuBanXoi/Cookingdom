@@ -21,15 +21,24 @@ public class HeartEffect : Ply_GameUnit
         PlaySpawn(defaultLifeTime);
     }
 
+    public void PlaySpawnWithScale(float scaleMultiplier)
+    {
+        PlaySpawn(defaultLifeTime, scaleMultiplier);
+    }
+
     public void PlaySpawn(float lifeTime)
+    {
+        PlaySpawn(lifeTime, 1f);
+    }
+
+    public void PlaySpawn(float lifeTime, float scaleMultiplier)
     {
         CacheDefaultState();
         ResetState();
-        Ply_SoundManager.Ins.PlayFx(FxType.Complete);
         transform.localScale = Vector3.zero;
 
         spawnSequence = DOTween.Sequence();
-        spawnSequence.Append(transform.DOScale(defaultScale, 0.25f).SetEase(Ease.OutBack));
+        spawnSequence.Append(transform.DOScale(defaultScale * Mathf.Max(0f, scaleMultiplier), 0.25f).SetEase(Ease.OutBack));
         spawnSequence.Append(transform.DOLocalRotate(new Vector3(0f, 0f, 3f), 0.12f).SetEase(Ease.OutSine));
         spawnSequence.Append(transform.DOLocalRotate(new Vector3(0f, 0f, -3f), 0.18f).SetEase(Ease.InOutSine));
         spawnSequence.Append(transform.DOLocalRotate(defaultLocalEulerAngles, 0.12f).SetEase(Ease.InSine));

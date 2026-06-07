@@ -51,12 +51,28 @@ public class Bowl : Item
     }
     public void CanCakeIn()
     {
+        if (cakes == null) return;
+
         int cakeCount = cakes.Count;
         for (int i = 0; i < cakeCount; i++)
         {
-            cakes[i].itemDraggable.targetItemType = ItemType.Bowl;
+            if (cakes[i] != null)
+            {
+                cakes[i].EnableBowlClick();
+            }
         }
     }
+
+    public Transform GetCakePosition(Cake cake)
+    {
+        if (cake == null || cakes == null || cakePos == null) return null;
+
+        int cakeIndex = cakes.IndexOf(cake);
+        if (cakeIndex < 0 || cakeIndex >= cakePos.Length) return null;
+
+        return cakePos[cakeIndex];
+    }
+
     public void AddOneCake()
     {
         if (cakes == null || cakes.Count == 0) return;
@@ -81,6 +97,7 @@ public class Bowl : Item
     {
         if (hasDone) return;
         hasDone = true;
+        PlayDoneSound();
         SpawnHeart(false);
         DOVirtual.DelayedCall(1f, TriggerNextAfterDone);
     }
@@ -341,5 +358,17 @@ public class Bowl : Item
         {
             capybara.ShowFirstPopup();
         }
+    }
+    public void PlayDoneSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.FoodDone);
+    }
+    public void PlayLeafToBowlSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.LeafToBowl);
+    }
+    public void PlayFoodToBowlSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.FoodToBowl);
     }
 }

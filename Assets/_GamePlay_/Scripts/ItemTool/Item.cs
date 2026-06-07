@@ -20,6 +20,9 @@ public class Item : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public UnityEvent onKnifeIn;
 
+    [Header("--- HEART EFFECT ---")]
+    [Min(0f)] public float heartEffectScale = 1f;
+
     [Header("--- MOVE TO TARGET SOUND ---")]
     public bool playMoveToTargetFinishSound = false;
     public FxType moveToTargetFinishFxType = FxType.Complete;
@@ -89,14 +92,14 @@ public class Item : MonoBehaviour
             HeartBreakEffect heartEffect = Ply_Pool.Ins.Spawn<HeartBreakEffect>(PoolType.HeartBreakFX, transform.position, transform.rotation);
             if (heartEffect == null) return;
             heartEffect.transform.localRotation = Quaternion.identity;
-            heartEffect.PlaySpawn();
+            heartEffect.PlaySpawnWithScale(heartEffectScale);
         }
         else
         {
             HeartEffect heartEffect = Ply_Pool.Ins.Spawn<HeartEffect>(PoolType.HeartFX, transform.position, transform.rotation);
             if (heartEffect == null) return;
             heartEffect.transform.localRotation = Quaternion.identity;
-            heartEffect.PlaySpawn();
+            heartEffect.PlaySpawnWithScale(heartEffectScale);
         }
 
     }
@@ -159,5 +162,17 @@ public class Item : MonoBehaviour
         if (Ply_SoundManager.Ins == null) return;
 
         Ply_SoundManager.Ins.PlayFx(FxType.OilIn);
+    }
+    public void PlayJumpSound()
+    {
+        if (Ply_SoundManager.Ins == null) return;
+
+        Ply_SoundManager.Ins.PlayFx(FxType.Jump);
+    }
+    public void PlayDropSound()
+    {
+        if (Ply_SoundManager.Ins == null) return;
+
+        Ply_SoundManager.Ins.PlayFx(FxType.Drop);
     }
 }

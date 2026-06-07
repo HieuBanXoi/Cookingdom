@@ -103,6 +103,7 @@ public class Spoon : Plate
     private void SetSpoonFull()
     {
         isSpoonFull = true;
+        Ply_SoundManager.Ins.PlayFx(FxType.Hummus);
         if (spoonFullSprite != null)
         {
             ChangeSprite(spoonFullSprite);

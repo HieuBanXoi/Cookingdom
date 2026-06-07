@@ -21,7 +21,9 @@ public class Cake : Item
     private Transform fryShakeTarget;
     private Vector3 fryShakeStartLocalPosition;
     private bool hasFryShakeStartLocalPosition = false;
-    private bool hasRegisteredDragEvents = false;
+    private bool hasRegisteredBowlClick = false;
+    private bool canClickToBowl = false;
+    private bool isMovingToBowl = false;
     private bool canPlayFryShake = true;
 
     private void Update()
@@ -70,8 +72,8 @@ public class Cake : Item
             isFried = true;
             PlayFryShake();
             SetSpriteAlpha(0f);
-            CacheItemDraggable();
-            if (itemDraggable != null) itemDraggable.enabled = true;
+            CacheBowlInteraction();
+            SetBowlClickEnabled();
             SpawnStarExploreFX();
             onFryComplete?.Invoke();
         }
@@ -102,10 +104,8 @@ public class Cake : Item
 
         hasStartedFrying = true;
         CacheSpriteColor();
-        CacheItemDraggable();
-        RegisterDragEvents();
-
-        if (itemDraggable != null) itemDraggable.enabled = false;
+        CacheBowlInteraction();
+        DisableBowlInteraction();
 
         if (pan != null)
         {
@@ -147,8 +147,11 @@ public class Cake : Item
         hasStartedFrying = false;
         isFrying = false;
         isFried = false;
+        canClickToBowl = false;
+        isMovingToBowl = false;
         canPlayFryShake = true;
         StopFryShake();
+        DisableBowlInteraction();
 
         if (spriteRenderer != null)
         {
@@ -176,21 +179,36 @@ public class Cake : Item
         spriteRenderer.color = color;
     }
 
-    private void CacheItemDraggable()
+    private void CacheBowlInteraction()
     {
         if (itemDraggable == null)
         {
             itemDraggable = GetComponent<ItemDraggable>();
         }
-    }
 
-    private void RegisterDragEvents()
-    {
-        if (hasRegisteredDragEvents || itemDraggable == null) return;
+        if (itemClickable == null)
+        {
+            itemClickable = GetComponent<ItemClickable>();
+        }
 
-        itemDraggable.onBeginDrag.AddListener(StopFryShakeByDrag);
-        itemDraggable.onDropSuccess.AddListener(StopFryShakeByDrag);
-        hasRegisteredDragEvents = true;
+        if (itemClickable == null)
+        {
+            itemClickable = gameObject.AddComponent<ItemClickable>();
+        }
+
+        itemClickable.requiredClicks = 1;
+        itemClickable.infiniteClick = false;
+        itemClickable.disableAfterClick = true;
+
+        if (hasRegisteredBowlClick) return;
+
+        if (itemClickable.onClick == null)
+        {
+            itemClickable.onClick = new UnityEvent();
+        }
+
+        itemClickable.onClick.AddListener(MoveToBowlByClick);
+        hasRegisteredBowlClick = true;
     }
 
     private void CacheFryShakeTarget()
@@ -227,30 +245,80 @@ public class Cake : Item
         }
     }
 
-    private void StopFryShakeByDrag()
+    public void EnableBowlClick()
     {
-        canPlayFryShake = false;
-        StopFryShake(false);
+        canClickToBowl = true;
+        CacheBowlInteraction();
+        SetBowlClickEnabled();
     }
 
-    public override void OnDragFailReturnComplete()
+    private void SetBowlClickEnabled()
     {
-        base.OnDragFailReturnComplete();
-
-        canPlayFryShake = true;
-
-        if (hasStartedFrying && (isFrying || isFried))
+        if (itemDraggable != null)
         {
-            PlayFryShake();
+            itemDraggable.enabled = false;
         }
+
+        if (itemClickable == null) return;
+
+        bool canClick = canClickToBowl && isFried && !isMovingToBowl;
+        itemClickable.canClick = canClick;
+        itemClickable.enabled = canClick;
+    }
+
+    private void DisableBowlInteraction()
+    {
+        if (itemDraggable != null)
+        {
+            itemDraggable.enabled = false;
+        }
+
+        if (itemClickable == null) return;
+
+        itemClickable.canClick = false;
+        itemClickable.enabled = false;
+    }
+
+    private void MoveToBowlByClick()
+    {
+        if (!canClickToBowl || !isFried || isMovingToBowl) return;
+
+        Transform target = bowl != null ? bowl.GetCakePosition(this) : null;
+        if (target == null)
+        {
+            Debug.LogWarning($"[Cake] {gameObject.name} khong tim thay vi tri trong bowl.");
+            SetBowlClickEnabled();
+            return;
+        }
+
+        if (itemMoveToTarget == null)
+        {
+            itemMoveToTarget = GetComponent<Ply_MoveToTarget>();
+        }
+
+        if (itemMoveToTarget == null)
+        {
+            Debug.LogWarning($"[Cake] {gameObject.name} khong co Ply_MoveToTarget.");
+            SetBowlClickEnabled();
+            return;
+        }
+
+        isMovingToBowl = true;
+        canPlayFryShake = false;
+        StopFryShake();
+        DisableBowlInteraction();
+        if (Ply_SoundManager.Ins != null)
+        {
+            Ply_SoundManager.Ins.PlayFx(FxType.Click);
+        }
+        itemMoveToTarget.ExecuteMove3D(target);
     }
 
     private void OnDestroy()
     {
-        if (hasRegisteredDragEvents && itemDraggable != null)
+        if (hasRegisteredBowlClick && itemClickable != null)
         {
-            itemDraggable.onBeginDrag.RemoveListener(StopFryShakeByDrag);
-            itemDraggable.onDropSuccess.RemoveListener(StopFryShakeByDrag);
+            itemClickable.onClick.RemoveListener(MoveToBowlByClick);
         }
 
         StopFryShake();
@@ -265,5 +333,9 @@ public class Cake : Item
         if (starExploreFX == null) return;
 
         starExploreFX.DeSpawnByTime();
+    }
+    public void PlayCakeToPanSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.CakeToPan);
     }
 }

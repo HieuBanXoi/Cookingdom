@@ -74,4 +74,14 @@ public class Plate : ToolObject
     {
         HandTutManager.Ins.OilDone();
     }
+    public void PlayPlateMoveSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.PlateMove);
+    }
+    public void PlayPlaceDishSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.PlaceDish);
+    }
+
+
 }

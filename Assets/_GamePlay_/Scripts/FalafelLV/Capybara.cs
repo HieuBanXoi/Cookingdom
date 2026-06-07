@@ -11,6 +11,7 @@ public class Capybara : MonoBehaviour
     public float popupHideDuration = 0.2f;
     public float popupHideDelay = 2f;
     public Transform spawnHeartPoint;
+    [Min(0f)] public float heartEffectScale = 2f;
     public SkeletonAnimation skeletonAnimation;
     public string bassSkinName = "hat/MUSICAL-BASS";
     public float skinChangeDelay = 2f;
@@ -84,7 +85,7 @@ public class Capybara : MonoBehaviour
             if (heartEffect == null) return;
 
             heartEffect.transform.localRotation = Quaternion.identity;
-            heartEffect.PlaySpawn();
+            heartEffect.PlaySpawnWithScale(heartEffectScale);
             return;
         }
 
@@ -92,7 +93,7 @@ public class Capybara : MonoBehaviour
         if (normalHeartEffect == null) return;
 
         normalHeartEffect.transform.localRotation = Quaternion.identity;
-        normalHeartEffect.PlaySpawn();
+        normalHeartEffect.PlaySpawnWithScale(heartEffectScale);
     }
 
     private void ShowCurrentPopup(bool autoHide)

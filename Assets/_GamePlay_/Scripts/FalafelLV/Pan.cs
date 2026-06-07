@@ -100,22 +100,16 @@ public class Pan : Item
         {
             for (int i = 0; i < cakeCount; i++)
             {
-                if (cakesOnPlate[i] == null) continue;
-
-                if (cakesOnPlate[i].itemDraggable == null || cakesOnPlate[i].itemMoveToTarget == null) continue;
-
+                // cakesOnPlate[i].itemClickable.enabled = true;
                 cakesOnPlate[i].itemDraggable.targetItemType = ItemType.Pan;
-                cakesOnPlate[i].itemMoveToTarget.defaultTarget = this.transform;
+                cakesOnPlate[i].itemMoveToTarget.defaultTarget = transform;
             }
         }
         else
         {
             for (int i = 0; i < cakeCount; i++)
             {
-                if (cakesOnPlate[i] == null) continue;
-
-                if (cakesOnPlate[i].itemDraggable == null || cakesOnPlate[i].itemMoveToTarget == null) continue;
-
+                // cakesOnPlate[i].itemClickable.enabled = false;
                 cakesOnPlate[i].itemDraggable.targetItemType = ItemType.None;
                 cakesOnPlate[i].itemMoveToTarget.defaultTarget = null;
             }
@@ -201,24 +195,24 @@ public class Pan : Item
     }
 
     private void RemoveCakeFromPlate(Item cakeOnPlate)
-    {   
+    {
         if (cakeOnPlate == null || cakesOnPlate == null) return;
-        
+
         if (!cakesOnPlate.Contains(cakeOnPlate)) return;
-        
+
         if (cakeOnPlate.itemDraggable != null)
         {
             cakeOnPlate.itemDraggable.targetItemType = ItemType.None;
         }
-        
+
         if (cakeOnPlate.itemMoveToTarget != null)
         {
             cakeOnPlate.itemMoveToTarget.defaultTarget = null;
         }
-        
+
         cakeOnPlate.gameObject.SetActive(false);
         cakesOnPlate.Remove(cakeOnPlate);
-        
+
 
         EnableCakePlateAnimatorIfEmpty();
     }
@@ -238,5 +232,12 @@ public class Pan : Item
     private void OnDestroy()
     {
         StopFryingSoundLoop();
+    }
+    public void PLayTurnOnStoveSound()
+    {
+        if (Ply_SoundManager.Ins != null)
+        {
+            Ply_SoundManager.Ins.PlayFx(FxType.TurnOn);
+        }
     }
 }

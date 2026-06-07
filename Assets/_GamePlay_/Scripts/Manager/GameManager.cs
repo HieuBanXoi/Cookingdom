@@ -1,5 +1,5 @@
 using UnityEngine;
-using Luna.Unity;
+// using Luna.Unity;
 using System;
 public class GameManager : Ply_Singleton<GameManager>
 {
@@ -44,8 +44,8 @@ public class GameManager : Ply_Singleton<GameManager>
     }
     public void GotoStore()
     {
-        LifeCycle.GameEnded();
-        Playable.InstallFullGame();
+        // LifeCycle.GameEnded();
+        // Playable.InstallFullGame();
     }
     public void MoveOne()
     {

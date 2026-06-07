@@ -12,7 +12,15 @@ public enum FxType
     Complete,
     Frying,
     OilIn,
-    CapyYay
+    CapyYay,
+    FoodDone,
+    Wrong,
+    CakeToPan,
+    PlaceDish,
+    LeafToBowl,
+    FoodToBowl,
+    Hummus,
+    TurnOn
 }
 
 public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
