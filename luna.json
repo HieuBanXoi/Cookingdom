@@ -23207,6 +23207,10 @@
                     {
                         "name": "StartHandTut",
                         "excluded": false
+                    },
+                    {
+                        "name": "SetHandAlpha",
+                        "excluded": false
                     }
                 ]
             },
@@ -30749,6 +30753,14 @@
                     {
                         "name": "PlayOilInSound",
                         "excluded": false
+                    },
+                    {
+                        "name": "PlayJumpSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayDropSound",
+                        "excluded": true
                     }
                 ]
             },
@@ -30852,6 +30864,10 @@
                     },
                     {
                         "name": "TeleportToStart",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayReturnToStartFinishSound",
                         "excluded": false
                     }
                 ]
@@ -31313,6 +31329,14 @@
                     {
                         "name": "ResetState",
                         "excluded": false
+                    },
+                    {
+                        "name": "PlaySpawn$2",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlaySpawnWithScale",
+                        "excluded": false
                     }
                 ]
             },
@@ -31346,6 +31370,14 @@
                     },
                     {
                         "name": "ResetState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlaySpawn$2",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlaySpawnWithScale",
                         "excluded": false
                     }
                 ]
@@ -37103,6 +37135,30 @@
                     {
                         "name": "EnableAnimator",
                         "excluded": false
+                    },
+                    {
+                        "name": "GetCakePosition",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayDoneSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayLeafToBowlSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayFoodToBowlSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayCreamSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "StopCreamSound",
+                        "excluded": true
                     }
                 ]
             },
@@ -37147,14 +37203,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "CacheItemDraggable",
-                        "excluded": false
-                    },
-                    {
-                        "name": "RegisterDragEvents",
-                        "excluded": false
-                    },
-                    {
                         "name": "CacheFryShakeTarget",
                         "excluded": false
                     },
@@ -37167,20 +37215,36 @@
                         "excluded": false
                     },
                     {
-                        "name": "StopFryShakeByDrag",
-                        "excluded": false
-                    },
-                    {
-                        "name": "OnDragFailReturnComplete",
-                        "excluded": false
-                    },
-                    {
                         "name": "OnDestroy",
                         "excluded": true
                     },
                     {
                         "name": "SpawnStarExploreFX",
                         "excluded": false
+                    },
+                    {
+                        "name": "CacheBowlInteraction",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnableBowlClick",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetBowlClickEnabled",
+                        "excluded": false
+                    },
+                    {
+                        "name": "DisableBowlInteraction",
+                        "excluded": false
+                    },
+                    {
+                        "name": "MoveToBowlByClick",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayCakeToPanSound",
+                        "excluded": true
                     }
                 ]
             },
@@ -37305,6 +37369,10 @@
                     {
                         "name": "OnDestroy",
                         "excluded": true
+                    },
+                    {
+                        "name": "PLayTurnOnStoveSound",
+                        "excluded": false
                     }
                 ]
             },
@@ -37394,6 +37462,18 @@
                     },
                     {
                         "name": "DoneAnimation",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OilDone",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayPlateMoveSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayPlaceDishSound",
                         "excluded": false
                     }
                 ]

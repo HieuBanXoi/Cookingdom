@@ -18,6 +18,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     [Header("--- TIMING ---")]
     public float idleDelay = 5f;
     public float moveDuration = 1.2f;
+    public float dragFadeDuration = 0.2f;
     public float clickScaleDuration = 0.35f;
     public float waitAtEndDuration = 0.2f;
 
@@ -28,12 +29,13 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
     private float idleTimer;
     private Vector3 defaultHandScale = Vector3.one;
+    private SpriteRenderer handSpriteRenderer;
+    private float defaultHandAlpha = 1f;
     private Sequence handSequence;
     private bool isWaitingTapToCook;
     private bool ignoreInputUntilRelease;
     private bool isWaitingStoveToggle;
     private bool hasCompletedStoveToggle;
-    private bool showHandTutAfterRelease;
     private bool hasStartedHandTut;
     private bool hasHiddenTapToCook;
     private readonly List<Item> noDelayItems = new List<Item>();
@@ -47,6 +49,12 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         if (handTutObject != null)
         {
             defaultHandScale = handTutObject.transform.localScale;
+            handSpriteRenderer = handTutObject.GetComponentInChildren<SpriteRenderer>();
+            if (handSpriteRenderer != null)
+            {
+                defaultHandAlpha = handSpriteRenderer.color.a;
+            }
+
             handTutObject.SetActive(false);
         }
     }
@@ -90,12 +98,6 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
             if (HasPlayerInput()) return;
 
             ignoreInputUntilRelease = false;
-            if (showHandTutAfterRelease)
-            {
-                showHandTutAfterRelease = false;
-                ShowNextHandTut();
-                return;
-            }
         }
 
         if (HasPlayerInput())
@@ -294,6 +296,10 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
         handSequence = DOTween.Sequence();
         handSequence.Append(handTutObject.transform.DOMove(endPosition, moveDuration).SetEase(moveEase));
+        if (handSpriteRenderer != null)
+        {
+            handSequence.Append(handSpriteRenderer.DOFade(0f, dragFadeDuration));
+        }
         handSequence.AppendInterval(waitAtEndDuration);
         handSequence.SetLoops(-1, LoopType.Restart);
     }
@@ -303,6 +309,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         handTutObject.transform.DOKill();
         handTutObject.transform.position = Get2DHandPosition(position);
         handTutObject.transform.localScale = defaultHandScale;
+        SetHandAlpha(defaultHandAlpha);
         handTutObject.SetActive(true);
     }
 
@@ -323,7 +330,17 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
         handTutObject.transform.DOKill();
         handTutObject.transform.localScale = defaultHandScale;
+        SetHandAlpha(defaultHandAlpha);
         handTutObject.SetActive(false);
+    }
+
+    private void SetHandAlpha(float alpha)
+    {
+        if (handSpriteRenderer == null) return;
+
+        Color color = handSpriteRenderer.color;
+        color.a = alpha;
+        handSpriteRenderer.color = color;
     }
 
     private void ResetIdleTimer()
@@ -395,7 +412,6 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     {
         isWaitingStoveToggle = true;
         ignoreInputUntilRelease = true;
-        showHandTutAfterRelease = true;
     }
 
     public void StoveToggleDone(Ply_ToggleEvent toggleEvent)

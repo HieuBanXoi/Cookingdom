@@ -70,4 +70,18 @@ public class Plate : ToolObject
         animator.enabled = false;
         itemMoveToTarget.defaultTarget = null;
     }
+    public void OilDone()
+    {
+        HandTutManager.Ins.OilDone();
+    }
+    public void PlayPlateMoveSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.PlateMove);
+    }
+    public void PlayPlaceDishSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.PlaceDish);
+    }
+
+
 }

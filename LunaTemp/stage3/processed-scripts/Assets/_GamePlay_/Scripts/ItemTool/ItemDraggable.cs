@@ -16,6 +16,10 @@ public class ItemDraggable : MonoBehaviour
     public bool checkState = false;
     public GameObject shadowObject;
 
+    [Header("--- RETURN TO START SOUND ---")]
+    public bool playReturnToStartFinishSound = false;
+    public FxType returnToStartFinishFxType = FxType.Wrong;
+
     [Tooltip("Khi nhấc lên, vật sẽ nhích lại gần Camera (hoặc bay cao lên) bao nhiêu để không kẹt vào bàn?")]
     public float liftOffset = 1.0f;
 
@@ -79,24 +83,24 @@ public class ItemDraggable : MonoBehaviour
             {
                 transform.SetParent(returnTransform);
                 Vector3 localTargetPos = returnToExactReturnTransformPosition ? Vector3.zero : new Vector3(0, 0, originalLocalPos.z);
-                returnTween = transform.DOLocalMove(localTargetPos, 0.3f).SetEase(Ease.OutBack);
+                returnTween = transform.DOLocalMove(localTargetPos, 0.3f).SetEase(Ease.OutQuart);
             }
             else
             {
                 Vector3 targetPos = returnToExactReturnTransformPosition ? returnTransform.position : new Vector3(returnTransform.position.x, returnTransform.position.y, originalZ);
-                returnTween = transform.DOMove(targetPos, 0.3f).SetEase(Ease.OutBack);
+                returnTween = transform.DOMove(targetPos, 0.3f).SetEase(Ease.OutQuart);
             }
         }
         else if (originalParent != null)
         {
             transform.SetParent(originalParent); // Đưa về parent gốc ngay để bám theo băng chuyền
-            returnTween = transform.DOLocalMove(originalLocalPos, 0.3f).SetEase(Ease.OutBack);
+            returnTween = transform.DOLocalMove(originalLocalPos, 0.3f).SetEase(Ease.OutQuart);
         }
         else
         {
             Vector3 targetPos = transform.position;
             targetPos.z = originalZ;
-            returnTween = transform.DOMove(targetPos, 0.3f).SetEase(Ease.OutBack);
+            returnTween = transform.DOMove(targetPos, 0.3f).SetEase(Ease.OutQuart);
         }
 
         returnTween?.OnComplete(OnReturnToStartComplete);
@@ -280,11 +284,19 @@ public class ItemDraggable : MonoBehaviour
     private void OnReturnToStartComplete()
     {
         PlayBobEffectIfEnabled();
+        PlayReturnToStartFinishSound();
 
         if (item != null)
         {
             item.OnDragFailReturnComplete();
         }
+    }
+
+    private void PlayReturnToStartFinishSound()
+    {
+        if (!playReturnToStartFinishSound || Ply_SoundManager.Ins == null) return;
+
+        Ply_SoundManager.Ins.PlayFx(returnToStartFinishFxType);
     }
 
     public void ChangeTargetItemType(Transform transform)

@@ -370,7 +370,7 @@ MonoBehaviour:
     - _FADING_ON
   _includedShaderVariants: []
   _excludedShaderVariants: []
-  version: 559
+  version: 587
   _shaderParsedShaders:
   - ParsedSubShaders:
     - Index: 0

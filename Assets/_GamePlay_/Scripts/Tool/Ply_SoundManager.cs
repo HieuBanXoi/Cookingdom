@@ -20,7 +20,8 @@ public enum FxType
     LeafToBowl,
     FoodToBowl,
     Hummus,
-    TurnOn
+    TurnOn,
+    CreamDown
 }
 
 public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>

@@ -1,0 +1,176 @@
+{
+    "BuildID": "e58d6c10-b194-490d-b2c1-0af625a546a5",
+    "Command": "project:upload",
+    "ProjectID": "8cfa86f1caa935a41ac1489c608212f7",
+    "ProjectStateHash": "2de99e684a7d5256b30d592b10bdd40a440a2a429289c928d7cb73379409accf",
+    "StageCompletedAt": 3,
+    "EarliestFatalError": 0,
+    "StartTime": 1780884240289,
+    "EndTime": 1780884269676,
+    "PlaygroundUserID": 33919,
+    "OperatingSystem": "win32",
+    "UnityPackageID": null,
+    "TargetPlatform": "playground",
+    "UnityVersion": "6000.0.38f1\r",
+    "LunaVersion": "7.1.0",
+    "LogCount": 7,
+    "Logs": [
+        {
+            "LogID": "e6022895-8124-42a2-9c24-0771396c336c",
+            "Order": 6,
+            "Timestamp": 1780884270340,
+            "Stage": 3,
+            "ErrorType": 3,
+            "ErrorCode": "LP3007",
+            "Description": "You are not using any custom events",
+            "Details": [
+                "You are not using any custom events. It is recommended to use custom events to have a better understanding of the playable."
+            ],
+            "DescriptionValues": [
+                ""
+            ],
+            "DetailsValues": [
+                ""
+            ],
+            "LogCount": 1,
+            "LinePosition": null,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "92ceefd0-3c60-4b5c-bcd7-3f72c9b48534",
+            "Order": 6,
+            "Timestamp": 1780884270341,
+            "Stage": 3,
+            "ErrorType": 3,
+            "ErrorCode": "LP3011",
+            "Description": "You are not using any LunaPlaygroundFields attributes.",
+            "Details": [
+                "You are not using any LunaPlaygroundFields attributes, it allows you to configure your playable to different concepts to find the best variation, which can drastically improve playable performance on all ad networks."
+            ],
+            "DescriptionValues": null,
+            "DetailsValues": null,
+            "LogCount": 1,
+            "LinePosition": null,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "8e0beb2f-9519-4fe0-926c-d22125e1fa4c",
+            "Order": 0,
+            "Timestamp": 1780884244670,
+            "Stage": 1,
+            "ErrorType": 2,
+            "ErrorCode": "LP1014",
+            "Description": "We recommend running Runtime Analysis to find and remove all unused code",
+            "Details": [
+                "Navigate to the Runtime Analysis → Code tab to enable code stripping. Before uploading the playable, please make sure to have played all scenario’s of the playable in a development build to make Runtime Analysis work properly."
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "c2b0be63-f5e9-4422-8fc6-8f0de0d8c18e",
+            "Order": 1,
+            "Timestamp": 1780884244688,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1027",
+            "Description": "This DOTween version is not supported",
+            "Details": [
+                "The incorrect DOTween version for this Unity version is in use, please update or downgrade to the recommended version {0} in the package manager. Go to Window → Package Manager."
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [
+                ""
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "9e72eaeb-ddd7-47e3-bfc7-56ff1c89b43c",
+            "Order": 2,
+            "Timestamp": 1780884244688,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1015",
+            "Description": "This TMP version is not fully supported",
+            "Details": [
+                "The incorrect Text Mesh Pro for this Unity version is in use, please update or downgrade to the recommended version {0} in the package manager. Go to Window → Package Manager"
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [
+                ""
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "907bf90c-c0de-4af6-9d77-5a3461e9c3d8",
+            "Order": 3,
+            "Timestamp": 1780884244688,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1032",
+            "Description": "Package(s) is not supported in Luna",
+            "Details": [
+                "Currently package(s) com.unity.timeline are not supported in Luna. We recommend you to remove it and workaround it's functionality."
+            ],
+            "DescriptionValues": [
+                "com.unity.timeline (1.8.7)"
+            ],
+            "DetailsValues": [
+                "com.unity.timeline"
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "D:/Project/Cookingdom/Packages\\manifest.json",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "0da9fa40-ea71-4486-bce4-1cf952c7568b",
+            "Order": 4,
+            "Timestamp": 1780884244689,
+            "Stage": 1,
+            "ErrorType": 2,
+            "ErrorCode": "LP1010",
+            "Description": "Looks like a collider was scaled, this might affect performance.",
+            "Details": [
+                "Cake",
+                "Cake (1)",
+                "Cake (2)",
+                "Cake (3)",
+                "Cake (4)",
+                "Cake (5)"
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [],
+            "LogCount": 6,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        }
+    ]
+}

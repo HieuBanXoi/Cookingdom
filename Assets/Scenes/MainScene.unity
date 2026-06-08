@@ -2359,8 +2359,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   heartEffectScale: 1
-  playMoveToTargetFinishSound: 0
-  moveToTargetFinishFxType: 18
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 15
   bowl: {fileID: 1074817687}
   pan: {fileID: 1523021134}
   fryDuration: 0
@@ -5259,8 +5259,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   heartEffectScale: 1
-  playMoveToTargetFinishSound: 0
-  moveToTargetFinishFxType: 18
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 15
   bowl: {fileID: 1074817687}
   pan: {fileID: 1523021134}
   fryDuration: 0
@@ -6061,8 +6061,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   heartEffectScale: 1
-  playMoveToTargetFinishSound: 0
-  moveToTargetFinishFxType: 18
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 15
   bowl: {fileID: 1074817687}
   pan: {fileID: 1523021134}
   fryDuration: 0
@@ -7832,8 +7832,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   heartEffectScale: 1
-  playMoveToTargetFinishSound: 0
-  moveToTargetFinishFxType: 18
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 15
   bowl: {fileID: 1074817687}
   pan: {fileID: 1523021134}
   fryDuration: 0
@@ -8215,8 +8215,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   heartEffectScale: 1
-  playMoveToTargetFinishSound: 0
-  moveToTargetFinishFxType: 18
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 15
   bowl: {fileID: 1074817687}
   pan: {fileID: 1523021134}
   fryDuration: 0
@@ -16182,8 +16182,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   heartEffectScale: 1
-  playMoveToTargetFinishSound: 0
-  moveToTargetFinishFxType: 18
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 15
   bowl: {fileID: 1074817687}
   pan: {fileID: 1523021134}
   fryDuration: 0
@@ -19114,6 +19114,8 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: cfdd64eb7ec5b8f46ab49eb968681448, type: 3}
   - fxType: 17
     audioClip: {fileID: 8300000, guid: ecd2dece896ddaa4a905e459dc8082c4, type: 3}
+  - fxType: 18
+    audioClip: {fileID: 8300000, guid: d9061c7656727814fb0bef8263737657, type: 3}
   audioClips:
   - {fileID: 8300000, guid: 60f0c4cf59df7a744b189cffce477bde, type: 3}
   - {fileID: 8300000, guid: 7f0d20000df9be645a9cd53d803202fc, type: 3}
@@ -19133,6 +19135,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e5cc2f488600259499d7cf0b4154534f, type: 3}
   - {fileID: 8300000, guid: cfdd64eb7ec5b8f46ab49eb968681448, type: 3}
   - {fileID: 8300000, guid: ecd2dece896ddaa4a905e459dc8082c4, type: 3}
+  - {fileID: 8300000, guid: d9061c7656727814fb0bef8263737657, type: 3}
   sound: {fileID: 2101441070}
 --- !u!1 &1968342770
 GameObject:
@@ -20571,7 +20574,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 68c4079e3ad03be4f8bec6766dc68e94, type: 3}
   m_Resource: {fileID: 8300000, guid: 68c4079e3ad03be4f8bec6766dc68e94, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.144
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0

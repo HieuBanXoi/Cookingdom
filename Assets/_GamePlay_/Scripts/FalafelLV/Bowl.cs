@@ -371,4 +371,12 @@ public class Bowl : Item
     {
         Ply_SoundManager.Ins.PlayFx(FxType.FoodToBowl);
     }
+    public void PlayCreamSound()
+    {
+        Ply_SoundManager.Ins.PlayFxLoop(FxType.CreamDown);
+    }
+    public void StopCreamSound()
+    {
+        Ply_SoundManager.Ins.StopFxLoop(FxType.CreamDown);
+    }
 }
