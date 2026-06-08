@@ -2543,6 +2543,9 @@ MonoBehaviour:
   - type: 7
     amount: 5
     gameUnit: {fileID: 4139640264843390156, guid: cc4edba986607ba48b17927b27d25e4e, type: 3}
+  - type: 3
+    amount: 1
+    gameUnit: {fileID: 5246945917831380474, guid: 70c8a24b46efbe34e9b0ca8e8647f2bc, type: 3}
   poolHolder: {fileID: 995830828}
 --- !u!1 &563111186
 GameObject:
@@ -13926,8 +13929,8 @@ MonoBehaviour:
   completeNormalizedTime: 0.99
   resetAnimationOnFirstBegin: 1
   milestones: []
-  spawnProgressBarOnStir: 0
-  spawnProgressBarPoint: {fileID: 0}
+  spawnProgressBarOnStir: 1
+  spawnProgressBarPoint: {fileID: 1936641376}
   onStirBegin:
     m_PersistentCalls:
       m_Calls: []
