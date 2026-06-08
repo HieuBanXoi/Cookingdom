@@ -7,7 +7,6 @@ public class ItemDraggable : MonoBehaviour
 {
     [Header("--- CÀI ĐẶT DRAG 3D ---")]
     public bool isDraggable = true;
-    public bool isUseOrderlayer = false;
     public Transform returnTransform;
     public bool setParentToReturnTransform = true;
     public bool returnToExactReturnTransformPosition = true;
@@ -36,9 +35,7 @@ public class ItemDraggable : MonoBehaviour
     private float zCoord;
     private Camera mainCam;
     private Collider myCollider;
-    private Renderer myRenderer;
     private Ply_BobEffect bobEffect;
-    private int originalSortingOrder;
     private bool shadowDefaultActive;
     private Tween scaleTween;
     private bool hasOriginalScale;
@@ -55,11 +52,6 @@ public class ItemDraggable : MonoBehaviour
         originalScale = transform.localScale;
         hasOriginalScale = true;
         originalZ = transform.position.z;
-        myRenderer = GetComponentInChildren<Renderer>();
-        if (myRenderer != null)
-        {
-            originalSortingOrder = myRenderer.sortingOrder;
-        }
         if (shadowObject != null)
         {
             shadowDefaultActive = shadowObject.activeSelf;
@@ -117,11 +109,6 @@ public class ItemDraggable : MonoBehaviour
 
         ResetScale();
 
-        if (myRenderer != null)
-        {
-            myRenderer.sortingOrder = originalSortingOrder;
-        }
-
         SetShadowActive(shadowDefaultActive);
 
         if (returnTransform != null)
@@ -151,9 +138,9 @@ public class ItemDraggable : MonoBehaviour
         PlayBobEffectIfEnabled();
     }
 
-    public void BeginDrag()
+    public bool BeginDrag()
     {
-        if (!enabled || !isDraggable) return;
+        if (!CanDrag()) return false;
 
         transform.DOKill(); // Dừng tween bay về nếu người chơi cầm lại vật thể giữa chừng
 
@@ -162,7 +149,6 @@ public class ItemDraggable : MonoBehaviour
         SetShadowActive(false);
 
         Ply_SoundManager.Ins.PlayFx(FxType.Click);
-        if (myRenderer != null && isUseOrderlayer) myRenderer.sortingOrder = 200;
 
         transform.SetParent(originalParent);
 
@@ -176,11 +162,12 @@ public class ItemDraggable : MonoBehaviour
 
         offset = transform.position - GetMouseWorldPos();
         onBeginDrag?.Invoke();
+        return true;
     }
 
     public void Drag()
     {
-        if (!enabled || !isDraggable) return;
+        if (!CanDrag()) return;
         transform.position = GetMouseWorldPos() + offset;
         Vector3 newPos = GetMouseWorldPos() + offset;
         newPos.z = -7f; // Đảm bảo vật thể luôn giữ ở mức Z = -5 trong suốt quá trình kéo
@@ -189,9 +176,8 @@ public class ItemDraggable : MonoBehaviour
 
     public void EndDrag()
     {
-        if (!enabled || !isDraggable) return;
+        if (!CanDrag()) return;
 
-        if (myRenderer != null) myRenderer.sortingOrder = originalSortingOrder;
         SetShadowActive(shadowDefaultActive);
 
         myCollider.enabled = false; // Tắt collider của mình để tia xuyên qua
@@ -206,6 +192,8 @@ public class ItemDraggable : MonoBehaviour
             targetItem = ComponentCache<Item>.Get(hits[i].collider);
             if (targetItem != null && targetItem != this.item) // Đảm bảo không phải chính nó
             {
+                if (targetItem.itemType == ItemType.None) continue;
+
                 if (targetItem.itemType == targetItemType)
                 {
                     isHitValid = true;
@@ -238,6 +226,11 @@ public class ItemDraggable : MonoBehaviour
     public void IsDraggable(bool isDraggable)
     {
         this.isDraggable = isDraggable;
+    }
+
+    public bool CanDrag()
+    {
+        return enabled && isDraggable;
     }
 
     public void ChangeReturnPoint(Transform returnPoint)

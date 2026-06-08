@@ -251,8 +251,6 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
         if (IsDraggableReady(item))
         {
-            if (item.itemDraggable.targetItemType == ItemType.None) return false;
-
             return item.itemMoveToTarget != null && item.itemMoveToTarget.defaultTarget != null;
         }
 
@@ -266,7 +264,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
     private bool IsDraggableReady(Item item)
     {
-        return item.itemDraggable != null && item.itemDraggable.enabled && item.itemDraggable.isDraggable;
+        return item.itemDraggable != null && item.itemDraggable.CanDrag();
     }
 
     private bool IsKnifeSpriteMaskCutterReady(Item item)
