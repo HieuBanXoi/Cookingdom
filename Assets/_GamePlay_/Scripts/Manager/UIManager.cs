@@ -36,7 +36,14 @@ public class UIManager : Ply_Singleton<UIManager>
     public bool isVertical;
     public Camera cam;
 
+    [Header("--- UI ORIENTATION SETTINGS ---")]
+    [Tooltip("Neu ty le Chieu cao / Chieu rong >= muc nay thi dung verticalUI, nguoc lai dung horizontalUI. Mac dinh 1 = cao hon rong.")]
+    public float verticalUIHeightOnWidthRatio = 0.6f;
+
     [Header("--- SCREEN SCALE SETTINGS ---")]
+    [Tooltip("Bat de tu can lai camera khi thay doi thong so trong Inspector.")]
+    public bool scaleCameraOnValidate = false;
+
     [Tooltip("Bat de camera tang size lien tuc theo ty le man hinh. Tat de dung cac moc discrete ben duoi.")]
     public bool useContinuousScaling = false;
 
@@ -47,8 +54,10 @@ public class UIManager : Ply_Singleton<UIManager>
     public float baseAspect = 1.777f;
 
     [Header("- Discrete Scaling -")]
-    public float landscapeSize = 6f;
-    public float defaultPortraitSize = 6f;
+    [Tooltip("Ti le nhan voi baseOrthographicSize khi man hinh ngang.")]
+    public float landscapeSizeRatio = 1f;
+    [Tooltip("Ti le nhan voi baseOrthographicSize khi man hinh doc mac dinh.")]
+    public float defaultPortraitSizeRatio = 1f;
     [Tooltip("Danh sach cac moc size theo ty le man hinh.")]
     public List<ScreenScaleStep> discreteScaleSteps = new List<ScreenScaleStep>
     {
@@ -75,6 +84,28 @@ public class UIManager : Ply_Singleton<UIManager>
 
     private Vector3 perspectiveFocusPoint;
     private bool hasPerspectiveCache;
+
+    private void OnValidate()
+    {
+        verticalUIHeightOnWidthRatio = Mathf.Max(0.01f, verticalUIHeightOnWidthRatio);
+        baseAspect = Mathf.Max(0.01f, baseAspect);
+        baseOrthographicSize = Mathf.Max(0.01f, baseOrthographicSize);
+        landscapeSizeRatio = Mathf.Max(0.01f, landscapeSizeRatio);
+        defaultPortraitSizeRatio = Mathf.Max(0.01f, defaultPortraitSizeRatio);
+        perspectivePadding = Mathf.Max(1f, perspectivePadding);
+
+        if (!scaleCameraOnValidate)
+        {
+            return;
+        }
+
+        GetScreenSize();
+        GetSreenType();
+        hasPerspectiveCache = false;
+
+        float targetOrthographicSize = Mathf.Max(GetTargetOrthographicSize(), 0.01f);
+        ApplyCameraScale(targetOrthographicSize);
+    }
 
     protected void Start()
     {
@@ -116,8 +147,8 @@ public class UIManager : Ply_Singleton<UIManager>
 
     private void GetSreenType()
     {
-        isVertical = screenHeight > screenWidth;
         scaleHeightOnWidth = screenHeight / screenWidth;
+        isVertical = scaleHeightOnWidth >= verticalUIHeightOnWidthRatio;
     }
 
     private void ScreenScale()
@@ -132,7 +163,7 @@ public class UIManager : Ply_Singleton<UIManager>
             horizontalUI.SetActive(!isVertical);
         }
 
-        float targetOrthographicSize = Mathf.Max(GetTargetOrthographicSize(), baseOrthographicSize);
+        float targetOrthographicSize = Mathf.Max(GetTargetOrthographicSize(), 0.01f);
         ApplyCameraScale(targetOrthographicSize);
     }
 
@@ -142,18 +173,18 @@ public class UIManager : Ply_Singleton<UIManager>
         {
             if (!isVertical)
             {
-                return landscapeSize;
+                return GetLandscapeSize();
             }
 
-            return baseOrthographicSize * (scaleHeightOnWidth / baseAspect);
+            return GetDefaultPortraitSize() * (scaleHeightOnWidth / baseAspect);
         }
 
         if (!isVertical)
         {
-            return landscapeSize;
+            return GetLandscapeSize();
         }
 
-        float matchedSize = defaultPortraitSize;
+        float matchedSize = GetDefaultPortraitSize();
         float highestMatchedRatio = 0f;
 
         if (discreteScaleSteps != null)
@@ -169,6 +200,16 @@ public class UIManager : Ply_Singleton<UIManager>
         }
 
         return matchedSize;
+    }
+
+    private float GetLandscapeSize()
+    {
+        return baseOrthographicSize * landscapeSizeRatio;
+    }
+
+    private float GetDefaultPortraitSize()
+    {
+        return baseOrthographicSize * defaultPortraitSizeRatio;
     }
 
     private void ApplyCameraScale(float targetOrthographicSize)

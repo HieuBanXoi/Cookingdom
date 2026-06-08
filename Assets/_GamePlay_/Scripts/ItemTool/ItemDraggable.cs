@@ -39,6 +39,7 @@ public class ItemDraggable : MonoBehaviour
     private bool shadowDefaultActive;
     private Tween scaleTween;
     private bool hasOriginalScale;
+    private bool spawnHeartOnReturnComplete = true;
 
 
     void Start()
@@ -60,7 +61,18 @@ public class ItemDraggable : MonoBehaviour
 
     public void ReturnToStart()
     {
+        ReturnToStart(true);
+    }
+
+    public void ReturnToStartWithoutHeart()
+    {
+        ReturnToStart(false);
+    }
+
+    private void ReturnToStart(bool spawnHeart)
+    {
         Tween returnTween = null;
+        spawnHeartOnReturnComplete = spawnHeart;
 
         transform.DOKill();
 
@@ -279,10 +291,12 @@ public class ItemDraggable : MonoBehaviour
         PlayBobEffectIfEnabled();
         PlayReturnToStartFinishSound();
 
-        if (item != null)
+        if (spawnHeartOnReturnComplete && item != null)
         {
             item.OnDragFailReturnComplete();
         }
+
+        spawnHeartOnReturnComplete = true;
     }
 
     private void PlayReturnToStartFinishSound()

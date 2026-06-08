@@ -115,6 +115,14 @@ public class Item : MonoBehaviour
             itemDraggable.TeleportToStart();
         }
     }
+    public void DoneAnimation()
+    {
+        if (itemDraggable == null) return;
+        itemDraggable.targetItemType = ItemType.None;
+        itemDraggable.enabled = true;
+        animator.enabled = false;
+        itemMoveToTarget.defaultTarget = null;
+    }
 
     public void ItemDone()
     {
