@@ -11,6 +11,7 @@ public class ClockTimer : Ply_GameUnit
     private float duration;
     private float elapsedTime;
     private bool isCounting;
+    private bool usePool;
     private Action onComplete;
 
     private void Awake()
@@ -62,9 +63,38 @@ public class ClockTimer : Ply_GameUnit
         ClockTimer clockTimer = Ply_Pool.Ins.Spawn<ClockTimer>(PoolType.ClockTimer, position, rotation);
         if (clockTimer != null)
         {
+            clockTimer.usePool = true;
             clockTimer.StartCountdown(countdownDuration, onComplete);
         }
 
+        return clockTimer;
+    }
+
+    public static ClockTimer SpawnUI(
+        ClockTimer prefab,
+        RectTransform spawnPoint,
+        float countdownDuration,
+        Action onComplete = null)
+    {
+        if (prefab == null || spawnPoint == null)
+        {
+            return null;
+        }
+
+        ClockTimer clockTimer = Instantiate(prefab, spawnPoint);
+        clockTimer.usePool = false;
+
+        RectTransform rectTransform = clockTimer.transform as RectTransform;
+        if (rectTransform != null)
+        {
+            rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+            rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+            rectTransform.anchoredPosition = Vector2.zero;
+            rectTransform.localRotation = Quaternion.identity;
+            rectTransform.localScale = Vector3.one;
+        }
+
+        clockTimer.StartCountdown(countdownDuration, onComplete);
         return clockTimer;
     }
 
@@ -110,13 +140,13 @@ public class ClockTimer : Ply_GameUnit
 
     private void DeSpawn()
     {
-        if (Ply_Pool.Ins != null)
+        if (usePool && Ply_Pool.Ins != null)
         {
             Ply_Pool.Ins.Despawn(PoolType.ClockTimer, this);
         }
         else
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 

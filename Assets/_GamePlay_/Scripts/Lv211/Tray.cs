@@ -1,16 +1,13 @@
 using UnityEngine;
 
-public class Tray : MonoBehaviour
+public class Tray : Item
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public FishFillet fishFillet;
+    public void CanFishDrag()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (fishFillet != null)
+        {
+            fishFillet.itemDraggable.enabled = true;
+        }
     }
 }

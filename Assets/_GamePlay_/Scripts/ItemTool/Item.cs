@@ -145,7 +145,12 @@ public class Item : MonoBehaviour
         YellowPiece yellowPiece = Ply_Pool.Ins.Spawn<YellowPiece>(PoolType.YellowPiece, transform.position, transform.rotation);
         yellowPiece.DeSpawnByTime();
     }
-
+    public void SpawnBlinkEffect()
+    {
+        BlinkEffect blinkEffect = Ply_Pool.Ins.Spawn<BlinkEffect>(PoolType.BlinkFX, transform.position, transform.rotation);
+        blinkEffect.tf.SetParent(this.transform);
+        blinkEffect.DeSpawnByTime();
+    }
 
     public void PlayMoveToTargetFinishSound()
     {

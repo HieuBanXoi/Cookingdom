@@ -8,6 +8,7 @@ public class BlinkEffect : Ply_GameUnit
     }
     public void DeSpawn()
     {
+        tf.SetParent(null);
         Ply_Pool.Ins.Despawn(PoolType.BlinkFX, this);
     }
 }

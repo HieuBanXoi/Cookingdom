@@ -18,6 +18,7 @@ public class ItemDraggable : MonoBehaviour
     [Header("--- RETURN TO START SOUND ---")]
     public bool playReturnToStartFinishSound = false;
     public FxType returnToStartFinishFxType = FxType.Wrong;
+    public bool spawnBreakHeartOnDropFail = true;
 
     [Tooltip("Khi nhấc lên, vật sẽ nhích lại gần Camera (hoặc bay cao lên) bao nhiêu để không kẹt vào bàn?")]
     public float liftOffset = 1.0f;
@@ -225,7 +226,7 @@ public class ItemDraggable : MonoBehaviour
         {
             ResetScale();
             onDropFail?.Invoke();
-            ReturnToStart();
+            ReturnToStart(spawnBreakHeartOnDropFail);
         }
     }
 
