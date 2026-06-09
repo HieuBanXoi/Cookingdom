@@ -8,10 +8,11 @@ public class FishFillet : Item
     public Transform[] moveTargets;
     public bool isSaltIn = false;
     public bool isEggReady = false;
+    public Transform fishObject;
     public SpriteRenderer[] spriteRenderers;
+    public SpriteRenderer[] fishDoneRenderers;
     public Sprite eggFish;
     public Sprite flourFish;
-    public Sprite cookedFish;
 
     public Item salt;
 
@@ -21,6 +22,11 @@ public class FishFillet : Item
     public float cookDuration = 2f;
     public float readyZ = -2f;
     public float readyMoveDuration = 0.35f;
+
+    [Header("Pan Cook")]
+    public Pan pan;
+    public RectTransform spawnClockOnPan;
+    public float panCookDuration = 2f;
 
     [Header("Bob Effect")]
     public bool bobUseLocalMove = true;
@@ -32,10 +38,23 @@ public class FishFillet : Item
     public float returnDuration = 0.45f;
     public Ease returnEase = Ease.OutCubic;
 
+    [Header("Move Target Punch")]
+    public Vector3 targetPunchScale = new Vector3(0.08f, -0.05f, 0f);
+    public float targetPunchDuration = 0.25f;
+    public int targetPunchVibrato = 4;
+    public float targetPunchElasticity = 0.5f;
+
+    [Header("Flour Click")]
+    public float flourJumpPower = 0.5f;
+    public float flourJumpDuration = 0.35f;
+    public float[] flourJumpOffsets = { 0.5f, -0.7f, 0.5f };
+
     private bool isReturningToPreviousTarget;
     private Quaternion returnRotation;
     private Vector3 returnWorldScale;
     private bool resumeBobAfterReturn;
+    private int flourClickCount;
+    private Sequence fishCookFadeTween;
 
     public void NextStep()
     {
@@ -43,7 +62,19 @@ public class FishFillet : Item
     }
     public void FishClick()
     {
-        
+        if (itemClickable == null || !itemClickable.canClick) return;
+        if (flourJumpOffsets == null || flourClickCount >= flourJumpOffsets.Length) return;
+
+        itemClickable.canClick = false;
+
+        float jumpOffset = flourJumpOffsets[flourClickCount];
+        Vector3 targetPosition = transform.position + Vector3.right * jumpOffset;
+        FlipFish();
+
+        transform.DOKill();
+        transform.DOJump(targetPosition, flourJumpPower, 1, flourJumpDuration)
+            .SetEase(Ease.OutQuad)
+            .OnComplete(OnFlourJumpComplete);
     }
     public void ChangeFishSprite(Sprite sprite)
     {
@@ -113,7 +144,6 @@ public class FishFillet : Item
 
     public void MoveDone()
     {
-        itemDraggable.targetItemType = ItemType.None;
         if (isReturningToPreviousTarget)
         {
             isReturningToPreviousTarget = false;
@@ -127,6 +157,13 @@ public class FishFillet : Item
             return;
         }
 
+        PunchCurrentMoveTarget();
+
+        if (itemDraggable != null)
+        {
+            itemDraggable.targetItemType = ItemType.None;
+        }
+
         switch (currentStep)
         {
             case 0:
@@ -138,8 +175,182 @@ public class FishFillet : Item
             case 1:
                 StartCookTimer();
                 break;
+            case 2:
+                OnFlour();
+                break;
+            case 3:
+                OnPan();
+                break;
+                case 4:
+                Finish();
+                break;
         }
         NextStep();
+    }
+
+    private void PunchCurrentMoveTarget()
+    {
+        if (!TryGetMoveTarget(currentStep, out Transform target)) return;
+
+        target.DOPunchScale(
+            targetPunchScale,
+            targetPunchDuration,
+            targetPunchVibrato,
+            targetPunchElasticity
+        );
+    }
+
+    private void Finish()
+    {
+        SpawnHeart(false);
+
+        if (PhaseManager.Ins != null)
+        {
+            PhaseManager.Ins.DoOneStep();
+        }
+    }
+
+
+    private void OnPan()
+    {
+        if (pan != null)
+        {
+            pan.BeginCookingFish(this, panCookDuration);
+        }
+
+        PlayFishCookFade();
+
+        ClockTimer clock = ClockTimer.SpawnUI(
+            clockTimerPrefab,
+            spawnClockOnPan,
+            panCookDuration,
+            FinishCookingOnPan
+        );
+
+        if (clock == null)
+        {
+            DOVirtual.DelayedCall(panCookDuration, FinishCookingOnPan);
+        }
+    }
+
+    private void FinishCookingOnPan()
+    {
+        fishCookFadeTween?.Kill();
+        fishCookFadeTween = null;
+        SetRenderersAlpha(spriteRenderers, 0f);
+        SetRenderersAlpha(fishDoneRenderers, 1f);
+
+        if (itemDraggable != null)
+        {
+            itemDraggable.targetItemType = ItemType.Plate;
+        }
+
+        if (pan != null)
+        {
+            pan.CompleteCookingFish(this);
+        }
+    }
+
+    private void PlayFishCookFade()
+    {
+        fishCookFadeTween?.Kill();
+        SetRenderersAlpha(spriteRenderers, 1f);
+        SetRenderersAlpha(fishDoneRenderers, 0f);
+
+        fishCookFadeTween = DOTween.Sequence();
+        AddRendererFadeTweens(fishCookFadeTween, spriteRenderers, 0f);
+        AddRendererFadeTweens(fishCookFadeTween, fishDoneRenderers, 1f);
+        fishCookFadeTween.SetEase(Ease.Linear);
+    }
+
+    private void AddRendererFadeTweens(Sequence sequence, SpriteRenderer[] renderers, float targetAlpha)
+    {
+        if (renderers == null) return;
+
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            if (renderers[i] != null)
+            {
+                sequence.Join(renderers[i].DOFade(targetAlpha, panCookDuration));
+            }
+        }
+    }
+
+    private void SetRenderersAlpha(SpriteRenderer[] renderers, float alpha)
+    {
+        if (renderers == null) return;
+
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            if (renderers[i] == null) continue;
+
+            Color color = renderers[i].color;
+            color.a = alpha;
+            renderers[i].color = color;
+        }
+    }
+
+    public void EnablePlateTarget()
+    {
+        ChangeItemType(ItemType.Fish);
+        if (itemDraggable == null) return;
+
+        itemDraggable.targetItemType = ItemType.Plate;
+        itemDraggable.enabled = true;
+    }
+
+
+    private void OnFlour()
+    {
+        flourClickCount = 0;
+        SpawnFlour();
+        if (itemClickable != null)
+        {
+            itemClickable.enabled = true;
+            itemClickable.canClick = true;
+        }
+    }
+
+    private void OnFlourJumpComplete()
+    {
+        SpawnFlour();
+        flourClickCount++;
+
+        if (flourClickCount < flourJumpOffsets.Length)
+        {
+            itemClickable.canClick = true;
+            return;
+        }
+
+        ChangeFishSprite(flourFish);
+        itemClickable.enabled = false;
+        SpawnBlinkEffect();
+
+            itemDraggable.targetItemType = ItemType.PanBoiling;
+            itemType = ItemType.Fish;
+    }
+
+    private void FlipFish()
+    {
+        if (fishObject == null) return;
+
+        Vector3 scale = fishObject.localScale;
+        scale.x *= -1f;
+        fishObject.localScale = scale;
+    }
+
+    private void SpawnFlour()
+    {
+        if (Ply_Pool.Ins == null) return;
+
+        FlourSmoke flourSmoke = Ply_Pool.Ins.Spawn<FlourSmoke>(
+            PoolType.FlourSmoke,
+            transform.position,
+            Quaternion.identity
+        );
+        if (flourSmoke == null) return;
+
+        flourSmoke.DeSpawnByTime();
     }
 
     private bool TryGetMoveTarget(int index, out Transform target)
@@ -252,5 +463,11 @@ public class FishFillet : Item
         {
             itemDraggable.targetItemType = ItemType.Bowl1;
         }
+    }
+
+    private void OnDisable()
+    {
+        fishCookFadeTween?.Kill();
+        fishCookFadeTween = null;
     }
 }

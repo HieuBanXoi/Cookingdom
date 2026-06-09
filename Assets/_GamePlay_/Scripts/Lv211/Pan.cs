@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pan : Item
 {
     public GameObject fryingFX;
+    public GameObject oilObject;
     public float cakeFryDuration = 5f;
     public bool isOilIn = false;
     public bool isTurnOnStove = false;
@@ -15,20 +16,22 @@ public class Pan : Item
     public float stoveShakeStrength = 0.05f;
     public int stoveShakeVibrato = 12;
 
-    private readonly List<Item> cakePlateSlots = new List<Item>();
     private bool isPlayingFryingLoop = false;
     private Tween stoveShakeTween;
+    private Tween oilScaleTween;
     private Vector3 stoveShakeStartPosition;
     private bool hasStoveShakeStartPosition;
+    private FishFillet cookingFish;
+    private bool isFishCooked;
 
     public void AddOil()
     {
         isOilIn = true;
-        if (animator != null) animator.SetTrigger("AddOil");
         if (isTurnOnStove)
         {
             TurnOnFX();
         }
+        UpdatePanItemType();
         UpdateFryingSound();
     }
     public void TurnOnStove()
@@ -39,6 +42,7 @@ public class Pan : Item
         {
             TurnOnFX();
         }
+        UpdatePanItemType();
         UpdateFryingSound();
 
     }
@@ -47,7 +51,9 @@ public class Pan : Item
         isTurnOnStove = false;
         StopStoveShake();
         if (fryingFX != null) fryingFX.SetActive(false);
+        UpdatePanItemType();
         UpdateFryingSound();
+        TryEnableFishPlateTarget();
     }
     public bool CanFry()
     {
@@ -56,6 +62,55 @@ public class Pan : Item
     public void TurnOnFX()
     {
         if (fryingFX != null) fryingFX.SetActive(true);
+    }
+
+    public void BeginCookingFish(FishFillet fish, float cookDuration)
+    {
+        cookingFish = fish;
+        isFishCooked = false;
+
+        oilScaleTween?.Kill();
+        if (oilObject != null)
+        {
+            oilScaleTween = oilObject.transform
+                .DOScale(Vector3.zero, cookDuration)
+                .SetEase(Ease.Linear);
+        }
+    }
+
+    public void CompleteCookingFish(FishFillet fish)
+    {
+        if (cookingFish != fish) return;
+
+        isFishCooked = true;
+        isOilIn = false;
+
+        oilScaleTween?.Kill();
+        oilScaleTween = null;
+        if (oilObject != null)
+        {
+            oilObject.transform.localScale = Vector3.zero;
+            oilObject.SetActive(false);
+        }
+        // if (fryingFX != null) fryingFX.SetActive(false);
+
+        UpdatePanItemType();
+        UpdateFryingSound();
+        TryEnableFishPlateTarget();
+    }
+
+    private void TryEnableFishPlateTarget()
+    {
+        if (!isFishCooked || isTurnOnStove || cookingFish == null) return;
+
+        cookingFish.EnablePlateTarget();
+    }
+
+    private void UpdatePanItemType()
+    {
+        ChangeItemType(isOilIn && isTurnOnStove
+            ? ItemType.PanBoiling
+            : ItemType.Pan);
     }
 
     private void UpdateFryingSound()
@@ -119,12 +174,16 @@ public class Pan : Item
 
     private void OnDisable()
     {
+        oilScaleTween?.Kill();
+        oilScaleTween = null;
         StopStoveShake();
         StopFryingSoundLoop();
     }
 
     private void OnDestroy()
     {
+        oilScaleTween?.Kill();
+        oilScaleTween = null;
         StopStoveShake();
         StopFryingSoundLoop();
     }

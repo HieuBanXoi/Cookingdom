@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
@@ -8,11 +9,18 @@ public class ClockTimer : Ply_GameUnit
     [Tooltip("Image dang de Filled. Fill Amount se chay tu 1 ve 0.")]
     public Image fillImage;
 
+    [Header("--- ZOOM ANIMATION ---")]
+    [SerializeField] private float spawnZoomDuration = 0.25f;
+    [SerializeField] private float despawnZoomDuration = 0.2f;
+
     private float duration;
     private float elapsedTime;
     private bool isCounting;
+    private bool isDespawning;
     private bool usePool;
     private Action onComplete;
+    private Vector3 defaultScale;
+    private Tween scaleTween;
 
     private void Awake()
     {
@@ -25,10 +33,13 @@ public class ClockTimer : Ply_GameUnit
         {
             fillImage = GetComponentInChildren<Image>(true);
         }
+
+        defaultScale = transform.localScale;
     }
 
     private void OnEnable()
     {
+        isDespawning = false;
         ResetFill();
     }
 
@@ -100,9 +111,16 @@ public class ClockTimer : Ply_GameUnit
 
     public void StartCountdown(float countdownDuration, Action onComplete = null)
     {
+        scaleTween?.Kill();
+        transform.localScale = Vector3.zero;
+        scaleTween = transform
+            .DOScale(defaultScale, spawnZoomDuration)
+            .SetEase(Ease.OutBack);
+
         duration = Mathf.Max(0f, countdownDuration);
         elapsedTime = 0f;
         isCounting = true;
+        isDespawning = false;
         this.onComplete = onComplete;
         ResetFill();
 
@@ -116,7 +134,7 @@ public class ClockTimer : Ply_GameUnit
     {
         isCounting = false;
         onComplete = null;
-        DeSpawn();
+        PlayDespawn();
     }
 
     private void CompleteCountdown()
@@ -127,7 +145,7 @@ public class ClockTimer : Ply_GameUnit
         onComplete = null;
         completeAction?.Invoke();
 
-        DeSpawn();
+        PlayDespawn();
     }
 
     private void ResetFill()
@@ -138,8 +156,26 @@ public class ClockTimer : Ply_GameUnit
         }
     }
 
+    private void PlayDespawn()
+    {
+        if (isDespawning)
+        {
+            return;
+        }
+
+        isDespawning = true;
+        scaleTween?.Kill();
+        scaleTween = transform
+            .DOScale(Vector3.zero, despawnZoomDuration)
+            .SetEase(Ease.InBack)
+            .OnComplete(DeSpawn);
+    }
+
     private void DeSpawn()
     {
+        scaleTween = null;
+        transform.localScale = defaultScale;
+
         if (usePool && Ply_Pool.Ins != null)
         {
             Ply_Pool.Ins.Despawn(PoolType.ClockTimer, this);
@@ -152,7 +188,11 @@ public class ClockTimer : Ply_GameUnit
 
     private void OnDisable()
     {
+        scaleTween?.Kill();
+        scaleTween = null;
+        transform.localScale = defaultScale;
         isCounting = false;
+        isDespawning = false;
         onComplete = null;
     }
 }
