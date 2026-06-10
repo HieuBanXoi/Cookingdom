@@ -1,101 +1,87 @@
-using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
+using DG.Tweening;
+using System.Collections.Generic;
 using UnityEngine.Events;
 
 [System.Serializable]
 public class PhaseData
 {
+    [Tooltip("GameObject chứa toàn bộ môi trường/đồ vật của phase này")]
     public GameObject phaseObject;
+    [Tooltip("Tổng số bước (step) cần hoàn thành để chuyển sang phase kế tiếp")]
     public int totalSteps;
+    [Tooltip("Sự kiện được gọi khi phase này bay vào vị trí trung tâm xong")]
     public UnityEvent onPhaseReady;
 }
 
 public class PhaseManager : Ply_Singleton<PhaseManager>
 {
-    [Header("Phases")]
+    [Header("--- CÀI ĐẶT CÁC PHASE ---")]
     public List<PhaseData> phases;
 
-    [Header("Transition Timing")]
-    public float delayBeforeNextPhase = 2f;
-    public float transitionMoveDuration = 1f;
-    public float backgroundFadeInDuration = 0.6f;
-    public float backgroundFadeOutDuration = 0.6f;
-    public Ease transitionMoveEase = Ease.InOutQuad;
-    public Ease backgroundFadeEase = Ease.InOutSine;
+    [Header("--- HIỆU ỨNG CHUYỂN PHASE ---")]
+    public float transitionDuration = 1.0f;
+    public float delayBeforeNextPhase = 2.0f;
+    public float offScreenLeftX = -15f;
+    public float offScreenRightX = 15f;
+    public float centerScreenX = 0f;
 
-    [Header("Transition Object")]
-    public GameObject transitionObject;
-    public Transform transitionStartPos;
-    public Transform transitionEndPos;
-
-    [Header("Transition Background")]
-    public SpriteRenderer transitionBackground;
-
-    public int currentPhaseIndex;
-    public int currentStepCount;
+    public int currentPhaseIndex = 0;
+    public int currentStepCount = 0;
 
     private bool isChangingPhase;
     private Tween phaseDelayTween;
-    private Sequence transitionSequence;
 
     public Transform CurrentPhaseObject
     {
         get
         {
-            if (currentPhaseIndex < 0 || currentPhaseIndex >= phases.Count)
-            {
-                return null;
-            }
-
-            GameObject phaseObject = phases[currentPhaseIndex].phaseObject;
-            return phaseObject != null ? phaseObject.transform : null;
+            if (currentPhaseIndex >= 0 && currentPhaseIndex < phases.Count)
+                return phases[currentPhaseIndex].phaseObject.transform;
+            return null;
         }
     }
 
     private void Start()
     {
-        SetupPhases();
-        ResetTransitionVisuals();
-    }
-
-    private void SetupPhases()
-    {
+        // Setup ban đầu: Chỉ bật phase đầu tiên (ở chính giữa), tắt tất cả các phase còn lại
         for (int i = 0; i < phases.Count; i++)
         {
-            GameObject phaseObject = phases[i].phaseObject;
-            if (phaseObject == null) continue;
-
-            bool isCurrentPhase = i == currentPhaseIndex;
-            phaseObject.SetActive(isCurrentPhase);
-            if (isCurrentPhase)
+            if (phases[i].phaseObject != null)
             {
-                phases[i].onPhaseReady?.Invoke();
+                if (i == 0)
+                {
+                    phases[i].phaseObject.SetActive(true);
+                    Vector3 pos = phases[i].phaseObject.transform.position;
+                    pos.x = centerScreenX;
+                    phases[i].phaseObject.transform.position = pos;
+                    phases[i].onPhaseReady?.Invoke();
+                }
+                else
+                {
+                    phases[i].phaseObject.SetActive(false);
+                }
             }
         }
     }
 
-    private void ResetTransitionVisuals()
+    private void OnDisable()
     {
-        if (transitionObject != null)
-        {
-            transitionObject.SetActive(false);
-        }
-
-        if (transitionBackground != null)
-        {
-            SetBackgroundAlpha(0f);
-            transitionBackground.gameObject.SetActive(false);
-        }
+        phaseDelayTween?.Kill();
     }
 
-    [ContextMenu("DôneStep")]
+    /// <summary>
+    /// Gọi hàm này từ bất kỳ script nào bằng lệnh: PhaseManager.Ins.DoOneStep();
+    /// Trả về true nếu là bước cuối cùng của Phase và bắt đầu chuyển Phase.
+    /// </summary>
     public bool DoOneStep()
     {
         if (isChangingPhase) return false;
-        if (currentPhaseIndex < 0 || currentPhaseIndex >= phases.Count) return false;
+        if (currentPhaseIndex >= phases.Count) return false; // Đã hoàn thành hết các phase
 
         currentStepCount++;
+
+        // Nếu số lần DoOneStep đạt mức yêu cầu của phase hiện tại => Chuyển Phase
         if (currentStepCount >= phases[currentPhaseIndex].totalSteps)
         {
             return TryEndCurrentPhase();
@@ -113,170 +99,85 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
 
     public bool TryEndCurrentPhase()
     {
-        if (isChangingPhase || !IsCurrentPhaseStepComplete()) return false;
+        if (isChangingPhase) return false;
+        if (!IsCurrentPhaseStepComplete()) return false;
 
         if (HandTutManager.Ins != null && !HandTutManager.Ins.CheckEndPhaseCondition())
         {
             return false;
         }
 
-        BeginPhaseChangeAfterDelay();
+        DelayGoToNextPhase();
         return true;
     }
 
-    private void BeginPhaseChangeAfterDelay()
+    private void DelayGoToNextPhase()
     {
         isChangingPhase = true;
-        if (GameManager.Ins != null)
-        {
-            GameManager.Ins.isPlaying = false;
-        }
-
-        if (Ply_SoundManager.Ins != null)
-        {
-            Ply_SoundManager.Ins.PlayFx(FxType.FoodDone);
-        }
-
+        if (GameManager.Ins != null) GameManager.Ins.isPlaying = false;
+        Ply_SoundManager.Ins.PlayFx(FxType.Complete);
         phaseDelayTween?.Kill();
-        phaseDelayTween = DOVirtual.DelayedCall(delayBeforeNextPhase, PlayPhaseTransition);
+        phaseDelayTween = DOVirtual.DelayedCall(delayBeforeNextPhase, GoToNextPhase);
     }
 
-    private void PlayPhaseTransition()
+    private void GoToNextPhase()
     {
-        phaseDelayTween = null;
-        transitionSequence?.Kill();
-        transitionSequence = DOTween.Sequence();
+        PhaseData oldPhase = phases[currentPhaseIndex];
+        currentPhaseIndex++;
+        currentStepCount = 0; // Reset số đếm step cho phase mới
 
-        if (Ply_SoundManager.Ins != null)
+        if (GameManager.Ins != null) GameManager.Ins.isPlaying = false;
+
+        // 1. Chuyển Phase cũ sang phía bên trái màn hình và ẩn đi
+        if (oldPhase != null && oldPhase.phaseObject != null)
         {
-            Ply_SoundManager.Ins.PlayFx(FxType.ChangePhase);
+            Ply_SoundManager.Ins.PlayFx(FxType.Swipe);
+
+            GameObject oldObj = oldPhase.phaseObject;
+            oldObj.transform.DOMoveX(offScreenLeftX, transitionDuration)
+                .SetEase(Ease.InOutQuad)
+                .OnComplete(() => oldObj.SetActive(false));
         }
 
-        bool hasCoverAnimation = false;
-
-        if (transitionObject != null && transitionStartPos != null && transitionEndPos != null)
+        // 2. Kiểm tra xem còn phase tiếp theo hay không
+        if (currentPhaseIndex < phases.Count)
         {
-            hasCoverAnimation = true;
-            transitionObject.transform.position = transitionStartPos.position;
-            transitionObject.SetActive(true);
-
-            transitionSequence.Join(
-                transitionObject.transform
-                    .DOMove(transitionEndPos.position, transitionMoveDuration)
-                    .SetEase(transitionMoveEase)
-                    .OnComplete(() => transitionObject.SetActive(false))
-            );
-        }
-
-        if (transitionBackground != null)
-        {
-            hasCoverAnimation = true;
-            transitionBackground.gameObject.SetActive(true);
-            SetBackgroundAlpha(0f);
-            transitionSequence.Join(
-                transitionBackground
-                    .DOFade(1f, backgroundFadeInDuration)
-                    .SetEase(backgroundFadeEase)
-            );
-        }
-
-        if (!hasCoverAnimation)
-        {
-            SwapPhase();
-            FinishPhaseTransition();
-            return;
-        }
-
-        transitionSequence.AppendCallback(SwapPhase);
-
-        if (transitionBackground != null)
-        {
-            transitionSequence.Append(
-                transitionBackground
-                    .DOFade(0f, backgroundFadeOutDuration)
-                    .SetEase(backgroundFadeEase)
-            );
-        }
-
-        transitionSequence.OnComplete(FinishPhaseTransition);
-    }
-
-    private void SwapPhase()
-    {
-        if (currentPhaseIndex >= 0 && currentPhaseIndex < phases.Count)
-        {
-            GameObject oldPhaseObject = phases[currentPhaseIndex].phaseObject;
-            if (oldPhaseObject != null)
+            PhaseData newPhase = phases[currentPhaseIndex];
+            if (newPhase != null && newPhase.phaseObject != null)
             {
-                oldPhaseObject.SetActive(false);
+                GameObject newObj = newPhase.phaseObject;
+
+                // Đưa phase mới ra chờ ở bên phải màn hình
+                Vector3 startPos = newObj.transform.position;
+                startPos.x = offScreenRightX;
+                newObj.transform.position = startPos;
+
+                newObj.SetActive(true);
+
+                // Di chuyển Phase mới vào chính giữa
+                newObj.transform.DOMoveX(centerScreenX, transitionDuration)
+                    .SetEase(Ease.InOutQuad).OnComplete(() =>
+                    {
+                        isChangingPhase = false;
+                        if (GameManager.Ins != null) GameManager.Ins.isPlaying = true;
+                        newPhase.onPhaseReady?.Invoke();
+                    });
+            }
+            else
+            {
+                isChangingPhase = false;
+                if (GameManager.Ins != null) GameManager.Ins.isPlaying = true;
             }
         }
-
-        currentPhaseIndex++;
-        currentStepCount = 0;
-
-        if (currentPhaseIndex >= phases.Count)
+        else
         {
-            return;
-        }
-
-        GameObject newPhaseObject = phases[currentPhaseIndex].phaseObject;
-        if (newPhaseObject != null)
-        {
-            newPhaseObject.SetActive(true);
-        }
-
-        if (HandTutManager.Ins != null)
-        {
-            HandTutManager.Ins.OnPhaseChanged();
-        }
-    }
-
-    private void FinishPhaseTransition()
-    {
-        transitionSequence = null;
-
-        if (transitionBackground != null)
-        {
-            SetBackgroundAlpha(0f);
-            transitionBackground.gameObject.SetActive(false);
-        }
-
-        if (transitionObject != null)
-        {
-            transitionObject.SetActive(false);
-        }
-
-        isChangingPhase = false;
-
-        if (currentPhaseIndex >= phases.Count)
-        {
+            isChangingPhase = false;
+            // Đã đi qua hết tất cả các Phase trong danh sách, kết thúc game win
+            Debug.Log("Hoàn thành toàn bộ Phase!");
             if (GameManager.Ins != null)
             {
                 GameManager.Ins.WinGame();
             }
-            return;
         }
-        if (GameManager.Ins != null)
-        {
-            GameManager.Ins.isPlaying = true;
-        }
-        phases[currentPhaseIndex].onPhaseReady?.Invoke();
-        
-    }
-
-    private void SetBackgroundAlpha(float alpha)
-    {
-        Color color = transitionBackground.color;
-        color.a = alpha;
-        transitionBackground.color = color;
-    }
-
-    private void OnDisable()
-    {
-        phaseDelayTween?.Kill();
-        phaseDelayTween = null;
-        transitionSequence?.Kill();
-        transitionSequence = null;
     }
 }
