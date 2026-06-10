@@ -126,7 +126,7 @@ public class Item : MonoBehaviour
 
     public void ItemDone()
     {
-        SpawnHeart(false);
+        // SpawnHeart(false);
         if (HandTutManager.Ins != null)
         {
             HandTutManager.Ins.ItemDone(this);
@@ -176,4 +176,17 @@ public class Item : MonoBehaviour
 
         Ply_SoundManager.Ins.PlayFx(FxType.Drop);
     }
+    public void PlayEggCrackSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.EggCrack);
+    }
+    public void PlayPourSaltSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.PourSalt);
+    }
+    public void PlayPlasticSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.Plastic);
+    }
+
 }

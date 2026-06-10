@@ -134,7 +134,7 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
 
         if (Ply_SoundManager.Ins != null)
         {
-            Ply_SoundManager.Ins.PlayFx(FxType.Complete);
+            Ply_SoundManager.Ins.PlayFx(FxType.FoodDone);
         }
 
         phaseDelayTween?.Kill();
@@ -146,6 +146,11 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
         phaseDelayTween = null;
         transitionSequence?.Kill();
         transitionSequence = DOTween.Sequence();
+
+        if (Ply_SoundManager.Ins != null)
+        {
+            Ply_SoundManager.Ins.PlayFx(FxType.ChangePhase);
+        }
 
         bool hasCoverAnimation = false;
 
@@ -220,6 +225,11 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
         {
             newPhaseObject.SetActive(true);
         }
+
+        if (HandTutManager.Ins != null)
+        {
+            HandTutManager.Ins.OnPhaseChanged();
+        }
     }
 
     private void FinishPhaseTransition()
@@ -247,12 +257,12 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
             }
             return;
         }
-
-        phases[currentPhaseIndex].onPhaseReady?.Invoke();
         if (GameManager.Ins != null)
         {
             GameManager.Ins.isPlaying = true;
         }
+        phases[currentPhaseIndex].onPhaseReady?.Invoke();
+        
     }
 
     private void SetBackgroundAlpha(float alpha)

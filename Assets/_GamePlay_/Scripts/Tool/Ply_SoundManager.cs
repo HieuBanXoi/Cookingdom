@@ -6,22 +6,23 @@ public enum FxType
     Click,
     Drop,
     Jump,
-    Flash,
-    PlateMove,
     Swipe,
     Complete,
     Frying,
     OilIn,
-    CapyYay,
     FoodDone,
     Wrong,
-    CakeToPan,
-    PlaceDish,
-    LeafToBowl,
     FoodToBowl,
-    Hummus,
     TurnOn,
-    CreamDown
+    EggCrack,
+    PourSalt,
+    Clock,
+    Plastic,
+    ChangePhase,
+    SpoonStirring,
+    WaterDrop,
+    FlourDrop,
+    DuckSound
 }
 
 public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>

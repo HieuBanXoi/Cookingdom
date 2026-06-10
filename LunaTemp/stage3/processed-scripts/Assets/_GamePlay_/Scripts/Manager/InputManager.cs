@@ -49,11 +49,6 @@ public class InputManager : Ply_Singleton<InputManager>
 
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
-        if (TryHandleCapybara(ray))
-        {
-            return;
-        }
-
         if (TryHandleToggleButton(ray))
         {
             return;
@@ -69,12 +64,14 @@ public class InputManager : Ply_Singleton<InputManager>
         {
             bool isInteracted = false;
 
-            if (interactableItem.itemDraggable != null && interactableItem.itemDraggable.enabled)
+            if (interactableItem.itemDraggable != null && interactableItem.itemDraggable.CanDrag())
             {
                 currentDraggable = interactableItem.itemDraggable;
-                currentDraggable.BeginDrag();
-                isDragging = true;
-                isInteracted = true;
+                if (currentDraggable.BeginDrag())
+                {
+                    isDragging = true;
+                    isInteracted = true;
+                }
             }
             else if (interactableItem.itemStirring != null && interactableItem.itemStirring.enabled)
             {
@@ -131,37 +128,11 @@ public class InputManager : Ply_Singleton<InputManager>
 
     private bool CanInteract(Item item)
     {
-        return item.itemDraggable != null && item.itemDraggable.enabled
+        return item.itemDraggable != null && item.itemDraggable.CanDrag()
             || item.itemStirring != null && item.itemStirring.enabled
             || item.itemSpriteMaskPainter != null && item.itemSpriteMaskPainter.enabled
             || item.itemKnifeSpriteMaskCutter != null && item.itemKnifeSpriteMaskCutter.enabled
             || item.itemClickable != null && item.itemClickable.enabled;
-    }
-
-    private bool TryHandleCapybara([Bridge.Ref] Ray ray)
-    {
-        RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
-        if (hits.Length == 0) return false;
-
-        Capybara closestCapybara = null;
-        float minDistance = float.MaxValue;
-
-        for (int i = 0; i < hits.Length; i++)
-        {
-            Capybara capybara = hits[i].collider.GetComponentInParent<Capybara>();
-            if (capybara == null) continue;
-
-            if (hits[i].distance < minDistance)
-            {
-                minDistance = hits[i].distance;
-                closestCapybara = capybara;
-            }
-        }
-
-        if (closestCapybara == null) return false;
-
-        closestCapybara.ClickCapybara();
-        return true;
     }
 
     private bool TryHandleToggleButton([Bridge.Ref] Ray ray)

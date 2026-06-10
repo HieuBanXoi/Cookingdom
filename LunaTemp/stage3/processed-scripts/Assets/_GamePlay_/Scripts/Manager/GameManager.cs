@@ -7,6 +7,7 @@ public class GameManager : Ply_Singleton<GameManager>
     public bool isPlaying = false;
     public bool isTutorial = true;
     public bool isGotoStore = false;
+    public bool isLoseGame = false;
     public int countMove = 0;
     public int currentLayer;
 
@@ -66,11 +67,13 @@ public class GameManager : Ply_Singleton<GameManager>
     }
     public void WinGame()
     {
+        isLoseGame = false;
         isPlaying = false;
         ChangeState(new WinState());
     }
     public void LoseGame()
     {
+        isLoseGame = true;
         isPlaying = false;
         ChangeState(new LoseState());
     }

@@ -21,6 +21,9 @@ public class ClockTimer : Ply_GameUnit
     private Action onComplete;
     private Vector3 defaultScale;
     private Tween scaleTween;
+    private bool isPlayingClockFx;
+
+    private static int activeClockFxCount;
 
     private void Awake()
     {
@@ -123,6 +126,7 @@ public class ClockTimer : Ply_GameUnit
         isDespawning = false;
         this.onComplete = onComplete;
         ResetFill();
+        StartClockFx();
 
         if (duration <= 0f)
         {
@@ -134,13 +138,16 @@ public class ClockTimer : Ply_GameUnit
     {
         isCounting = false;
         onComplete = null;
+        StopClockFx();
         PlayDespawn();
     }
 
     private void CompleteCountdown()
     {
         isCounting = false;
-
+        StopClockFx();
+                Ply_SoundManager.Ins.PlayFx(FxType.Complete);
+        
         Action completeAction = onComplete;
         onComplete = null;
         completeAction?.Invoke();
@@ -186,8 +193,35 @@ public class ClockTimer : Ply_GameUnit
         }
     }
 
+    private void StartClockFx()
+    {
+        if (isPlayingClockFx) return;
+
+        isPlayingClockFx = true;
+        activeClockFxCount++;
+
+        if (activeClockFxCount == 1 && Ply_SoundManager.Ins != null)
+        {
+            Ply_SoundManager.Ins.PlayFxLoop(FxType.Clock);
+        }
+    }
+
+    private void StopClockFx()
+    {
+        if (!isPlayingClockFx) return;
+
+        isPlayingClockFx = false;
+        activeClockFxCount = Mathf.Max(0, activeClockFxCount - 1);
+
+        if (activeClockFxCount == 0 && Ply_SoundManager.Ins != null)
+        {
+            Ply_SoundManager.Ins.StopFxLoop(FxType.Clock);
+        }
+    }
+
     private void OnDisable()
     {
+        StopClockFx();
         scaleTween?.Kill();
         scaleTween = null;
         transform.localScale = defaultScale;

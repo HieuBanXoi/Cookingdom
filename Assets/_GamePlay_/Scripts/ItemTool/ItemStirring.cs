@@ -15,6 +15,8 @@ public class StirMilestone
 [RequireComponent(typeof(Collider))] // Chuyển sang 3D
 public class ItemStirring : MonoBehaviour
 {
+    public bool IsDone => isDone;
+
     [Header("--- CÀI ĐẶT KHUẤY 3D ---")]
     public float stirRadius = 1.2f;
     public Transform stirrerTransform;
@@ -59,6 +61,7 @@ public class ItemStirring : MonoBehaviour
     private Plane stirPlane; // Mặt phẳng dùng để tính toán khuấy trong không gian 3D
     private Tween speedTween;
     private ProgressBar stirProgressBar;
+    private bool isPlayingStirringFx;
 
     void Start()
     {
@@ -114,6 +117,7 @@ public class ItemStirring : MonoBehaviour
         if (stirrerTransform != null) stirrerTransform.gameObject.SetActive(true);
         SpawnStirProgressBar();
         UpdateStirProgressBar();
+        StartStirringFx();
         onStirBegin?.Invoke();
     }
 
@@ -182,6 +186,7 @@ public class ItemStirring : MonoBehaviour
 
         isStirring = false;
         SetAnimatorSpeed(stoppedSpeed);
+        StopStirringFx();
     }
 
     // Tính toán vị trí chuột chính xác trên mặt phẳng 3D của cái nồi
@@ -259,6 +264,7 @@ public class ItemStirring : MonoBehaviour
         isDone = true;
         isStirring = false;
         SetAnimatorSpeed(stoppedSpeed);
+        StopStirringFx();
         UpdateStirProgressBar(1f);
         StopStirProgressBar();
         onStirComplete?.Invoke();
@@ -266,10 +272,30 @@ public class ItemStirring : MonoBehaviour
 
     private void OnDisable()
     {
+        StopStirringFx();
         speedTween?.Kill();
         speedTween = null;
         StopStirProgressBar();
         SetAnimatorSpeed(stoppedSpeed, true);
+    }
+
+    private void StartStirringFx()
+    {
+        if (isPlayingStirringFx || Ply_SoundManager.Ins == null) return;
+
+        isPlayingStirringFx = true;
+        Ply_SoundManager.Ins.PlayFxLoop(FxType.SpoonStirring);
+    }
+
+    private void StopStirringFx()
+    {
+        if (!isPlayingStirringFx) return;
+
+        isPlayingStirringFx = false;
+        if (Ply_SoundManager.Ins != null)
+        {
+            Ply_SoundManager.Ins.StopFxLoop(FxType.SpoonStirring);
+        }
     }
 
     private void SpawnStirProgressBar()

@@ -13,7 +13,8 @@ public enum PoolType
     YellowPiece,
     MergeVFX,
     StarExploreFX,
-    FlourSmoke
+    FlourSmoke,
+    Duck
 }
 
 public class Ply_Pool : Ply_Singleton<Ply_Pool>

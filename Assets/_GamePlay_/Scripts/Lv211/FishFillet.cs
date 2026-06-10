@@ -15,13 +15,16 @@ public class FishFillet : Item
     public Sprite flourFish;
 
     public Item salt;
+    public Transform plate;
+    public Transform eggBowl;
+    public Transform flourBowl;
+
 
     [Header("Cook Timer")]
     public ClockTimer clockTimerPrefab;
     public RectTransform clockSpawnPoint;
     public float cookDuration = 2f;
     public float readyZ = -2f;
-    public float readyMoveDuration = 0.35f;
 
     [Header("Pan Cook")]
     public Pan pan;
@@ -78,7 +81,7 @@ public class FishFillet : Item
     }
     public void ChangeFishSprite(Sprite sprite)
     {
-        for(int i = 0; i < spriteRenderers.Length; i++)
+        for (int i = 0; i < spriteRenderers.Length; i++)
         {
             spriteRenderers[i].sprite = sprite;
         }
@@ -156,7 +159,8 @@ public class FishFillet : Item
             resumeBobAfterReturn = false;
             return;
         }
-
+                
+        
         PunchCurrentMoveTarget();
 
         if (itemDraggable != null)
@@ -170,18 +174,29 @@ public class FishFillet : Item
                 if (salt != null && salt.itemDraggable != null)
                 {
                     salt.itemDraggable.targetItemType = ItemType.Plate;
+                    salt.itemMoveToTarget.defaultTarget = plate;
                 }
+                Ply_SoundManager.Ins.PlayFx(FxType.FoodToBowl);
                 break;
             case 1:
+                EggBowl bowl = ComponentCache<EggBowl>.Get(eggBowl);
+                if (bowl != null)
+                {
+                    bowl.PlayFishDropParticle();
+                }
+                Ply_SoundManager.Ins.PlayFx(FxType.WaterDrop);
+
                 StartCookTimer();
                 break;
             case 2:
                 OnFlour();
                 break;
             case 3:
+            Ply_SoundManager.Ins.PlayFx(FxType.FoodToBowl);
                 OnPan();
                 break;
-                case 4:
+            case 4:
+                Ply_SoundManager.Ins.PlayFx(FxType.FoodToBowl);
                 Finish();
                 break;
         }
@@ -202,8 +217,9 @@ public class FishFillet : Item
 
     private void Finish()
     {
+        SpawnBlinkEffect();
         SpawnHeart(false);
-
+        
         if (PhaseManager.Ins != null)
         {
             PhaseManager.Ins.DoOneStep();
@@ -239,10 +255,12 @@ public class FishFillet : Item
         fishCookFadeTween = null;
         SetRenderersAlpha(spriteRenderers, 0f);
         SetRenderersAlpha(fishDoneRenderers, 1f);
+        SpawnBlinkEffect();
 
         if (itemDraggable != null)
         {
             itemDraggable.targetItemType = ItemType.Plate;
+            itemMoveToTarget.defaultTarget = plate;
         }
 
         if (pan != null)
@@ -296,14 +314,16 @@ public class FishFillet : Item
         if (itemDraggable == null) return;
 
         itemDraggable.targetItemType = ItemType.Plate;
-        itemDraggable.enabled = true;
+        itemMoveToTarget.defaultTarget = plate;
     }
 
 
     private void OnFlour()
     {
+        ChangeFishSprite(flourFish);
         flourClickCount = 0;
         SpawnFlour();
+        Ply_SoundManager.Ins.PlayFx(FxType.FlourDrop);
         if (itemClickable != null)
         {
             itemClickable.enabled = true;
@@ -315,6 +335,7 @@ public class FishFillet : Item
     {
         SpawnFlour();
         flourClickCount++;
+        Ply_SoundManager.Ins.PlayFx(FxType.FlourDrop);
 
         if (flourClickCount < flourJumpOffsets.Length)
         {
@@ -322,12 +343,13 @@ public class FishFillet : Item
             return;
         }
 
-        ChangeFishSprite(flourFish);
+
         itemClickable.enabled = false;
         SpawnBlinkEffect();
 
-            itemDraggable.targetItemType = ItemType.PanBoiling;
-            itemType = ItemType.Fish;
+        itemDraggable.targetItemType = ItemType.PanBoiling;
+        itemMoveToTarget.defaultTarget = pan.transform;
+        itemType = ItemType.Fish;
     }
 
     private void FlipFish()
@@ -403,9 +425,10 @@ public class FishFillet : Item
     {
         ChangeFishSprite(eggFish);
         transform.DOKill();
-        transform.parent.DOMoveZ(readyZ, readyMoveDuration)
-            .SetEase(Ease.OutCubic)
-            .OnComplete(SetFishReady);
+        Vector3 readyPosition = transform.parent.position;
+        readyPosition.z = readyZ;
+        transform.parent.position = readyPosition;
+        SetFishReady();
     }
 
     private void SetFishReady()
@@ -416,6 +439,7 @@ public class FishFillet : Item
         if (itemDraggable != null)
         {
             itemDraggable.targetItemType = ItemType.BowlFlour;
+            itemMoveToTarget.defaultTarget = flourBowl;
         }
     }
 
@@ -447,7 +471,7 @@ public class FishFillet : Item
 
     public void SaltToFishDone()
     {
-        itemType= ItemType.Fish;
+        itemType = ItemType.Fish;
         isSaltIn = true;
         SpawnBlinkEffect();
         CheckCanMoveToEggBowl();
@@ -459,9 +483,10 @@ public class FishFillet : Item
     }
     private void CheckCanMoveToEggBowl()
     {
-        if(isEggReady && isSaltIn)
+        if (isEggReady && isSaltIn)
         {
             itemDraggable.targetItemType = ItemType.Bowl1;
+            itemMoveToTarget.defaultTarget = eggBowl;
         }
     }
 

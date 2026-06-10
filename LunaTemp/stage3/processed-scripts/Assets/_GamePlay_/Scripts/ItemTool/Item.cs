@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,13 +8,13 @@ public class Item : MonoBehaviour
     public bool isDone = false;
     public bool onProcess = false;
 
-    public ItemDraggable itemDraggable;
-    public ItemClickable itemClickable;
-    public ItemStirring itemStirring;
-    public ItemKnifeSpriteMaskCutter itemKnifeSpriteMaskCutter;
-    public ItemSpriteMaskPainter itemSpriteMaskPainter;
-    public Ply_MoveToTarget itemMoveToTarget;
-    public Animator animator;
+    [HideInInspector] public ItemDraggable itemDraggable;
+    [HideInInspector] public ItemClickable itemClickable;
+    [HideInInspector] public ItemStirring itemStirring;
+    [HideInInspector] public ItemKnifeSpriteMaskCutter itemKnifeSpriteMaskCutter;
+    [HideInInspector] public ItemSpriteMaskPainter itemSpriteMaskPainter;
+    [HideInInspector] public ItemMoveToTarget itemMoveToTarget;
+    [HideInInspector] public Animator animator;
     public ItemType itemType;
     public SpriteRenderer spriteRenderer;
     public UnityEvent onKnifeIn;
@@ -26,28 +25,32 @@ public class Item : MonoBehaviour
     [Header("--- MOVE TO TARGET SOUND ---")]
     public bool playMoveToTargetFinishSound = false;
     public FxType moveToTargetFinishFxType = FxType.Complete;
-    public Bowl bowl;
 
     private void Awake()
     {
-        CacheComponents();
+        CacheComponents(true);
     }
 
     void Reset()
     {
-        CacheComponents();
+        CacheComponents(true);
     }
 
-    private void CacheComponents()
+    private void OnValidate()
+    {
+        CacheComponents(true);
+    }
+
+    private void CacheComponents(bool refreshHiddenReferences = false)
     {
         if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        if (animator == null) animator = GetComponent<Animator>();
-        if (itemMoveToTarget == null) itemMoveToTarget = GetComponent<Ply_MoveToTarget>();
-        if (itemClickable == null) itemClickable = GetComponent<ItemClickable>();
-        if (itemDraggable == null) itemDraggable = GetComponent<ItemDraggable>();
-        if (itemStirring == null) itemStirring = GetComponent<ItemStirring>();
-        if (itemKnifeSpriteMaskCutter == null) itemKnifeSpriteMaskCutter = GetComponent<ItemKnifeSpriteMaskCutter>();
-        if (itemSpriteMaskPainter == null) itemSpriteMaskPainter = GetComponent<ItemSpriteMaskPainter>();
+        if (refreshHiddenReferences || animator == null) animator = GetComponent<Animator>();
+        if (refreshHiddenReferences || itemMoveToTarget == null) itemMoveToTarget = GetComponent<ItemMoveToTarget>();
+        if (refreshHiddenReferences || itemClickable == null) itemClickable = GetComponent<ItemClickable>();
+        if (refreshHiddenReferences || itemDraggable == null) itemDraggable = GetComponent<ItemDraggable>();
+        if (refreshHiddenReferences || itemStirring == null) itemStirring = GetComponent<ItemStirring>();
+        if (refreshHiddenReferences || itemKnifeSpriteMaskCutter == null) itemKnifeSpriteMaskCutter = GetComponent<ItemKnifeSpriteMaskCutter>();
+        if (refreshHiddenReferences || itemSpriteMaskPainter == null) itemSpriteMaskPainter = GetComponent<ItemSpriteMaskPainter>();
     }
     public virtual void ChangeItemType(ItemType itemType)
     {
@@ -72,11 +75,7 @@ public class Item : MonoBehaviour
         {
             Ply_SoundManager.Ins.PlayFx(FxType.Drop);
             transform.SetParent(plate);
-            plate.DOPunchScale(new Vector3(0.1f, -0.1f, 0), time).OnComplete(() =>
-            {
-
-                ComponentCache<Plate>.Get(plate).FlyOut(transform);
-            });
+            plate.DOPunchScale(new Vector3(0.1f, -0.1f, 0), time);
         });
     }
     public void KnifeIn()
@@ -116,10 +115,18 @@ public class Item : MonoBehaviour
             itemDraggable.TeleportToStart();
         }
     }
+    public void DoneAnimation()
+    {
+        if (itemDraggable == null) return;
+        itemDraggable.targetItemType = ItemType.None;
+        itemDraggable.enabled = true;
+        animator.enabled = false;
+        itemMoveToTarget.defaultTarget = null;
+    }
 
     public void ItemDone()
     {
-        SpawnHeart(false);
+        // SpawnHeart(false);
         if (HandTutManager.Ins != null)
         {
             HandTutManager.Ins.ItemDone(this);
@@ -138,24 +145,18 @@ public class Item : MonoBehaviour
         YellowPiece yellowPiece = Ply_Pool.Ins.Spawn<YellowPiece>(PoolType.YellowPiece, transform.position, transform.rotation);
         yellowPiece.DeSpawnByTime();
     }
-
+    public void SpawnBlinkEffect()
+    {
+        BlinkEffect blinkEffect = Ply_Pool.Ins.Spawn<BlinkEffect>(PoolType.BlinkFX, transform.position, transform.rotation);
+        blinkEffect.tf.SetParent(this.transform);
+        blinkEffect.DeSpawnByTime();
+    }
 
     public void PlayMoveToTargetFinishSound()
     {
         if (!playMoveToTargetFinishSound || Ply_SoundManager.Ins == null) return;
 
         Ply_SoundManager.Ins.PlayFx(moveToTargetFinishFxType);
-    }
-    public void PlayBowlAnim(String triggerName)
-    {
-        if (bowl != null)
-        {
-            bowl.animator.SetTrigger(triggerName);
-        }
-    }
-    public void PlayNextBowlAnim()
-    {
-        PlayBowlAnim("Next");
     }
     public void PlayOilInSound()
     {
@@ -175,4 +176,17 @@ public class Item : MonoBehaviour
 
         Ply_SoundManager.Ins.PlayFx(FxType.Drop);
     }
+    public void PlayEggCrackSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.EggCrack);
+    }
+    public void PlayPourSaltSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.PourSalt);
+    }
+    public void PlayPlasticSound()
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.Plastic);
+    }
+
 }

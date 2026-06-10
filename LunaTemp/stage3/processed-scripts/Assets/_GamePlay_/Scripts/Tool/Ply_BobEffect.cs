@@ -14,6 +14,8 @@ public class Ply_BobEffect : MonoBehaviour
     private Vector3 startWorldPosition;
     private Tween bobTween;
 
+    public bool IsPlaying => bobTween != null && bobTween.IsActive();
+
     private void Awake()
     {
         CacheStartPosition();

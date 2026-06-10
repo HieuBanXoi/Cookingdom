@@ -5,9 +5,7 @@ using UnityEngine.Events;
 public enum ItemType
 {
     None,
-    Bowl,
-    Pan,
-    Hummus,
-    Tahini,
-    OtherObject
+    Bowl1, BowlFlour, Plate, Fish, Pan, PanBoiling,
+
+    Blender
 }
