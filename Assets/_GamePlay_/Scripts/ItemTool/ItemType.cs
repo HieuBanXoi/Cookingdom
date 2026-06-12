@@ -5,6 +5,6 @@ using UnityEngine.Events;
 public enum ItemType
 {
     None,
-    ChodeNapBonNuoc, 
+    ChodeNapBonNuoc, NapTrongBon,
     Thot
 }

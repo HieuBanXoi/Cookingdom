@@ -52,7 +52,7 @@ public class Sink : Item
             animator.SetTrigger("OnlyWaterIn");
         }
 
-        CheckEndPhaseCondition();
+        // CheckEndPhaseCondition();
     }
     public void Close()
     {
@@ -86,7 +86,7 @@ public class Sink : Item
             }
         }
 
-        CheckEndPhaseCondition();
+        // CheckEndPhaseCondition();
     }
     public void IsWaterIn()
     {
