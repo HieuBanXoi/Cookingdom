@@ -636,12 +636,41 @@ MonoBehaviour:
   heartEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 1
-  bowl: {fileID: 0}
   isClose: 0
   isWaterDrop: 0
   isWaterIn: 0
+  waterState: 0
+  faucetAnimator: {fileID: 7870036176721585981}
+  basinAnimator: {fileID: 6721057233345266749}
   waterDrop: {fileID: 1669581688147799837}
   waterIn: {fileID: 5616162497357046581}
+  basinWaterRenderer: {fileID: 3169331231273302135}
+  emptyWaterRect:
+    serializedVersion: 2
+    x: -2.109
+    y: -1.2451
+    width: 4.218
+    height: 0.1
+  fullWaterRect:
+    serializedVersion: 2
+    x: -2.109
+    y: -1.2451
+    width: 4.218
+    height: 2.3902
+  waterRiseDuration: 2
+  waterFallDuration: 1
+  waterRiseEase: 4
+  waterFallEase: 4
+  drawWaterRects: 1
+  emptyRectColor: {r: 0.15, g: 0.8, b: 1, a: 0.9}
+  fullRectColor: {r: 0.1, g: 1, b: 0.35, a: 0.9}
+  waterDropTransform: {fileID: 7678139021623564495}
+  emptyWaterDropPoint: {x: 0.06, y: 0.58, z: -1.92}
+  fullWaterDropPoint: {x: 0.06, y: 2.87, z: -1.92}
+  drawWaterDropPoints: 1
+  waterDropPointRadius: 0.12
+  emptyWaterDropPointColor: {r: 0.15, g: 0.8, b: 1, a: 1}
+  fullWaterDropPointColor: {r: 0.1, g: 1, b: 0.35, a: 1}
   onWaterIn:
     m_PersistentCalls:
       m_Calls:
@@ -744,8 +773,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  napNgoai: {fileID: 0}
-  napTrong: {fileID: 0}
 --- !u!95 &8345385310144631616
 Animator:
   serializedVersion: 7
@@ -756,7 +783,7 @@ Animator:
   m_GameObject: {fileID: 9118723434373364874}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5b2cc6734d9152c459f690b77023f164, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
