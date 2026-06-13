@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,7 +9,8 @@ public enum SinkWaterState
     Empty,
     Rising,
     Full,
-    Falling
+    Falling,
+    Paused
 }
 
 public class Sink : Item
@@ -55,6 +57,7 @@ public class Sink : Item
     public Color fullWaterDropPointColor = new Color(0.1f, 1f, 0.35f, 1f);
 
     [Header("--- WATER EVENTS ---")]
+    public List<InWaterItem> inWaterItems = new List<InWaterItem>();
     public UnityEvent onWaterIn;
     public UnityEvent onNoWaterIn;
 
@@ -87,11 +90,16 @@ public class Sink : Item
         EnsureInitialized();
         desiredWaterOn = true;
         isWaterDrop = true;
+        displayedWaterOn = true;
+        SetFaucetActive(true);
 
-        if (!IsWaterTransitioning)
+        if (isClose && waterState != SinkWaterState.Full)
         {
-            EvaluateStableState();
+            BeginWaterRise();
+            return;
         }
+
+        EvaluateStableState();
     }
 
     public void TurnOffWater()
@@ -99,11 +107,16 @@ public class Sink : Item
         EnsureInitialized();
         desiredWaterOn = false;
         isWaterDrop = false;
+        displayedWaterOn = false;
+        SetFaucetActive(false);
 
-        if (!IsWaterTransitioning)
+        if (waterState == SinkWaterState.Rising)
         {
-            EvaluateStableState();
+            PauseWaterRise();
+            return;
         }
+
+        EvaluateStableState();
     }
 
     public void Close()
@@ -111,10 +124,13 @@ public class Sink : Item
         EnsureInitialized();
         isClose = true;
 
-        if (!IsWaterTransitioning)
+        if (desiredWaterOn && waterState != SinkWaterState.Full)
         {
-            EvaluateStableState();
+            BeginWaterRise();
+            return;
         }
+
+        EvaluateStableState();
     }
 
     public void Open()
@@ -122,10 +138,13 @@ public class Sink : Item
         EnsureInitialized();
         isClose = false;
 
-        if (!IsWaterTransitioning)
+        if (waterState != SinkWaterState.Empty)
         {
-            EvaluateStableState();
+            BeginWaterFall();
+            return;
         }
+
+        EvaluateStableState();
     }
 
     // Public for compatibility with existing UnityEvents.
@@ -134,9 +153,9 @@ public class Sink : Item
         if (waterState != SinkWaterState.Rising) return;
 
         waterState = SinkWaterState.Full;
-        SetWaterIn(true);
         ApplyWaterRect(fullWaterRect);
         ApplyWaterDropPosition(fullWaterDropPoint);
+        SetWaterIn(true);
         EndTransition();
     }
 
@@ -146,7 +165,7 @@ public class Sink : Item
         if (waterState != SinkWaterState.Falling) return;
 
         waterState = SinkWaterState.Empty;
-        isWaterIn = false;
+        SetWaterIn(false);
         ApplyWaterRect(emptyWaterRect);
         ApplyWaterDropPosition(emptyWaterDropPoint);
         SetBasinActive(false);
@@ -157,6 +176,8 @@ public class Sink : Item
     public void IsWaterIn()
     {
         waterState = SinkWaterState.Full;
+        ApplyWaterRect(fullWaterRect);
+        ApplyWaterDropPosition(fullWaterDropPoint);
         SetWaterIn(true);
     }
 
@@ -186,6 +207,25 @@ public class Sink : Item
         // Ply_SoundManager.Ins.PlayFx(FxType.WaterOut);
     }
 
+    public void RegisterInWaterItem(InWaterItem item)
+    {
+        if (item == null) return;
+
+        item.sink = this;
+        if (!inWaterItems.Contains(item))
+        {
+            inWaterItems.Add(item);
+        }
+    }
+
+    public void UnregisterInWaterItem(InWaterItem item)
+    {
+        if (item == null) return;
+
+        item.StopWaterEffects();
+        inWaterItems.Remove(item);
+    }
+
     private void InitializeState()
     {
         if (initialized) return;
@@ -200,6 +240,11 @@ public class Sink : Item
             waterState == SinkWaterState.Full ? fullWaterDropPoint : emptyWaterDropPoint
         );
         ApplyStableVisuals();
+
+        if (waterState == SinkWaterState.Full)
+        {
+            StartInWaterItems();
+        }
     }
 
     private void EnsureInitialized()
@@ -229,6 +274,16 @@ public class Sink : Item
 
     private void BeginWaterRise()
     {
+        if (waterState == SinkWaterState.Full) return;
+
+        float remainingDistance = 1f - GetCurrentWaterLevel();
+        if (remainingDistance <= 0.001f)
+        {
+            waterState = SinkWaterState.Rising;
+            CompleteWaterRise();
+            return;
+        }
+
         waterState = SinkWaterState.Rising;
         displayedWaterOn = true;
         SetFaucetActive(true);
@@ -239,7 +294,7 @@ public class Sink : Item
         TweenWaterLevel(
             fullWaterRect,
             fullWaterDropPoint,
-            waterRiseDuration,
+            waterRiseDuration * remainingDistance,
             waterRiseEase,
             CompleteWaterRise
         );
@@ -247,6 +302,16 @@ public class Sink : Item
 
     private void BeginWaterFall()
     {
+        if (waterState == SinkWaterState.Empty) return;
+
+        float remainingDistance = GetCurrentWaterLevel();
+        if (remainingDistance <= 0.001f)
+        {
+            waterState = SinkWaterState.Falling;
+            CompleteWaterFall();
+            return;
+        }
+
         waterState = SinkWaterState.Falling;
         SetWaterIn(false);
         WaterTransitionChanged?.Invoke(true);
@@ -261,10 +326,30 @@ public class Sink : Item
         TweenWaterLevel(
             emptyWaterRect,
             emptyWaterDropPoint,
-            waterFallDuration,
+            waterFallDuration * remainingDistance,
             waterFallEase,
             CompleteWaterFall
         );
+    }
+
+    private void PauseWaterRise()
+    {
+        basinWaterTween?.Kill();
+        basinWaterTween = null;
+
+        float currentLevel = GetCurrentWaterLevel();
+        if (Mathf.Approximately(currentLevel, 0f))
+        {
+            waterState = SinkWaterState.Empty;
+            PlayBasinEmpty();
+        }
+        else
+        {
+            waterState = SinkWaterState.Paused;
+            SetBasinActive(true);
+        }
+
+        WaterTransitionChanged?.Invoke(false);
     }
 
     private void EndTransition()
@@ -281,10 +366,7 @@ public class Sink : Item
 
         if (displayedWaterOn)
         {
-            PlayState(
-                faucetAnimator,
-                waterState == SinkWaterState.Full ? FlowFullState : FlowEmptyState
-            );
+            PlayState(faucetAnimator, GetFaucetStateHash());
         }
 
         if (waterState == SinkWaterState.Full)
@@ -297,6 +379,10 @@ public class Sink : Item
         {
             PlayBasinEmpty();
         }
+        else if (waterState == SinkWaterState.Paused)
+        {
+            SetBasinActive(true);
+        }
     }
 
     private void PlayBasinEmpty()
@@ -304,6 +390,21 @@ public class Sink : Item
         ApplyWaterRect(emptyWaterRect);
         ApplyWaterDropPosition(emptyWaterDropPoint);
         SetBasinActive(false);
+    }
+
+    private int GetFaucetStateHash()
+    {
+        switch (waterState)
+        {
+            case SinkWaterState.Rising:
+                return FlowRisingState;
+            case SinkWaterState.Full:
+                return FlowFullState;
+            case SinkWaterState.Falling:
+                return FlowFallingState;
+            default:
+                return FlowEmptyState;
+        }
     }
 
     private void CacheBasinWaterRenderer()
@@ -401,6 +502,24 @@ public class Sink : Item
         return new Rect(center - size * 0.5f, size);
     }
 
+    private float GetCurrentWaterLevel()
+    {
+        Rect currentRect = GetCurrentWaterRect();
+        float heightRange = fullWaterRect.height - emptyWaterRect.height;
+        if (!Mathf.Approximately(heightRange, 0f))
+        {
+            return Mathf.Clamp01((currentRect.height - emptyWaterRect.height) / heightRange);
+        }
+
+        float centerRange = fullWaterRect.center.y - emptyWaterRect.center.y;
+        if (!Mathf.Approximately(centerRange, 0f))
+        {
+            return Mathf.Clamp01((currentRect.center.y - emptyWaterRect.center.y) / centerRange);
+        }
+
+        return waterState == SinkWaterState.Full ? 1f : 0f;
+    }
+
     private void ApplyWaterRect(Rect rect)
     {
         CacheBasinWaterRenderer();
@@ -432,16 +551,57 @@ public class Sink : Item
 
     private void SetWaterIn(bool value)
     {
-        if (isWaterIn == value) return;
+        if (isWaterIn == value)
+        {
+            if (!value)
+            {
+                StopInWaterItems();
+            }
+
+            return;
+        }
 
         isWaterIn = value;
         if (value)
         {
+            StartInWaterItems();
             onWaterIn?.Invoke();
         }
         else
         {
+            StopInWaterItems();
             onNoWaterIn?.Invoke();
+        }
+    }
+
+    private void StartInWaterItems()
+    {
+        for (int i = inWaterItems.Count - 1; i >= 0; i--)
+        {
+            InWaterItem item = inWaterItems[i];
+            if (item == null)
+            {
+                inWaterItems.RemoveAt(i);
+                continue;
+            }
+
+            item.sink = this;
+            item.StartWaterEffects();
+        }
+    }
+
+    private void StopInWaterItems()
+    {
+        for (int i = inWaterItems.Count - 1; i >= 0; i--)
+        {
+            InWaterItem item = inWaterItems[i];
+            if (item == null)
+            {
+                inWaterItems.RemoveAt(i);
+                continue;
+            }
+
+            item.StopWaterEffects();
         }
     }
 

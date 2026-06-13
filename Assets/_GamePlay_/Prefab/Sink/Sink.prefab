@@ -628,7 +628,7 @@ MonoBehaviour:
   itemSpriteMaskPainter: {fileID: 0}
   itemMoveToTarget: {fileID: 0}
   animator: {fileID: 8345385310144631616}
-  itemType: 0
+  itemType: 6
   spriteRenderer: {fileID: 3472978036601743391}
   onKnifeIn:
     m_PersistentCalls:

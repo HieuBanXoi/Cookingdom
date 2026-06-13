@@ -11,7 +11,6 @@ public class SinkBlock : Item
     public Transform insideDefaultTarget;
 
     [Header("--- OUTSIDE TARGET ---")]
-    public ItemType outsideTargetType = ItemType.ChodeNapBonNuoc;
     public Transform outsideDefaultTarget;
 
     private bool isInside;
@@ -70,8 +69,10 @@ public class SinkBlock : Item
     {
         if (itemDraggable != null)
         {
-            itemDraggable.onDropSuccess.RemoveListener(MoveToNextLocation);
-            itemDraggable.onDropSuccess.AddListener(MoveToNextLocation);
+            itemDraggable.onDropSuccess.RemoveListener(HandleDropSuccess);
+            itemDraggable.onDropSuccess.AddListener(HandleDropSuccess);
+            itemDraggable.onDropFail.RemoveListener(HandleDropFail);
+            itemDraggable.onDropFail.AddListener(HandleDropFail);
         }
 
         if (itemMoveToTarget != null)
@@ -79,30 +80,39 @@ public class SinkBlock : Item
             itemMoveToTarget.onComplete.RemoveListener(HandleMoveComplete);
             itemMoveToTarget.onComplete.AddListener(HandleMoveComplete);
         }
-
-        if (sink != null)
-        {
-            sink.WaterTransitionChanged -= HandleWaterTransitionChanged;
-            sink.WaterTransitionChanged += HandleWaterTransitionChanged;
-        }
     }
 
     private void Unsubscribe()
     {
         if (itemDraggable != null)
         {
-            itemDraggable.onDropSuccess.RemoveListener(MoveToNextLocation);
+            itemDraggable.onDropSuccess.RemoveListener(HandleDropSuccess);
+            itemDraggable.onDropFail.RemoveListener(HandleDropFail);
         }
 
         if (itemMoveToTarget != null)
         {
             itemMoveToTarget.onComplete.RemoveListener(HandleMoveComplete);
         }
+    }
 
-        if (sink != null)
+    private void HandleDropSuccess()
+    {
+        if (!isInside)
         {
-            sink.WaterTransitionChanged -= HandleWaterTransitionChanged;
+            MoveToNextLocation();
+            return;
         }
+
+        itemDraggable.ReturnToStartWithoutHeart();
+    }
+
+    private void HandleDropFail()
+    {
+        if (!isInside || itemMoveToTarget == null || outsideDefaultTarget == null) return;
+
+        itemDraggable.ConsumeCurrentDropFail();
+        MoveToNextLocation();
     }
 
     private void MoveToNextLocation()
@@ -148,23 +158,16 @@ public class SinkBlock : Item
 
         Transform currentLocation = isInside ? insideDefaultTarget : outsideDefaultTarget;
         Transform nextLocation = isInside ? outsideDefaultTarget : insideDefaultTarget;
-        ItemType nextTargetType = isInside ? outsideTargetType : insideTargetType;
 
-        itemDraggable.targetItemType = nextTargetType;
+        itemDraggable.targetItemType = insideTargetType;
         itemDraggable.returnTransform = currentLocation;
         itemMoveToTarget.SetDefaultTarget(nextLocation);
-    }
-
-    private void HandleWaterTransitionChanged(bool isTransitioning)
-    {
-        UpdateDragAvailability();
     }
 
     private void UpdateDragAvailability()
     {
         if (itemDraggable == null) return;
 
-        bool isWaterTransitioning = sink != null && sink.IsWaterTransitioning;
-        itemDraggable.isDraggable = !isMoving && !isWaterTransitioning;
+        itemDraggable.isDraggable = !isMoving;
     }
 }

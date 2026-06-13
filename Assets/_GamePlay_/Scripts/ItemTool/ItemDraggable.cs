@@ -41,6 +41,7 @@ public class ItemDraggable : MonoBehaviour
     private Tween scaleTween;
     private bool hasOriginalScale;
     private bool spawnHeartOnReturnComplete = true;
+    private bool consumeCurrentDropFail;
 
 
     void Start()
@@ -191,6 +192,7 @@ public class ItemDraggable : MonoBehaviour
     {
         if (!CanDrag()) return;
 
+        consumeCurrentDropFail = false;
         SetShadowActive(shadowDefaultActive);
 
         myCollider.enabled = false; // Tắt collider của mình để tia xuyên qua
@@ -226,8 +228,16 @@ public class ItemDraggable : MonoBehaviour
         {
             ResetScale();
             onDropFail?.Invoke();
-            ReturnToStart(spawnBreakHeartOnDropFail);
+            if (!consumeCurrentDropFail)
+            {
+                ReturnToStart(spawnBreakHeartOnDropFail);
+            }
         }
+    }
+
+    public void ConsumeCurrentDropFail()
+    {
+        consumeCurrentDropFail = true;
     }
 
     private Vector3 GetMouseWorldPos()
@@ -262,6 +272,7 @@ public class ItemDraggable : MonoBehaviour
     private void PlayBobEffectIfEnabled()
     {
         if (bobEffect == null || !bobEffect.isActiveAndEnabled) return;
+        if (item != null && !item.ShouldPlayBobEffectAfterReturn()) return;
 
         bobEffect.CacheStartPosition();
         bobEffect.Play();

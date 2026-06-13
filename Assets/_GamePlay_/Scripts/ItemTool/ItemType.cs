@@ -6,5 +6,8 @@ public enum ItemType
 {
     None,
     ChodeNapBonNuoc, NapTrongBon,
-    Thot
+    Thot,
+    ItemInWater,
+    Plate,
+    Sink
 }

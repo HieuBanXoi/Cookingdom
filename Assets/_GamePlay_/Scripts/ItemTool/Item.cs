@@ -108,6 +108,11 @@ public class Item : MonoBehaviour
         SpawnHeart(true);
     }
 
+    public virtual bool ShouldPlayBobEffectAfterReturn()
+    {
+        return true;
+    }
+
     public void TeleportToStart()
     {
         if (itemDraggable != null)

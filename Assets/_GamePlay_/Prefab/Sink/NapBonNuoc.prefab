@@ -177,7 +177,6 @@ MonoBehaviour:
   startsInside: 0
   insideTargetType: 2
   insideDefaultTarget: {fileID: 0}
-  outsideTargetType: 1
   outsideDefaultTarget: {fileID: 0}
 --- !u!114 &4031302039016003998
 MonoBehaviour:
