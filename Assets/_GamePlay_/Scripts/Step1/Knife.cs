@@ -17,10 +17,14 @@ public class Knife : Item
     }
     public void TargetKnifeFlyEvent()
     {
-
         Item target = ComponentCache<Item>.Get(itemMoveToTarget.defaultTarget);
         target.KnifeIn();
-
+    }
+    public void SetTarget(Transform target)
+    {
+        Item targetItem = ComponentCache<Item>.Get(target);
+        itemDraggable.targetItemType = targetItem.itemType;
+        itemMoveToTarget.defaultTarget = target;
     }
 
     public override void OnDragFailReturnComplete()
@@ -31,8 +35,14 @@ public class Knife : Item
 
         PlayKnifeSound();
     }
+    public void OnKnifeDone()
+    {
+        itemDraggable.targetItemType = ItemType.None;
+        itemMoveToTarget.defaultTarget = null;
+    }
     public void PlayKnifeSound()
     {
         // Ply_SoundManager.Ins.PlayFx(FxType.PlaceKnife);
     }
+
 }

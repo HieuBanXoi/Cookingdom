@@ -5,9 +5,11 @@ using UnityEngine.Events;
 public enum ItemType
 {
     None,
-    ChodeNapBonNuoc, NapTrongBon,
-    Thot,
+    SinkWaitting, SinkClosePos,
+    CuttingBoard,
     ItemInWater,
     Plate,
-    Sink
+    Sink,
+    FoodOnCuttingBoard,
+    PlateHerb, PlateOnion, PlateLemon,PlateAvocado,PlatePotato,PlateTomato,PlateOlive
 }

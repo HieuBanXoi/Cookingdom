@@ -18,18 +18,31 @@
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Effect/BlinkEffect.cs",
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/Item.cs",
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemDraggable.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Lv211/EggBowl.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Lv211/FishFillet.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Lv211/Pan.cs",
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/HandTutManager.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Lv211/Blender.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Lv211/FoodToBlender.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemClickable.cs",
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/InputManager.cs",
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_Singleton.cs",
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/GameManager.cs",
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemMoveToTarget.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Step1/Bread.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Step1/CuttingItem.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemKnifeSpriteMaskCutter.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemType.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Step1/CuttingBoard.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Step1/InWaterItem.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Step1/Sink.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Step1/SinkBlock.cs",
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/PhaseManager.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Steps/Step1/Plate.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Steps/Step1/ToolObject.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Steps/Step3/ItemFlyIn.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Steps/Step3/Spoon.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/StateMachine/LoseState.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/StateMachine/IGameState.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/StateMachine/OnPlayState.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/StateMachine/WaitingState.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/UIManager.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/StateMachine/WinState.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_ScrollingConveyor.cs",
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_SoundManager.cs",
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Effect/ClockTimer.cs",
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_GameUnit.cs",
@@ -43,26 +56,14 @@
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemStirring.cs",
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Effect/StarExplore.cs",
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Effect/YellowPiece.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Lv211/Duck.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Lv211/DuckManager.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Yielders.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_ScrollingConveyor.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/UIManager.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/StateMachine/LoseState.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/StateMachine/IGameState.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/StateMachine/OnPlayState.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/StateMachine/WaitingState.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/StateMachine/WinState.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemClickable.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Step1/Knife.cs",
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/CacheComponent.cs",
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Manager/HandTutorial.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_TimerEvent.cs",
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_BobEffect.cs",
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemSpriteMaskPainter.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemKnifeSpriteMaskCutter.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_ToggleEvent.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/ItemTool/ItemType.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Lv211/Tongs.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Lv211/Salt.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Lv211/Tray.cs",
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_BobEffect.cs"
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_ToggleEvent.cs"
     ],
     [
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Effect/ContinuousRotation.cs"
@@ -116,13 +117,16 @@
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Spine/Runtime/spine-unity/Utility/SkeletonExtensions.cs"
     ],
     [
-      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_TimerEvent.cs"
-    ],
-    [
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Ply_TweenJuice.cs"
     ],
     [
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/SortChildByZPos.cs"
+    ],
+    [
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/_GamePlay_/Scripts/Tool/Yielders.cs"
+    ],
+    [
+      "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Assets/asset-cook-casserole/Audio/SFXTYPE.cs"
     ],
     [
       "D:/Project/Cookingdom/LunaTemp/stage3/processed-scripts/Assets/Epic Toon FX/Demo/Scripts/ETFXButtonScript.cs",

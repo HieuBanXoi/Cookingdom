@@ -7,6 +7,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     [Header("--- HAND TUTORIAL ---")]
     public List<Item> items = new List<Item>();
     public Transform knife;
+    public Transform peeler;
     public GameObject handTutObject;
     public GameObject tapToCookObject;
     public Item oilItem;

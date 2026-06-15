@@ -209,7 +209,13 @@ public class ItemDraggable : MonoBehaviour
             {
                 if (targetItem.itemType == ItemType.None) continue;
 
-                if (targetItem.itemType == targetItemType)
+                bool matchesTargetType = targetItem.itemType == targetItemType;
+                bool matchesDefaultTarget = item != null
+                    && item.itemMoveToTarget != null
+                    && item.itemMoveToTarget.defaultTarget != null
+                    && targetItem.transform == item.itemMoveToTarget.defaultTarget;
+
+                if (matchesTargetType || matchesDefaultTarget)
                 {
                     isHitValid = true;
                     break;

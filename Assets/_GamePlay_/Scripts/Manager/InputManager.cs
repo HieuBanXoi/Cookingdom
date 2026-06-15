@@ -58,7 +58,7 @@ public class InputManager : Ply_Singleton<InputManager>
 
         if (hits.Length == 0) return;
 
-        Item interactableItem = GetClosestInteractableItem(hits);
+        Item interactableItem = GetFrontmostInteractableItem(hits);
 
         if (interactableItem != null)
         {
@@ -106,9 +106,10 @@ public class InputManager : Ply_Singleton<InputManager>
         }
     }
 
-    private Item GetClosestInteractableItem(RaycastHit[] hits)
+    private Item GetFrontmostInteractableItem(RaycastHit[] hits)
     {
         Item interactableItem = null;
+        float minZ = float.MaxValue;
         float minDistance = float.MaxValue;
 
         for (int i = 0; i < hits.Length; i++)
@@ -116,8 +117,14 @@ public class InputManager : Ply_Singleton<InputManager>
             Item hitItem = ComponentCache<Item>.Get(hits[i].collider);
             if (hitItem == null || !CanInteract(hitItem)) continue;
 
-            if (hits[i].distance < minDistance)
+            float itemZ = hitItem.transform.position.z;
+            bool isCloserToScreen = itemZ < minZ;
+            bool isSameZAndCloserHit = Mathf.Approximately(itemZ, minZ)
+                && hits[i].distance < minDistance;
+
+            if (isCloserToScreen || isSameZAndCloserHit)
             {
+                minZ = itemZ;
                 minDistance = hits[i].distance;
                 interactableItem = hitItem;
             }

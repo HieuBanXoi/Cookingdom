@@ -14,7 +14,7 @@ public enum PoolType
     MergeVFX,
     StarExploreFX,
     FlourSmoke,
-    Duck
+    WaterSplash
 }
 
 public class Ply_Pool : Ply_Singleton<Ply_Pool>

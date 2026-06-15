@@ -62,6 +62,8 @@ public class Plate : ToolObject
     public void SpawnFX()
     {
         HeartEffect heartEffect = Ply_Pool.Ins.Spawn<HeartEffect>(PoolType.HeartFX, transform.position, transform.rotation);
+        if (heartEffect == null) return;
         heartEffect.transform.SetParent(transform);
+        heartEffect.PlaySpawnWithScale(heartEffectScale);
     }
 }

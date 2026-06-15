@@ -1,22 +1,44 @@
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InWaterItem : Item
 {
     [Header("--- WATER ITEM TARGETS ---")]
     public Transform waterTarget;
+    public Transform cuttingBoardTarget;
     public Transform plateTarget;
+    public Transform[] childObject;
 
     public Ply_TimerEvent ply_TimerEvent;
     public Ply_BobEffect ply_BobEffect;
     public Collider collider1;
     public Sink sink;
     public bool isInWater = false;
+    public bool isOnCuttingBoard = false;
     public bool isOnPlate = false;
     public bool isClean = false;
+    public bool isCutDone = false;
+
+    [Header("--- JUMP TO PLATE ---")]
+    public float jumpToPlatePower = 1f;
+    public float jumpToPlateDuration = 0.5f;
+    public Vector3 platePunchScale = new Vector3(0.1f, -0.1f, 0f);
+    public float platePunchDuration = 0.3f;
+
+    [Header("--- EVENTS ---")]
+    public UnityEvent onMoveToCuttingBoardComplete;
 
     private bool initialized;
     private bool isMoving;
-    private bool isMovingToPlate;
+    private MoveDestination moveDestination;
+
+    private enum MoveDestination
+    {
+        Water,
+        CuttingBoard,
+        Plate
+    }
 
     private void Start()
     {
@@ -34,6 +56,20 @@ public class InWaterItem : Item
     private void OnDisable()
     {
         UnsubscribeMovementEvents();
+    }
+
+    private void LateUpdate()
+    {
+        if (isMoving) return;
+
+        if (isOnPlate && plateTarget != null)
+        {
+            transform.position = plateTarget.position;
+        }
+        else if (isOnCuttingBoard && cuttingBoardTarget != null)
+        {
+            transform.position = cuttingBoardTarget.position;
+        }
     }
 
     public void StartTimer()
@@ -77,8 +113,24 @@ public class InWaterItem : Item
     public void SetClean()
     {
         isClean = true;
+        isCutDone = false;
         ply_TimerEvent?.StopTimer();
         ConfigureNextTarget();
+    }
+
+    public void CutDone()
+    {
+        InitializeMovement();
+        if (!isOnCuttingBoard || isOnPlate || isMoving) return;
+        itemType = ItemType.None;
+        isCutDone = true;
+        itemClickable.enabled = false;
+        if (ply_BobEffect != null)
+        {
+            ply_BobEffect.Stop(false);
+            ply_BobEffect.enabled = false;
+        }
+        JumpToPlate();
     }
 
     public void PlayAnim(bool isTrue)
@@ -99,6 +151,14 @@ public class InWaterItem : Item
 
     public void MoveToWater()
     {
+        if (sink.isWaterIn &&  !isInWater)
+        {
+            SpawnWaterSplash(sink.waterSplashPos.position);
+        }
+        if(itemMoveToTarget != null)
+        {
+            itemMoveToTarget.rotate360DuringJump = false;
+        }
         OnMoveIntoWaterComplete();
     }
 
@@ -107,25 +167,73 @@ public class InWaterItem : Item
         InitializeMovement();
         if (isMoving || itemMoveToTarget == null) return;
 
-        Transform destination = isClean ? plateTarget : waterTarget;
+        moveDestination = GetNextDestination();
+        Transform destination = GetDestinationTarget(moveDestination);
         if (destination == null)
         {
             Debug.LogWarning(
-                $"[InWaterItem] {name} is missing the {(isClean ? "plate" : "water")} target.",
+                $"[InWaterItem] {name} is missing the {moveDestination} target.",
                 this
             );
             return;
         }
 
+        if (moveDestination == MoveDestination.Plate)
+        {
+            JumpToPlate();
+            return;
+        }
+
+        if (moveDestination == MoveDestination.CuttingBoard && ply_BobEffect != null)
+        {
+            ply_BobEffect.Stop(false);
+            ply_BobEffect.enabled = false;
+        }
+
         isMoving = true;
-        isMovingToPlate = isClean;
         UpdateDragAvailability();
         itemMoveToTarget.ExecuteMove3D(destination);
+    }
+
+    private void JumpToPlate()
+    {
+        if (plateTarget == null)
+        {
+            Debug.LogWarning($"[InWaterItem] {name} is missing the Plate target.", this);
+            return;
+        }
+
+        isMoving = true;
+        if (itemDraggable != null)
+        {
+            itemDraggable.returnTransform = plateTarget;
+            itemDraggable.targetItemType = ItemType.None;
+            itemDraggable.enabled = false;
+        }
+        if (itemMoveToTarget != null)
+        {
+            itemMoveToTarget.SetDefaultTarget(plateTarget);
+        }
+        UpdateDragAvailability();
+
+        transform.DOKill();
+        transform.DOJump(plateTarget.position, jumpToPlatePower, 1, jumpToPlateDuration)
+            .SetEase(Ease.OutQuad)
+            .OnComplete(() =>
+            {
+                transform.DOKill();
+                transform.position = plateTarget.position;
+                isMoving = false;
+                OnMoveToPlateComplete();
+                plateTarget.DOPunchScale(platePunchScale, platePunchDuration);
+                UpdateDragAvailability();
+            });
     }
 
     public void OnMoveIntoWaterComplete()
     {
         isInWater = true;
+        isOnCuttingBoard = false;
         isOnPlate = false;
         onProcess = true;
 
@@ -141,19 +249,50 @@ public class InWaterItem : Item
         ConfigureNextTarget();
     }
 
-    public void OnMoveToPlateComplete()
+    public void OnMoveToCuttingBoardComplete()
     {
-        StopWaterEffects();
+        ply_BobEffect?.Stop(false);
+        ply_TimerEvent?.StopTimer();
         sink?.UnregisterInWaterItem(this);
+        transform.DOKill();
+        transform.position = cuttingBoardTarget.position;
 
         isInWater = false;
+        isOnCuttingBoard = true;
+        isOnPlate = false;
+        onProcess = true;
+        itemType = ItemType.FoodOnCuttingBoard;
+
+        CuttingBoard cuttingBoard = GetTargetItem(cuttingBoardTarget) as CuttingBoard;
+        cuttingBoard?.IsFoodOn(true);
+        cuttingBoard?.Punch();
+
+        ConfigureNextTarget();
+        if (itemDraggable != null)
+        {
+            itemDraggable.enabled = false;
+        }
+        onMoveToCuttingBoardComplete?.Invoke();
+    }
+
+    public void OnMoveToPlateComplete()
+    {
+        ply_BobEffect?.Stop(false);
+        ply_TimerEvent?.StopTimer();
+        sink?.UnregisterInWaterItem(this);
+
+        CuttingBoard cuttingBoard = GetTargetItem(cuttingBoardTarget) as CuttingBoard;
+        cuttingBoard?.IsFoodOn(false);
+
+        isInWater = false;
+        isOnCuttingBoard = false;
         isOnPlate = true;
         onProcess = false;
 
         if (itemDraggable != null)
         {
             itemDraggable.returnTransform = plateTarget;
-            itemDraggable.enabled = false;
+            itemDraggable.targetItemType = ItemType.None;
         }
     }
 
@@ -202,13 +341,19 @@ public class InWaterItem : Item
     {
         isMoving = false;
 
-        if (isMovingToPlate)
+        switch (moveDestination)
         {
-            OnMoveToPlateComplete();
-        }
-        else
-        {
-            OnMoveIntoWaterComplete();
+            case MoveDestination.Water:
+                OnMoveIntoWaterComplete();
+                break;
+
+            case MoveDestination.CuttingBoard:
+                OnMoveToCuttingBoardComplete();
+                break;
+
+            case MoveDestination.Plate:
+                OnMoveToPlateComplete();
+                break;
         }
 
         UpdateDragAvailability();
@@ -218,13 +363,25 @@ public class InWaterItem : Item
     {
         if (itemDraggable == null || itemMoveToTarget == null) return;
 
-        Transform nextTarget = isClean ? plateTarget : waterTarget;
-        Item targetItem = isClean ? GetTargetItem(plateTarget) : sink;
+        if (isInWater && !isClean)
+        {
+            itemDraggable.targetItemType = ItemType.None;
+            itemDraggable.returnTransform = waterTarget;
+            itemMoveToTarget.SetDefaultTarget(null);
+            return;
+        }
+
+        MoveDestination nextDestination = GetNextDestination();
+        Transform nextTarget = GetDestinationTarget(nextDestination);
+        Item targetItem = nextDestination == MoveDestination.Water
+            ? sink
+            : GetTargetItem(nextTarget);
+
         if (targetItem != null)
         {
             itemDraggable.targetItemType = targetItem.itemType;
         }
-        else if (!isClean)
+        else if (nextDestination == MoveDestination.Water)
         {
             Debug.LogWarning(
                 $"[InWaterItem] {name} needs a Sink reference to use as its initial drop target.",
@@ -238,9 +395,39 @@ public class InWaterItem : Item
         {
             itemDraggable.returnTransform = plateTarget;
         }
+        else if (isOnCuttingBoard)
+        {
+            itemDraggable.returnTransform = cuttingBoardTarget;
+        }
         else if (isInWater)
         {
             itemDraggable.returnTransform = waterTarget;
+        }
+    }
+
+    private MoveDestination GetNextDestination()
+    {
+        if (!isClean) return MoveDestination.Water;
+        if (!isCutDone) return MoveDestination.CuttingBoard;
+
+        return MoveDestination.Plate;
+    }
+
+    private Transform GetDestinationTarget(MoveDestination destination)
+    {
+        switch (destination)
+        {
+            case MoveDestination.Water:
+                return waterTarget;
+
+            case MoveDestination.CuttingBoard:
+                return cuttingBoardTarget;
+
+            case MoveDestination.Plate:
+                return plateTarget;
+
+            default:
+                return null;
         }
     }
 
@@ -264,31 +451,27 @@ public class InWaterItem : Item
     {
         if (itemDraggable == null) return;
 
-        itemDraggable.isDraggable = !isMoving;
+        itemDraggable.isDraggable = !isMoving
+            && !isOnPlate
+            && (!isOnCuttingBoard || isCutDone);
     }
 
-    public void CheckLastPlate()
+    public void ResetChildRotate()
     {
-        ItemType itemType = ComponentCache<Item>.Get(itemMoveToTarget.defaultTarget).itemType;
-        // if (itemType == ItemType.DiaOt || itemType == ItemType.DiaNgao)
-        // {
-        //     ply_BobEffect.enabled = false;
-        //     itemDraggable.enabled = false;
-        //     collider1.enabled = false;
-        //     isOnPlate = true;
-        //     ItemDone();
-        //     PhaseManager.Ins.DoOneStep();
-        // }
-        // else
-        // {
-        //     ply_TimerEvent.enabled = true;
-        //     if (sink.isWaterIn)
-        //     {
-        //         ply_BobEffect.enabled = true;
-
-        //         ply_TimerEvent.StartTimer();
-
-        //     }
-        // }
+        if(childObject != null)
+        {
+            for(int i = 0; i < childObject.Length; i++)
+            {
+                childObject[i].DORotate(new Vector3(0,0,0),0.1f);
+            }
+        }
+    }
+    public void EnableKnife()
+    {
+        HandTutManager.Ins.knife.gameObject.SetActive(true);
+    }
+    public void EnablePeeler()
+    {
+        HandTutManager.Ins.peeler.gameObject.SetActive(true);
     }
 }

@@ -23,6 +23,7 @@ public class Sink : Item
     public bool isClose;
     public bool isWaterDrop;
     public bool isWaterIn;
+    public Transform waterSplashPos;
     [SerializeField] private SinkWaterState waterState = SinkWaterState.Empty;
 
     [Header("--- WATER ANIMATORS ---")]

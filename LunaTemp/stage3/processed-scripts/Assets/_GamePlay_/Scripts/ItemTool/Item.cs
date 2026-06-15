@@ -108,6 +108,11 @@ public class Item : MonoBehaviour
         SpawnHeart(true);
     }
 
+    public virtual bool ShouldPlayBobEffectAfterReturn()
+    {
+        return true;
+    }
+
     public void TeleportToStart()
     {
         if (itemDraggable != null)
@@ -127,6 +132,16 @@ public class Item : MonoBehaviour
     public void ItemDone()
     {
         // SpawnHeart(false);
+        if (itemDraggable != null)
+        {
+            itemDraggable.enabled = false;
+
+        }
+        if (itemClickable != null)
+        {
+            itemClickable.enabled = false;
+
+        }
         if (HandTutManager.Ins != null)
         {
             HandTutManager.Ins.ItemDone(this);

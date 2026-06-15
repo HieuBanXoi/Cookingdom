@@ -19,8 +19,11 @@ public class Item : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public UnityEvent onKnifeIn;
 
-    [Header("--- HEART EFFECT ---")]
+    [Header("--- EFFECT SCALE ---")]
     [Min(0f)] public float heartEffectScale = 1f;
+    [Min(0f)] public float breakHeartEffectScale = 1f;
+    [Min(0f)] public float blinkEffectScale = 1f;
+    [Min(0f)] public float mergeEffectScale = 1f;
 
     [Header("--- MOVE TO TARGET SOUND ---")]
     public bool playMoveToTargetFinishSound = false;
@@ -91,7 +94,7 @@ public class Item : MonoBehaviour
             HeartBreakEffect heartEffect = Ply_Pool.Ins.Spawn<HeartBreakEffect>(PoolType.HeartBreakFX, transform.position, transform.rotation);
             if (heartEffect == null) return;
             heartEffect.transform.localRotation = Quaternion.identity;
-            heartEffect.PlaySpawnWithScale(heartEffectScale);
+            heartEffect.PlaySpawnWithScale(breakHeartEffectScale);
         }
         else
         {
@@ -132,6 +135,16 @@ public class Item : MonoBehaviour
     public void ItemDone()
     {
         // SpawnHeart(false);
+        if (itemDraggable != null)
+        {
+            itemDraggable.enabled = false;
+
+        }
+        if (itemClickable != null)
+        {
+            itemClickable.enabled = false;
+
+        }
         if (HandTutManager.Ins != null)
         {
             HandTutManager.Ins.ItemDone(this);
@@ -150,11 +163,26 @@ public class Item : MonoBehaviour
         YellowPiece yellowPiece = Ply_Pool.Ins.Spawn<YellowPiece>(PoolType.YellowPiece, transform.position, transform.rotation);
         yellowPiece.DeSpawnByTime();
     }
+    public void SpawnWaterSplash(Vector3 position)
+    {
+        Debug.Log("WaterSplash");
+        WaterSplash waterSplash = Ply_Pool.Ins.Spawn<WaterSplash>(PoolType.WaterSplash, position, transform.rotation);
+        waterSplash.DeSpawnByTime();
+    }
     public void SpawnBlinkEffect()
     {
         BlinkEffect blinkEffect = Ply_Pool.Ins.Spawn<BlinkEffect>(PoolType.BlinkFX, transform.position, transform.rotation);
+        if (blinkEffect == null) return;
         blinkEffect.tf.SetParent(this.transform);
+        blinkEffect.SetScale(blinkEffectScale);
         blinkEffect.DeSpawnByTime();
+    }
+    public void SpawnMergeEffect()
+    {
+        MergeEffect mergeEffect = Ply_Pool.Ins.Spawn<MergeEffect>(PoolType.MergeVFX, transform.position, transform.rotation);
+        if (mergeEffect == null) return;
+        mergeEffect.SetScale(mergeEffectScale);
+        mergeEffect.DeSpawnByTime();
     }
 
     public void PlayMoveToTargetFinishSound()

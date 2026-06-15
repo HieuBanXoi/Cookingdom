@@ -31,6 +31,11 @@ public class ItemMoveToTarget : MonoBehaviour
         item = GetComponent<Item>();
     }
 
+    public void ExecuteMove()
+    {
+        ExecuteMove3D(defaultTarget);
+    }
+
     public void ExecuteMove3D(Transform customTarget)
     {
         Transform target = customTarget != null ? customTarget : defaultTarget;
