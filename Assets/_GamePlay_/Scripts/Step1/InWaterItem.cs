@@ -19,6 +19,7 @@ public class InWaterItem : Item
     public bool isOnPlate = false;
     public bool isClean = false;
     public bool isCutDone = false;
+    [Min(1f)] public float cuttingBoardColliderRadiusMultiplier = 1.5f;
 
     [Header("--- JUMP TO PLATE ---")]
     public float jumpToPlatePower = 1f;
@@ -34,6 +35,9 @@ public class InWaterItem : Item
     private bool initialized;
     private bool isMoving;
     private MoveDestination moveDestination;
+    private bool hasCachedColliderRadius;
+    private float originalSphereColliderRadius;
+    private float originalCapsuleColliderRadius;
 
     private enum MoveDestination
     {
@@ -58,6 +62,7 @@ public class InWaterItem : Item
     private void OnDisable()
     {
         UnsubscribeMovementEvents();
+        SetColliderRadiusMultiplier(1f);
     }
 
     private void LateUpdate()
@@ -114,18 +119,22 @@ public class InWaterItem : Item
 
     public void SetClean()
     {
+        InitializeMovement();
         isClean = true;
         isCutDone = false;
         ply_TimerEvent?.StopTimer();
         ConfigureNextTarget();
+        SetCuttingBoardAsDefaultTarget();
     }
 
     public void CutDone()
     {
         InitializeMovement();
-        if (!isOnCuttingBoard || isOnPlate || isMoving) return;
+        if (!isOnCuttingBoard || isOnPlate || isMoving || isCutDone) return;
         itemType = ItemType.None;
         isCutDone = true;
+        HandTutManager.Ins?.ItemDone(this);
+        PhaseManager.Ins?.DoOneStep();
         if (itemClickable != null)
         {
         itemClickable.enabled = false;
@@ -234,6 +243,7 @@ public class InWaterItem : Item
                 transform.DOKill();
                 transform.position = plateTarget.position;
                 isMoving = false;
+                SpawnHeart(false);
                 OnMoveToPlateComplete();
                 plateTarget.DOPunchScale(platePunchScale, platePunchDuration);
                 UpdateDragAvailability();
@@ -251,6 +261,7 @@ public class InWaterItem : Item
         if (sink != null)
         {
             sink.RegisterInWaterItem(this);
+            HandTutManager.Ins?.RegisterItemInWater(this);
             SetPlateFoodShadowActive(true);
             SpawnWaterSplashOnEnter(wasInWater);
             if (sink.isWaterIn)
@@ -274,6 +285,7 @@ public class InWaterItem : Item
         ply_BobEffect?.Stop(false);
         ply_TimerEvent?.StopTimer();
         sink?.UnregisterInWaterItem(this);
+        HandTutManager.Ins?.UnregisterItemInWater(this);
         transform.DOKill();
         transform.position = cuttingBoardTarget.position;
 
@@ -282,6 +294,7 @@ public class InWaterItem : Item
         isOnPlate = false;
         onProcess = true;
         itemType = ItemType.FoodOnCuttingBoard;
+        SetColliderRadiusMultiplier(cuttingBoardColliderRadiusMultiplier);
 
         CuttingBoard cuttingBoard = GetTargetItem(cuttingBoardTarget) as CuttingBoard;
         cuttingBoard?.IsFoodOn(true);
@@ -300,6 +313,7 @@ public class InWaterItem : Item
         ply_BobEffect?.Stop(false);
         ply_TimerEvent?.StopTimer();
         sink?.UnregisterInWaterItem(this);
+        HandTutManager.Ins?.UnregisterItemInWater(this);
 
         CuttingBoard cuttingBoard = GetTargetItem(cuttingBoardTarget) as CuttingBoard;
         cuttingBoard?.IsFoodOn(false);
@@ -309,6 +323,8 @@ public class InWaterItem : Item
         isOnPlate = true;
         onProcess = false;
         SetPlateFoodShadowActive(false);
+        SetColliderRadiusMultiplier(1f);
+        
 
         if (itemDraggable != null)
         {
@@ -477,6 +493,61 @@ public class InWaterItem : Item
             && (!isOnCuttingBoard || isCutDone);
     }
 
+    private void SetCuttingBoardAsDefaultTarget()
+    {
+        if (itemMoveToTarget != null)
+        {
+            itemMoveToTarget.SetDefaultTarget(cuttingBoardTarget);
+        }
+
+        if (itemDraggable != null)
+        {
+            Item cuttingBoardItem = GetTargetItem(cuttingBoardTarget);
+            if (cuttingBoardItem != null)
+            {
+                itemDraggable.targetItemType = cuttingBoardItem.itemType;
+            }
+        }
+    }
+
+    private void SetColliderRadiusMultiplier(float multiplier)
+    {
+        CacheOriginalColliderRadius();
+        if (!hasCachedColliderRadius) return;
+
+        multiplier = Mathf.Max(0f, multiplier);
+
+        if (collider1 is SphereCollider sphereCollider)
+        {
+            sphereCollider.radius = originalSphereColliderRadius * multiplier;
+        }
+        else if (collider1 is CapsuleCollider capsuleCollider)
+        {
+            capsuleCollider.radius = originalCapsuleColliderRadius * multiplier;
+        }
+    }
+
+    private void CacheOriginalColliderRadius()
+    {
+        if (hasCachedColliderRadius) return;
+
+        if (collider1 == null)
+        {
+            collider1 = GetComponent<Collider>();
+        }
+
+        if (collider1 is SphereCollider sphereCollider)
+        {
+            originalSphereColliderRadius = sphereCollider.radius;
+            hasCachedColliderRadius = true;
+        }
+        else if (collider1 is CapsuleCollider capsuleCollider)
+        {
+            originalCapsuleColliderRadius = capsuleCollider.radius;
+            hasCachedColliderRadius = true;
+        }
+    }
+
     private void SetPlateFoodShadowActive(bool isActive)
     {
         if (plateFoodShadow != null)
@@ -498,10 +569,14 @@ public class InWaterItem : Item
     public void EnableKnife()
     {
         HandTutManager.Ins.knife.gameObject.SetActive(true);
+        Ply_SoundManager.Ins.PlayFx(FxType.KnifePlace);
+
     }
     public void EnablePeeler()
     {
         HandTutManager.Ins.peeler.gameObject.SetActive(true);
+        Ply_SoundManager.Ins.PlayFx(FxType.ItemPlace);
+
     }
     public void PeelerDone()
     {

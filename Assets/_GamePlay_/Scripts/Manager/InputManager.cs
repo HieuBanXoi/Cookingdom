@@ -153,6 +153,7 @@ public class InputManager : Ply_Singleton<InputManager>
         if (HandTutManager.Ins != null)
         {
             HandTutManager.Ins.StoveToggleDone(toggleEvent);
+            HandTutManager.Ins.WaterToggleDone(toggleEvent);
         }
 
         return true;

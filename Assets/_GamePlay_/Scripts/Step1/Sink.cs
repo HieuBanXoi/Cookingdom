@@ -93,6 +93,7 @@ public class Sink : Item
         isWaterDrop = true;
         displayedWaterOn = true;
         SetFaucetActive(true);
+        Ply_SoundManager.Ins.PlayFxLoop(FxType.WaterDrop);
 
         if (isClose && waterState != SinkWaterState.Full)
         {
@@ -110,6 +111,7 @@ public class Sink : Item
         isWaterDrop = false;
         displayedWaterOn = false;
         SetFaucetActive(false);
+        Ply_SoundManager.Ins.StopFxLoop(FxType.WaterDrop);
 
         if (waterState == SinkWaterState.Rising)
         {

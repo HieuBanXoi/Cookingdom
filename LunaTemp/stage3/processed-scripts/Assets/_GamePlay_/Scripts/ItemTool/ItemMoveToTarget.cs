@@ -15,6 +15,8 @@ public class ItemMoveToTarget : MonoBehaviour
     public float jumpPower = 2.0f;
     public int numJumps = 1;
     public bool rotate360DuringJump = false;
+    public bool flipRotate = false;
+    public float angleRotate = -360;
 
     [Header("--- SAU KHI TỚI NƠI ---")]
     public bool setParentToTarget = false;
@@ -83,7 +85,11 @@ public class ItemMoveToTarget : MonoBehaviour
                     .OnComplete(FinishAction);
                 if (rotate360DuringJump)
                 {
-                    transform.DORotate(new Vector3(0, 0, -360), duration, RotateMode.FastBeyond360).SetEase(easeType);
+                    if (flipRotate)
+                    {
+                        angleRotate = -angleRotate;
+                    }
+                    transform.DORotate(new Vector3(0, 0, angleRotate), duration, RotateMode.FastBeyond360).SetEase(easeType);
                 }
                 break;
 

@@ -284,7 +284,7 @@ public class ItemStirring : MonoBehaviour
         if (isPlayingStirringFx || Ply_SoundManager.Ins == null) return;
 
         isPlayingStirringFx = true;
-        Ply_SoundManager.Ins.PlayFxLoop(FxType.SpoonStirring);
+        // Ply_SoundManager.Ins.PlayFxLoop(FxType.SpoonStirring);
     }
 
     private void StopStirringFx()
@@ -294,7 +294,7 @@ public class ItemStirring : MonoBehaviour
         isPlayingStirringFx = false;
         if (Ply_SoundManager.Ins != null)
         {
-            Ply_SoundManager.Ins.StopFxLoop(FxType.SpoonStirring);
+            // Ply_SoundManager.Ins.StopFxLoop(FxType.SpoonStirring);
         }
     }
 

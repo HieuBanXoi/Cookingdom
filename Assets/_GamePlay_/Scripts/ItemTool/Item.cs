@@ -165,12 +165,13 @@ public class Item : MonoBehaviour
     }
     public void SpawnWaterSplash(Vector3 position)
     {
-        Debug.Log("WaterSplash");
+        Ply_SoundManager.Ins.PlayFx(FxType.FoodToWater);
         WaterSplash waterSplash = Ply_Pool.Ins.Spawn<WaterSplash>(PoolType.WaterSplash, position, transform.rotation);
         waterSplash.DeSpawnByTime();
     }
     public void SpawnBlinkEffect()
     {
+        Ply_SoundManager.Ins.PlayFx(FxType.Blink);
         BlinkEffect blinkEffect = Ply_Pool.Ins.Spawn<BlinkEffect>(PoolType.BlinkFX, transform.position, transform.rotation);
         if (blinkEffect == null) return;
         blinkEffect.tf.SetParent(this.transform);
@@ -191,35 +192,32 @@ public class Item : MonoBehaviour
 
         Ply_SoundManager.Ins.PlayFx(moveToTargetFinishFxType);
     }
-    public void PlayOilInSound()
+    public void PlaySoundFX(FxType fxType)
     {
-        if (Ply_SoundManager.Ins == null) return;
-
-        Ply_SoundManager.Ins.PlayFx(FxType.OilIn);
+        Ply_SoundManager.Ins.PlayFx(fxType);
     }
-    public void PlayJumpSound()
+    public void PlayKnifeCutSound()
     {
-        if (Ply_SoundManager.Ins == null) return;
-
-        Ply_SoundManager.Ins.PlayFx(FxType.Jump);
+        PlaySoundFX(FxType.KnifeCut);
     }
-    public void PlayDropSound()
+    public void PlayKnifeSwingSound()
     {
-        if (Ply_SoundManager.Ins == null) return;
-
-        Ply_SoundManager.Ins.PlayFx(FxType.Drop);
+        PlaySoundFX(FxType.KnifeSwing);
     }
-    public void PlayEggCrackSound()
+    public void PlayKnifePlaceSound()
     {
-        Ply_SoundManager.Ins.PlayFx(FxType.EggCrack);
+        PlaySoundFX(FxType.KnifePlace);
     }
-    public void PlayPourSaltSound()
+    public void PlayLemonJuiceSound()
     {
-        Ply_SoundManager.Ins.PlayFx(FxType.PourSalt);
+        PlaySoundFX(FxType.LemonJuice);
     }
-    public void PlayPlasticSound()
+    public void PlayWipeSound()
     {
-        Ply_SoundManager.Ins.PlayFx(FxType.Plastic);
+        PlaySoundFX(FxType.Wipe);
     }
-
+    public void PlayPeerSound()
+    {
+        PlaySoundFX(FxType.Peer);
+    }
 }

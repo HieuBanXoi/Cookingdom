@@ -8,21 +8,18 @@ public enum FxType
     Jump,
     Swipe,
     Complete,
-    Frying,
-    OilIn,
-    FoodDone,
-    Wrong,
-    FoodToBowl,
-    TurnOn,
-    EggCrack,
-    PourSalt,
-    Clock,
-    Plastic,
-    ChangePhase,
-    SpoonStirring,
     WaterDrop,
-    FlourDrop,
-    DuckSound
+    FoodToWater,
+    KnifeCut,
+    KnifeSwing,
+    KnifePlace,
+    PlaceVege,
+    LemonJuice,
+    ItemPlace,
+    Blink,
+    Failed,
+    Wipe,
+    Peer
 }
 
 public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
@@ -63,6 +60,12 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
             if (clip == null) return;
 
             AudioSource source = GetOrCreateFxSource(fxType);
+            if (source.loop)
+            {
+                source.loop = false;
+                source.Stop();
+            }
+
             source.PlayOneShot(clip);
         }
     }

@@ -35,7 +35,7 @@ public class HeartBreakEffect : Ply_GameUnit
     {
         CacheDefaultState();
         ResetState();
-        Ply_SoundManager.Ins.PlayFx(FxType.Wrong);
+        Ply_SoundManager.Ins.PlayFx(FxType.Failed);
         transform.localScale = Vector3.zero;
 
         spawnSequence = DOTween.Sequence();

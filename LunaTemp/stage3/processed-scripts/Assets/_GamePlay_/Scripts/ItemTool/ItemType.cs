@@ -9,5 +9,7 @@ public enum ItemType
     CuttingBoard,
     ItemInWater,
     Plate,
-    Sink
+    Sink,
+    FoodOnCuttingBoard,
+    PlateHerb, PlateOnion, PlateLemon,PlateAvocado,PlatePotato,PlateTomato,PlateOlive
 }

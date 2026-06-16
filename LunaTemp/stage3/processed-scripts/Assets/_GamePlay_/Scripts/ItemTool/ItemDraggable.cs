@@ -17,8 +17,12 @@ public class ItemDraggable : MonoBehaviour
 
     [Header("--- RETURN TO START SOUND ---")]
     public bool playReturnToStartFinishSound = false;
-    public FxType returnToStartFinishFxType = FxType.Wrong;
+    public FxType returnToStartFinishFxType = FxType.Failed;
     public bool spawnBreakHeartOnDropFail = true;
+
+    [Header("--- BEGIN DRAG SOUND ---")]
+    public bool playBeginDragSound = true;
+    public FxType beginDragFxType = FxType.Click;
 
     [Tooltip("Khi nhấc lên, vật sẽ nhích lại gần Camera (hoặc bay cao lên) bao nhiêu để không kẹt vào bàn?")]
     public float liftOffset = 1.0f;
@@ -162,7 +166,7 @@ public class ItemDraggable : MonoBehaviour
 
         SetShadowActive(false);
 
-        Ply_SoundManager.Ins.PlayFx(FxType.Click);
+        PlayBeginDragSound();
 
         transform.SetParent(originalParent);
 
@@ -209,7 +213,13 @@ public class ItemDraggable : MonoBehaviour
             {
                 if (targetItem.itemType == ItemType.None) continue;
 
-                if (targetItem.itemType == targetItemType)
+                bool matchesTargetType = targetItem.itemType == targetItemType;
+                bool matchesDefaultTarget = item != null
+                    && item.itemMoveToTarget != null
+                    && item.itemMoveToTarget.defaultTarget != null
+                    && targetItem.transform == item.itemMoveToTarget.defaultTarget;
+
+                if (matchesTargetType || matchesDefaultTarget)
                 {
                     isHitValid = true;
                     break;
@@ -222,6 +232,7 @@ public class ItemDraggable : MonoBehaviour
         if (isHitValid)
         {
             ResetScale();
+            HandTutManager.Ins?.RegisterCorrectAction();
             onDropSuccess?.Invoke();
         }
         else
@@ -230,6 +241,11 @@ public class ItemDraggable : MonoBehaviour
             onDropFail?.Invoke();
             if (!consumeCurrentDropFail)
             {
+                if (spawnBreakHeartOnDropFail)
+                {
+                    HandTutManager.Ins?.RegisterBreakHeartDropFail();
+                }
+
                 ReturnToStart(spawnBreakHeartOnDropFail);
             }
         }
@@ -291,6 +307,13 @@ public class ItemDraggable : MonoBehaviour
     {
         scaleTween?.Kill();
         scaleTween = transform.DOScale(originalScale * 1.1f, 0.15f).SetEase(Ease.OutBack);
+    }
+
+    private void PlayBeginDragSound()
+    {
+        if (!playBeginDragSound || Ply_SoundManager.Ins == null) return;
+
+        Ply_SoundManager.Ins.PlayFx(beginDragFxType);
     }
 
     private void OnDisable()

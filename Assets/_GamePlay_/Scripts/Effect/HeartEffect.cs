@@ -36,6 +36,7 @@ public class HeartEffect : Ply_GameUnit
         CacheDefaultState();
         ResetState();
         transform.localScale = Vector3.zero;
+        Ply_SoundManager.Ins.PlayFx(FxType.Complete);
 
         spawnSequence = DOTween.Sequence();
         spawnSequence.Append(transform.DOScale(defaultScale * Mathf.Max(0f, scaleMultiplier), 0.25f).SetEase(Ease.OutBack));

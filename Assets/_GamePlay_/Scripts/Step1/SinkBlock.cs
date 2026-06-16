@@ -63,6 +63,7 @@ public class SinkBlock : Item
             }
         }
 
+        HandTutManager.Ins?.SinkBlockMoveDone(this);
         UpdateDragAvailability();
     }
 

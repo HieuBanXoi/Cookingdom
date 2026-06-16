@@ -25,12 +25,15 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
     public float offScreenLeftX = -15f;
     public float offScreenRightX = 15f;
     public float centerScreenX = 0f;
+    public GameObject phaseTransitionObject;
+    public float phaseTransitionObjectDuration = 1.5f;
 
     public int currentPhaseIndex = 0;
     public int currentStepCount = 0;
 
     private bool isChangingPhase;
     private Tween phaseDelayTween;
+    private Sequence phaseTransitionSequence;
 
     public Transform CurrentPhaseObject
     {
@@ -63,11 +66,17 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
                 }
             }
         }
+
+        if (phaseTransitionObject != null)
+        {
+            phaseTransitionObject.SetActive(false);
+        }
     }
 
     private void OnDisable()
     {
         phaseDelayTween?.Kill();
+        phaseTransitionSequence?.Kill();
     }
 
     /// <summary>
@@ -117,7 +126,79 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
         if (GameManager.Ins != null) GameManager.Ins.isPlaying = false;
         Ply_SoundManager.Ins.PlayFx(FxType.Complete);
         phaseDelayTween?.Kill();
+        phaseTransitionSequence?.Kill();
+
+        if (phaseTransitionObject != null)
+        {
+            phaseDelayTween = DOVirtual.DelayedCall(delayBeforeNextPhase, PlayPhaseObjectTransition);
+            return;
+        }
+
         phaseDelayTween = DOVirtual.DelayedCall(delayBeforeNextPhase, GoToNextPhase);
+    }
+
+    private void PlayPhaseObjectTransition()
+    {
+        phaseTransitionObject.SetActive(true);
+
+        float safeDuration = Mathf.Max(0.01f, phaseTransitionObjectDuration);
+        phaseTransitionSequence = DOTween.Sequence();
+        phaseTransitionSequence.AppendInterval(safeDuration * 0.5f);
+        phaseTransitionSequence.AppendCallback(SwitchToNextPhaseBehindTransition);
+        phaseTransitionSequence.AppendInterval(safeDuration * 0.5f);
+        phaseTransitionSequence.OnComplete(() =>
+        {
+            phaseTransitionSequence = null;
+            phaseTransitionObject.SetActive(false);
+            FinishPhaseTransition();
+        });
+    }
+
+    private void SwitchToNextPhaseBehindTransition()
+    {
+        PhaseData oldPhase = phases[currentPhaseIndex];
+        currentPhaseIndex++;
+        currentStepCount = 0;
+
+        if (oldPhase != null && oldPhase.phaseObject != null)
+        {
+            oldPhase.phaseObject.SetActive(false);
+        }
+
+        if (currentPhaseIndex < phases.Count)
+        {
+            PhaseData newPhase = phases[currentPhaseIndex];
+            if (newPhase != null && newPhase.phaseObject != null)
+            {
+                GameObject newObj = newPhase.phaseObject;
+                Vector3 pos = newObj.transform.position;
+                pos.x = centerScreenX;
+                newObj.transform.position = pos;
+                newObj.SetActive(true);
+                if (GameManager.Ins != null && !GameManager.Ins.isLoseGame)
+                {
+                    GameManager.Ins.isPlaying = true;
+                }
+                newPhase.onPhaseReady?.Invoke();
+                StartHandTutAfterPhaseReady();
+            }
+        }
+    }
+
+    private void FinishPhaseTransition()
+    {
+        isChangingPhase = false;
+
+        if (currentPhaseIndex < phases.Count)
+        {
+            return;
+        }
+
+        Debug.Log("Hoàn thành toàn bộ Phase!");
+        if (GameManager.Ins != null)
+        {
+            GameManager.Ins.WinGame();
+        }
     }
 
     private void GoToNextPhase()
@@ -159,14 +240,21 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
                     .SetEase(Ease.InOutQuad).OnComplete(() =>
                     {
                         isChangingPhase = false;
-                        if (GameManager.Ins != null) GameManager.Ins.isPlaying = true;
+                        if (GameManager.Ins != null && !GameManager.Ins.isLoseGame)
+                        {
+                            GameManager.Ins.isPlaying = true;
+                        }
                         newPhase.onPhaseReady?.Invoke();
+                        StartHandTutAfterPhaseReady();
                     });
             }
             else
             {
                 isChangingPhase = false;
-                if (GameManager.Ins != null) GameManager.Ins.isPlaying = true;
+                if (GameManager.Ins != null && !GameManager.Ins.isLoseGame)
+                {
+                    GameManager.Ins.isPlaying = true;
+                }
             }
         }
         else
@@ -179,5 +267,18 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
                 GameManager.Ins.WinGame();
             }
         }
+    }
+
+    private void StartHandTutAfterPhaseReady()
+    {
+        if (GameManager.Ins != null)
+        {
+            if (!GameManager.Ins.isLoseGame)
+            {
+                GameManager.Ins.isPlaying = true;
+            }
+        }
+
+        HandTutManager.Ins?.StartHandTutNoDelay();
     }
 }

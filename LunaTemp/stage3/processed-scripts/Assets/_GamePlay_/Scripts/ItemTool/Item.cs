@@ -19,8 +19,11 @@ public class Item : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public UnityEvent onKnifeIn;
 
-    [Header("--- HEART EFFECT ---")]
+    [Header("--- EFFECT SCALE ---")]
     [Min(0f)] public float heartEffectScale = 1f;
+    [Min(0f)] public float breakHeartEffectScale = 1f;
+    [Min(0f)] public float blinkEffectScale = 1f;
+    [Min(0f)] public float mergeEffectScale = 1f;
 
     [Header("--- MOVE TO TARGET SOUND ---")]
     public bool playMoveToTargetFinishSound = false;
@@ -91,7 +94,7 @@ public class Item : MonoBehaviour
             HeartBreakEffect heartEffect = Ply_Pool.Ins.Spawn<HeartBreakEffect>(PoolType.HeartBreakFX, transform.position, transform.rotation);
             if (heartEffect == null) return;
             heartEffect.transform.localRotation = Quaternion.identity;
-            heartEffect.PlaySpawnWithScale(heartEffectScale);
+            heartEffect.PlaySpawnWithScale(breakHeartEffectScale);
         }
         else
         {
@@ -160,11 +163,27 @@ public class Item : MonoBehaviour
         YellowPiece yellowPiece = Ply_Pool.Ins.Spawn<YellowPiece>(PoolType.YellowPiece, transform.position, transform.rotation);
         yellowPiece.DeSpawnByTime();
     }
+    public void SpawnWaterSplash([Bridge.Ref] Vector3 position)
+    {
+        Ply_SoundManager.Ins.PlayFx(FxType.FoodToWater);
+        WaterSplash waterSplash = Ply_Pool.Ins.Spawn<WaterSplash>(PoolType.WaterSplash, position, transform.rotation);
+        waterSplash.DeSpawnByTime();
+    }
     public void SpawnBlinkEffect()
     {
+        Ply_SoundManager.Ins.PlayFx(FxType.Blink);
         BlinkEffect blinkEffect = Ply_Pool.Ins.Spawn<BlinkEffect>(PoolType.BlinkFX, transform.position, transform.rotation);
+        if (blinkEffect == null) return;
         blinkEffect.tf.SetParent(this.transform);
+        blinkEffect.SetScale(blinkEffectScale);
         blinkEffect.DeSpawnByTime();
+    }
+    public void SpawnMergeEffect()
+    {
+        MergeEffect mergeEffect = Ply_Pool.Ins.Spawn<MergeEffect>(PoolType.MergeVFX, transform.position, transform.rotation);
+        if (mergeEffect == null) return;
+        mergeEffect.SetScale(mergeEffectScale);
+        mergeEffect.DeSpawnByTime();
     }
 
     public void PlayMoveToTargetFinishSound()
@@ -173,35 +192,32 @@ public class Item : MonoBehaviour
 
         Ply_SoundManager.Ins.PlayFx(moveToTargetFinishFxType);
     }
-    public void PlayOilInSound()
+    public void PlaySoundFX(FxType fxType)
     {
-        if (Ply_SoundManager.Ins == null) return;
-
-        Ply_SoundManager.Ins.PlayFx(FxType.OilIn);
+        Ply_SoundManager.Ins.PlayFx(fxType);
     }
-    public void PlayJumpSound()
+    public void PlayKnifeCutSound()
     {
-        if (Ply_SoundManager.Ins == null) return;
-
-        Ply_SoundManager.Ins.PlayFx(FxType.Jump);
+        PlaySoundFX(FxType.KnifeCut);
     }
-    public void PlayDropSound()
+    public void PlayKnifeSwingSound()
     {
-        if (Ply_SoundManager.Ins == null) return;
-
-        Ply_SoundManager.Ins.PlayFx(FxType.Drop);
+        PlaySoundFX(FxType.KnifeSwing);
     }
-    public void PlayEggCrackSound()
+    public void PlayKnifePlaceSound()
     {
-        Ply_SoundManager.Ins.PlayFx(FxType.EggCrack);
+        PlaySoundFX(FxType.KnifePlace);
     }
-    public void PlayPourSaltSound()
+    public void PlayLemonJuiceSound()
     {
-        Ply_SoundManager.Ins.PlayFx(FxType.PourSalt);
+        PlaySoundFX(FxType.LemonJuice);
     }
-    public void PlayPlasticSound()
+    public void PlayWipeSound()
     {
-        Ply_SoundManager.Ins.PlayFx(FxType.Plastic);
+        PlaySoundFX(FxType.Wipe);
     }
-
+    public void PlayPeerSound()
+    {
+        PlaySoundFX(FxType.Peer);
+    }
 }

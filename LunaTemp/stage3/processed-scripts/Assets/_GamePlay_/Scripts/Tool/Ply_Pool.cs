@@ -14,6 +14,7 @@ public enum PoolType
     MergeVFX,
     StarExploreFX,
     FlourSmoke,
+    WaterSplash,
     Duck
 }
 
@@ -59,6 +60,18 @@ public class Ply_Pool : Ply_Singleton<Ply_Pool>
 
     public Ply_GameUnit Spawn(PoolType poolType, [Bridge.Ref] Vector3 pos, [Bridge.Ref] Quaternion rot)
     {
+        if (!dict.ContainsKey(poolType))
+        {
+            Ply_GameUnit prefab = GetPrefab(poolType);
+            if (prefab == null)
+            {
+                Debug.LogWarning($"Ply_Pool: No prefab found for PoolType {poolType}");
+                return null;
+            }
+
+            dict[poolType] = new Queue<Ply_GameUnit>();
+        }
+
         Ply_GameUnit gameUnit = dict[poolType].Count > 0 ? dict[poolType].Dequeue() : Instantiate(GetPrefab(poolType));
         gameUnit.transform.SetParent(poolHolder);
 

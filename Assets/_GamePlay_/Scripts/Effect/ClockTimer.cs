@@ -202,7 +202,7 @@ public class ClockTimer : Ply_GameUnit
 
         if (activeClockFxCount == 1 && Ply_SoundManager.Ins != null)
         {
-            Ply_SoundManager.Ins.PlayFxLoop(FxType.Clock);
+            // Ply_SoundManager.Ins.PlayFxLoop(FxType.Clock);
         }
     }
 
@@ -215,7 +215,7 @@ public class ClockTimer : Ply_GameUnit
 
         if (activeClockFxCount == 0 && Ply_SoundManager.Ins != null)
         {
-            Ply_SoundManager.Ins.StopFxLoop(FxType.Clock);
+            // Ply_SoundManager.Ins.StopFxLoop(FxType.Clock);
         }
     }
 

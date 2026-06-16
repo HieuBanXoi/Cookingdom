@@ -1,6 +1,6 @@
-if ( TRACE ) { TRACE( JSON.parse( '["Item#init","Item#Awake","Item#Reset","Item#OnValidate","Item#CacheComponents","Item#ChangeItemType","Item#ChangeAnim","Item#ChangeSprite","Item#GetInPlate","Item#KnifeIn","Item#SpawnHeart","Item#OnDragFailReturnComplete","Item#ShouldPlayBobEffectAfterReturn","Item#TeleportToStart","Item#DoneAnimation","Item#ItemDone","Item#SpawnGreenPiece","Item#SpawnYellowPiece","Item#SpawnBlinkEffect","Item#PlayMoveToTargetFinishSound","Item#PlayOilInSound","Item#PlayJumpSound","Item#PlayDropSound","Item#PlayEggCrackSound","Item#PlayPourSaltSound","Item#PlayPlasticSound","ComponentCache$1#init","ComponentCache$1#Get$1","ComponentCache$1#Get","ComponentCache$1#ClearCache","DG.Tweening.DOTweenCYInstruction.WaitForCompletion#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForCompletion#ctor","DG.Tweening.DOTweenCYInstruction.WaitForElapsedLoops#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForElapsedLoops#ctor","DG.Tweening.DOTweenCYInstruction.WaitForKill#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForKill#ctor","DG.Tweening.DOTweenCYInstruction.WaitForPosition#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForPosition#ctor","DG.Tweening.DOTweenCYInstruction.WaitForRewind#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForRewind#ctor","DG.Tweening.DOTweenCYInstruction.WaitForStart#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForStart#ctor","DG.Tweening.DOTweenModuleAudio#DOFade","DG.Tweening.DOTweenModuleAudio#DOPitch","DG.Tweening.DOTweenModuleAudio#DOSetFloat","DG.Tweening.DOTweenModuleAudio#DOComplete","DG.Tweening.DOTweenModuleAudio#DOKill","DG.Tweening.DOTweenModuleAudio#DOFlip","DG.Tweening.DOTweenModuleAudio#DOGoto","DG.Tweening.DOTweenModuleAudio#DOPause","DG.Tweening.DOTweenModuleAudio#DOPlay","DG.Tweening.DOTweenModuleAudio#DOPlayBackwards","DG.Tweening.DOTweenModuleAudio#DOPlayForward","DG.Tweening.DOTweenModuleAudio#DORestart","DG.Tweening.DOTweenModuleAudio#DORewind","DG.Tweening.DOTweenModuleAudio#DOSmoothRewind","DG.Tweening.DOTweenModuleAudio#DOTogglePause","DG.Tweening.DOTweenModulePhysics#DOMove","DG.Tweening.DOTweenModulePhysics#DOMoveX","DG.Tweening.DOTweenModulePhysics#DOMoveY","DG.Tweening.DOTweenModulePhysics#DOMoveZ","DG.Tweening.DOTweenModulePhysics#DORotate","DG.Tweening.DOTweenModulePhysics#DOLookAt","DG.Tweening.DOTweenModulePhysics#DOJump","DG.Tweening.DOTweenModulePhysics#DOPath","DG.Tweening.DOTweenModulePhysics#DOPath$1","DG.Tweening.DOTweenModulePhysics#DOLocalPath","DG.Tweening.DOTweenModulePhysics#DOLocalPath$1","DG.Tweening.DOTweenModulePhysics2D#DOMove","DG.Tweening.DOTweenModulePhysics2D#DOMoveX","DG.Tweening.DOTweenModulePhysics2D#DOMoveY","DG.Tweening.DOTweenModulePhysics2D#DORotate","DG.Tweening.DOTweenModulePhysics2D#DOJump","DG.Tweening.DOTweenModulePhysics2D#DOPath","DG.Tweening.DOTweenModulePhysics2D#DOPath$1","DG.Tweening.DOTweenModulePhysics2D#DOLocalPath","DG.Tweening.DOTweenModulePhysics2D#DOLocalPath$1","DG.Tweening.DOTweenModuleSprite#DOColor","DG.Tweening.DOTweenModuleSprite#DOFade","DG.Tweening.DOTweenModuleSprite#DOGradientColor","DG.Tweening.DOTweenModuleSprite#DOBlendableColor","DG.Tweening.DOTweenModuleUI#DOFade","DG.Tweening.DOTweenModuleUI#DOFade$1","DG.Tweening.DOTweenModuleUI#DOFade$2","DG.Tweening.DOTweenModuleUI#DOFade$3","DG.Tweening.DOTweenModuleUI#DOFade$4","DG.Tweening.DOTweenModuleUI#DOColor","DG.Tweening.DOTweenModuleUI#DOColor$1","DG.Tweening.DOTweenModuleUI#DOColor$2","DG.Tweening.DOTweenModuleUI#DOColor$3","DG.Tweening.DOTweenModuleUI#DOFillAmount","DG.Tweening.DOTweenModuleUI#DOGradientColor","DG.Tweening.DOTweenModuleUI#DOFlexibleSize","DG.Tweening.DOTweenModuleUI#DOMinSize","DG.Tweening.DOTweenModuleUI#DOPreferredSize","DG.Tweening.DOTweenModuleUI#DOScale","DG.Tweening.DOTweenModuleUI#DOAnchorPos","DG.Tweening.DOTweenModuleUI#DOAnchorPosX","DG.Tweening.DOTweenModuleUI#DOAnchorPosY","DG.Tweening.DOTweenModuleUI#DOAnchorPos3D","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DX","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DY","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DZ","DG.Tweening.DOTweenModuleUI#DOAnchorMax","DG.Tweening.DOTweenModuleUI#DOAnchorMin","DG.Tweening.DOTweenModuleUI#DOPivot","DG.Tweening.DOTweenModuleUI#DOPivotX","DG.Tweening.DOTweenModuleUI#DOPivotY","DG.Tweening.DOTweenModuleUI#DOSizeDelta","DG.Tweening.DOTweenModuleUI#DOPunchAnchorPos","DG.Tweening.DOTweenModuleUI#DOShakeAnchorPos","DG.Tweening.DOTweenModuleUI#DOShakeAnchorPos$1","DG.Tweening.DOTweenModuleUI#DOJumpAnchorPos","DG.Tweening.DOTweenModuleUI#DONormalizedPos","DG.Tweening.DOTweenModuleUI#DOHorizontalNormalizedPos","DG.Tweening.DOTweenModuleUI#DOVerticalNormalizedPos","DG.Tweening.DOTweenModuleUI#DOValue","DG.Tweening.DOTweenModuleUI#DOCounter","DG.Tweening.DOTweenModuleUI#DOText","DG.Tweening.DOTweenModuleUI#DOBlendableColor","DG.Tweening.DOTweenModuleUI#DOBlendableColor$1","DG.Tweening.DOTweenModuleUI#DOBlendableColor$2","DG.Tweening.DOTweenModuleUI#DOShapeCircle","DG.Tweening.DOTweenModuleUI.Utils#SwitchToRectTransform","DG.Tweening.DOTweenModuleUnityVersion#DOGradientColor","DG.Tweening.DOTweenModuleUnityVersion#DOGradientColor$1","DG.Tweening.DOTweenModuleUnityVersion#WaitForCompletion","DG.Tweening.DOTweenModuleUnityVersion#WaitForRewind","DG.Tweening.DOTweenModuleUnityVersion#WaitForKill","DG.Tweening.DOTweenModuleUnityVersion#WaitForElapsedLoops","DG.Tweening.DOTweenModuleUnityVersion#WaitForPosition","DG.Tweening.DOTweenModuleUnityVersion#WaitForStart","DG.Tweening.DOTweenModuleUnityVersion#DOOffset","DG.Tweening.DOTweenModuleUnityVersion#DOTiling","DG.Tweening.DOTweenModuleUtils#Init","DG.Tweening.DOTweenModuleUtils#Preserver","DG.Tweening.DOTweenModuleUtils.Physics#SetOrientationOnPath","DG.Tweening.DOTweenModuleUtils.Physics#HasRigidbody2D","DG.Tweening.DOTweenModuleUtils.Physics#HasRigidbody","DG.Tweening.DOTweenModuleUtils.Physics#CreateDOTweenPathTween","Ply_Singleton$1#init","Ply_Singleton$1#Awake","HandTutorial#init","HandTutorial#Awake","HandTutorial#OnEnable","HandTutorial#OnDisable","HandTutorial#PlayTutorial","HandTutorial#StopTutorial","HandTutorial#SetupStartPoint","HandTutorial#SetupEndPoint","ItemClickable#init","ItemClickable#PerformClick","ItemClickable#CanClick","ItemClickable#EnableClick","ItemClickable#PlayPopSound","ItemDraggable#init","ItemDraggable#Start","ItemDraggable#ReturnToStart","ItemDraggable#ReturnToStart$1","ItemDraggable#ReturnToStartWithoutHeart","ItemDraggable#TeleportToStart","ItemDraggable#BeginDrag","ItemDraggable#Drag","ItemDraggable#EndDrag","ItemDraggable#ConsumeCurrentDropFail","ItemDraggable#GetMouseWorldPos","ItemDraggable#IsDraggable","ItemDraggable#CanDrag","ItemDraggable#ChangeReturnPoint","ItemDraggable#SetShadowActive","ItemDraggable#PlayBobEffectIfEnabled","ItemDraggable#ResetScale","ItemDraggable#PlayDragScale","ItemDraggable#OnDisable","ItemDraggable#OnReturnToStartComplete","ItemDraggable#PlayReturnToStartFinishSound","ItemDraggable#ChangeTargetItemType","ItemDraggable#UnDraggable","ItemKnifeSpriteMaskCutter#init","ItemKnifeSpriteMaskCutter#Awake","ItemKnifeSpriteMaskCutter#OnEnable","ItemKnifeSpriteMaskCutter#OnDisable","ItemKnifeSpriteMaskCutter#ResetCut","ItemKnifeSpriteMaskCutter#PerformCut","ItemKnifeSpriteMaskCutter#SpawnCutPiece","ItemKnifeSpriteMaskCutter#UpdateMasks","ItemKnifeSpriteMaskCutter#CompleteCut","ItemKnifeSpriteMaskCutter#ApplyKnifeChildMask","ItemKnifeSpriteMaskCutter#GetProgress01","ItemKnifeSpriteMaskCutter#OnDrawGizmos","ItemKnifeSpriteMaskCutter#GetPreviewCutX","ItemKnifeSpriteMaskCutter#GetLocalPointInRoot","ItemKnifeSpriteMaskCutter#GetLocalPoint","ItemKnifeSpriteMaskCutter#DrawLocalVerticalLine","ItemKnifeSpriteMaskCutter#DrawLocalHorizontalLine","ItemMoveToTarget#init","ItemMoveToTarget#Awake","ItemMoveToTarget#ExecuteMove","ItemMoveToTarget#ExecuteMove3D","ItemMoveToTarget#FinishAction","ItemMoveToTarget#TeleportToTarget","ItemMoveToTarget#SetDefaultTarget","ItemMoveToTarget#SetWorldScale","ItemSpriteMaskPainter#init","ItemSpriteMaskPainter#Awake","ItemSpriteMaskPainter#OnEnable","ItemSpriteMaskPainter#ResetPaint","ItemSpriteMaskPainter#BeginPaint","ItemSpriteMaskPainter#Paint","ItemSpriteMaskPainter#EndPaint","ItemSpriteMaskPainter#StampLine","ItemSpriteMaskPainter#Stamp","ItemSpriteMaskPainter#CacheSamples","ItemSpriteMaskPainter#MarkCoveredSamples","ItemSpriteMaskPainter#GetSamplePoint","ItemSpriteMaskPainter#CheckComplete","ItemSpriteMaskPainter#CreatePaintPlane","ItemSpriteMaskPainter#GetMouseOnPaintPlane","ItemSpriteMaskPainter#IsPointInsidePaintArea","ItemSpriteMaskPainter#GetProgress01","ItemStirring#IsDone#get","ItemStirring#init","ItemStirring#Start","ItemStirring#Reset","ItemStirring#OnValidate","ItemStirring#CacheReferences","ItemStirring#BeginStir","ItemStirring#Stir","ItemStirring#EndStir","ItemStirring#GetMouseOnPlane","ItemStirring#GetAnimationProgress","ItemStirring#ResetTargetAnimation","ItemStirring#SetAnimatorSpeed","ItemStirring#UpdateAnimatorSpeedFromDrag","ItemStirring#CompleteStir","ItemStirring#OnDisable","ItemStirring#StartStirringFx","ItemStirring#StopStirringFx","ItemStirring#SpawnStirProgressBar","ItemStirring#UpdateStirProgressBar","ItemStirring#UpdateStirProgressBar$1","ItemStirring#StopStirProgressBar","ItemStirring#OnDrawGizmos","Ply_BobEffect#IsPlaying#get","Ply_BobEffect#init","Ply_BobEffect#Awake","Ply_BobEffect#OnEnable","Ply_BobEffect#OnDisable","Ply_BobEffect#CacheStartPosition","Ply_BobEffect#Play","Ply_BobEffect#Stop","Ply_BobEffect#Stop$1","Ply_Pool.PoolAmount#getDefaultValue","Ply_Pool.PoolAmount#ctor","Ply_Pool.PoolAmount#getHashCode","Ply_Pool.PoolAmount#equals","Ply_Pool.PoolAmount#$clone","Ply_TimerEvent#init","Ply_TimerEvent#OnEnable","Ply_TimerEvent#OnDisable","Ply_TimerEvent#StartTimer","Ply_TimerEvent#StartTimer$1","Ply_TimerEvent#StopTimer","Ply_TimerEvent#RestartTimer","Ply_TimerEvent#CompleteTimer","Ply_ToggleEvent#init","Ply_ToggleEvent#OnEnable","Ply_ToggleEvent#Toggle","Ply_ToggleEvent#TurnOn","Ply_ToggleEvent#TurnOff","Ply_ToggleEvent#SetState","Ply_ToggleEvent#ForceSetState","Ply_ToggleEvent#ApplyState","Ply_ToggleEvent#ApplyState$1","ScreenScaleStep#ctor","ScreenScaleStep#$ctor1","SortChildByZPos#init","SortChildByZPos#SortChildrenByZPosition","Spine.BoneMatrix#CalculateSetupWorld","Spine.BoneMatrix#GetInheritedInternal","Spine.BoneMatrix#getDefaultValue","Spine.BoneMatrix#$ctor2","Spine.BoneMatrix#$ctor1","Spine.BoneMatrix#ctor","Spine.BoneMatrix#TransformMatrix","Spine.BoneMatrix#getHashCode","Spine.BoneMatrix#equals","Spine.BoneMatrix#$clone","Spine.SpineSkeletonExtensions#IsWeighted","Spine.SpineSkeletonExtensions#InheritsRotation","Spine.SpineSkeletonExtensions#InheritsScale","Spine.Unity.ActivateBasedOnFlipDirection#init","Spine.Unity.ActivateBasedOnFlipDirection#Start","Spine.Unity.ActivateBasedOnFlipDirection#FixedUpdate","Spine.Unity.ActivateBasedOnFlipDirection#HandleFlip","Spine.Unity.ActivateBasedOnFlipDirection#ResetJointPositions","Spine.Unity.ActivateBasedOnFlipDirection#CompensateMovementAfterFlipX","Spine.Unity.AnimationTools.TimelineExtensions#Evaluate","Spine.Unity.AnimationTools.TimelineExtensions#Evaluate$1","Spine.Unity.AnimationTools.TimelineExtensions#FindTranslateTimelineForBone","Spine.Unity.AnimationTools.TimelineExtensions#FindTimelineForBone","Spine.Unity.AttachmentTools.AtlasUtilities#init","Spine.Unity.AttachmentTools.AtlasUtilities#Init","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegion$2","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegion$3","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegion","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegion$1","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegion$4","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegionPMAClone$2","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegionPMAClone$3","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegionPMAClone","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegionPMAClone$1","Spine.Unity.AttachmentTools.AtlasUtilities#ToSpineAtlasPage","Spine.Unity.AttachmentTools.AtlasUtilities#GetRepackedAttachments","Spine.Unity.AttachmentTools.AtlasUtilities#GetRepackedAttachments$1","Spine.Unity.AttachmentTools.AtlasUtilities#GetRepackedSkin","Spine.Unity.AttachmentTools.AtlasUtilities#GetRepackedSkin$1","Spine.Unity.AttachmentTools.AtlasUtilities#ToSprite","Spine.Unity.AttachmentTools.AtlasUtilities#ClearCache","Spine.Unity.AttachmentTools.AtlasUtilities#ToTexture","Spine.Unity.AttachmentTools.AtlasUtilities#ToTexture$1","Spine.Unity.AttachmentTools.AtlasUtilities#GetClone","Spine.Unity.AttachmentTools.AtlasUtilities#CopyTexture","Spine.Unity.AttachmentTools.AtlasUtilities#CopyTextureApplyPMA","Spine.Unity.AttachmentTools.AtlasUtilities#IsRenderable","Spine.Unity.AttachmentTools.AtlasUtilities#SpineUnityFlipRect","Spine.Unity.AttachmentTools.AtlasUtilities#GetUnityRect","Spine.Unity.AttachmentTools.AtlasUtilities#GetUnityRect$1","Spine.Unity.AttachmentTools.AtlasUtilities#GetSpineAtlasRect","Spine.Unity.AttachmentTools.AtlasUtilities#UVRectToTextureRect","Spine.Unity.AttachmentTools.AtlasUtilities#TextureRectToUVRect","Spine.Unity.AttachmentTools.AtlasUtilities#UVRectToAtlasRegion","Spine.Unity.AttachmentTools.AtlasUtilities#GetMainTexture","Spine.Unity.AttachmentTools.AtlasUtilities#GetTexture$1","Spine.Unity.AttachmentTools.AtlasUtilities#GetTexture","Spine.Unity.AttachmentTools.AtlasUtilities#CopyTextureAttributesFrom","Spine.Unity.AttachmentTools.AtlasUtilities#InverseLerp","Spine.Unity.AttachmentTools.AtlasUtilities.IntAndAtlasRegionKey#getDefaultValue","Spine.Unity.AttachmentTools.AtlasUtilities.IntAndAtlasRegionKey#$ctor1","Spine.Unity.AttachmentTools.AtlasUtilities.IntAndAtlasRegionKey#ctor","Spine.Unity.AttachmentTools.AtlasUtilities.IntAndAtlasRegionKey#getHashCode","Spine.Unity.AttachmentTools.AtlasUtilities.IntAndAtlasRegionKey#equals","Spine.Unity.AttachmentTools.AtlasUtilities.IntAndAtlasRegionKey#$clone","Spine.Unity.AttachmentTools.AttachmentCloneExtensions#GetRemappedClone$1","Spine.Unity.AttachmentTools.AttachmentCloneExtensions#GetRemappedClone","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#SetRegion","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#SetRegion$2","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#SetRegion$1","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#ToRegionAttachment$2","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#ToRegionAttachment$1","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#ToRegionAttachment","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#ToRegionAttachmentPMAClone$1","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#ToRegionAttachmentPMAClone","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#SetScale$1","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#SetScale","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#SetPositionOffset$1","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#SetPositionOffset","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#SetRotation","Spine.Unity.BlendModeMaterials#RequiresBlendModeMaterials#get","Spine.Unity.BlendModeMaterials#RequiresBlendModeMaterials#set","Spine.Unity.BlendModeMaterials#init","Spine.Unity.BlendModeMaterials#BlendModeForMaterial","Spine.Unity.BlendModeMaterials#ApplyMaterials","Spine.Unity.BlendModeMaterials#CloneAtlasRegionWithMaterial","Spine.Unity.BlendModeMaterialsAsset.AtlasMaterialCache#init","Spine.Unity.BlendModeMaterialsAsset.AtlasMaterialCache#CloneAtlasRegionWithMaterial","Spine.Unity.BlendModeMaterialsAsset.AtlasMaterialCache#GetAtlasPageWithMaterial","Spine.Unity.BlendModeMaterialsAsset.AtlasMaterialCache#Dispose","Spine.Unity.BoneFollower#SkeletonRenderer#get","Spine.Unity.BoneFollower#SkeletonRenderer#set","Spine.Unity.BoneFollower#init","Spine.Unity.BoneFollower#SetBone","Spine.Unity.BoneFollower#Awake","Spine.Unity.BoneFollower#HandleRebuildRenderer","Spine.Unity.BoneFollower#Initialize","Spine.Unity.BoneFollower#OnDestroy","Spine.Unity.BoneFollower#LateUpdate","Spine.Unity.BoneFollowerGraphic#SkeletonGraphic#get","Spine.Unity.BoneFollowerGraphic#SkeletonGraphic#set","Spine.Unity.BoneFollowerGraphic#init","Spine.Unity.BoneFollowerGraphic#SetBone","Spine.Unity.BoneFollowerGraphic#Awake","Spine.Unity.BoneFollowerGraphic#Initialize","Spine.Unity.BoneFollowerGraphic#LateUpdate","Spine.Unity.BoundingBoxFollower#init","Spine.Unity.BoundingBoxFollower#Slot#get","Spine.Unity.BoundingBoxFollower#CurrentAttachment#get","Spine.Unity.BoundingBoxFollower#CurrentAttachmentName#get","Spine.Unity.BoundingBoxFollower#CurrentCollider#get","Spine.Unity.BoundingBoxFollower#IsTrigger#get","Spine.Unity.BoundingBoxFollower#init","Spine.Unity.BoundingBoxFollower#Start","Spine.Unity.BoundingBoxFollower#OnEnable","Spine.Unity.BoundingBoxFollower#HandleRebuild","Spine.Unity.BoundingBoxFollower#Initialize","Spine.Unity.BoundingBoxFollower#AddCollidersForSkin","Spine.Unity.BoundingBoxFollower#OnDisable","Spine.Unity.BoundingBoxFollower#ClearState","Spine.Unity.BoundingBoxFollower#DisposeExcessCollidersAfter","Spine.Unity.BoundingBoxFollower#LateUpdate","Spine.Unity.BoundingBoxFollower#MatchAttachment","Spine.Unity.BoundingBoxFollowerGraphic#init","Spine.Unity.BoundingBoxFollowerGraphic#Slot#get","Spine.Unity.BoundingBoxFollowerGraphic#CurrentAttachment#get","Spine.Unity.BoundingBoxFollowerGraphic#CurrentAttachmentName#get","Spine.Unity.BoundingBoxFollowerGraphic#CurrentCollider#get","Spine.Unity.BoundingBoxFollowerGraphic#IsTrigger#get","Spine.Unity.BoundingBoxFollowerGraphic#init","Spine.Unity.BoundingBoxFollowerGraphic#Start","Spine.Unity.BoundingBoxFollowerGraphic#OnEnable","Spine.Unity.BoundingBoxFollowerGraphic#HandleRebuild","Spine.Unity.BoundingBoxFollowerGraphic#Initialize","Spine.Unity.BoundingBoxFollowerGraphic#AddCollidersForSkin","Spine.Unity.BoundingBoxFollowerGraphic#OnDisable","Spine.Unity.BoundingBoxFollowerGraphic#ClearState","Spine.Unity.BoundingBoxFollowerGraphic#DisposeExcessCollidersAfter","Spine.Unity.BoundingBoxFollowerGraphic#LateUpdate","Spine.Unity.BoundingBoxFollowerGraphic#MatchAttachment","Spine.Unity.DoubleBuffered$1#init","Spine.Unity.DoubleBuffered$1#GetCurrent","Spine.Unity.DoubleBuffered$1#GetNext","Spine.Unity.EventDataReferenceAsset#init","Spine.Unity.EventDataReferenceAsset#op_Implicit","Spine.Unity.EventDataReferenceAsset#EventData#get","Spine.Unity.EventDataReferenceAsset#Initialize","Spine.Unity.ISpineComponentExtensions#IsNullOrDestroyed","Spine.Unity.MaterialsTextureLoader#ctor","Spine.Unity.MaterialsTextureLoader#Load","Spine.Unity.MaterialsTextureLoader#Unload","Spine.Unity.MeshGenerator#init","Spine.Unity.MeshGenerator#GenerateSingleSubmeshInstruction","Spine.Unity.MeshGenerator#RequiresMultipleSubmeshesByDrawOrder","Spine.Unity.MeshGenerator#GenerateSkeletonRendererInstruction","Spine.Unity.MeshGenerator#TryReplaceMaterials","Spine.Unity.MeshGenerator#SolveTangents2DEnsureSize","Spine.Unity.MeshGenerator#SolveTangents2DTriangles","Spine.Unity.MeshGenerator#SolveTangents2DBuffer","Spine.Unity.MeshGenerator#FillMeshLocal$1","Spine.Unity.MeshGenerator#FillMeshLocal","Spine.Unity.MeshGenerator#VertexCount#get","Spine.Unity.MeshGenerator#Buffers#get","Spine.Unity.MeshGenerator#init","Spine.Unity.MeshGenerator#ctor","Spine.Unity.MeshGenerator#SubmeshIndexCount","Spine.Unity.MeshGenerator#Begin","Spine.Unity.MeshGenerator#AddSubmesh","Spine.Unity.MeshGenerator#BuildMesh","Spine.Unity.MeshGenerator#BuildMeshWithArrays","Spine.Unity.MeshGenerator#ScaleVertexData","Spine.Unity.MeshGenerator#GetMeshBounds","Spine.Unity.MeshGenerator#AddAttachmentTintBlack","Spine.Unity.MeshGenerator#FillVertexData","Spine.Unity.MeshGenerator#FillLateVertexData","Spine.Unity.MeshGenerator#FillTriangles","Spine.Unity.MeshGenerator#EnsureVertexCapacity","Spine.Unity.MeshGenerator#TrimExcess","Spine.Unity.MeshGenerator.Settings#Default#get","Spine.Unity.MeshGenerator.Settings#getDefaultValue","Spine.Unity.MeshGenerator.Settings#ctor","Spine.Unity.MeshGenerator.Settings#getHashCode","Spine.Unity.MeshGenerator.Settings#equals","Spine.Unity.MeshGenerator.Settings#$clone","Spine.Unity.MeshGeneratorBuffers#getDefaultValue","Spine.Unity.MeshGeneratorBuffers#ctor","Spine.Unity.MeshGeneratorBuffers#getHashCode","Spine.Unity.MeshGeneratorBuffers#equals","Spine.Unity.MeshGeneratorBuffers#$clone","Spine.Unity.MeshRendererBuffers#init","Spine.Unity.MeshRendererBuffers#Initialize","Spine.Unity.MeshRendererBuffers#GetUpdatedSharedMaterialsArray","Spine.Unity.MeshRendererBuffers#MaterialsChangedInLastUpdate","Spine.Unity.MeshRendererBuffers#UpdateSharedMaterials","Spine.Unity.MeshRendererBuffers#GetNextMesh","Spine.Unity.MeshRendererBuffers#Clear","Spine.Unity.MeshRendererBuffers#Dispose","Spine.Unity.MeshRendererBuffers.SmartMesh#init","Spine.Unity.MeshRendererBuffers.SmartMesh#Clear","Spine.Unity.MeshRendererBuffers.SmartMesh#Dispose","Spine.Unity.NoOpTextureLoader#Load","Spine.Unity.NoOpTextureLoader#Unload","Spine.Unity.RegionlessAttachmentLoader#EmptyRegion#get","Spine.Unity.RegionlessAttachmentLoader#NewRegionAttachment","Spine.Unity.RegionlessAttachmentLoader#NewMeshAttachment","Spine.Unity.RegionlessAttachmentLoader#NewBoundingBoxAttachment","Spine.Unity.RegionlessAttachmentLoader#NewPathAttachment","Spine.Unity.RegionlessAttachmentLoader#NewPointAttachment","Spine.Unity.RegionlessAttachmentLoader#NewClippingAttachment","Spine.Unity.SkeletonDataAsset#CreateRuntimeInstance","Spine.Unity.SkeletonDataAsset#CreateRuntimeInstance$1","Spine.Unity.SkeletonDataAsset#ReadSkeletonData","Spine.Unity.SkeletonDataAsset#ReadSkeletonData$1","Spine.Unity.SkeletonDataAsset#IsLoaded#get","Spine.Unity.SkeletonDataAsset#init","Spine.Unity.SkeletonDataAsset#Reset","Spine.Unity.SkeletonDataAsset#Clear","Spine.Unity.SkeletonDataAsset#GetAnimationStateData","Spine.Unity.SkeletonDataAsset#GetSkeletonData","Spine.Unity.SkeletonDataAsset#InitializeWithData","Spine.Unity.SkeletonDataAsset#FillStateData","Spine.Unity.SkeletonDataAsset#GetAtlasArray","Spine.Unity.SkeletonDataCompatibility.CompatibilityProblemInfo#DescriptionString","Spine.Unity.SkeletonExtensions#init","Spine.Unity.SkeletonExtensions#GetColor$2","Spine.Unity.SkeletonExtensions#GetColor$1","Spine.Unity.SkeletonExtensions#GetColor","Spine.Unity.SkeletonExtensions#GetColor$3","Spine.Unity.SkeletonExtensions#GetColorTintBlack","Spine.Unity.SkeletonExtensions#SetColor$4","Spine.Unity.SkeletonExtensions#SetColor$5","Spine.Unity.SkeletonExtensions#SetColor$6","Spine.Unity.SkeletonExtensions#SetColor$7","Spine.Unity.SkeletonExtensions#SetColor$2","Spine.Unity.SkeletonExtensions#SetColor$3","Spine.Unity.SkeletonExtensions#SetColor","Spine.Unity.SkeletonExtensions#SetColor$1","Spine.Unity.SkeletonExtensions#SetLocalScale","Spine.Unity.SkeletonExtensions#GetMatrix4x4","Spine.Unity.SkeletonExtensions#SetLocalPosition","Spine.Unity.SkeletonExtensions#SetLocalPosition$1","Spine.Unity.SkeletonExtensions#GetLocalPosition","Spine.Unity.SkeletonExtensions#GetSkeletonSpacePosition","Spine.Unity.SkeletonExtensions#GetSkeletonSpacePosition$1","Spine.Unity.SkeletonExtensions#GetWorldPosition","Spine.Unity.SkeletonExtensions#GetWorldPosition$1","Spine.Unity.SkeletonExtensions#GetWorldPosition$3","Spine.Unity.SkeletonExtensions#GetWorldPosition$2","Spine.Unity.SkeletonExtensions#GetQuaternion","Spine.Unity.SkeletonExtensions#GetLocalQuaternion","Spine.Unity.SkeletonExtensions#GetLocalScale","Spine.Unity.SkeletonExtensions#GetWorldToLocalMatrix","Spine.Unity.SkeletonExtensions#WorldToLocal","Spine.Unity.SkeletonExtensions#SetPositionSkeletonSpace","Spine.Unity.SkeletonExtensions#GetMaterial","Spine.Unity.SkeletonExtensions#GetLocalVertices","Spine.Unity.SkeletonExtensions#GetWorldVertices","Spine.Unity.SkeletonGraphicCustomMaterials#init","Spine.Unity.SkeletonGraphicCustomMaterials#SetCustomMaterialOverrides","Spine.Unity.SkeletonGraphicCustomMaterials#RemoveCustomMaterialOverrides","Spine.Unity.SkeletonGraphicCustomMaterials#SetCustomTextureOverrides","Spine.Unity.SkeletonGraphicCustomMaterials#RemoveCustomTextureOverrides","Spine.Unity.SkeletonGraphicCustomMaterials#OnEnable","Spine.Unity.SkeletonGraphicCustomMaterials#OnDisable","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasMaterialOverride#inherits","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasMaterialOverride#getDefaultValue","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasMaterialOverride#ctor","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasMaterialOverride#equalsT","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasMaterialOverride#getHashCode","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasMaterialOverride#$clone","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasTextureOverride#inherits","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasTextureOverride#getDefaultValue","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasTextureOverride#ctor","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasTextureOverride#equalsT","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasTextureOverride#getHashCode","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasTextureOverride#$clone","Spine.Unity.SkeletonMecanim.MecanimTranslator#init","Spine.Unity.SkeletonMecanim.MecanimTranslator#AnimationTime$1","Spine.Unity.SkeletonMecanim.MecanimTranslator#AnimationTime","Spine.Unity.SkeletonMecanim.MecanimTranslator#Animator#get","Spine.Unity.SkeletonMecanim.MecanimTranslator#MecanimLayerCount#get","Spine.Unity.SkeletonMecanim.MecanimTranslator#MecanimLayerNames#get","Spine.Unity.SkeletonMecanim.MecanimTranslator#init","Spine.Unity.SkeletonMecanim.MecanimTranslator#addOnClipApplied","Spine.Unity.SkeletonMecanim.MecanimTranslator#removeOnClipApplied","Spine.Unity.SkeletonMecanim.MecanimTranslator#Initialize","Spine.Unity.SkeletonMecanim.MecanimTranslator#ApplyAnimation","Spine.Unity.SkeletonMecanim.MecanimTranslator#ApplyInterruptionAnimation","Spine.Unity.SkeletonMecanim.MecanimTranslator#OnClipAppliedCallback","Spine.Unity.SkeletonMecanim.MecanimTranslator#Apply","Spine.Unity.SkeletonMecanim.MecanimTranslator#GetActiveAnimationAndTime","Spine.Unity.SkeletonMecanim.MecanimTranslator#InitClipInfosForLayers","Spine.Unity.SkeletonMecanim.MecanimTranslator#ClearClipInfosForLayers","Spine.Unity.SkeletonMecanim.MecanimTranslator#GetMixMode","Spine.Unity.SkeletonMecanim.MecanimTranslator#GetStateUpdatesFromAnimator","Spine.Unity.SkeletonMecanim.MecanimTranslator#GetAnimatorClipInfos","Spine.Unity.SkeletonMecanim.MecanimTranslator#GetAnimatorStateInfos","Spine.Unity.SkeletonMecanim.MecanimTranslator#GetAnimation","Spine.Unity.SkeletonMecanim.MecanimTranslator.AnimationClipEqualityComparer#init","Spine.Unity.SkeletonMecanim.MecanimTranslator.AnimationClipEqualityComparer#equals2","Spine.Unity.SkeletonMecanim.MecanimTranslator.AnimationClipEqualityComparer#getHashCode2","Spine.Unity.SkeletonMecanim.MecanimTranslator.ClipInfos#init","Spine.Unity.SkeletonMecanim.MecanimTranslator.IntEqualityComparer#init","Spine.Unity.SkeletonMecanim.MecanimTranslator.IntEqualityComparer#equals2","Spine.Unity.SkeletonMecanim.MecanimTranslator.IntEqualityComparer#getHashCode2","Spine.Unity.SkeletonRootMotionBase#UsesRigidbody#get","Spine.Unity.SkeletonRootMotionBase#AdditionalScale#get","Spine.Unity.SkeletonRootMotionBase#init","Spine.Unity.SkeletonRootMotionBase#Reset","Spine.Unity.SkeletonRootMotionBase#Start","Spine.Unity.SkeletonRootMotionBase#FixedUpdate","Spine.Unity.SkeletonRootMotionBase#OnDisable","Spine.Unity.SkeletonRootMotionBase#FindRigidbodyComponent","Spine.Unity.SkeletonRootMotionBase#SetRootMotionBone","Spine.Unity.SkeletonRootMotionBase#AdjustRootMotionToDistance","Spine.Unity.SkeletonRootMotionBase#GetAnimationRootMotion","Spine.Unity.SkeletonRootMotionBase#GetAnimationRootMotion$1","Spine.Unity.SkeletonRootMotionBase#GetAnimationRootMotionInfo","Spine.Unity.SkeletonRootMotionBase#GetTimelineMovementDelta","Spine.Unity.SkeletonRootMotionBase#GetTimelineMovementDelta$1","Spine.Unity.SkeletonRootMotionBase#GatherTopLevelBones","Spine.Unity.SkeletonRootMotionBase#HandleUpdateLocal","Spine.Unity.SkeletonRootMotionBase#ApplyRootMotion","Spine.Unity.SkeletonRootMotionBase#GetScaleAffectingRootMotion","Spine.Unity.SkeletonRootMotionBase#GetScaleAffectingRootMotion$1","Spine.Unity.SkeletonRootMotionBase#GetSkeletonSpaceMovementDelta","Spine.Unity.SkeletonRootMotionBase#SetEffectiveBoneOffsetsTo","Spine.Unity.SkeletonRootMotionBase#ClearEffectiveBoneOffsets","Spine.Unity.SkeletonPartsRenderer#NewPartsRendererGameObject","Spine.Unity.SkeletonPartsRenderer#MeshGenerator#get","Spine.Unity.SkeletonPartsRenderer#MeshRenderer#get","Spine.Unity.SkeletonPartsRenderer#MeshFilter#get","Spine.Unity.SkeletonPartsRenderer#init","Spine.Unity.SkeletonPartsRenderer#LazyIntialize","Spine.Unity.SkeletonPartsRenderer#ClearMesh","Spine.Unity.SkeletonPartsRenderer#RenderParts","Spine.Unity.SkeletonPartsRenderer#SetPropertyBlock","Spine.Unity.SkeletonRenderer.SpriteMaskInteractionMaterials#AnyMaterialCreated#get","Spine.Unity.SkeletonRenderer.SpriteMaskInteractionMaterials#init","Spine.Unity.SkeletonRendererCustomMaterials#init","Spine.Unity.SkeletonRendererCustomMaterials#SetCustomSlotMaterials","Spine.Unity.SkeletonRendererCustomMaterials#RemoveCustomSlotMaterials","Spine.Unity.SkeletonRendererCustomMaterials#SetCustomMaterialOverrides","Spine.Unity.SkeletonRendererCustomMaterials#RemoveCustomMaterialOverrides","Spine.Unity.SkeletonRendererCustomMaterials#OnEnable","Spine.Unity.SkeletonRendererCustomMaterials#OnDisable","Spine.Unity.SkeletonRendererCustomMaterials.AtlasMaterialOverride#inherits","Spine.Unity.SkeletonRendererCustomMaterials.AtlasMaterialOverride#getDefaultValue","Spine.Unity.SkeletonRendererCustomMaterials.AtlasMaterialOverride#ctor","Spine.Unity.SkeletonRendererCustomMaterials.AtlasMaterialOverride#equalsT","Spine.Unity.SkeletonRendererCustomMaterials.AtlasMaterialOverride#getHashCode","Spine.Unity.SkeletonRendererCustomMaterials.AtlasMaterialOverride#$clone","Spine.Unity.SkeletonRendererCustomMaterials.SlotMaterialOverride#inherits","Spine.Unity.SkeletonRendererCustomMaterials.SlotMaterialOverride#getDefaultValue","Spine.Unity.SkeletonRendererCustomMaterials.SlotMaterialOverride#ctor","Spine.Unity.SkeletonRendererCustomMaterials.SlotMaterialOverride#equalsT","Spine.Unity.SkeletonRendererCustomMaterials.SlotMaterialOverride#getHashCode","Spine.Unity.SkeletonRendererCustomMaterials.SlotMaterialOverride#$clone","Spine.Unity.SkeletonRendererInstruction#GeometryNotEqual","Spine.Unity.SkeletonRendererInstruction#init","Spine.Unity.SkeletonRendererInstruction#Clear","Spine.Unity.SkeletonRendererInstruction#Dispose","Spine.Unity.SkeletonRendererInstruction#SetWithSubset","Spine.Unity.SkeletonRendererInstruction#Set","Spine.Unity.SkeletonRenderSeparator#init","Spine.Unity.SkeletonRenderSeparator#AddToSkeletonRenderer","Spine.Unity.SkeletonRenderSeparator#SkeletonRenderer#get","Spine.Unity.SkeletonRenderSeparator#SkeletonRenderer#set","Spine.Unity.SkeletonRenderSeparator#init","Spine.Unity.SkeletonRenderSeparator#AddPartsRenderer","Spine.Unity.SkeletonRenderSeparator#OnEnable","Spine.Unity.SkeletonRenderSeparator#OnDisable","Spine.Unity.SkeletonRenderSeparator#HandleRender","Spine.Unity.SkeletonRootMotionBase.RootMotionInfo#getDefaultValue","Spine.Unity.SkeletonRootMotionBase.RootMotionInfo#init","Spine.Unity.SkeletonRootMotionBase.RootMotionInfo#ctor","Spine.Unity.SkeletonRootMotionBase.RootMotionInfo#getHashCode","Spine.Unity.SkeletonRootMotionBase.RootMotionInfo#equals","Spine.Unity.SkeletonRootMotionBase.RootMotionInfo#$clone","Spine.Unity.SkeletonSubmeshGraphic#SetMaterialDirty","Spine.Unity.SkeletonSubmeshGraphic#SetVerticesDirty","Spine.Unity.SkeletonSubmeshGraphic#OnPopulateMesh","Spine.Unity.SkeletonUtility#AddBoundingBoxGameObject","Spine.Unity.SkeletonUtility#AddBoundingBoxGameObject$1","Spine.Unity.SkeletonUtility#AddBoundingBoxAsComponent","Spine.Unity.SkeletonUtility#SetColliderPointsLocal","Spine.Unity.SkeletonUtility#GetBoundingBoxBounds","Spine.Unity.SkeletonUtility#AddBoneRigidbody2D","Spine.Unity.SkeletonUtility#SkeletonComponent#get","Spine.Unity.SkeletonUtility#Skeleton#get","Spine.Unity.SkeletonUtility#IsValid#get","Spine.Unity.SkeletonUtility#PositionScale#get","Spine.Unity.SkeletonUtility#init","Spine.Unity.SkeletonUtility#Update","Spine.Unity.SkeletonUtility#ResubscribeEvents","Spine.Unity.SkeletonUtility#OnEnable","Spine.Unity.SkeletonUtility#Start","Spine.Unity.SkeletonUtility#OnDisable","Spine.Unity.SkeletonUtility#HandleRendererReset$1","Spine.Unity.SkeletonUtility#HandleRendererReset","Spine.Unity.SkeletonUtility#RegisterBone","Spine.Unity.SkeletonUtility#UnregisterBone","Spine.Unity.SkeletonUtility#RegisterConstraint","Spine.Unity.SkeletonUtility#UnregisterConstraint","Spine.Unity.SkeletonUtility#CollectBones","Spine.Unity.SkeletonUtility#UpdateLocal","Spine.Unity.SkeletonUtility#UpdateWorld","Spine.Unity.SkeletonUtility#UpdateComplete","Spine.Unity.SkeletonUtility#UpdateAllBones","Spine.Unity.SkeletonUtility#GetBoneRoot","Spine.Unity.SkeletonUtility#SpawnRoot","Spine.Unity.SkeletonUtility#SpawnHierarchy","Spine.Unity.SkeletonUtility#SpawnBoneRecursively","Spine.Unity.SkeletonUtility#SpawnBone","Spine.Unity.SkeletonUtilityBone#BoneTransformModeIncompatible","Spine.Unity.SkeletonUtilityBone#IncompatibleTransformMode#get","Spine.Unity.SkeletonUtilityBone#init","Spine.Unity.SkeletonUtilityBone#Reset","Spine.Unity.SkeletonUtilityBone#OnEnable","Spine.Unity.SkeletonUtilityBone#HandleOnReset","Spine.Unity.SkeletonUtilityBone#OnDisable","Spine.Unity.SkeletonUtilityBone#DoUpdate","Spine.Unity.SkeletonUtilityBone#AddBoundingBox","Spine.Unity.SkeletonUtilityConstraint#OnEnable","Spine.Unity.SkeletonUtilityConstraint#OnDisable","Spine.Unity.SpineAttributeBase#init","Spine.Unity.SpineAtlasRegion#ctor","Spine.Unity.SpineAttachment.Hierarchy#getDefaultValue","Spine.Unity.SpineAttachment.Hierarchy#$ctor1","Spine.Unity.SpineAttachment.Hierarchy#ctor","Spine.Unity.SpineAttachment.Hierarchy#getHashCode","Spine.Unity.SpineAttachment.Hierarchy#equals","Spine.Unity.SpineAttachment.Hierarchy#$clone","Spine.Unity.SpineMesh#init","Spine.Unity.SpineMesh#NewSkeletonMesh","Spine.Unity.SubmeshInstruction#getDefaultValue","Spine.Unity.SubmeshInstruction#SlotCount#get","Spine.Unity.SubmeshInstruction#ctor","Spine.Unity.SubmeshInstruction#toString","Spine.Unity.SubmeshInstruction#getHashCode","Spine.Unity.SubmeshInstruction#equals","Spine.Unity.SubmeshInstruction#$clone","Spine.Unity.WaitForSpineEvent#WillUnsubscribeAfterFiring#get","Spine.Unity.WaitForSpineEvent#WillUnsubscribeAfterFiring#set","Spine.Unity.WaitForSpineEvent#System$Collections$IEnumerator$Current#get","Spine.Unity.WaitForSpineEvent#init","Spine.Unity.WaitForSpineEvent#ctor","Spine.Unity.WaitForSpineEvent#$ctor2","Spine.Unity.WaitForSpineEvent#$ctor1","Spine.Unity.WaitForSpineEvent#$ctor3","Spine.Unity.WaitForSpineEvent#Subscribe","Spine.Unity.WaitForSpineEvent#SubscribeByName","Spine.Unity.WaitForSpineEvent#HandleAnimationStateEventByName","Spine.Unity.WaitForSpineEvent#HandleAnimationStateEvent","Spine.Unity.WaitForSpineEvent#NowWaitFor","Spine.Unity.WaitForSpineEvent#NowWaitFor$1","Spine.Unity.WaitForSpineEvent#Clear","Spine.Unity.WaitForSpineEvent#System$Collections$IEnumerator$moveNext","Spine.Unity.WaitForSpineEvent#System$Collections$IEnumerator$reset","SpineSlotDebugger#SkeletonAnimation#get","SpineSlotDebugger#SlotOverrides#get","SpineSlotDebugger#ShowSlotNamesInScene#get","SpineSlotDebugger#ShowOnlySlotsWithAttachment#get","SpineSlotDebugger#AvoidSceneSlotNameOverlap#get","SpineSlotDebugger#SceneSlotNameColor#get","SpineSlotDebugger#SceneSlotNameOffset#get","SpineSlotDebugger#SelectedType#get","SpineSlotDebugger#BakedVisibleSlots#get","SpineSlotDebugger#init","SpineSlotDebugger#Reset","SpineSlotDebugger#OnEnable","SpineSlotDebugger#OnDisable","SpineSlotDebugger#OnValidate","SpineSlotDebugger#Start","SpineSlotDebugger#HandleUpdateComplete","SpineSlotDebugger#LogCurrentAttachments","SpineSlotDebugger#SetBakedVisibleSlots","SpineSlotDebugger#SetBakedVisibleSlotsForType","SpineSlotDebugger#SetBakedVisibleSlot","SpineSlotDebugger#EquipBakedSlotsByType$1","SpineSlotDebugger#EquipBakedSlotsByType","SpineSlotDebugger#UnequipBakedSlotsByType","SpineSlotDebugger#EquipBakedSlot","SpineSlotDebugger#UnequipBakedSlot","SpineSlotDebugger#SaveAttachmentBeforeEquip","SpineSlotDebugger#RestoreAttachmentBeforeEquip","SpineSlotDebugger#SetSlotOverrides","SpineSlotDebugger#GetOverride","SpineSlotDebugger#SetNullOverride","SpineSlotDebugger#SetAttachmentNameOverride","SpineSlotDebugger#RemoveOverride","SpineSlotDebugger#ApplyOverrides","SpineSlotDebugger#RestoreSlotToSetupPose","SpineSlotDebugger#RestoreSlotToSetupPose$1","SpineSlotDebugger#RestoreSlotToSetupPose$2","SpineSlotDebugger#RestoreAllSlotsToSetupPose","SpineSlotDebugger#FindAttachment","SpineSlotDebugger#GetOrCreateOverride","SpineSlotDebugger#ApplySlotOverride","SpineSlotDebugger#TryInitializeSkeleton","SpineSlotDebugger#CacheSkeletonAnimation","SpineSlotDebugger#SubscribeUpdateComplete","SpineSlotDebugger#UnsubscribeUpdateComplete","SpineSlotDebugger#RefreshMesh","StirMilestone#init","BlinkEffect#DeSpawnByTime","BlinkEffect#DeSpawn","Bread#init","Bread#KnifeOut","Bread#TurnOffClick","Bread#Undraggable","Bread#IsOnBoard","Bread#FlyToPlate","Bread#FlyToCuttingBoard","Bread#ResetType","Bread#TurnOnClickable","Bread#TurnOffClickable","Bread#ItemOnCuttingBoard","ClockTimer#Spawn","ClockTimer#SpawnUI","ClockTimer#init","ClockTimer#Awake","ClockTimer#OnEnable","ClockTimer#Update","ClockTimer#StartCountdown","ClockTimer#StopCountdown","ClockTimer#CompleteCountdown","ClockTimer#ResetFill","ClockTimer#PlayDespawn","ClockTimer#DeSpawn","ClockTimer#StartClockFx","ClockTimer#StopClockFx","ClockTimer#OnDisable","CuttingBoard#IsFoodOn","FlourSmoke#DeSpawnByTime","FlourSmoke#DeSpawn","GameManager#inherits","GameManager#init","GameManager#Start","GameManager#Update","GameManager#ChangeState","GameManager#IsPlaying","GameManager#SetIsPlaying","GameManager#GotoStore","GameManager#MoveOne","GameManager#TurnOffTut","GameManager#WinGame","GameManager#LoseGame","GreenPiece#DeSpawnByTime","GreenPiece#DeSpawn","HandTutManager#inherits","HandTutManager#ShouldBlockGameplayInput#get","HandTutManager#init","HandTutManager#Awake","HandTutManager#Start","HandTutManager#Update","HandTutManager#HasPlayerInput","HandTutManager#HasPlayerInputDown","HandTutManager#StartHandTutAfterTapToCook","HandTutManager#StartHandTut","HandTutManager#ShowNextHandTut","HandTutManager#CheckEndPhaseCondition","HandTutManager#GetFirstTutorialReadyItem","HandTutManager#CanShowTutorialForItem","HandTutManager#IsClickableReady","HandTutManager#IsDraggableReady","HandTutManager#IsKnifeSpriteMaskCutterReady","HandTutManager#PlayClickHint","HandTutManager#PlayMoveHint","HandTutManager#PrepareHand","HandTutManager#Get2DHandPosition","HandTutManager#HideHandTut","HandTutManager#SetHandAlpha","HandTutManager#ResetIdleTimer","HandTutManager#CacheNoDelayItems","HandTutManager#ShouldSkipDelayForCurrentItem","HandTutManager#RemoveDoneAndNullItems","HandTutManager#ItemDone","HandTutManager#ItemDone$2","HandTutManager#ItemDone$1","HandTutManager#OilDone","HandTutManager#StartStoveToggleTutorial","HandTutManager#StoveToggleDone","HeartBreakEffect#init","HeartBreakEffect#DeSpawnByTime","HeartBreakEffect#PlaySpawn","HeartBreakEffect#PlaySpawn$1","HeartBreakEffect#PlaySpawn$2","HeartBreakEffect#PlaySpawnWithScale","HeartBreakEffect#DeSpawn","HeartBreakEffect#CacheDefaultState","HeartBreakEffect#ResetState","HeartEffect#init","HeartEffect#DeSpawnByTime","HeartEffect#PlaySpawn","HeartEffect#PlaySpawn$1","HeartEffect#PlaySpawn$2","HeartEffect#PlaySpawnWithScale","HeartEffect#DeSpawn","HeartEffect#CacheDefaultState","HeartEffect#ResetState","InputManager#inherits","InputManager#init","InputManager#Update","InputManager#HandleMouseDown","InputManager#GetFrontmostInteractableItem","InputManager#CanInteract","InputManager#TryHandleToggleButton","InputManager#HandleMouseDrag","InputManager#HandleMouseUp","InWaterItem#init","InWaterItem#Start","InWaterItem#OnEnable","InWaterItem#OnDisable","InWaterItem#StartTimer","InWaterItem#StartWaterEffects","InWaterItem#StopWaterEffects","InWaterItem#ShouldPlayBobEffectAfterReturn","InWaterItem#SetClean","InWaterItem#CutDone","InWaterItem#PlayAnim","InWaterItem#MoveToWater","InWaterItem#MoveToCurrentTarget","InWaterItem#OnMoveIntoWaterComplete","InWaterItem#OnMoveToCuttingBoardComplete","InWaterItem#OnMoveToPlateComplete","InWaterItem#InitializeMovement","InWaterItem#SubscribeMovementEvents","InWaterItem#UnsubscribeMovementEvents","InWaterItem#HandleMoveComplete","InWaterItem#ConfigureNextTarget","InWaterItem#GetNextDestination","InWaterItem#GetDestinationTarget","InWaterItem#GetTargetItem","InWaterItem#UpdateDragAvailability","InWaterItem#CheckLastPlate","ToolObject#FlyIn","ToolObject#MoveToTarget","ToolObject#MoveAndCallBack$1","ToolObject#MoveAndCallBack","ToolObject#CallBackAfterMove","ToolObject#FlyOut","Knife#KnifeOnDrag","Knife#KnifeIdle","Knife#TargetKnifeFlyEvent","Knife#OnDragFailReturnComplete","Knife#PlayKnifeSound","LoseState#OnEnter","LoseState#OnExecute","LoseState#OnExit","MergeEffect#DeSpawnByTime","MergeEffect#DeSpawn","OnPlayState#OnEnter","OnPlayState#OnExecute","OnPlayState#OnExit","PhaseManager#inherits","PhaseManager#CurrentPhaseObject#get","PhaseManager#init","PhaseManager#Start","PhaseManager#OnDisable","PhaseManager#DoOneStep","PhaseManager#IsCurrentPhaseStepComplete","PhaseManager#TryEndCurrentPhase","PhaseManager#DelayGoToNextPhase","PhaseManager#GoToNextPhase","Ply_Pool#inherits","Ply_Pool#init","Ply_Pool#Awake","Ply_Pool#OnInit","Ply_Pool#Spawn$1","Ply_Pool#Spawn","Ply_Pool#SpawnDirect$1","Ply_Pool#SpawnDirect","Ply_Pool#Despawn","Ply_Pool#GetPrefab","Ply_SoundManager#inherits","Ply_SoundManager#init","Ply_SoundManager#Awake","Ply_SoundManager#PlayFx","Ply_SoundManager#PlayFx$1","Ply_SoundManager#Mute","Ply_SoundManager#PlayFxLoop","Ply_SoundManager#PlayFxLoop$1","Ply_SoundManager#StopFxLoop","Ply_SoundManager#StopFxLoop$1","Ply_SoundManager#GetAudioClip","Ply_SoundManager#GetOrCreateFxSource","Ply_SoundManager#ResizeFxSources","Ply_SoundManager#SyncFxAudios","Ply_SoundManager#FindFxAudio","Ply_SoundManager#GetFxTypeCount","Ply_TransformConveyor#inherits","Ply_TransformConveyor#init","Ply_TransformConveyor#Start","Ply_TransformConveyor#Update","Ply_TransformConveyor#OnDrawGizmos","Ply_TransformConveyor#MoveOut","Ply_TransformConveyor#MoveIn","ProgressBar#Awake","ProgressBar#OnEnable","ProgressBar#StartProgress","ProgressBar#StopProgress","ProgressBar#SetProgress","ProgressBar#DeSpawn","ProgressBar#OnDisable","Sink#init","Sink#LerpRect","Sink#PlayState","Sink#DrawRectGizmo","Sink#DrawPointGizmo","Sink#WaterState#get","Sink#IsWaterTransitioning#get","Sink#init","Sink#Start","Sink#OnDisable","Sink#TurnOnWater","Sink#TurnOffWater","Sink#Close","Sink#Open","Sink#CompleteWaterRise","Sink#CompleteWaterFall","Sink#IsWaterIn","Sink#NoWaterIn","Sink#CheckEndPhaseCondition","Sink#PlayWaterOutSound","Sink#RegisterInWaterItem","Sink#UnregisterInWaterItem","Sink#InitializeState","Sink#EnsureInitialized","Sink#EvaluateStableState","Sink#BeginWaterRise","Sink#BeginWaterFall","Sink#PauseWaterRise","Sink#EndTransition","Sink#ApplyStableVisuals","Sink#PlayBasinEmpty","Sink#GetFaucetStateHash","Sink#CacheBasinWaterRenderer","Sink#TweenWaterLevel","Sink#CacheWaterDropTransform","Sink#ApplyWaterDropPosition","Sink#GetCurrentWaterRect","Sink#GetCurrentWaterLevel","Sink#ApplyWaterRect","Sink#SetWaterIn","Sink#StartInWaterItems","Sink#StopInWaterItems","Sink#SetFaucetActive","Sink#SetBasinActive","Sink#OnDrawGizmosSelected","Sink#DrawPointLineGizmo","SinkBlock#IsInside#get","SinkBlock#init","SinkBlock#Start","SinkBlock#OnEnable","SinkBlock#OnDisable","SinkBlock#Initialize","SinkBlock#Subscribe","SinkBlock#Unsubscribe","SinkBlock#HandleDropSuccess","SinkBlock#MoveToNextLocation","SinkBlock#HandleMoveComplete","SinkBlock#ApplyCurrentLocation","SinkBlock#UpdateDragAvailability","Spine.Unity.BlendModeMaterialsAsset#ApplyMaterials","Spine.Unity.BlendModeMaterialsAsset#init","Spine.Unity.BlendModeMaterialsAsset#Apply","Spine.Unity.SkeletonMecanimRootMotion#init","Spine.Unity.SkeletonMecanimRootMotion#SkeletonMecanim#get","Spine.Unity.SkeletonMecanimRootMotion#init","Spine.Unity.SkeletonMecanimRootMotion#GetRemainingRootMotion","Spine.Unity.SkeletonMecanimRootMotion#GetRootMotionInfo","Spine.Unity.SkeletonMecanimRootMotion#Reset","Spine.Unity.SkeletonMecanimRootMotion#Start","Spine.Unity.SkeletonMecanimRootMotion#OnClipApplied","Spine.Unity.SkeletonMecanimRootMotion#CalculateAnimationsMovementDelta","Spine.Unity.SkeletonRootMotion#init","Spine.Unity.SkeletonRootMotion#AdditionalScale#get","Spine.Unity.SkeletonRootMotion#init","Spine.Unity.SkeletonRootMotion#GetRemainingRootMotion","Spine.Unity.SkeletonRootMotion#GetRootMotionInfo","Spine.Unity.SkeletonRootMotion#Reset","Spine.Unity.SkeletonRootMotion#Start","Spine.Unity.SkeletonRootMotion#CalculateAnimationsMovementDelta","Spine.Unity.SkeletonRootMotion#ApplyMixAlphaToDelta","Spine.Unity.SpineAnimation#ctor","Spine.Unity.SpineAtlasAsset#CreateRuntimeInstance","Spine.Unity.SpineAtlasAsset#CreateRuntimeInstance$1","Spine.Unity.SpineAtlasAsset#CreateRuntimeInstance$2","Spine.Unity.SpineAtlasAsset#IsLoaded#get","Spine.Unity.SpineAtlasAsset#Materials#get","Spine.Unity.SpineAtlasAsset#MaterialCount#get","Spine.Unity.SpineAtlasAsset#PrimaryMaterial#get","Spine.Unity.SpineAtlasAsset#Reset","Spine.Unity.SpineAtlasAsset#Clear","Spine.Unity.SpineAtlasAsset#GetAtlas","Spine.Unity.SpineAtlasAsset#GenerateMesh","Spine.Unity.SpineAttachment#getHierarchy","Spine.Unity.SpineAttachment#getAttachment","Spine.Unity.SpineAttachment#getAttachment$1","Spine.Unity.SpineAttachment#init","Spine.Unity.SpineAttachment#ctor","Spine.Unity.SpineBone#getBone","Spine.Unity.SpineBone#getBoneData","Spine.Unity.SpineBone#ctor","Spine.Unity.SpineEvent#init","Spine.Unity.SpineEvent#ctor","Spine.Unity.SpineIkConstraint#ctor","Spine.Unity.SpinePathConstraint#ctor","Spine.Unity.SpineSkin#init","Spine.Unity.SpineSkin#ctor","Spine.Unity.SpineSlot#init","Spine.Unity.SpineSlot#ctor","Spine.Unity.SpineSpriteAtlasAsset#CreateRuntimeInstance","Spine.Unity.SpineSpriteAtlasAsset#AccessPackedTexture","Spine.Unity.SpineSpriteAtlasAsset#AccessPackedSprites","Spine.Unity.SpineSpriteAtlasAsset#IsLoaded#get","Spine.Unity.SpineSpriteAtlasAsset#Materials#get","Spine.Unity.SpineSpriteAtlasAsset#MaterialCount#get","Spine.Unity.SpineSpriteAtlasAsset#PrimaryMaterial#get","Spine.Unity.SpineSpriteAtlasAsset#Reset","Spine.Unity.SpineSpriteAtlasAsset#Clear","Spine.Unity.SpineSpriteAtlasAsset#GetAtlas","Spine.Unity.SpineSpriteAtlasAsset#AssignRegionsFromSavedRegions","Spine.Unity.SpineSpriteAtlasAsset#LoadAtlas","Spine.Unity.SpineTransformConstraint#ctor","StarExploreFX#DeSpawnByTime","StarExploreFX#DeSpawn","UIManager#inherits","UIManager#init","UIManager#OnValidate","UIManager#Start","UIManager#Update","UIManager#DelayUpdateUIRoutine","UIManager#UpdateUI","UIManager#GetScreenSize","UIManager#GetSreenType","UIManager#ScreenScale","UIManager#GetTargetOrthographicSize","UIManager#GetLandscapeSize","UIManager#GetDefaultPortraitSize","UIManager#ApplyCameraScale","UIManager#CachePerspectiveCamera","UIManager#GetInitialPerspectiveFocusDistance","UIManager#FitPerspectiveCameraToSize","UIManager#TryGetRendererBounds","UIManager#EncapsulateRenderer","UIManager#FitPerspectiveCameraToBounds","UIManager#ActiveGameWinUI","UIManager#ActiveGameLoseUI","UIManager#ActiveTutorialUI","WaitingState#OnEnter","WaitingState#OnExecute","WaitingState#OnExit","WinState#OnEnter","WinState#OnExecute","WinState#OnExit","YellowPiece#DeSpawnByTime","YellowPiece#DeSpawn","CuttingItem#TurnOnCutting","CuttingItem#FlyToCuttingBoard","CuttingItem#TurnOffClick","CuttingItem#TurnOnKnifeCutter","CuttingItem#TurnOffAnim","ItemFlyIn#FlyIn","ItemFlyIn#OnFlyInComplete","Plate#FlyIn","Plate#FlyOut$1","Plate#FlyOut$2","Plate#SpawnFX","Spine.Unity.AnimationReferenceAsset#init","Spine.Unity.AnimationReferenceAsset#op_Implicit","Spine.Unity.AnimationReferenceAsset#SkeletonDataAsset#get","Spine.Unity.AnimationReferenceAsset#Animation#get","Spine.Unity.AnimationReferenceAsset#Clear","Spine.Unity.AnimationReferenceAsset#Initialize","Spine.Unity.PointFollower#SkeletonRenderer#get","Spine.Unity.PointFollower#SkeletonComponent#get","Spine.Unity.PointFollower#IsValid#get","Spine.Unity.PointFollower#init","Spine.Unity.PointFollower#Initialize","Spine.Unity.PointFollower#HandleRebuildRenderer","Spine.Unity.PointFollower#UpdateReferences","Spine.Unity.PointFollower#OnDestroy","Spine.Unity.PointFollower#LateUpdate","Spine.Unity.SkeletonRenderer#init","Spine.Unity.SkeletonRenderer#NewSpineGameObject","Spine.Unity.SkeletonRenderer#AddSpineComponent","Spine.Unity.SkeletonRenderer#UpdateMode#get","Spine.Unity.SkeletonRenderer#UpdateMode#set","Spine.Unity.SkeletonRenderer#CustomMaterialOverride#get","Spine.Unity.SkeletonRenderer#CustomSlotMaterials#get","Spine.Unity.SkeletonRenderer#Skeleton#get","Spine.Unity.SkeletonRenderer#SkeletonDataAsset#get","Spine.Unity.SkeletonRenderer#init","Spine.Unity.SkeletonRenderer#addGenerateMeshOverride","Spine.Unity.SkeletonRenderer#removeGenerateMeshOverride","Spine.Unity.SkeletonRenderer#SetMeshSettings","Spine.Unity.SkeletonRenderer#Awake","Spine.Unity.SkeletonRenderer#OnDisable","Spine.Unity.SkeletonRenderer#OnDestroy","Spine.Unity.SkeletonRenderer#ClearState","Spine.Unity.SkeletonRenderer#EnsureMeshGeneratorCapacity","Spine.Unity.SkeletonRenderer#Initialize","Spine.Unity.SkeletonRenderer#LateUpdate","Spine.Unity.SkeletonRenderer#LateUpdateMesh","Spine.Unity.SkeletonRenderer#OnBecameVisible","Spine.Unity.SkeletonRenderer#OnBecameInvisible","Spine.Unity.SkeletonRenderer#FindAndApplySeparatorSlots$1","Spine.Unity.SkeletonRenderer#FindAndApplySeparatorSlots","Spine.Unity.SkeletonRenderer#ReapplySeparatorSlotNames","Spine.Unity.SkeletonRenderer#AssignSpriteMaskMaterials","Spine.Unity.SkeletonRenderer#InitSpriteMaskMaterialsInsideMask","Spine.Unity.SkeletonRenderer#InitSpriteMaskMaterialsOutsideMask","Spine.Unity.SkeletonRenderer#InitSpriteMaskMaterialsForMaskType","Spine.Unity.SkeletonRenderer#SetMaterialSettingsToFixDrawOrder","Spine.Unity.SkeletonGraphic#init","Spine.Unity.SkeletonGraphic#NewSkeletonGraphicGameObject","Spine.Unity.SkeletonGraphic#AddSkeletonGraphicComponent","Spine.Unity.SkeletonGraphic#SkeletonDataAsset#get","Spine.Unity.SkeletonGraphic#UpdateMode#get","Spine.Unity.SkeletonGraphic#UpdateMode#set","Spine.Unity.SkeletonGraphic#SeparatorParts#get","Spine.Unity.SkeletonGraphic#CustomTextureOverride#get","Spine.Unity.SkeletonGraphic#CustomMaterialOverride#get","Spine.Unity.SkeletonGraphic#OverrideTexture#get","Spine.Unity.SkeletonGraphic#OverrideTexture#set","Spine.Unity.SkeletonGraphic#mainTexture#get","Spine.Unity.SkeletonGraphic#Skeleton#get","Spine.Unity.SkeletonGraphic#Skeleton#set","Spine.Unity.SkeletonGraphic#SkeletonData#get","Spine.Unity.SkeletonGraphic#IsValid#get","Spine.Unity.SkeletonGraphic#AnimationState#get","Spine.Unity.SkeletonGraphic#MeshGenerator#get","Spine.Unity.SkeletonGraphic#init","Spine.Unity.SkeletonGraphic#Awake","Spine.Unity.SkeletonGraphic#OnDestroy","Spine.Unity.SkeletonGraphic#Rebuild","Spine.Unity.SkeletonGraphic#OnDisable","Spine.Unity.SkeletonGraphic#Update","Spine.Unity.SkeletonGraphic#Update$1","Spine.Unity.SkeletonGraphic#SyncSubmeshGraphicsWithCanvasRenderers","Spine.Unity.SkeletonGraphic#UpdateAnimationStatus","Spine.Unity.SkeletonGraphic#ApplyAnimation","Spine.Unity.SkeletonGraphic#LateUpdate","Spine.Unity.SkeletonGraphic#OnCullStateChanged","Spine.Unity.SkeletonGraphic#OnBecameVisible","Spine.Unity.SkeletonGraphic#OnBecameInvisible","Spine.Unity.SkeletonGraphic#ReapplySeparatorSlotNames","Spine.Unity.SkeletonGraphic#GetLastMesh","Spine.Unity.SkeletonGraphic#MatchRectTransformWithBounds","Spine.Unity.SkeletonGraphic#MatchRectTransformSingleRenderer","Spine.Unity.SkeletonGraphic#MatchRectTransformMultipleRenderers","Spine.Unity.SkeletonGraphic#SetRectTransformBounds","Spine.Unity.SkeletonGraphic#Clear","Spine.Unity.SkeletonGraphic#TrimRenderers","Spine.Unity.SkeletonGraphic#Initialize","Spine.Unity.SkeletonGraphic#UpdateMesh","Spine.Unity.SkeletonGraphic#HasMultipleSubmeshInstructions","Spine.Unity.SkeletonGraphic#InitMeshBuffers","Spine.Unity.SkeletonGraphic#DisposeMeshBuffers","Spine.Unity.SkeletonGraphic#UpdateMeshSingleCanvasRenderer","Spine.Unity.SkeletonGraphic#UpdateMeshMultipleCanvasRenderers","Spine.Unity.SkeletonGraphic#EnsureCanvasRendererCount","Spine.Unity.SkeletonGraphic#DisableUnusedCanvasRenderers","Spine.Unity.SkeletonGraphic#EnsureMeshesCount","Spine.Unity.SkeletonGraphic#DestroyMeshes","Spine.Unity.SkeletonGraphic#EnsureSeparatorPartCount","Spine.Unity.SkeletonGraphic#UpdateSeparatorPartParents","Spine.Unity.SkeletonAnimation#AddToGameObject","Spine.Unity.SkeletonAnimation#NewSkeletonAnimationGameObject","Spine.Unity.SkeletonAnimation#AnimationState#get","Spine.Unity.SkeletonAnimation#AnimationName#get","Spine.Unity.SkeletonAnimation#AnimationName#set","Spine.Unity.SkeletonAnimation#init","Spine.Unity.SkeletonAnimation#addBeforeApply","Spine.Unity.SkeletonAnimation#removeBeforeApply","Spine.Unity.SkeletonAnimation#addUpdateLocal","Spine.Unity.SkeletonAnimation#removeUpdateLocal","Spine.Unity.SkeletonAnimation#addUpdateWorld","Spine.Unity.SkeletonAnimation#removeUpdateWorld","Spine.Unity.SkeletonAnimation#addUpdateComplete","Spine.Unity.SkeletonAnimation#removeUpdateComplete","Spine.Unity.SkeletonAnimation#ClearState","Spine.Unity.SkeletonAnimation#Initialize","Spine.Unity.SkeletonAnimation#Update$1","Spine.Unity.SkeletonAnimation#Update","Spine.Unity.SkeletonAnimation#UpdateAnimationStatus","Spine.Unity.SkeletonAnimation#ApplyAnimation","Spine.Unity.SkeletonAnimation#LateUpdate","Spine.Unity.SkeletonAnimation#OnBecameVisible","Spine.Unity.SkeletonMecanim#Translator#get","Spine.Unity.SkeletonMecanim#init","Spine.Unity.SkeletonMecanim#addBeforeApply","Spine.Unity.SkeletonMecanim#removeBeforeApply","Spine.Unity.SkeletonMecanim#addUpdateLocal","Spine.Unity.SkeletonMecanim#removeUpdateLocal","Spine.Unity.SkeletonMecanim#addUpdateWorld","Spine.Unity.SkeletonMecanim#removeUpdateWorld","Spine.Unity.SkeletonMecanim#addUpdateComplete","Spine.Unity.SkeletonMecanim#removeUpdateComplete","Spine.Unity.SkeletonMecanim#Initialize","Spine.Unity.SkeletonMecanim#Update","Spine.Unity.SkeletonMecanim#ApplyAnimation","Spine.Unity.SkeletonMecanim#LateUpdate","Spine.Unity.SkeletonMecanim#OnBecameVisible","Spoon#init","Spoon#OnFlyInComplete"]' ) ); }
+if ( TRACE ) { TRACE( JSON.parse( '["Item#init","Item#Awake","Item#Reset","Item#OnValidate","Item#CacheComponents","Item#ChangeItemType","Item#ChangeAnim","Item#ChangeSprite","Item#GetInPlate","Item#KnifeIn","Item#SpawnHeart","Item#OnDragFailReturnComplete","Item#ShouldPlayBobEffectAfterReturn","Item#TeleportToStart","Item#DoneAnimation","Item#ItemDone","Item#SpawnGreenPiece","Item#SpawnYellowPiece","Item#SpawnWaterSplash","Item#SpawnBlinkEffect","Item#SpawnMergeEffect","Item#PlayMoveToTargetFinishSound","Item#PlaySoundFX","Item#PlayKnifeCutSound","Item#PlayKnifeSwingSound","Item#PlayKnifePlaceSound","Item#PlayLemonJuiceSound","Item#PlayWipeSound","Item#PlayPeerSound","ComponentCache$1#init","ComponentCache$1#Get$1","ComponentCache$1#Get","ComponentCache$1#ClearCache","DG.Tweening.DOTweenCYInstruction.WaitForCompletion#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForCompletion#ctor","DG.Tweening.DOTweenCYInstruction.WaitForElapsedLoops#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForElapsedLoops#ctor","DG.Tweening.DOTweenCYInstruction.WaitForKill#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForKill#ctor","DG.Tweening.DOTweenCYInstruction.WaitForPosition#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForPosition#ctor","DG.Tweening.DOTweenCYInstruction.WaitForRewind#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForRewind#ctor","DG.Tweening.DOTweenCYInstruction.WaitForStart#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForStart#ctor","DG.Tweening.DOTweenModuleAudio#DOFade","DG.Tweening.DOTweenModuleAudio#DOPitch","DG.Tweening.DOTweenModuleAudio#DOSetFloat","DG.Tweening.DOTweenModuleAudio#DOComplete","DG.Tweening.DOTweenModuleAudio#DOKill","DG.Tweening.DOTweenModuleAudio#DOFlip","DG.Tweening.DOTweenModuleAudio#DOGoto","DG.Tweening.DOTweenModuleAudio#DOPause","DG.Tweening.DOTweenModuleAudio#DOPlay","DG.Tweening.DOTweenModuleAudio#DOPlayBackwards","DG.Tweening.DOTweenModuleAudio#DOPlayForward","DG.Tweening.DOTweenModuleAudio#DORestart","DG.Tweening.DOTweenModuleAudio#DORewind","DG.Tweening.DOTweenModuleAudio#DOSmoothRewind","DG.Tweening.DOTweenModuleAudio#DOTogglePause","DG.Tweening.DOTweenModulePhysics#DOMove","DG.Tweening.DOTweenModulePhysics#DOMoveX","DG.Tweening.DOTweenModulePhysics#DOMoveY","DG.Tweening.DOTweenModulePhysics#DOMoveZ","DG.Tweening.DOTweenModulePhysics#DORotate","DG.Tweening.DOTweenModulePhysics#DOLookAt","DG.Tweening.DOTweenModulePhysics#DOJump","DG.Tweening.DOTweenModulePhysics#DOPath","DG.Tweening.DOTweenModulePhysics#DOPath$1","DG.Tweening.DOTweenModulePhysics#DOLocalPath","DG.Tweening.DOTweenModulePhysics#DOLocalPath$1","DG.Tweening.DOTweenModulePhysics2D#DOMove","DG.Tweening.DOTweenModulePhysics2D#DOMoveX","DG.Tweening.DOTweenModulePhysics2D#DOMoveY","DG.Tweening.DOTweenModulePhysics2D#DORotate","DG.Tweening.DOTweenModulePhysics2D#DOJump","DG.Tweening.DOTweenModulePhysics2D#DOPath","DG.Tweening.DOTweenModulePhysics2D#DOPath$1","DG.Tweening.DOTweenModulePhysics2D#DOLocalPath","DG.Tweening.DOTweenModulePhysics2D#DOLocalPath$1","DG.Tweening.DOTweenModuleSprite#DOColor","DG.Tweening.DOTweenModuleSprite#DOFade","DG.Tweening.DOTweenModuleSprite#DOGradientColor","DG.Tweening.DOTweenModuleSprite#DOBlendableColor","DG.Tweening.DOTweenModuleUI#DOFade","DG.Tweening.DOTweenModuleUI#DOFade$1","DG.Tweening.DOTweenModuleUI#DOFade$2","DG.Tweening.DOTweenModuleUI#DOFade$3","DG.Tweening.DOTweenModuleUI#DOFade$4","DG.Tweening.DOTweenModuleUI#DOColor","DG.Tweening.DOTweenModuleUI#DOColor$1","DG.Tweening.DOTweenModuleUI#DOColor$2","DG.Tweening.DOTweenModuleUI#DOColor$3","DG.Tweening.DOTweenModuleUI#DOFillAmount","DG.Tweening.DOTweenModuleUI#DOGradientColor","DG.Tweening.DOTweenModuleUI#DOFlexibleSize","DG.Tweening.DOTweenModuleUI#DOMinSize","DG.Tweening.DOTweenModuleUI#DOPreferredSize","DG.Tweening.DOTweenModuleUI#DOScale","DG.Tweening.DOTweenModuleUI#DOAnchorPos","DG.Tweening.DOTweenModuleUI#DOAnchorPosX","DG.Tweening.DOTweenModuleUI#DOAnchorPosY","DG.Tweening.DOTweenModuleUI#DOAnchorPos3D","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DX","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DY","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DZ","DG.Tweening.DOTweenModuleUI#DOAnchorMax","DG.Tweening.DOTweenModuleUI#DOAnchorMin","DG.Tweening.DOTweenModuleUI#DOPivot","DG.Tweening.DOTweenModuleUI#DOPivotX","DG.Tweening.DOTweenModuleUI#DOPivotY","DG.Tweening.DOTweenModuleUI#DOSizeDelta","DG.Tweening.DOTweenModuleUI#DOPunchAnchorPos","DG.Tweening.DOTweenModuleUI#DOShakeAnchorPos","DG.Tweening.DOTweenModuleUI#DOShakeAnchorPos$1","DG.Tweening.DOTweenModuleUI#DOJumpAnchorPos","DG.Tweening.DOTweenModuleUI#DONormalizedPos","DG.Tweening.DOTweenModuleUI#DOHorizontalNormalizedPos","DG.Tweening.DOTweenModuleUI#DOVerticalNormalizedPos","DG.Tweening.DOTweenModuleUI#DOValue","DG.Tweening.DOTweenModuleUI#DOCounter","DG.Tweening.DOTweenModuleUI#DOText","DG.Tweening.DOTweenModuleUI#DOBlendableColor","DG.Tweening.DOTweenModuleUI#DOBlendableColor$1","DG.Tweening.DOTweenModuleUI#DOBlendableColor$2","DG.Tweening.DOTweenModuleUI#DOShapeCircle","DG.Tweening.DOTweenModuleUI.Utils#SwitchToRectTransform","DG.Tweening.DOTweenModuleUnityVersion#DOGradientColor","DG.Tweening.DOTweenModuleUnityVersion#DOGradientColor$1","DG.Tweening.DOTweenModuleUnityVersion#WaitForCompletion","DG.Tweening.DOTweenModuleUnityVersion#WaitForRewind","DG.Tweening.DOTweenModuleUnityVersion#WaitForKill","DG.Tweening.DOTweenModuleUnityVersion#WaitForElapsedLoops","DG.Tweening.DOTweenModuleUnityVersion#WaitForPosition","DG.Tweening.DOTweenModuleUnityVersion#WaitForStart","DG.Tweening.DOTweenModuleUnityVersion#DOOffset","DG.Tweening.DOTweenModuleUnityVersion#DOTiling","DG.Tweening.DOTweenModuleUtils#Init","DG.Tweening.DOTweenModuleUtils#Preserver","DG.Tweening.DOTweenModuleUtils.Physics#SetOrientationOnPath","DG.Tweening.DOTweenModuleUtils.Physics#HasRigidbody2D","DG.Tweening.DOTweenModuleUtils.Physics#HasRigidbody","DG.Tweening.DOTweenModuleUtils.Physics#CreateDOTweenPathTween","DuckManager#init","DuckManager#OnEnable","DuckManager#OnDisable","DuckManager#SpawnLoop","DuckManager#SpawnDuck","DuckManager#GetRandomValidLaneIndex","Ply_Singleton$1#init","Ply_Singleton$1#Awake","HandTutorial#init","HandTutorial#Awake","HandTutorial#OnEnable","HandTutorial#OnDisable","HandTutorial#PlayTutorial","HandTutorial#StopTutorial","HandTutorial#SetupStartPoint","HandTutorial#SetupEndPoint","ItemClickable#init","ItemClickable#PerformClick","ItemClickable#CanClick","ItemClickable#EnableClick","ItemClickable#PlayPopSound","ItemDraggable#init","ItemDraggable#Start","ItemDraggable#ReturnToStart","ItemDraggable#ReturnToStart$1","ItemDraggable#ReturnToStartWithoutHeart","ItemDraggable#TeleportToStart","ItemDraggable#BeginDrag","ItemDraggable#Drag","ItemDraggable#EndDrag","ItemDraggable#ConsumeCurrentDropFail","ItemDraggable#GetMouseWorldPos","ItemDraggable#IsDraggable","ItemDraggable#CanDrag","ItemDraggable#ChangeReturnPoint","ItemDraggable#SetShadowActive","ItemDraggable#PlayBobEffectIfEnabled","ItemDraggable#ResetScale","ItemDraggable#PlayDragScale","ItemDraggable#PlayBeginDragSound","ItemDraggable#OnDisable","ItemDraggable#OnReturnToStartComplete","ItemDraggable#PlayReturnToStartFinishSound","ItemDraggable#ChangeTargetItemType","ItemDraggable#UnDraggable","ItemKnifeSpriteMaskCutter#init","ItemKnifeSpriteMaskCutter#Awake","ItemKnifeSpriteMaskCutter#OnEnable","ItemKnifeSpriteMaskCutter#OnDisable","ItemKnifeSpriteMaskCutter#ResetCut","ItemKnifeSpriteMaskCutter#PerformCut","ItemKnifeSpriteMaskCutter#SpawnCutPiece","ItemKnifeSpriteMaskCutter#UpdateMasks","ItemKnifeSpriteMaskCutter#CompleteCut","ItemKnifeSpriteMaskCutter#ApplyKnifeChildMask","ItemKnifeSpriteMaskCutter#GetProgress01","ItemKnifeSpriteMaskCutter#OnDrawGizmos","ItemKnifeSpriteMaskCutter#GetPreviewCutX","ItemKnifeSpriteMaskCutter#GetLocalPointInRoot","ItemKnifeSpriteMaskCutter#GetLocalPoint","ItemKnifeSpriteMaskCutter#DrawLocalVerticalLine","ItemKnifeSpriteMaskCutter#DrawLocalHorizontalLine","ItemMoveToTarget#init","ItemMoveToTarget#Awake","ItemMoveToTarget#ExecuteMove","ItemMoveToTarget#ExecuteMove3D","ItemMoveToTarget#FinishAction","ItemMoveToTarget#TeleportToTarget","ItemMoveToTarget#SetDefaultTarget","ItemMoveToTarget#SetWorldScale","ItemSpriteMaskPainter#init","ItemSpriteMaskPainter#Awake","ItemSpriteMaskPainter#OnEnable","ItemSpriteMaskPainter#ResetPaint","ItemSpriteMaskPainter#BeginPaint","ItemSpriteMaskPainter#Paint","ItemSpriteMaskPainter#EndPaint","ItemSpriteMaskPainter#StampLine","ItemSpriteMaskPainter#Stamp","ItemSpriteMaskPainter#CacheSamples","ItemSpriteMaskPainter#MarkCoveredSamples","ItemSpriteMaskPainter#GetSamplePoint","ItemSpriteMaskPainter#CheckComplete","ItemSpriteMaskPainter#CreatePaintPlane","ItemSpriteMaskPainter#GetMouseOnPaintPlane","ItemSpriteMaskPainter#IsPointInsidePaintArea","ItemSpriteMaskPainter#GetProgress01","ItemStirring#IsDone#get","ItemStirring#init","ItemStirring#Start","ItemStirring#Reset","ItemStirring#OnValidate","ItemStirring#CacheReferences","ItemStirring#BeginStir","ItemStirring#Stir","ItemStirring#EndStir","ItemStirring#GetMouseOnPlane","ItemStirring#GetAnimationProgress","ItemStirring#ResetTargetAnimation","ItemStirring#SetAnimatorSpeed","ItemStirring#UpdateAnimatorSpeedFromDrag","ItemStirring#CompleteStir","ItemStirring#OnDisable","ItemStirring#StartStirringFx","ItemStirring#StopStirringFx","ItemStirring#SpawnStirProgressBar","ItemStirring#UpdateStirProgressBar","ItemStirring#UpdateStirProgressBar$1","ItemStirring#StopStirProgressBar","ItemStirring#OnDrawGizmos","Ply_BobEffect#IsPlaying#get","Ply_BobEffect#init","Ply_BobEffect#Awake","Ply_BobEffect#OnEnable","Ply_BobEffect#OnDisable","Ply_BobEffect#CacheStartPosition","Ply_BobEffect#Play","Ply_BobEffect#Stop","Ply_BobEffect#Stop$1","Ply_Pool.PoolAmount#getDefaultValue","Ply_Pool.PoolAmount#ctor","Ply_Pool.PoolAmount#getHashCode","Ply_Pool.PoolAmount#equals","Ply_Pool.PoolAmount#$clone","Ply_TimerEvent#init","Ply_TimerEvent#OnEnable","Ply_TimerEvent#OnDisable","Ply_TimerEvent#StartTimer","Ply_TimerEvent#StartTimer$1","Ply_TimerEvent#StopTimer","Ply_TimerEvent#RestartTimer","Ply_TimerEvent#CompleteTimer","Ply_ToggleEvent#init","Ply_ToggleEvent#OnEnable","Ply_ToggleEvent#Toggle","Ply_ToggleEvent#TurnOn","Ply_ToggleEvent#TurnOff","Ply_ToggleEvent#SetState","Ply_ToggleEvent#ForceSetState","Ply_ToggleEvent#ApplyState","Ply_ToggleEvent#ApplyState$1","ScreenScaleStep#ctor","ScreenScaleStep#$ctor1","SortChildByZPos#init","SortChildByZPos#SortChildrenByZPosition","Spine.BoneMatrix#CalculateSetupWorld","Spine.BoneMatrix#GetInheritedInternal","Spine.BoneMatrix#getDefaultValue","Spine.BoneMatrix#$ctor2","Spine.BoneMatrix#$ctor1","Spine.BoneMatrix#ctor","Spine.BoneMatrix#TransformMatrix","Spine.BoneMatrix#getHashCode","Spine.BoneMatrix#equals","Spine.BoneMatrix#$clone","Spine.SpineSkeletonExtensions#IsWeighted","Spine.SpineSkeletonExtensions#InheritsRotation","Spine.SpineSkeletonExtensions#InheritsScale","Spine.Unity.ActivateBasedOnFlipDirection#init","Spine.Unity.ActivateBasedOnFlipDirection#Start","Spine.Unity.ActivateBasedOnFlipDirection#FixedUpdate","Spine.Unity.ActivateBasedOnFlipDirection#HandleFlip","Spine.Unity.ActivateBasedOnFlipDirection#ResetJointPositions","Spine.Unity.ActivateBasedOnFlipDirection#CompensateMovementAfterFlipX","Spine.Unity.AnimationTools.TimelineExtensions#Evaluate","Spine.Unity.AnimationTools.TimelineExtensions#Evaluate$1","Spine.Unity.AnimationTools.TimelineExtensions#FindTranslateTimelineForBone","Spine.Unity.AnimationTools.TimelineExtensions#FindTimelineForBone","Spine.Unity.AttachmentTools.AtlasUtilities#init","Spine.Unity.AttachmentTools.AtlasUtilities#Init","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegion$2","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegion$3","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegion","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegion$1","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegion$4","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegionPMAClone$2","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegionPMAClone$3","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegionPMAClone","Spine.Unity.AttachmentTools.AtlasUtilities#ToAtlasRegionPMAClone$1","Spine.Unity.AttachmentTools.AtlasUtilities#ToSpineAtlasPage","Spine.Unity.AttachmentTools.AtlasUtilities#GetRepackedAttachments","Spine.Unity.AttachmentTools.AtlasUtilities#GetRepackedAttachments$1","Spine.Unity.AttachmentTools.AtlasUtilities#GetRepackedSkin","Spine.Unity.AttachmentTools.AtlasUtilities#GetRepackedSkin$1","Spine.Unity.AttachmentTools.AtlasUtilities#ToSprite","Spine.Unity.AttachmentTools.AtlasUtilities#ClearCache","Spine.Unity.AttachmentTools.AtlasUtilities#ToTexture","Spine.Unity.AttachmentTools.AtlasUtilities#ToTexture$1","Spine.Unity.AttachmentTools.AtlasUtilities#GetClone","Spine.Unity.AttachmentTools.AtlasUtilities#CopyTexture","Spine.Unity.AttachmentTools.AtlasUtilities#CopyTextureApplyPMA","Spine.Unity.AttachmentTools.AtlasUtilities#IsRenderable","Spine.Unity.AttachmentTools.AtlasUtilities#SpineUnityFlipRect","Spine.Unity.AttachmentTools.AtlasUtilities#GetUnityRect","Spine.Unity.AttachmentTools.AtlasUtilities#GetUnityRect$1","Spine.Unity.AttachmentTools.AtlasUtilities#GetSpineAtlasRect","Spine.Unity.AttachmentTools.AtlasUtilities#UVRectToTextureRect","Spine.Unity.AttachmentTools.AtlasUtilities#TextureRectToUVRect","Spine.Unity.AttachmentTools.AtlasUtilities#UVRectToAtlasRegion","Spine.Unity.AttachmentTools.AtlasUtilities#GetMainTexture","Spine.Unity.AttachmentTools.AtlasUtilities#GetTexture$1","Spine.Unity.AttachmentTools.AtlasUtilities#GetTexture","Spine.Unity.AttachmentTools.AtlasUtilities#CopyTextureAttributesFrom","Spine.Unity.AttachmentTools.AtlasUtilities#InverseLerp","Spine.Unity.AttachmentTools.AtlasUtilities.IntAndAtlasRegionKey#getDefaultValue","Spine.Unity.AttachmentTools.AtlasUtilities.IntAndAtlasRegionKey#$ctor1","Spine.Unity.AttachmentTools.AtlasUtilities.IntAndAtlasRegionKey#ctor","Spine.Unity.AttachmentTools.AtlasUtilities.IntAndAtlasRegionKey#getHashCode","Spine.Unity.AttachmentTools.AtlasUtilities.IntAndAtlasRegionKey#equals","Spine.Unity.AttachmentTools.AtlasUtilities.IntAndAtlasRegionKey#$clone","Spine.Unity.AttachmentTools.AttachmentCloneExtensions#GetRemappedClone$1","Spine.Unity.AttachmentTools.AttachmentCloneExtensions#GetRemappedClone","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#SetRegion","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#SetRegion$2","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#SetRegion$1","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#ToRegionAttachment$2","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#ToRegionAttachment$1","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#ToRegionAttachment","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#ToRegionAttachmentPMAClone$1","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#ToRegionAttachmentPMAClone","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#SetScale$1","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#SetScale","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#SetPositionOffset$1","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#SetPositionOffset","Spine.Unity.AttachmentTools.AttachmentRegionExtensions#SetRotation","Spine.Unity.BlendModeMaterials#RequiresBlendModeMaterials#get","Spine.Unity.BlendModeMaterials#RequiresBlendModeMaterials#set","Spine.Unity.BlendModeMaterials#init","Spine.Unity.BlendModeMaterials#BlendModeForMaterial","Spine.Unity.BlendModeMaterials#ApplyMaterials","Spine.Unity.BlendModeMaterials#CloneAtlasRegionWithMaterial","Spine.Unity.BlendModeMaterialsAsset.AtlasMaterialCache#init","Spine.Unity.BlendModeMaterialsAsset.AtlasMaterialCache#CloneAtlasRegionWithMaterial","Spine.Unity.BlendModeMaterialsAsset.AtlasMaterialCache#GetAtlasPageWithMaterial","Spine.Unity.BlendModeMaterialsAsset.AtlasMaterialCache#Dispose","Spine.Unity.BoneFollower#SkeletonRenderer#get","Spine.Unity.BoneFollower#SkeletonRenderer#set","Spine.Unity.BoneFollower#init","Spine.Unity.BoneFollower#SetBone","Spine.Unity.BoneFollower#Awake","Spine.Unity.BoneFollower#HandleRebuildRenderer","Spine.Unity.BoneFollower#Initialize","Spine.Unity.BoneFollower#OnDestroy","Spine.Unity.BoneFollower#LateUpdate","Spine.Unity.BoneFollowerGraphic#SkeletonGraphic#get","Spine.Unity.BoneFollowerGraphic#SkeletonGraphic#set","Spine.Unity.BoneFollowerGraphic#init","Spine.Unity.BoneFollowerGraphic#SetBone","Spine.Unity.BoneFollowerGraphic#Awake","Spine.Unity.BoneFollowerGraphic#Initialize","Spine.Unity.BoneFollowerGraphic#LateUpdate","Spine.Unity.BoundingBoxFollower#init","Spine.Unity.BoundingBoxFollower#Slot#get","Spine.Unity.BoundingBoxFollower#CurrentAttachment#get","Spine.Unity.BoundingBoxFollower#CurrentAttachmentName#get","Spine.Unity.BoundingBoxFollower#CurrentCollider#get","Spine.Unity.BoundingBoxFollower#IsTrigger#get","Spine.Unity.BoundingBoxFollower#init","Spine.Unity.BoundingBoxFollower#Start","Spine.Unity.BoundingBoxFollower#OnEnable","Spine.Unity.BoundingBoxFollower#HandleRebuild","Spine.Unity.BoundingBoxFollower#Initialize","Spine.Unity.BoundingBoxFollower#AddCollidersForSkin","Spine.Unity.BoundingBoxFollower#OnDisable","Spine.Unity.BoundingBoxFollower#ClearState","Spine.Unity.BoundingBoxFollower#DisposeExcessCollidersAfter","Spine.Unity.BoundingBoxFollower#LateUpdate","Spine.Unity.BoundingBoxFollower#MatchAttachment","Spine.Unity.BoundingBoxFollowerGraphic#init","Spine.Unity.BoundingBoxFollowerGraphic#Slot#get","Spine.Unity.BoundingBoxFollowerGraphic#CurrentAttachment#get","Spine.Unity.BoundingBoxFollowerGraphic#CurrentAttachmentName#get","Spine.Unity.BoundingBoxFollowerGraphic#CurrentCollider#get","Spine.Unity.BoundingBoxFollowerGraphic#IsTrigger#get","Spine.Unity.BoundingBoxFollowerGraphic#init","Spine.Unity.BoundingBoxFollowerGraphic#Start","Spine.Unity.BoundingBoxFollowerGraphic#OnEnable","Spine.Unity.BoundingBoxFollowerGraphic#HandleRebuild","Spine.Unity.BoundingBoxFollowerGraphic#Initialize","Spine.Unity.BoundingBoxFollowerGraphic#AddCollidersForSkin","Spine.Unity.BoundingBoxFollowerGraphic#OnDisable","Spine.Unity.BoundingBoxFollowerGraphic#ClearState","Spine.Unity.BoundingBoxFollowerGraphic#DisposeExcessCollidersAfter","Spine.Unity.BoundingBoxFollowerGraphic#LateUpdate","Spine.Unity.BoundingBoxFollowerGraphic#MatchAttachment","Spine.Unity.DoubleBuffered$1#init","Spine.Unity.DoubleBuffered$1#GetCurrent","Spine.Unity.DoubleBuffered$1#GetNext","Spine.Unity.EventDataReferenceAsset#init","Spine.Unity.EventDataReferenceAsset#op_Implicit","Spine.Unity.EventDataReferenceAsset#EventData#get","Spine.Unity.EventDataReferenceAsset#Initialize","Spine.Unity.ISpineComponentExtensions#IsNullOrDestroyed","Spine.Unity.MaterialsTextureLoader#ctor","Spine.Unity.MaterialsTextureLoader#Load","Spine.Unity.MaterialsTextureLoader#Unload","Spine.Unity.MeshGenerator#init","Spine.Unity.MeshGenerator#GenerateSingleSubmeshInstruction","Spine.Unity.MeshGenerator#RequiresMultipleSubmeshesByDrawOrder","Spine.Unity.MeshGenerator#GenerateSkeletonRendererInstruction","Spine.Unity.MeshGenerator#TryReplaceMaterials","Spine.Unity.MeshGenerator#SolveTangents2DEnsureSize","Spine.Unity.MeshGenerator#SolveTangents2DTriangles","Spine.Unity.MeshGenerator#SolveTangents2DBuffer","Spine.Unity.MeshGenerator#FillMeshLocal$1","Spine.Unity.MeshGenerator#FillMeshLocal","Spine.Unity.MeshGenerator#VertexCount#get","Spine.Unity.MeshGenerator#Buffers#get","Spine.Unity.MeshGenerator#init","Spine.Unity.MeshGenerator#ctor","Spine.Unity.MeshGenerator#SubmeshIndexCount","Spine.Unity.MeshGenerator#Begin","Spine.Unity.MeshGenerator#AddSubmesh","Spine.Unity.MeshGenerator#BuildMesh","Spine.Unity.MeshGenerator#BuildMeshWithArrays","Spine.Unity.MeshGenerator#ScaleVertexData","Spine.Unity.MeshGenerator#GetMeshBounds","Spine.Unity.MeshGenerator#AddAttachmentTintBlack","Spine.Unity.MeshGenerator#FillVertexData","Spine.Unity.MeshGenerator#FillLateVertexData","Spine.Unity.MeshGenerator#FillTriangles","Spine.Unity.MeshGenerator#EnsureVertexCapacity","Spine.Unity.MeshGenerator#TrimExcess","Spine.Unity.MeshGenerator.Settings#Default#get","Spine.Unity.MeshGenerator.Settings#getDefaultValue","Spine.Unity.MeshGenerator.Settings#ctor","Spine.Unity.MeshGenerator.Settings#getHashCode","Spine.Unity.MeshGenerator.Settings#equals","Spine.Unity.MeshGenerator.Settings#$clone","Spine.Unity.MeshGeneratorBuffers#getDefaultValue","Spine.Unity.MeshGeneratorBuffers#ctor","Spine.Unity.MeshGeneratorBuffers#getHashCode","Spine.Unity.MeshGeneratorBuffers#equals","Spine.Unity.MeshGeneratorBuffers#$clone","Spine.Unity.MeshRendererBuffers#init","Spine.Unity.MeshRendererBuffers#Initialize","Spine.Unity.MeshRendererBuffers#GetUpdatedSharedMaterialsArray","Spine.Unity.MeshRendererBuffers#MaterialsChangedInLastUpdate","Spine.Unity.MeshRendererBuffers#UpdateSharedMaterials","Spine.Unity.MeshRendererBuffers#GetNextMesh","Spine.Unity.MeshRendererBuffers#Clear","Spine.Unity.MeshRendererBuffers#Dispose","Spine.Unity.MeshRendererBuffers.SmartMesh#init","Spine.Unity.MeshRendererBuffers.SmartMesh#Clear","Spine.Unity.MeshRendererBuffers.SmartMesh#Dispose","Spine.Unity.NoOpTextureLoader#Load","Spine.Unity.NoOpTextureLoader#Unload","Spine.Unity.RegionlessAttachmentLoader#EmptyRegion#get","Spine.Unity.RegionlessAttachmentLoader#NewRegionAttachment","Spine.Unity.RegionlessAttachmentLoader#NewMeshAttachment","Spine.Unity.RegionlessAttachmentLoader#NewBoundingBoxAttachment","Spine.Unity.RegionlessAttachmentLoader#NewPathAttachment","Spine.Unity.RegionlessAttachmentLoader#NewPointAttachment","Spine.Unity.RegionlessAttachmentLoader#NewClippingAttachment","Spine.Unity.SkeletonDataAsset#CreateRuntimeInstance","Spine.Unity.SkeletonDataAsset#CreateRuntimeInstance$1","Spine.Unity.SkeletonDataAsset#ReadSkeletonData","Spine.Unity.SkeletonDataAsset#ReadSkeletonData$1","Spine.Unity.SkeletonDataAsset#IsLoaded#get","Spine.Unity.SkeletonDataAsset#init","Spine.Unity.SkeletonDataAsset#Reset","Spine.Unity.SkeletonDataAsset#Clear","Spine.Unity.SkeletonDataAsset#GetAnimationStateData","Spine.Unity.SkeletonDataAsset#GetSkeletonData","Spine.Unity.SkeletonDataAsset#InitializeWithData","Spine.Unity.SkeletonDataAsset#FillStateData","Spine.Unity.SkeletonDataAsset#GetAtlasArray","Spine.Unity.SkeletonDataCompatibility.CompatibilityProblemInfo#DescriptionString","Spine.Unity.SkeletonExtensions#init","Spine.Unity.SkeletonExtensions#GetColor$2","Spine.Unity.SkeletonExtensions#GetColor$1","Spine.Unity.SkeletonExtensions#GetColor","Spine.Unity.SkeletonExtensions#GetColor$3","Spine.Unity.SkeletonExtensions#GetColorTintBlack","Spine.Unity.SkeletonExtensions#SetColor$4","Spine.Unity.SkeletonExtensions#SetColor$5","Spine.Unity.SkeletonExtensions#SetColor$6","Spine.Unity.SkeletonExtensions#SetColor$7","Spine.Unity.SkeletonExtensions#SetColor$2","Spine.Unity.SkeletonExtensions#SetColor$3","Spine.Unity.SkeletonExtensions#SetColor","Spine.Unity.SkeletonExtensions#SetColor$1","Spine.Unity.SkeletonExtensions#SetLocalScale","Spine.Unity.SkeletonExtensions#GetMatrix4x4","Spine.Unity.SkeletonExtensions#SetLocalPosition","Spine.Unity.SkeletonExtensions#SetLocalPosition$1","Spine.Unity.SkeletonExtensions#GetLocalPosition","Spine.Unity.SkeletonExtensions#GetSkeletonSpacePosition","Spine.Unity.SkeletonExtensions#GetSkeletonSpacePosition$1","Spine.Unity.SkeletonExtensions#GetWorldPosition","Spine.Unity.SkeletonExtensions#GetWorldPosition$1","Spine.Unity.SkeletonExtensions#GetWorldPosition$3","Spine.Unity.SkeletonExtensions#GetWorldPosition$2","Spine.Unity.SkeletonExtensions#GetQuaternion","Spine.Unity.SkeletonExtensions#GetLocalQuaternion","Spine.Unity.SkeletonExtensions#GetLocalScale","Spine.Unity.SkeletonExtensions#GetWorldToLocalMatrix","Spine.Unity.SkeletonExtensions#WorldToLocal","Spine.Unity.SkeletonExtensions#SetPositionSkeletonSpace","Spine.Unity.SkeletonExtensions#GetMaterial","Spine.Unity.SkeletonExtensions#GetLocalVertices","Spine.Unity.SkeletonExtensions#GetWorldVertices","Spine.Unity.SkeletonGraphicCustomMaterials#init","Spine.Unity.SkeletonGraphicCustomMaterials#SetCustomMaterialOverrides","Spine.Unity.SkeletonGraphicCustomMaterials#RemoveCustomMaterialOverrides","Spine.Unity.SkeletonGraphicCustomMaterials#SetCustomTextureOverrides","Spine.Unity.SkeletonGraphicCustomMaterials#RemoveCustomTextureOverrides","Spine.Unity.SkeletonGraphicCustomMaterials#OnEnable","Spine.Unity.SkeletonGraphicCustomMaterials#OnDisable","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasMaterialOverride#inherits","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasMaterialOverride#getDefaultValue","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasMaterialOverride#ctor","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasMaterialOverride#equalsT","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasMaterialOverride#getHashCode","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasMaterialOverride#$clone","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasTextureOverride#inherits","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasTextureOverride#getDefaultValue","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasTextureOverride#ctor","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasTextureOverride#equalsT","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasTextureOverride#getHashCode","Spine.Unity.SkeletonGraphicCustomMaterials.AtlasTextureOverride#$clone","Spine.Unity.SkeletonMecanim.MecanimTranslator#init","Spine.Unity.SkeletonMecanim.MecanimTranslator#AnimationTime$1","Spine.Unity.SkeletonMecanim.MecanimTranslator#AnimationTime","Spine.Unity.SkeletonMecanim.MecanimTranslator#Animator#get","Spine.Unity.SkeletonMecanim.MecanimTranslator#MecanimLayerCount#get","Spine.Unity.SkeletonMecanim.MecanimTranslator#MecanimLayerNames#get","Spine.Unity.SkeletonMecanim.MecanimTranslator#init","Spine.Unity.SkeletonMecanim.MecanimTranslator#addOnClipApplied","Spine.Unity.SkeletonMecanim.MecanimTranslator#removeOnClipApplied","Spine.Unity.SkeletonMecanim.MecanimTranslator#Initialize","Spine.Unity.SkeletonMecanim.MecanimTranslator#ApplyAnimation","Spine.Unity.SkeletonMecanim.MecanimTranslator#ApplyInterruptionAnimation","Spine.Unity.SkeletonMecanim.MecanimTranslator#OnClipAppliedCallback","Spine.Unity.SkeletonMecanim.MecanimTranslator#Apply","Spine.Unity.SkeletonMecanim.MecanimTranslator#GetActiveAnimationAndTime","Spine.Unity.SkeletonMecanim.MecanimTranslator#InitClipInfosForLayers","Spine.Unity.SkeletonMecanim.MecanimTranslator#ClearClipInfosForLayers","Spine.Unity.SkeletonMecanim.MecanimTranslator#GetMixMode","Spine.Unity.SkeletonMecanim.MecanimTranslator#GetStateUpdatesFromAnimator","Spine.Unity.SkeletonMecanim.MecanimTranslator#GetAnimatorClipInfos","Spine.Unity.SkeletonMecanim.MecanimTranslator#GetAnimatorStateInfos","Spine.Unity.SkeletonMecanim.MecanimTranslator#GetAnimation","Spine.Unity.SkeletonMecanim.MecanimTranslator.AnimationClipEqualityComparer#init","Spine.Unity.SkeletonMecanim.MecanimTranslator.AnimationClipEqualityComparer#equals2","Spine.Unity.SkeletonMecanim.MecanimTranslator.AnimationClipEqualityComparer#getHashCode2","Spine.Unity.SkeletonMecanim.MecanimTranslator.ClipInfos#init","Spine.Unity.SkeletonMecanim.MecanimTranslator.IntEqualityComparer#init","Spine.Unity.SkeletonMecanim.MecanimTranslator.IntEqualityComparer#equals2","Spine.Unity.SkeletonMecanim.MecanimTranslator.IntEqualityComparer#getHashCode2","Spine.Unity.SkeletonRootMotionBase#UsesRigidbody#get","Spine.Unity.SkeletonRootMotionBase#AdditionalScale#get","Spine.Unity.SkeletonRootMotionBase#init","Spine.Unity.SkeletonRootMotionBase#Reset","Spine.Unity.SkeletonRootMotionBase#Start","Spine.Unity.SkeletonRootMotionBase#FixedUpdate","Spine.Unity.SkeletonRootMotionBase#OnDisable","Spine.Unity.SkeletonRootMotionBase#FindRigidbodyComponent","Spine.Unity.SkeletonRootMotionBase#SetRootMotionBone","Spine.Unity.SkeletonRootMotionBase#AdjustRootMotionToDistance","Spine.Unity.SkeletonRootMotionBase#GetAnimationRootMotion","Spine.Unity.SkeletonRootMotionBase#GetAnimationRootMotion$1","Spine.Unity.SkeletonRootMotionBase#GetAnimationRootMotionInfo","Spine.Unity.SkeletonRootMotionBase#GetTimelineMovementDelta","Spine.Unity.SkeletonRootMotionBase#GetTimelineMovementDelta$1","Spine.Unity.SkeletonRootMotionBase#GatherTopLevelBones","Spine.Unity.SkeletonRootMotionBase#HandleUpdateLocal","Spine.Unity.SkeletonRootMotionBase#ApplyRootMotion","Spine.Unity.SkeletonRootMotionBase#GetScaleAffectingRootMotion","Spine.Unity.SkeletonRootMotionBase#GetScaleAffectingRootMotion$1","Spine.Unity.SkeletonRootMotionBase#GetSkeletonSpaceMovementDelta","Spine.Unity.SkeletonRootMotionBase#SetEffectiveBoneOffsetsTo","Spine.Unity.SkeletonRootMotionBase#ClearEffectiveBoneOffsets","Spine.Unity.SkeletonPartsRenderer#NewPartsRendererGameObject","Spine.Unity.SkeletonPartsRenderer#MeshGenerator#get","Spine.Unity.SkeletonPartsRenderer#MeshRenderer#get","Spine.Unity.SkeletonPartsRenderer#MeshFilter#get","Spine.Unity.SkeletonPartsRenderer#init","Spine.Unity.SkeletonPartsRenderer#LazyIntialize","Spine.Unity.SkeletonPartsRenderer#ClearMesh","Spine.Unity.SkeletonPartsRenderer#RenderParts","Spine.Unity.SkeletonPartsRenderer#SetPropertyBlock","Spine.Unity.SkeletonRenderer.SpriteMaskInteractionMaterials#AnyMaterialCreated#get","Spine.Unity.SkeletonRenderer.SpriteMaskInteractionMaterials#init","Spine.Unity.SkeletonRendererCustomMaterials#init","Spine.Unity.SkeletonRendererCustomMaterials#SetCustomSlotMaterials","Spine.Unity.SkeletonRendererCustomMaterials#RemoveCustomSlotMaterials","Spine.Unity.SkeletonRendererCustomMaterials#SetCustomMaterialOverrides","Spine.Unity.SkeletonRendererCustomMaterials#RemoveCustomMaterialOverrides","Spine.Unity.SkeletonRendererCustomMaterials#OnEnable","Spine.Unity.SkeletonRendererCustomMaterials#OnDisable","Spine.Unity.SkeletonRendererCustomMaterials.AtlasMaterialOverride#inherits","Spine.Unity.SkeletonRendererCustomMaterials.AtlasMaterialOverride#getDefaultValue","Spine.Unity.SkeletonRendererCustomMaterials.AtlasMaterialOverride#ctor","Spine.Unity.SkeletonRendererCustomMaterials.AtlasMaterialOverride#equalsT","Spine.Unity.SkeletonRendererCustomMaterials.AtlasMaterialOverride#getHashCode","Spine.Unity.SkeletonRendererCustomMaterials.AtlasMaterialOverride#$clone","Spine.Unity.SkeletonRendererCustomMaterials.SlotMaterialOverride#inherits","Spine.Unity.SkeletonRendererCustomMaterials.SlotMaterialOverride#getDefaultValue","Spine.Unity.SkeletonRendererCustomMaterials.SlotMaterialOverride#ctor","Spine.Unity.SkeletonRendererCustomMaterials.SlotMaterialOverride#equalsT","Spine.Unity.SkeletonRendererCustomMaterials.SlotMaterialOverride#getHashCode","Spine.Unity.SkeletonRendererCustomMaterials.SlotMaterialOverride#$clone","Spine.Unity.SkeletonRendererInstruction#GeometryNotEqual","Spine.Unity.SkeletonRendererInstruction#init","Spine.Unity.SkeletonRendererInstruction#Clear","Spine.Unity.SkeletonRendererInstruction#Dispose","Spine.Unity.SkeletonRendererInstruction#SetWithSubset","Spine.Unity.SkeletonRendererInstruction#Set","Spine.Unity.SkeletonRenderSeparator#init","Spine.Unity.SkeletonRenderSeparator#AddToSkeletonRenderer","Spine.Unity.SkeletonRenderSeparator#SkeletonRenderer#get","Spine.Unity.SkeletonRenderSeparator#SkeletonRenderer#set","Spine.Unity.SkeletonRenderSeparator#init","Spine.Unity.SkeletonRenderSeparator#AddPartsRenderer","Spine.Unity.SkeletonRenderSeparator#OnEnable","Spine.Unity.SkeletonRenderSeparator#OnDisable","Spine.Unity.SkeletonRenderSeparator#HandleRender","Spine.Unity.SkeletonRootMotionBase.RootMotionInfo#getDefaultValue","Spine.Unity.SkeletonRootMotionBase.RootMotionInfo#init","Spine.Unity.SkeletonRootMotionBase.RootMotionInfo#ctor","Spine.Unity.SkeletonRootMotionBase.RootMotionInfo#getHashCode","Spine.Unity.SkeletonRootMotionBase.RootMotionInfo#equals","Spine.Unity.SkeletonRootMotionBase.RootMotionInfo#$clone","Spine.Unity.SkeletonSubmeshGraphic#SetMaterialDirty","Spine.Unity.SkeletonSubmeshGraphic#SetVerticesDirty","Spine.Unity.SkeletonSubmeshGraphic#OnPopulateMesh","Spine.Unity.SkeletonUtility#AddBoundingBoxGameObject","Spine.Unity.SkeletonUtility#AddBoundingBoxGameObject$1","Spine.Unity.SkeletonUtility#AddBoundingBoxAsComponent","Spine.Unity.SkeletonUtility#SetColliderPointsLocal","Spine.Unity.SkeletonUtility#GetBoundingBoxBounds","Spine.Unity.SkeletonUtility#AddBoneRigidbody2D","Spine.Unity.SkeletonUtility#SkeletonComponent#get","Spine.Unity.SkeletonUtility#Skeleton#get","Spine.Unity.SkeletonUtility#IsValid#get","Spine.Unity.SkeletonUtility#PositionScale#get","Spine.Unity.SkeletonUtility#init","Spine.Unity.SkeletonUtility#Update","Spine.Unity.SkeletonUtility#ResubscribeEvents","Spine.Unity.SkeletonUtility#OnEnable","Spine.Unity.SkeletonUtility#Start","Spine.Unity.SkeletonUtility#OnDisable","Spine.Unity.SkeletonUtility#HandleRendererReset$1","Spine.Unity.SkeletonUtility#HandleRendererReset","Spine.Unity.SkeletonUtility#RegisterBone","Spine.Unity.SkeletonUtility#UnregisterBone","Spine.Unity.SkeletonUtility#RegisterConstraint","Spine.Unity.SkeletonUtility#UnregisterConstraint","Spine.Unity.SkeletonUtility#CollectBones","Spine.Unity.SkeletonUtility#UpdateLocal","Spine.Unity.SkeletonUtility#UpdateWorld","Spine.Unity.SkeletonUtility#UpdateComplete","Spine.Unity.SkeletonUtility#UpdateAllBones","Spine.Unity.SkeletonUtility#GetBoneRoot","Spine.Unity.SkeletonUtility#SpawnRoot","Spine.Unity.SkeletonUtility#SpawnHierarchy","Spine.Unity.SkeletonUtility#SpawnBoneRecursively","Spine.Unity.SkeletonUtility#SpawnBone","Spine.Unity.SkeletonUtilityBone#BoneTransformModeIncompatible","Spine.Unity.SkeletonUtilityBone#IncompatibleTransformMode#get","Spine.Unity.SkeletonUtilityBone#init","Spine.Unity.SkeletonUtilityBone#Reset","Spine.Unity.SkeletonUtilityBone#OnEnable","Spine.Unity.SkeletonUtilityBone#HandleOnReset","Spine.Unity.SkeletonUtilityBone#OnDisable","Spine.Unity.SkeletonUtilityBone#DoUpdate","Spine.Unity.SkeletonUtilityBone#AddBoundingBox","Spine.Unity.SkeletonUtilityConstraint#OnEnable","Spine.Unity.SkeletonUtilityConstraint#OnDisable","Spine.Unity.SpineAttributeBase#init","Spine.Unity.SpineAtlasRegion#ctor","Spine.Unity.SpineAttachment.Hierarchy#getDefaultValue","Spine.Unity.SpineAttachment.Hierarchy#$ctor1","Spine.Unity.SpineAttachment.Hierarchy#ctor","Spine.Unity.SpineAttachment.Hierarchy#getHashCode","Spine.Unity.SpineAttachment.Hierarchy#equals","Spine.Unity.SpineAttachment.Hierarchy#$clone","Spine.Unity.SpineMesh#init","Spine.Unity.SpineMesh#NewSkeletonMesh","Spine.Unity.SubmeshInstruction#getDefaultValue","Spine.Unity.SubmeshInstruction#SlotCount#get","Spine.Unity.SubmeshInstruction#ctor","Spine.Unity.SubmeshInstruction#toString","Spine.Unity.SubmeshInstruction#getHashCode","Spine.Unity.SubmeshInstruction#equals","Spine.Unity.SubmeshInstruction#$clone","Spine.Unity.WaitForSpineEvent#WillUnsubscribeAfterFiring#get","Spine.Unity.WaitForSpineEvent#WillUnsubscribeAfterFiring#set","Spine.Unity.WaitForSpineEvent#System$Collections$IEnumerator$Current#get","Spine.Unity.WaitForSpineEvent#init","Spine.Unity.WaitForSpineEvent#ctor","Spine.Unity.WaitForSpineEvent#$ctor2","Spine.Unity.WaitForSpineEvent#$ctor1","Spine.Unity.WaitForSpineEvent#$ctor3","Spine.Unity.WaitForSpineEvent#Subscribe","Spine.Unity.WaitForSpineEvent#SubscribeByName","Spine.Unity.WaitForSpineEvent#HandleAnimationStateEventByName","Spine.Unity.WaitForSpineEvent#HandleAnimationStateEvent","Spine.Unity.WaitForSpineEvent#NowWaitFor","Spine.Unity.WaitForSpineEvent#NowWaitFor$1","Spine.Unity.WaitForSpineEvent#Clear","Spine.Unity.WaitForSpineEvent#System$Collections$IEnumerator$moveNext","Spine.Unity.WaitForSpineEvent#System$Collections$IEnumerator$reset","SpineSlotDebugger#SkeletonAnimation#get","SpineSlotDebugger#SlotOverrides#get","SpineSlotDebugger#ShowSlotNamesInScene#get","SpineSlotDebugger#ShowOnlySlotsWithAttachment#get","SpineSlotDebugger#AvoidSceneSlotNameOverlap#get","SpineSlotDebugger#SceneSlotNameColor#get","SpineSlotDebugger#SceneSlotNameOffset#get","SpineSlotDebugger#SelectedType#get","SpineSlotDebugger#BakedVisibleSlots#get","SpineSlotDebugger#init","SpineSlotDebugger#Reset","SpineSlotDebugger#OnEnable","SpineSlotDebugger#OnDisable","SpineSlotDebugger#OnValidate","SpineSlotDebugger#Start","SpineSlotDebugger#HandleUpdateComplete","SpineSlotDebugger#LogCurrentAttachments","SpineSlotDebugger#SetBakedVisibleSlots","SpineSlotDebugger#SetBakedVisibleSlotsForType","SpineSlotDebugger#SetBakedVisibleSlot","SpineSlotDebugger#EquipBakedSlotsByType$1","SpineSlotDebugger#EquipBakedSlotsByType","SpineSlotDebugger#UnequipBakedSlotsByType","SpineSlotDebugger#EquipBakedSlot","SpineSlotDebugger#UnequipBakedSlot","SpineSlotDebugger#SaveAttachmentBeforeEquip","SpineSlotDebugger#RestoreAttachmentBeforeEquip","SpineSlotDebugger#SetSlotOverrides","SpineSlotDebugger#GetOverride","SpineSlotDebugger#SetNullOverride","SpineSlotDebugger#SetAttachmentNameOverride","SpineSlotDebugger#RemoveOverride","SpineSlotDebugger#ApplyOverrides","SpineSlotDebugger#RestoreSlotToSetupPose","SpineSlotDebugger#RestoreSlotToSetupPose$1","SpineSlotDebugger#RestoreSlotToSetupPose$2","SpineSlotDebugger#RestoreAllSlotsToSetupPose","SpineSlotDebugger#FindAttachment","SpineSlotDebugger#GetOrCreateOverride","SpineSlotDebugger#ApplySlotOverride","SpineSlotDebugger#TryInitializeSkeleton","SpineSlotDebugger#CacheSkeletonAnimation","SpineSlotDebugger#SubscribeUpdateComplete","SpineSlotDebugger#UnsubscribeUpdateComplete","SpineSlotDebugger#RefreshMesh","StirMilestone#init","Yielders#EndOfFrame#get","Yielders#FixedUpdate#get","Yielders#init","Yielders#Get","BlinkEffect#init","BlinkEffect#SetScale","BlinkEffect#DeSpawnByTime","BlinkEffect#DeSpawn","BlinkEffect#CacheDefaultScale","BlinkEffect#ResetScale","Bread#init","Bread#KnifeOut","Bread#TurnOffClick","Bread#Undraggable","Bread#IsOnBoard","Bread#FlyToPlate","Bread#FlyToCuttingBoard","Bread#ResetType","Bread#TurnOnClickable","Bread#TurnOffClickable","Bread#ItemOnCuttingBoard","ClockTimer#Spawn","ClockTimer#SpawnUI","ClockTimer#init","ClockTimer#Awake","ClockTimer#OnEnable","ClockTimer#Update","ClockTimer#StartCountdown","ClockTimer#StopCountdown","ClockTimer#CompleteCountdown","ClockTimer#ResetFill","ClockTimer#PlayDespawn","ClockTimer#DeSpawn","ClockTimer#StartClockFx","ClockTimer#StopClockFx","ClockTimer#OnDisable","CuttingBoard#init","CuttingBoard#IsFoodOn","CuttingBoard#Punch","FlourSmoke#DeSpawnByTime","FlourSmoke#DeSpawn","GameManager#inherits","GameManager#init","GameManager#Start","GameManager#Update","GameManager#ChangeState","GameManager#IsPlaying","GameManager#SetIsPlaying","GameManager#GotoStore","GameManager#MoveOne","GameManager#TurnOffTut","GameManager#WinGame","GameManager#LoseGame","GreenPiece#DeSpawnByTime","GreenPiece#DeSpawn","HandTutManager#inherits","HandTutManager#ShouldBlockGameplayInput#get","HandTutManager#init","HandTutManager#Awake","HandTutManager#Start","HandTutManager#Update","HandTutManager#HasPlayerInput","HandTutManager#HasPlayerInputDown","HandTutManager#StartHandTutAfterTapToCook","HandTutManager#StartHandTut","HandTutManager#StartHandTutNoDelay","HandTutManager#ShowNextHandTut","HandTutManager#CheckEndPhaseCondition","HandTutManager#GetFirstTutorialReadyItem","HandTutManager#CanShowTutorialForItem","HandTutManager#IsClickableReady","HandTutManager#IsDraggableReady","HandTutManager#IsKnifeSpriteMaskCutterReady","HandTutManager#GetToolTargetingItem","HandTutManager#IsToolTargetingItem","HandTutManager#PlayClickHint","HandTutManager#PlayMoveHint","HandTutManager#PrepareHand","HandTutManager#Get2DHandPosition","HandTutManager#HideHandTut","HandTutManager#SetHandAlpha","HandTutManager#ResetIdleTimer","HandTutManager#CacheNoDelayItems","HandTutManager#ShouldSkipDelayForCurrentItem","HandTutManager#RemoveDoneAndNullItems","HandTutManager#ItemDone","HandTutManager#ItemDone$2","HandTutManager#ItemDone$1","HandTutManager#OilDone","HandTutManager#StartStoveToggleTutorial","HandTutManager#StoveToggleDone","HandTutManager#WaterToggleDone","HandTutManager#SinkBlockMoveDone","HandTutManager#RegisterBreakHeartDropFail","HandTutManager#RegisterCorrectAction","HandTutManager#RegisterItemInWater","HandTutManager#UnregisterItemInWater","HandTutManager#ShowSinkWaterHandTut","HandTutManager#HasInWaterItemNeedingHandTut","HandTutManager#ShouldShowWaterToggleHandTut","HandTutManager#ConsumeForcedNoDelay","HandTutManager#ShouldUseStartupNoDelayForItem","HandTutManager#ConsumeStartupNoDelay","HandTutManager#ConsumeStartupNoDelayForItem","HeartBreakEffect#init","HeartBreakEffect#DeSpawnByTime","HeartBreakEffect#PlaySpawn","HeartBreakEffect#PlaySpawn$1","HeartBreakEffect#PlaySpawn$2","HeartBreakEffect#PlaySpawnWithScale","HeartBreakEffect#DeSpawn","HeartBreakEffect#CacheDefaultState","HeartBreakEffect#ResetState","HeartEffect#init","HeartEffect#DeSpawnByTime","HeartEffect#PlaySpawn","HeartEffect#PlaySpawn$1","HeartEffect#PlaySpawn$2","HeartEffect#PlaySpawnWithScale","HeartEffect#DeSpawn","HeartEffect#CacheDefaultState","HeartEffect#ResetState","InputManager#inherits","InputManager#init","InputManager#Update","InputManager#HandleMouseDown","InputManager#GetFrontmostInteractableItem","InputManager#CanInteract","InputManager#TryHandleToggleButton","InputManager#HandleMouseDrag","InputManager#HandleMouseUp","InWaterItem#init","InWaterItem#Start","InWaterItem#OnEnable","InWaterItem#OnDisable","InWaterItem#LateUpdate","InWaterItem#StartTimer","InWaterItem#StartWaterEffects","InWaterItem#StopWaterEffects","InWaterItem#ShouldPlayBobEffectAfterReturn","InWaterItem#SetClean","InWaterItem#CutDone","InWaterItem#PlayAnim","InWaterItem#MoveToWater","InWaterItem#MoveToCurrentTarget","InWaterItem#JumpToPlate","InWaterItem#OnMoveIntoWaterComplete","InWaterItem#SpawnWaterSplashOnEnter","InWaterItem#OnMoveToCuttingBoardComplete","InWaterItem#OnMoveToPlateComplete","InWaterItem#InitializeMovement","InWaterItem#SubscribeMovementEvents","InWaterItem#UnsubscribeMovementEvents","InWaterItem#HandleMoveComplete","InWaterItem#ConfigureNextTarget","InWaterItem#GetNextDestination","InWaterItem#GetDestinationTarget","InWaterItem#GetTargetItem","InWaterItem#UpdateDragAvailability","InWaterItem#SetCuttingBoardAsDefaultTarget","InWaterItem#SetColliderRadiusMultiplier","InWaterItem#CacheOriginalColliderRadius","InWaterItem#SetPlateFoodShadowActive","InWaterItem#ResetChildRotate","InWaterItem#EnableKnife","InWaterItem#EnablePeeler","InWaterItem#PeelerDone","ToolObject#FlyIn","ToolObject#MoveToTarget","ToolObject#MoveAndCallBack$1","ToolObject#MoveAndCallBack","ToolObject#CallBackAfterMove","ToolObject#FlyOut","Knife#init","Knife#KnifeOnDrag","Knife#KnifeIdle","Knife#TargetKnifeFlyEvent","Knife#SetTarget","Knife#OnDragFailReturnComplete","Knife#OnKnifeDone","Knife#PlayKnifeSound","Knife#OnDisable","Knife#CacheKnifeOnDragRotation","Knife#ResetKnifeOnDragRotation","Knife#RotateKnifeOnDragTo","LoseState#OnEnter","LoseState#OnExecute","LoseState#OnExit","MergeEffect#init","MergeEffect#SetScale","MergeEffect#DeSpawnByTime","MergeEffect#DeSpawn","MergeEffect#CacheDefaultScale","MergeEffect#ResetScale","OnPlayState#OnEnter","OnPlayState#OnExecute","OnPlayState#OnExit","PhaseManager#inherits","PhaseManager#CurrentPhaseObject#get","PhaseManager#init","PhaseManager#Start","PhaseManager#OnDisable","PhaseManager#DoOneStep","PhaseManager#IsCurrentPhaseStepComplete","PhaseManager#TryEndCurrentPhase","PhaseManager#DelayGoToNextPhase","PhaseManager#PlayPhaseObjectTransition","PhaseManager#SwitchToNextPhaseBehindTransition","PhaseManager#FinishPhaseTransition","PhaseManager#GoToNextPhase","PhaseManager#StartHandTutAfterPhaseReady","Ply_Pool#inherits","Ply_Pool#init","Ply_Pool#Awake","Ply_Pool#OnInit","Ply_Pool#Spawn$1","Ply_Pool#Spawn","Ply_Pool#SpawnDirect$1","Ply_Pool#SpawnDirect","Ply_Pool#Despawn","Ply_Pool#GetPrefab","Ply_SoundManager#inherits","Ply_SoundManager#init","Ply_SoundManager#Awake","Ply_SoundManager#PlayFx","Ply_SoundManager#PlayFx$1","Ply_SoundManager#Mute","Ply_SoundManager#PlayFxLoop","Ply_SoundManager#PlayFxLoop$1","Ply_SoundManager#StopFxLoop","Ply_SoundManager#StopFxLoop$1","Ply_SoundManager#GetAudioClip","Ply_SoundManager#GetOrCreateFxSource","Ply_SoundManager#ResizeFxSources","Ply_SoundManager#SyncFxAudios","Ply_SoundManager#FindFxAudio","Ply_SoundManager#GetFxTypeCount","Ply_TransformConveyor#inherits","Ply_TransformConveyor#init","Ply_TransformConveyor#Start","Ply_TransformConveyor#Update","Ply_TransformConveyor#OnDrawGizmos","Ply_TransformConveyor#MoveOut","Ply_TransformConveyor#MoveIn","ProgressBar#Awake","ProgressBar#OnEnable","ProgressBar#StartProgress","ProgressBar#StopProgress","ProgressBar#SetProgress","ProgressBar#DeSpawn","ProgressBar#OnDisable","Sink#init","Sink#LerpRect","Sink#PlayState","Sink#DrawRectGizmo","Sink#DrawPointGizmo","Sink#WaterState#get","Sink#IsWaterTransitioning#get","Sink#init","Sink#Start","Sink#OnDisable","Sink#TurnOnWater","Sink#TurnOffWater","Sink#Close","Sink#Open","Sink#CompleteWaterRise","Sink#CompleteWaterFall","Sink#IsWaterIn","Sink#NoWaterIn","Sink#CheckEndPhaseCondition","Sink#PlayWaterOutSound","Sink#RegisterInWaterItem","Sink#UnregisterInWaterItem","Sink#InitializeState","Sink#EnsureInitialized","Sink#EvaluateStableState","Sink#BeginWaterRise","Sink#BeginWaterFall","Sink#PauseWaterRise","Sink#EndTransition","Sink#ApplyStableVisuals","Sink#PlayBasinEmpty","Sink#GetFaucetStateHash","Sink#CacheBasinWaterRenderer","Sink#TweenWaterLevel","Sink#CacheWaterDropTransform","Sink#ApplyWaterDropPosition","Sink#GetCurrentWaterRect","Sink#GetCurrentWaterLevel","Sink#ApplyWaterRect","Sink#SetWaterIn","Sink#StartInWaterItems","Sink#StopInWaterItems","Sink#SetFaucetActive","Sink#SetBasinActive","Sink#OnDrawGizmosSelected","Sink#DrawPointLineGizmo","SinkBlock#IsInside#get","SinkBlock#init","SinkBlock#Start","SinkBlock#OnEnable","SinkBlock#OnDisable","SinkBlock#Initialize","SinkBlock#Subscribe","SinkBlock#Unsubscribe","SinkBlock#HandleDropSuccess","SinkBlock#MoveToNextLocation","SinkBlock#HandleMoveComplete","SinkBlock#ApplyCurrentLocation","SinkBlock#UpdateDragAvailability","Spine.Unity.BlendModeMaterialsAsset#ApplyMaterials","Spine.Unity.BlendModeMaterialsAsset#init","Spine.Unity.BlendModeMaterialsAsset#Apply","Spine.Unity.SkeletonMecanimRootMotion#init","Spine.Unity.SkeletonMecanimRootMotion#SkeletonMecanim#get","Spine.Unity.SkeletonMecanimRootMotion#init","Spine.Unity.SkeletonMecanimRootMotion#GetRemainingRootMotion","Spine.Unity.SkeletonMecanimRootMotion#GetRootMotionInfo","Spine.Unity.SkeletonMecanimRootMotion#Reset","Spine.Unity.SkeletonMecanimRootMotion#Start","Spine.Unity.SkeletonMecanimRootMotion#OnClipApplied","Spine.Unity.SkeletonMecanimRootMotion#CalculateAnimationsMovementDelta","Spine.Unity.SkeletonRootMotion#init","Spine.Unity.SkeletonRootMotion#AdditionalScale#get","Spine.Unity.SkeletonRootMotion#init","Spine.Unity.SkeletonRootMotion#GetRemainingRootMotion","Spine.Unity.SkeletonRootMotion#GetRootMotionInfo","Spine.Unity.SkeletonRootMotion#Reset","Spine.Unity.SkeletonRootMotion#Start","Spine.Unity.SkeletonRootMotion#CalculateAnimationsMovementDelta","Spine.Unity.SkeletonRootMotion#ApplyMixAlphaToDelta","Spine.Unity.SpineAnimation#ctor","Spine.Unity.SpineAtlasAsset#CreateRuntimeInstance","Spine.Unity.SpineAtlasAsset#CreateRuntimeInstance$1","Spine.Unity.SpineAtlasAsset#CreateRuntimeInstance$2","Spine.Unity.SpineAtlasAsset#IsLoaded#get","Spine.Unity.SpineAtlasAsset#Materials#get","Spine.Unity.SpineAtlasAsset#MaterialCount#get","Spine.Unity.SpineAtlasAsset#PrimaryMaterial#get","Spine.Unity.SpineAtlasAsset#Reset","Spine.Unity.SpineAtlasAsset#Clear","Spine.Unity.SpineAtlasAsset#GetAtlas","Spine.Unity.SpineAtlasAsset#GenerateMesh","Spine.Unity.SpineAttachment#getHierarchy","Spine.Unity.SpineAttachment#getAttachment","Spine.Unity.SpineAttachment#getAttachment$1","Spine.Unity.SpineAttachment#init","Spine.Unity.SpineAttachment#ctor","Spine.Unity.SpineBone#getBone","Spine.Unity.SpineBone#getBoneData","Spine.Unity.SpineBone#ctor","Spine.Unity.SpineEvent#init","Spine.Unity.SpineEvent#ctor","Spine.Unity.SpineIkConstraint#ctor","Spine.Unity.SpinePathConstraint#ctor","Spine.Unity.SpineSkin#init","Spine.Unity.SpineSkin#ctor","Spine.Unity.SpineSlot#init","Spine.Unity.SpineSlot#ctor","Spine.Unity.SpineSpriteAtlasAsset#CreateRuntimeInstance","Spine.Unity.SpineSpriteAtlasAsset#AccessPackedTexture","Spine.Unity.SpineSpriteAtlasAsset#AccessPackedSprites","Spine.Unity.SpineSpriteAtlasAsset#IsLoaded#get","Spine.Unity.SpineSpriteAtlasAsset#Materials#get","Spine.Unity.SpineSpriteAtlasAsset#MaterialCount#get","Spine.Unity.SpineSpriteAtlasAsset#PrimaryMaterial#get","Spine.Unity.SpineSpriteAtlasAsset#Reset","Spine.Unity.SpineSpriteAtlasAsset#Clear","Spine.Unity.SpineSpriteAtlasAsset#GetAtlas","Spine.Unity.SpineSpriteAtlasAsset#AssignRegionsFromSavedRegions","Spine.Unity.SpineSpriteAtlasAsset#LoadAtlas","Spine.Unity.SpineTransformConstraint#ctor","StarExploreFX#DeSpawnByTime","StarExploreFX#DeSpawn","UIManager#inherits","UIManager#init","UIManager#OnValidate","UIManager#Start","UIManager#Update","UIManager#DelayUpdateUIRoutine","UIManager#UpdateUI","UIManager#GetScreenSize","UIManager#GetSreenType","UIManager#ScreenScale","UIManager#GetTargetOrthographicSize","UIManager#GetLandscapeSize","UIManager#GetDefaultPortraitSize","UIManager#ApplyCameraScale","UIManager#CachePerspectiveCamera","UIManager#GetInitialPerspectiveFocusDistance","UIManager#FitPerspectiveCameraToSize","UIManager#TryGetRendererBounds","UIManager#EncapsulateRenderer","UIManager#FitPerspectiveCameraToBounds","UIManager#ActiveGameWinUI","UIManager#ActiveGameLoseUI","UIManager#ActiveTutorialUI","WaitingState#OnEnter","WaitingState#OnExecute","WaitingState#OnExit","WaterSplash#DeSpawnByTime","WaterSplash#DeSpawn","WinState#OnEnter","WinState#OnExecute","WinState#OnExit","YellowPiece#DeSpawnByTime","YellowPiece#DeSpawn","CuttingItem#TurnOnCutting","CuttingItem#FlyToCuttingBoard","CuttingItem#TurnOffClick","CuttingItem#TurnOnKnifeCutter","CuttingItem#TurnOffAnim","ItemFlyIn#FlyIn","ItemFlyIn#OnFlyInComplete","Plate#FlyIn","Plate#FlyOut$1","Plate#FlyOut$2","Plate#SpawnFX","Spine.Unity.AnimationReferenceAsset#init","Spine.Unity.AnimationReferenceAsset#op_Implicit","Spine.Unity.AnimationReferenceAsset#SkeletonDataAsset#get","Spine.Unity.AnimationReferenceAsset#Animation#get","Spine.Unity.AnimationReferenceAsset#Clear","Spine.Unity.AnimationReferenceAsset#Initialize","Spine.Unity.PointFollower#SkeletonRenderer#get","Spine.Unity.PointFollower#SkeletonComponent#get","Spine.Unity.PointFollower#IsValid#get","Spine.Unity.PointFollower#init","Spine.Unity.PointFollower#Initialize","Spine.Unity.PointFollower#HandleRebuildRenderer","Spine.Unity.PointFollower#UpdateReferences","Spine.Unity.PointFollower#OnDestroy","Spine.Unity.PointFollower#LateUpdate","Spine.Unity.SkeletonRenderer#init","Spine.Unity.SkeletonRenderer#NewSpineGameObject","Spine.Unity.SkeletonRenderer#AddSpineComponent","Spine.Unity.SkeletonRenderer#UpdateMode#get","Spine.Unity.SkeletonRenderer#UpdateMode#set","Spine.Unity.SkeletonRenderer#CustomMaterialOverride#get","Spine.Unity.SkeletonRenderer#CustomSlotMaterials#get","Spine.Unity.SkeletonRenderer#Skeleton#get","Spine.Unity.SkeletonRenderer#SkeletonDataAsset#get","Spine.Unity.SkeletonRenderer#init","Spine.Unity.SkeletonRenderer#addGenerateMeshOverride","Spine.Unity.SkeletonRenderer#removeGenerateMeshOverride","Spine.Unity.SkeletonRenderer#SetMeshSettings","Spine.Unity.SkeletonRenderer#Awake","Spine.Unity.SkeletonRenderer#OnDisable","Spine.Unity.SkeletonRenderer#OnDestroy","Spine.Unity.SkeletonRenderer#ClearState","Spine.Unity.SkeletonRenderer#EnsureMeshGeneratorCapacity","Spine.Unity.SkeletonRenderer#Initialize","Spine.Unity.SkeletonRenderer#LateUpdate","Spine.Unity.SkeletonRenderer#LateUpdateMesh","Spine.Unity.SkeletonRenderer#OnBecameVisible","Spine.Unity.SkeletonRenderer#OnBecameInvisible","Spine.Unity.SkeletonRenderer#FindAndApplySeparatorSlots$1","Spine.Unity.SkeletonRenderer#FindAndApplySeparatorSlots","Spine.Unity.SkeletonRenderer#ReapplySeparatorSlotNames","Spine.Unity.SkeletonRenderer#AssignSpriteMaskMaterials","Spine.Unity.SkeletonRenderer#InitSpriteMaskMaterialsInsideMask","Spine.Unity.SkeletonRenderer#InitSpriteMaskMaterialsOutsideMask","Spine.Unity.SkeletonRenderer#InitSpriteMaskMaterialsForMaskType","Spine.Unity.SkeletonRenderer#SetMaterialSettingsToFixDrawOrder","Spine.Unity.SkeletonGraphic#init","Spine.Unity.SkeletonGraphic#NewSkeletonGraphicGameObject","Spine.Unity.SkeletonGraphic#AddSkeletonGraphicComponent","Spine.Unity.SkeletonGraphic#SkeletonDataAsset#get","Spine.Unity.SkeletonGraphic#UpdateMode#get","Spine.Unity.SkeletonGraphic#UpdateMode#set","Spine.Unity.SkeletonGraphic#SeparatorParts#get","Spine.Unity.SkeletonGraphic#CustomTextureOverride#get","Spine.Unity.SkeletonGraphic#CustomMaterialOverride#get","Spine.Unity.SkeletonGraphic#OverrideTexture#get","Spine.Unity.SkeletonGraphic#OverrideTexture#set","Spine.Unity.SkeletonGraphic#mainTexture#get","Spine.Unity.SkeletonGraphic#Skeleton#get","Spine.Unity.SkeletonGraphic#Skeleton#set","Spine.Unity.SkeletonGraphic#SkeletonData#get","Spine.Unity.SkeletonGraphic#IsValid#get","Spine.Unity.SkeletonGraphic#AnimationState#get","Spine.Unity.SkeletonGraphic#MeshGenerator#get","Spine.Unity.SkeletonGraphic#init","Spine.Unity.SkeletonGraphic#Awake","Spine.Unity.SkeletonGraphic#OnDestroy","Spine.Unity.SkeletonGraphic#Rebuild","Spine.Unity.SkeletonGraphic#OnDisable","Spine.Unity.SkeletonGraphic#Update","Spine.Unity.SkeletonGraphic#Update$1","Spine.Unity.SkeletonGraphic#SyncSubmeshGraphicsWithCanvasRenderers","Spine.Unity.SkeletonGraphic#UpdateAnimationStatus","Spine.Unity.SkeletonGraphic#ApplyAnimation","Spine.Unity.SkeletonGraphic#LateUpdate","Spine.Unity.SkeletonGraphic#OnCullStateChanged","Spine.Unity.SkeletonGraphic#OnBecameVisible","Spine.Unity.SkeletonGraphic#OnBecameInvisible","Spine.Unity.SkeletonGraphic#ReapplySeparatorSlotNames","Spine.Unity.SkeletonGraphic#GetLastMesh","Spine.Unity.SkeletonGraphic#MatchRectTransformWithBounds","Spine.Unity.SkeletonGraphic#MatchRectTransformSingleRenderer","Spine.Unity.SkeletonGraphic#MatchRectTransformMultipleRenderers","Spine.Unity.SkeletonGraphic#SetRectTransformBounds","Spine.Unity.SkeletonGraphic#Clear","Spine.Unity.SkeletonGraphic#TrimRenderers","Spine.Unity.SkeletonGraphic#Initialize","Spine.Unity.SkeletonGraphic#UpdateMesh","Spine.Unity.SkeletonGraphic#HasMultipleSubmeshInstructions","Spine.Unity.SkeletonGraphic#InitMeshBuffers","Spine.Unity.SkeletonGraphic#DisposeMeshBuffers","Spine.Unity.SkeletonGraphic#UpdateMeshSingleCanvasRenderer","Spine.Unity.SkeletonGraphic#UpdateMeshMultipleCanvasRenderers","Spine.Unity.SkeletonGraphic#EnsureCanvasRendererCount","Spine.Unity.SkeletonGraphic#DisableUnusedCanvasRenderers","Spine.Unity.SkeletonGraphic#EnsureMeshesCount","Spine.Unity.SkeletonGraphic#DestroyMeshes","Spine.Unity.SkeletonGraphic#EnsureSeparatorPartCount","Spine.Unity.SkeletonGraphic#UpdateSeparatorPartParents","Spine.Unity.SkeletonAnimation#AddToGameObject","Spine.Unity.SkeletonAnimation#NewSkeletonAnimationGameObject","Spine.Unity.SkeletonAnimation#AnimationState#get","Spine.Unity.SkeletonAnimation#AnimationName#get","Spine.Unity.SkeletonAnimation#AnimationName#set","Spine.Unity.SkeletonAnimation#init","Spine.Unity.SkeletonAnimation#addBeforeApply","Spine.Unity.SkeletonAnimation#removeBeforeApply","Spine.Unity.SkeletonAnimation#addUpdateLocal","Spine.Unity.SkeletonAnimation#removeUpdateLocal","Spine.Unity.SkeletonAnimation#addUpdateWorld","Spine.Unity.SkeletonAnimation#removeUpdateWorld","Spine.Unity.SkeletonAnimation#addUpdateComplete","Spine.Unity.SkeletonAnimation#removeUpdateComplete","Spine.Unity.SkeletonAnimation#ClearState","Spine.Unity.SkeletonAnimation#Initialize","Spine.Unity.SkeletonAnimation#Update$1","Spine.Unity.SkeletonAnimation#Update","Spine.Unity.SkeletonAnimation#UpdateAnimationStatus","Spine.Unity.SkeletonAnimation#ApplyAnimation","Spine.Unity.SkeletonAnimation#LateUpdate","Spine.Unity.SkeletonAnimation#OnBecameVisible","Spine.Unity.SkeletonMecanim#Translator#get","Spine.Unity.SkeletonMecanim#init","Spine.Unity.SkeletonMecanim#addBeforeApply","Spine.Unity.SkeletonMecanim#removeBeforeApply","Spine.Unity.SkeletonMecanim#addUpdateLocal","Spine.Unity.SkeletonMecanim#removeUpdateLocal","Spine.Unity.SkeletonMecanim#addUpdateWorld","Spine.Unity.SkeletonMecanim#removeUpdateWorld","Spine.Unity.SkeletonMecanim#addUpdateComplete","Spine.Unity.SkeletonMecanim#removeUpdateComplete","Spine.Unity.SkeletonMecanim#Initialize","Spine.Unity.SkeletonMecanim#Update","Spine.Unity.SkeletonMecanim#ApplyAnimation","Spine.Unity.SkeletonMecanim#LateUpdate","Spine.Unity.SkeletonMecanim#OnBecameVisible","Spoon#init","Spoon#OnFlyInComplete"]' ) ); }
 /**
- * @version 1.0.9662.18508
+ * @version 1.0.9663.30921
  * @copyright anton
  * @compiler Bridge.NET 17.9.42-luna
  */
@@ -33,6 +33,9 @@ Bridge.assembly("UnityScriptsCompiler", function ($asm, globals) {
             spriteRenderer: null,
             onKnifeIn: null,
             heartEffectScale: 0,
+            breakHeartEffectScale: 0,
+            blinkEffectScale: 0,
+            mergeEffectScale: 0,
             playMoveToTargetFinishSound: false,
             moveToTargetFinishFxType: 0
         },
@@ -43,6 +46,9 @@ if ( TRACE ) { TRACE( "Item#init", this ); }
                 this.isDone = false;
                 this.onProcess = false;
                 this.heartEffectScale = 1.0;
+                this.breakHeartEffectScale = 1.0;
+                this.blinkEffectScale = 1.0;
+                this.mergeEffectScale = 1.0;
                 this.playMoveToTargetFinishSound = false;
                 this.moveToTargetFinishFxType = FxType.Complete;
             }
@@ -167,7 +173,7 @@ if ( TRACE ) { TRACE( "Item#SpawnHeart", this ); }
                         return;
                     }
                     heartEffect.transform.localRotation = pc.Quat.IDENTITY.clone();
-                    heartEffect.PlaySpawnWithScale(this.heartEffectScale);
+                    heartEffect.PlaySpawnWithScale(this.breakHeartEffectScale);
                 } else {
                     var heartEffect1 = Ply_Singleton$1(Ply_Pool).Ins.Spawn(HeartEffect, PoolType.HeartFX, this.transform.position, this.transform.rotation);
                     if (UnityEngine.MonoBehaviour.op_Equality(heartEffect1, null)) {
@@ -260,15 +266,43 @@ if ( TRACE ) { TRACE( "Item#SpawnYellowPiece", this ); }
             },
             /*Item.SpawnYellowPiece end.*/
 
+            /*Item.SpawnWaterSplash start.*/
+            SpawnWaterSplash: function (position) {
+if ( TRACE ) { TRACE( "Item#SpawnWaterSplash", this ); }
+
+                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.FoodToWater);
+                var waterSplash = Ply_Singleton$1(Ply_Pool).Ins.Spawn(WaterSplash, PoolType.WaterSplash, position, this.transform.rotation);
+                waterSplash.DeSpawnByTime();
+            },
+            /*Item.SpawnWaterSplash end.*/
+
             /*Item.SpawnBlinkEffect start.*/
             SpawnBlinkEffect: function () {
 if ( TRACE ) { TRACE( "Item#SpawnBlinkEffect", this ); }
 
+                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Blink);
                 var blinkEffect = Ply_Singleton$1(Ply_Pool).Ins.Spawn(BlinkEffect, PoolType.BlinkFX, this.transform.position, this.transform.rotation);
+                if (UnityEngine.MonoBehaviour.op_Equality(blinkEffect, null)) {
+                    return;
+                }
                 blinkEffect.tf.SetParent(this.transform);
+                blinkEffect.SetScale(this.blinkEffectScale);
                 blinkEffect.DeSpawnByTime();
             },
             /*Item.SpawnBlinkEffect end.*/
+
+            /*Item.SpawnMergeEffect start.*/
+            SpawnMergeEffect: function () {
+if ( TRACE ) { TRACE( "Item#SpawnMergeEffect", this ); }
+
+                var mergeEffect = Ply_Singleton$1(Ply_Pool).Ins.Spawn(MergeEffect, PoolType.MergeVFX, this.transform.position, this.transform.rotation);
+                if (UnityEngine.MonoBehaviour.op_Equality(mergeEffect, null)) {
+                    return;
+                }
+                mergeEffect.SetScale(this.mergeEffectScale);
+                mergeEffect.DeSpawnByTime();
+            },
+            /*Item.SpawnMergeEffect end.*/
 
             /*Item.PlayMoveToTargetFinishSound start.*/
             PlayMoveToTargetFinishSound: function () {
@@ -282,65 +316,61 @@ if ( TRACE ) { TRACE( "Item#PlayMoveToTargetFinishSound", this ); }
             },
             /*Item.PlayMoveToTargetFinishSound end.*/
 
-            /*Item.PlayOilInSound start.*/
-            PlayOilInSound: function () {
-if ( TRACE ) { TRACE( "Item#PlayOilInSound", this ); }
+            /*Item.PlaySoundFX start.*/
+            PlaySoundFX: function (fxType) {
+if ( TRACE ) { TRACE( "Item#PlaySoundFX", this ); }
 
-                if (UnityEngine.MonoBehaviour.op_Equality(Ply_Singleton$1(Ply_SoundManager).Ins, null)) {
-                    return;
-                }
-
-                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.OilIn);
+                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(fxType);
             },
-            /*Item.PlayOilInSound end.*/
+            /*Item.PlaySoundFX end.*/
 
-            /*Item.PlayJumpSound start.*/
-            PlayJumpSound: function () {
-if ( TRACE ) { TRACE( "Item#PlayJumpSound", this ); }
+            /*Item.PlayKnifeCutSound start.*/
+            PlayKnifeCutSound: function () {
+if ( TRACE ) { TRACE( "Item#PlayKnifeCutSound", this ); }
 
-                if (UnityEngine.MonoBehaviour.op_Equality(Ply_Singleton$1(Ply_SoundManager).Ins, null)) {
-                    return;
-                }
-
-                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Jump);
+                this.PlaySoundFX(FxType.KnifeCut);
             },
-            /*Item.PlayJumpSound end.*/
+            /*Item.PlayKnifeCutSound end.*/
 
-            /*Item.PlayDropSound start.*/
-            PlayDropSound: function () {
-if ( TRACE ) { TRACE( "Item#PlayDropSound", this ); }
+            /*Item.PlayKnifeSwingSound start.*/
+            PlayKnifeSwingSound: function () {
+if ( TRACE ) { TRACE( "Item#PlayKnifeSwingSound", this ); }
 
-                if (UnityEngine.MonoBehaviour.op_Equality(Ply_Singleton$1(Ply_SoundManager).Ins, null)) {
-                    return;
-                }
-
-                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Drop);
+                this.PlaySoundFX(FxType.KnifeSwing);
             },
-            /*Item.PlayDropSound end.*/
+            /*Item.PlayKnifeSwingSound end.*/
 
-            /*Item.PlayEggCrackSound start.*/
-            PlayEggCrackSound: function () {
-if ( TRACE ) { TRACE( "Item#PlayEggCrackSound", this ); }
+            /*Item.PlayKnifePlaceSound start.*/
+            PlayKnifePlaceSound: function () {
+if ( TRACE ) { TRACE( "Item#PlayKnifePlaceSound", this ); }
 
-                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.EggCrack);
+                this.PlaySoundFX(FxType.KnifePlace);
             },
-            /*Item.PlayEggCrackSound end.*/
+            /*Item.PlayKnifePlaceSound end.*/
 
-            /*Item.PlayPourSaltSound start.*/
-            PlayPourSaltSound: function () {
-if ( TRACE ) { TRACE( "Item#PlayPourSaltSound", this ); }
+            /*Item.PlayLemonJuiceSound start.*/
+            PlayLemonJuiceSound: function () {
+if ( TRACE ) { TRACE( "Item#PlayLemonJuiceSound", this ); }
 
-                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.PourSalt);
+                this.PlaySoundFX(FxType.LemonJuice);
             },
-            /*Item.PlayPourSaltSound end.*/
+            /*Item.PlayLemonJuiceSound end.*/
 
-            /*Item.PlayPlasticSound start.*/
-            PlayPlasticSound: function () {
-if ( TRACE ) { TRACE( "Item#PlayPlasticSound", this ); }
+            /*Item.PlayWipeSound start.*/
+            PlayWipeSound: function () {
+if ( TRACE ) { TRACE( "Item#PlayWipeSound", this ); }
 
-                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Plastic);
+                this.PlaySoundFX(FxType.Wipe);
             },
-            /*Item.PlayPlasticSound end.*/
+            /*Item.PlayWipeSound end.*/
+
+            /*Item.PlayPeerSound start.*/
+            PlayPeerSound: function () {
+if ( TRACE ) { TRACE( "Item#PlayPeerSound", this ); }
+
+                this.PlaySoundFX(FxType.Peer);
+            },
+            /*Item.PlayPeerSound end.*/
 
 
         }
@@ -3509,6 +3539,186 @@ if ( TRACE ) { TRACE( "DG.Tweening.DOTweenModuleUtils.Physics#CreateDOTweenPathT
     });
     /*DG.Tweening.DOTweenModuleUtils+Physics end.*/
 
+    /*DuckManager start.*/
+    Bridge.define("DuckManager", {
+        inherits: [UnityEngine.MonoBehaviour],
+        fields: {
+            leftPoints: null,
+            rightPoints: null,
+            minSpawnInterval: 0,
+            maxSpawnInterval: 0,
+            moveSpeed: 0,
+            duckSoundChance: 0,
+            spawnCoroutine: null
+        },
+        ctors: {
+            init: function () {
+if ( TRACE ) { TRACE( "DuckManager#init", this ); }
+
+                this.leftPoints = System.Array.init(2, null, UnityEngine.Transform);
+                this.rightPoints = System.Array.init(2, null, UnityEngine.Transform);
+                this.minSpawnInterval = 1.0;
+                this.maxSpawnInterval = 3.0;
+                this.moveSpeed = 2.0;
+                this.duckSoundChance = 0.3;
+            }
+        },
+        methods: {
+            /*DuckManager.OnEnable start.*/
+            OnEnable: function () {
+if ( TRACE ) { TRACE( "DuckManager#OnEnable", this ); }
+
+                this.spawnCoroutine = this.StartCoroutine$1(this.SpawnLoop());
+            },
+            /*DuckManager.OnEnable end.*/
+
+            /*DuckManager.OnDisable start.*/
+            OnDisable: function () {
+if ( TRACE ) { TRACE( "DuckManager#OnDisable", this ); }
+
+                if (this.spawnCoroutine != null) {
+                    this.StopCoroutine$2(this.spawnCoroutine);
+                    this.spawnCoroutine = null;
+                }
+            },
+            /*DuckManager.OnDisable end.*/
+
+            /*DuckManager.SpawnLoop start.*/
+            SpawnLoop: function () {
+if ( TRACE ) { TRACE( "DuckManager#SpawnLoop", this ); }
+
+                var $step = 0,
+                    $jumpFromFinally,
+                    $returnValue,
+                    interval,
+                    $async_e;
+
+                var $enumerator = new Bridge.GeneratorEnumerator(Bridge.fn.bind(this, function () {
+                    try {
+                        for (;;) {
+                            switch ($step) {
+                                case 0: {
+                                    if ( UnityEngine.MonoBehaviour.op_Equality(Ply_Singleton$1(Ply_Pool).Ins, null) ) {
+                                            $step = 1;
+                                            continue;
+                                        } 
+                                        $step = 3;
+                                        continue;
+                                }
+                                case 1: {
+                                    $enumerator.current = null;
+                                        $step = 2;
+                                        return true;
+                                }
+                                case 2: {
+                                    
+                                        $step = 0;
+                                        continue;
+                                }
+                                case 3: {
+                                    this.SpawnDuck();
+                                    $step = 4;
+                                    continue;
+                                }
+                                case 4: {
+                                    if ( true ) {
+                                            $step = 5;
+                                            continue;
+                                        } 
+                                        $step = 7;
+                                        continue;
+                                }
+                                case 5: {
+                                    interval = UnityEngine.Random.Range$1(UnityEngine.Mathf.Min(this.minSpawnInterval, this.maxSpawnInterval), UnityEngine.Mathf.Max(this.minSpawnInterval, this.maxSpawnInterval));
+
+                                        $enumerator.current = Yielders.Get(interval);
+                                        $step = 6;
+                                        return true;
+                                }
+                                case 6: {
+                                    this.SpawnDuck();
+
+                                        $step = 4;
+                                        continue;
+                                }
+                                case 7: {
+
+                                }
+                                default: {
+                                    return false;
+                                }
+                            }
+                        }
+                    } catch($async_e1) {
+                        $async_e = System.Exception.create($async_e1);
+                        throw $async_e;
+                    }
+                }));
+                return $enumerator;
+            },
+            /*DuckManager.SpawnLoop end.*/
+
+            /*DuckManager.SpawnDuck start.*/
+            SpawnDuck: function () {
+if ( TRACE ) { TRACE( "DuckManager#SpawnDuck", this ); }
+
+                var laneIndex = this.GetRandomValidLaneIndex();
+                if (laneIndex < 0 || UnityEngine.MonoBehaviour.op_Equality(Ply_Singleton$1(Ply_Pool).Ins, null)) {
+                    return;
+                }
+
+                var startPoint = this.leftPoints[laneIndex];
+                var targetPoint = this.rightPoints[laneIndex];
+                var duck = Ply_Singleton$1(Ply_Pool).Ins.Spawn$1(PoolType.Duck, startPoint.position, startPoint.rotation);
+
+                if (UnityEngine.MonoBehaviour.op_Equality(duck, null)) {
+                    return;
+                }
+
+                DG.Tweening.ShortcutExtensions.DOKill(duck.tf);
+                var distance = pc.Vec3.distance( startPoint.position, targetPoint.position );
+                var duration = distance / UnityEngine.Mathf.Max(0.01, this.moveSpeed);
+                DG.Tweening.TweenSettingsExtensions.OnComplete(DG.Tweening.Core.TweenerCore$3(UnityEngine.Vector3,UnityEngine.Vector3,DG.Tweening.Plugins.Options.VectorOptions), DG.Tweening.TweenSettingsExtensions.SetEase$2(DG.Tweening.Core.TweenerCore$3(UnityEngine.Vector3,UnityEngine.Vector3,DG.Tweening.Plugins.Options.VectorOptions), DG.Tweening.ShortcutExtensions.DOMove(duck.tf, targetPoint.position.$clone(), duration), DG.Tweening.Ease.Linear), function () {
+                    DG.Tweening.ShortcutExtensions.DOKill(duck.tf);
+                    UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(Ply_Pool).Ins, null) ? Ply_Singleton$1(Ply_Pool).Ins.Despawn(PoolType.Duck, duck) : null;
+                });
+
+                if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(Ply_SoundManager).Ins, null) && UnityEngine.Random.value <= this.duckSoundChance) {
+                    // Ply_SoundManager.Ins.PlayFx(FxType.DuckSound);
+                }
+            },
+            /*DuckManager.SpawnDuck end.*/
+
+            /*DuckManager.GetRandomValidLaneIndex start.*/
+            GetRandomValidLaneIndex: function () {
+if ( TRACE ) { TRACE( "DuckManager#GetRandomValidLaneIndex", this ); }
+
+                if (this.leftPoints == null || this.rightPoints == null) {
+                    return -1;
+                }
+
+                var laneCount = UnityEngine.Mathf.Min(this.leftPoints.length, this.rightPoints.length);
+                if (laneCount === 0) {
+                    return -1;
+                }
+
+                var startIndex = UnityEngine.Random.Range(0, laneCount);
+                for (var i = 0; i < laneCount; i = (i + 1) | 0) {
+                    var laneIndex = (((startIndex + i) | 0)) % laneCount;
+                    if (UnityEngine.Component.op_Inequality(this.leftPoints[laneIndex], null) && UnityEngine.Component.op_Inequality(this.rightPoints[laneIndex], null)) {
+                        return laneIndex;
+                    }
+                }
+
+                return -1;
+            },
+            /*DuckManager.GetRandomValidLaneIndex end.*/
+
+
+        }
+    });
+    /*DuckManager end.*/
+
     /*FxType start.*/
     Bridge.define("FxType", {
         $kind: 6,
@@ -3519,21 +3729,18 @@ if ( TRACE ) { TRACE( "DG.Tweening.DOTweenModuleUtils.Physics#CreateDOTweenPathT
                 Jump: 2,
                 Swipe: 3,
                 Complete: 4,
-                Frying: 5,
-                OilIn: 6,
-                FoodDone: 7,
-                Wrong: 8,
-                FoodToBowl: 9,
-                TurnOn: 10,
-                EggCrack: 11,
-                PourSalt: 12,
-                Clock: 13,
-                Plastic: 14,
-                ChangePhase: 15,
-                SpoonStirring: 16,
-                WaterDrop: 17,
-                FlourDrop: 18,
-                DuckSound: 19
+                WaterDrop: 5,
+                FoodToWater: 6,
+                KnifeCut: 7,
+                KnifeSwing: 8,
+                KnifePlace: 9,
+                PlaceVege: 10,
+                LemonJuice: 11,
+                ItemPlace: 12,
+                Blink: 13,
+                Failed: 14,
+                Wipe: 15,
+                Peer: 16
             }
         }
     });
@@ -3824,6 +4031,8 @@ if ( TRACE ) { TRACE( "ItemClickable#PlayPopSound", this ); }
             playReturnToStartFinishSound: false,
             returnToStartFinishFxType: 0,
             spawnBreakHeartOnDropFail: false,
+            playBeginDragSound: false,
+            beginDragFxType: 0,
             liftOffset: 0,
             onBeginDrag: null,
             onDropSuccess: null,
@@ -3855,8 +4064,10 @@ if ( TRACE ) { TRACE( "ItemDraggable#init", this ); }
                 this.returnToExactReturnTransformPosition = true;
                 this.checkState = false;
                 this.playReturnToStartFinishSound = false;
-                this.returnToStartFinishFxType = FxType.Wrong;
+                this.returnToStartFinishFxType = FxType.Failed;
                 this.spawnBreakHeartOnDropFail = true;
+                this.playBeginDragSound = true;
+                this.beginDragFxType = FxType.Click;
                 this.liftOffset = 1.0;
                 this.spawnHeartOnReturnComplete = true;
             }
@@ -3980,7 +4191,7 @@ if ( TRACE ) { TRACE( "ItemDraggable#BeginDrag", this ); }
 
                 this.SetShadowActive(false);
 
-                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Click);
+                this.PlayBeginDragSound();
 
                 this.transform.SetParent(this.originalParent);
 
@@ -4037,7 +4248,10 @@ if ( TRACE ) { TRACE( "ItemDraggable#EndDrag", this ); }
                             continue;
                         }
 
-                        if (targetItem.itemType === this.targetItemType) {
+                        var matchesTargetType = targetItem.itemType === this.targetItemType;
+                        var matchesDefaultTarget = UnityEngine.MonoBehaviour.op_Inequality(this.item, null) && UnityEngine.MonoBehaviour.op_Inequality(this.item.itemMoveToTarget, null) && UnityEngine.Component.op_Inequality(this.item.itemMoveToTarget.defaultTarget, null) && UnityEngine.Component.op_Equality(targetItem.transform, this.item.itemMoveToTarget.defaultTarget);
+
+                        if (matchesTargetType || matchesDefaultTarget) {
                             isHitValid = true;
                             break;
                         }
@@ -4048,11 +4262,16 @@ if ( TRACE ) { TRACE( "ItemDraggable#EndDrag", this ); }
 
                 if (isHitValid) {
                     this.ResetScale();
+                    UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(HandTutManager).Ins, null) ? Ply_Singleton$1(HandTutManager).Ins.RegisterCorrectAction() : null;
                     this.onDropSuccess != null ? this.onDropSuccess.Invoke() : null;
                 } else {
                     this.ResetScale();
                     this.onDropFail != null ? this.onDropFail.Invoke() : null;
                     if (!this.consumeCurrentDropFail) {
+                        if (this.spawnBreakHeartOnDropFail) {
+                            UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(HandTutManager).Ins, null) ? Ply_Singleton$1(HandTutManager).Ins.RegisterBreakHeartDropFail() : null;
+                        }
+
                         this.ReturnToStart$1(this.spawnBreakHeartOnDropFail);
                     }
                 }
@@ -4149,6 +4368,18 @@ if ( TRACE ) { TRACE( "ItemDraggable#PlayDragScale", this ); }
                 this.scaleTween = DG.Tweening.TweenSettingsExtensions.SetEase$2(DG.Tweening.Core.TweenerCore$3(UnityEngine.Vector3,UnityEngine.Vector3,DG.Tweening.Plugins.Options.VectorOptions), DG.Tweening.ShortcutExtensions.DOScale$1(this.transform, this.originalScale.$clone().clone().scale( 1.1 ), 0.15), DG.Tweening.Ease.OutBack);
             },
             /*ItemDraggable.PlayDragScale end.*/
+
+            /*ItemDraggable.PlayBeginDragSound start.*/
+            PlayBeginDragSound: function () {
+if ( TRACE ) { TRACE( "ItemDraggable#PlayBeginDragSound", this ); }
+
+                if (!this.playBeginDragSound || UnityEngine.MonoBehaviour.op_Equality(Ply_Singleton$1(Ply_SoundManager).Ins, null)) {
+                    return;
+                }
+
+                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(this.beginDragFxType);
+            },
+            /*ItemDraggable.PlayBeginDragSound end.*/
 
             /*ItemDraggable.OnDisable start.*/
             OnDisable: function () {
@@ -4602,6 +4833,8 @@ if ( TRACE ) { TRACE( "ItemKnifeSpriteMaskCutter#DrawLocalHorizontalLine", this 
             jumpPower: 0,
             numJumps: 0,
             rotate360DuringJump: false,
+            flipRotate: false,
+            angleRotate: 0,
             setParentToTarget: false,
             onComplete: null,
             lockInputWhileMoving: false,
@@ -4619,6 +4852,8 @@ if ( TRACE ) { TRACE( "ItemMoveToTarget#init", this ); }
                 this.jumpPower = 2.0;
                 this.numJumps = 1;
                 this.rotate360DuringJump = false;
+                this.flipRotate = false;
+                this.angleRotate = -360;
                 this.setParentToTarget = false;
                 this.lockInputWhileMoving = true;
                 this.resetParentBeforeMove = true;
@@ -4679,7 +4914,10 @@ if ( TRACE ) { TRACE( "ItemMoveToTarget#ExecuteMove3D", this ); }
                     case MoveType.Jump: 
                         DG.Tweening.TweenSettingsExtensions.OnComplete(DG.Tweening.Sequence, DG.Tweening.TweenSettingsExtensions.SetEase$2(DG.Tweening.Sequence, DG.Tweening.ShortcutExtensions.DOJump(this.transform, targetPos.$clone(), this.jumpPower, this.numJumps, this.duration), this.easeType), Bridge.fn.cacheBind(this, this.FinishAction));
                         if (this.rotate360DuringJump) {
-                            DG.Tweening.TweenSettingsExtensions.SetEase$2(DG.Tweening.Core.TweenerCore$3(UnityEngine.Quaternion,UnityEngine.Vector3,DG.Tweening.Plugins.Options.QuaternionOptions), DG.Tweening.ShortcutExtensions.DORotate(this.transform, new pc.Vec3( 0, 0, -360 ), this.duration, DG.Tweening.RotateMode.FastBeyond360), this.easeType);
+                            if (this.flipRotate) {
+                                this.angleRotate = -this.angleRotate;
+                            }
+                            DG.Tweening.TweenSettingsExtensions.SetEase$2(DG.Tweening.Core.TweenerCore$3(UnityEngine.Quaternion,UnityEngine.Vector3,DG.Tweening.Plugins.Options.QuaternionOptions), DG.Tweening.ShortcutExtensions.DORotate(this.transform, new pc.Vec3( 0, 0, this.angleRotate ), this.duration, DG.Tweening.RotateMode.FastBeyond360), this.easeType);
                         }
                         break;
                     case MoveType.Instant: 
@@ -5409,7 +5647,7 @@ if ( TRACE ) { TRACE( "ItemStirring#StartStirringFx", this ); }
                 }
 
                 this.isPlayingStirringFx = true;
-                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFxLoop(FxType.SpoonStirring);
+                // Ply_SoundManager.Ins.PlayFxLoop(FxType.SpoonStirring);
             },
             /*ItemStirring.StartStirringFx end.*/
 
@@ -5423,7 +5661,7 @@ if ( TRACE ) { TRACE( "ItemStirring#StopStirringFx", this ); }
 
                 this.isPlayingStirringFx = false;
                 if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(Ply_SoundManager).Ins, null)) {
-                    Ply_Singleton$1(Ply_SoundManager).Ins.StopFxLoop(FxType.SpoonStirring);
+                    // Ply_SoundManager.Ins.StopFxLoop(FxType.SpoonStirring);
                 }
             },
             /*ItemStirring.StopStirringFx end.*/
@@ -5503,7 +5741,15 @@ if ( TRACE ) { TRACE( "ItemStirring#OnDrawGizmos", this ); }
                 CuttingBoard: 3,
                 ItemInWater: 4,
                 Plate: 5,
-                Sink: 6
+                Sink: 6,
+                FoodOnCuttingBoard: 7,
+                PlateHerb: 8,
+                PlateOnion: 9,
+                PlateLemon: 10,
+                PlateAvocado: 11,
+                PlatePotato: 12,
+                PlateTomato: 13,
+                PlateOlive: 14
             }
         }
     });
@@ -5953,7 +6199,8 @@ if ( TRACE ) { TRACE( "Ply_ToggleEvent#ApplyState$1", this ); }
                 MergeVFX: 7,
                 StarExploreFX: 8,
                 FlourSmoke: 9,
-                Duck: 10
+                WaterSplash: 10,
+                Duck: 11
             }
         }
     });
@@ -17871,14 +18118,88 @@ if ( TRACE ) { TRACE( "StirMilestone#init", this ); }
     });
     /*StirMilestone end.*/
 
+    /*Yielders start.*/
+    Bridge.define("Yielders", {
+        statics: {
+            fields: {
+                _timeInterval: null,
+                _endOfFrame: null,
+                _fixedUpdate: null
+            },
+            props: {
+                EndOfFrame: {
+                    get: function () {
+if ( TRACE ) { TRACE( "Yielders#EndOfFrame#get", this ); }
+
+                        return Yielders._endOfFrame;
+                    }
+                },
+                FixedUpdate: {
+                    get: function () {
+if ( TRACE ) { TRACE( "Yielders#FixedUpdate#get", this ); }
+
+                        return Yielders._fixedUpdate;
+                    }
+                }
+            },
+            ctors: {
+                init: function () {
+if ( TRACE ) { TRACE( "Yielders#init", this ); }
+
+                    this._timeInterval = new (System.Collections.Generic.Dictionary$2(System.Single,UnityEngine.WaitForSeconds)).$ctor4(100);
+                    this._endOfFrame = new UnityEngine.WaitForEndOfFrame();
+                    this._fixedUpdate = new UnityEngine.WaitForFixedUpdate();
+                }
+            },
+            methods: {
+                /*Yielders.Get:static start.*/
+                Get: function (seconds) {
+if ( TRACE ) { TRACE( "Yielders#Get", this ); }
+
+                    if (!Yielders._timeInterval.containsKey(seconds)) {
+                        Yielders._timeInterval.add(seconds, new UnityEngine.WaitForSeconds(seconds));
+                    }
+
+                    return Yielders._timeInterval.getItem(seconds);
+                    // return new WaitForSeconds(seconds);
+                },
+                /*Yielders.Get:static end.*/
+
+
+            }
+        }
+    });
+    /*Yielders end.*/
+
     /*BlinkEffect start.*/
     Bridge.define("BlinkEffect", {
         inherits: [Ply_GameUnit],
+        fields: {
+            defaultScale: null,
+            isDefaultScaleCached: false
+        },
+        ctors: {
+            init: function () {
+if ( TRACE ) { TRACE( "BlinkEffect#init", this ); }
+
+                this.defaultScale = new UnityEngine.Vector3();
+            }
+        },
         methods: {
+            /*BlinkEffect.SetScale start.*/
+            SetScale: function (scaleMultiplier) {
+if ( TRACE ) { TRACE( "BlinkEffect#SetScale", this ); }
+
+                this.CacheDefaultScale();
+                this.tf.localScale = this.defaultScale.$clone().clone().scale( UnityEngine.Mathf.Max(0.0, scaleMultiplier) );
+            },
+            /*BlinkEffect.SetScale end.*/
+
             /*BlinkEffect.DeSpawnByTime start.*/
             DeSpawnByTime: function () {
 if ( TRACE ) { TRACE( "BlinkEffect#DeSpawnByTime", this ); }
 
+                this.CancelInvoke$1("DeSpawn");
                 this.Invoke("DeSpawn", 2.0);
             },
             /*BlinkEffect.DeSpawnByTime end.*/
@@ -17887,10 +18208,37 @@ if ( TRACE ) { TRACE( "BlinkEffect#DeSpawnByTime", this ); }
             DeSpawn: function () {
 if ( TRACE ) { TRACE( "BlinkEffect#DeSpawn", this ); }
 
+                this.CancelInvoke$1("DeSpawn");
                 this.tf.SetParent(null);
+                this.ResetScale();
                 Ply_Singleton$1(Ply_Pool).Ins.Despawn(PoolType.BlinkFX, this);
             },
             /*BlinkEffect.DeSpawn end.*/
+
+            /*BlinkEffect.CacheDefaultScale start.*/
+            CacheDefaultScale: function () {
+if ( TRACE ) { TRACE( "BlinkEffect#CacheDefaultScale", this ); }
+
+                if (this.isDefaultScaleCached) {
+                    return;
+                }
+
+                this.defaultScale = this.tf.localScale.$clone();
+                this.isDefaultScaleCached = true;
+            },
+            /*BlinkEffect.CacheDefaultScale end.*/
+
+            /*BlinkEffect.ResetScale start.*/
+            ResetScale: function () {
+if ( TRACE ) { TRACE( "BlinkEffect#ResetScale", this ); }
+
+                if (!this.isDefaultScaleCached) {
+                    return;
+                }
+
+                this.tf.localScale = this.defaultScale.$clone();
+            },
+            /*BlinkEffect.ResetScale end.*/
 
 
         }
@@ -18255,7 +18603,7 @@ if ( TRACE ) { TRACE( "ClockTimer#StartClockFx", this ); }
                 ClockTimer.activeClockFxCount = (ClockTimer.activeClockFxCount + 1) | 0;
 
                 if (ClockTimer.activeClockFxCount === 1 && UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(Ply_SoundManager).Ins, null)) {
-                    Ply_Singleton$1(Ply_SoundManager).Ins.PlayFxLoop(FxType.Clock);
+                    // Ply_SoundManager.Ins.PlayFxLoop(FxType.Clock);
                 }
             },
             /*ClockTimer.StartClockFx end.*/
@@ -18272,7 +18620,7 @@ if ( TRACE ) { TRACE( "ClockTimer#StopClockFx", this ); }
                 ClockTimer.activeClockFxCount = UnityEngine.Mathf.Max(0, ((ClockTimer.activeClockFxCount - 1) | 0));
 
                 if (ClockTimer.activeClockFxCount === 0 && UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(Ply_SoundManager).Ins, null)) {
-                    Ply_Singleton$1(Ply_SoundManager).Ins.StopFxLoop(FxType.Clock);
+                    // Ply_SoundManager.Ins.StopFxLoop(FxType.Clock);
                 }
             },
             /*ClockTimer.StopClockFx end.*/
@@ -18299,6 +18647,19 @@ if ( TRACE ) { TRACE( "ClockTimer#OnDisable", this ); }
     /*CuttingBoard start.*/
     Bridge.define("CuttingBoard", {
         inherits: [Item],
+        fields: {
+            punchScale: null,
+            punchDuration: 0
+        },
+        ctors: {
+            init: function () {
+if ( TRACE ) { TRACE( "CuttingBoard#init", this ); }
+
+                this.punchScale = new UnityEngine.Vector3();
+                this.punchScale = new pc.Vec3( 0.1, -0.1, 0.0 );
+                this.punchDuration = 0.3;
+            }
+        },
         methods: {
             /*CuttingBoard.IsFoodOn start.*/
             IsFoodOn: function (isFoodOn) {
@@ -18311,6 +18672,14 @@ if ( TRACE ) { TRACE( "CuttingBoard#IsFoodOn", this ); }
                 }
             },
             /*CuttingBoard.IsFoodOn end.*/
+
+            /*CuttingBoard.Punch start.*/
+            Punch: function () {
+if ( TRACE ) { TRACE( "CuttingBoard#Punch", this ); }
+
+                DG.Tweening.ShortcutExtensions.DOPunchScale(this.transform, this.punchScale.$clone(), this.punchDuration);
+            },
+            /*CuttingBoard.Punch end.*/
 
 
         }
@@ -18423,8 +18792,8 @@ if ( TRACE ) { TRACE( "GameManager#SetIsPlaying", this ); }
             GotoStore: function () {
 if ( TRACE ) { TRACE( "GameManager#GotoStore", this ); }
 
-                // LifeCycle.GameEnded();
-                // Playable.InstallFullGame();
+                Luna.Unity.LifeCycle.GameEnded();
+                Luna.Unity.Playable.InstallFullGame();
             },
             /*GameManager.GotoStore end.*/
 
@@ -18509,11 +18878,17 @@ if ( TRACE ) { TRACE( "HandTutManager#inherits", this ); }
         fields: {
             items: null,
             knife: null,
+            peeler: null,
             handTutObject: null,
             tapToCookObject: null,
             oilItem: null,
             stoveToggleEvent: null,
+            waterToggleEvent: null,
+            sinkBlock: null,
+            itemsInWater: null,
             noDelayItemCount: 0,
+            breakHeartNoDelayThreshold: 0,
+            showSinkWaterTutorialOnStart: false,
             waitForBowlIntro: false,
             idleDelay: 0,
             moveDuration: 0,
@@ -18534,6 +18909,10 @@ if ( TRACE ) { TRACE( "HandTutManager#inherits", this ); }
             hasCompletedStoveToggle: false,
             hasStartedHandTut: false,
             hasHiddenTapToCook: false,
+            isWaitingInitialSinkWaterTutorial: false,
+            consecutiveBreakHeartDropFails: 0,
+            startupNoDelayTutorialCount: 0,
+            forceNoDelayForNextHandTut: false,
             noDelayItems: null
         },
         props: {
@@ -18551,7 +18930,10 @@ if ( TRACE ) { TRACE( "HandTutManager#init", this ); }
 
                 this.defaultHandScale = new UnityEngine.Vector3();
                 this.items = new (System.Collections.Generic.List$1(Item)).ctor();
+                this.itemsInWater = new (System.Collections.Generic.List$1(InWaterItem)).ctor();
                 this.noDelayItemCount = 3;
+                this.breakHeartNoDelayThreshold = 3;
+                this.showSinkWaterTutorialOnStart = true;
                 this.waitForBowlIntro = true;
                 this.idleDelay = 5.0;
                 this.moveDuration = 1.2;
@@ -18592,9 +18974,10 @@ if ( TRACE ) { TRACE( "HandTutManager#Start", this ); }
                 this.RemoveDoneAndNullItems();
                 this.CacheNoDelayItems();
                 this.isWaitingTapToCook = false;
-                this.hasStartedHandTut = !this.waitForBowlIntro;
+                this.isWaitingInitialSinkWaterTutorial = this.showSinkWaterTutorialOnStart;
+                this.hasStartedHandTut = this.isWaitingInitialSinkWaterTutorial || !this.waitForBowlIntro;
                 if (UnityEngine.GameObject.op_Inequality(this.tapToCookObject, null)) {
-                    this.tapToCookObject.SetActive(true);
+                    this.tapToCookObject.SetActive(this.waitForBowlIntro && !this.isWaitingInitialSinkWaterTutorial);
                 }
             },
             /*HandTutManager.Start end.*/
@@ -18638,7 +19021,7 @@ if ( TRACE ) { TRACE( "HandTutManager#Update", this ); }
                     return;
                 }
 
-                if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(GameManager).Ins, null) && !Ply_Singleton$1(GameManager).Ins.isPlaying) {
+                if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(GameManager).Ins, null) && !Ply_Singleton$1(GameManager).Ins.isPlaying && !Ply_Singleton$1(GameManager).Ins.isLoseGame) {
                     this.HideHandTut();
                     return;
                 }
@@ -18718,11 +19101,32 @@ if ( TRACE ) { TRACE( "HandTutManager#StartHandTut", this ); }
             },
             /*HandTutManager.StartHandTut end.*/
 
+            /*HandTutManager.StartHandTutNoDelay start.*/
+            StartHandTutNoDelay: function () {
+if ( TRACE ) { TRACE( "HandTutManager#StartHandTutNoDelay", this ); }
+
+                this.hasStartedHandTut = true;
+                this.isWaitingTapToCook = false;
+                this.forceNoDelayForNextHandTut = true;
+
+                this.ResetIdleTimer();
+                this.ShowNextHandTut();
+            },
+            /*HandTutManager.StartHandTutNoDelay end.*/
+
             /*HandTutManager.ShowNextHandTut start.*/
             ShowNextHandTut: function () {
 if ( TRACE ) { TRACE( "HandTutManager#ShowNextHandTut", this ); }
 
                 this.RemoveDoneAndNullItems();
+
+                if (this.isWaitingInitialSinkWaterTutorial) {
+                    if (this.ShowSinkWaterHandTut(false)) {
+                        return;
+                    }
+
+                    this.isWaitingInitialSinkWaterTutorial = false;
+                }
 
                 if (this.isWaitingStoveToggle) {
                     if (UnityEngine.MonoBehaviour.op_Inequality(this.stoveToggleEvent, null)) {
@@ -18735,27 +19139,38 @@ if ( TRACE ) { TRACE( "HandTutManager#ShowNextHandTut", this ); }
 
                 var targetItem = this.GetFirstTutorialReadyItem();
                 if (UnityEngine.MonoBehaviour.op_Equality(targetItem, null)) {
-                    this.HideHandTut();
+                    if (!this.ShowSinkWaterHandTut(true)) {
+                        this.HideHandTut();
+                    }
+
                     return;
                 }
 
                 if (this.IsClickableReady(targetItem)) {
                     this.PlayClickHint(targetItem.transform);
+                    this.ConsumeForcedNoDelay();
                     return;
                 }
 
                 if (this.IsDraggableReady(targetItem) && UnityEngine.MonoBehaviour.op_Inequality(targetItem.itemMoveToTarget, null) && UnityEngine.Component.op_Inequality(targetItem.itemMoveToTarget.defaultTarget, null)) {
                     this.PlayMoveHint(targetItem.transform, targetItem.itemMoveToTarget.defaultTarget);
+                    this.ConsumeStartupNoDelayForItem(targetItem);
+                    this.ConsumeForcedNoDelay();
                     return;
                 }
 
                 if (this.IsKnifeSpriteMaskCutterReady(targetItem)) {
                     this.PlayClickHint(targetItem.transform);
+                    this.ConsumeStartupNoDelayForItem(targetItem);
+                    this.ConsumeForcedNoDelay();
                     return;
                 }
 
-                if (UnityEngine.Component.op_Inequality(this.knife, null)) {
-                    this.PlayMoveHint(this.knife, targetItem.transform);
+                var targetTool = this.GetToolTargetingItem(targetItem);
+                if (UnityEngine.Component.op_Inequality(targetTool, null)) {
+                    this.PlayMoveHint(targetTool, targetItem.transform);
+                    this.ConsumeStartupNoDelayForItem(targetItem);
+                    this.ConsumeForcedNoDelay();
                 }
             },
             /*HandTutManager.ShowNextHandTut end.*/
@@ -18774,8 +19189,23 @@ if ( TRACE ) { TRACE( "HandTutManager#GetFirstTutorialReadyItem", this ); }
 
                 for (var i = 0; i < this.items.Count; i = (i + 1) | 0) {
                     var item = this.items.getItem(i);
-                    if (UnityEngine.MonoBehaviour.op_Inequality(item, null) && !item.isDone && this.CanShowTutorialForItem(item)) {
-                        return item;
+                    var inWaterItem = Bridge.as(item, InWaterItem);
+                    if (UnityEngine.MonoBehaviour.op_Inequality(inWaterItem, null) && inWaterItem.isOnCuttingBoard && !inWaterItem.isDone && this.CanShowTutorialForItem(inWaterItem)) {
+                        return inWaterItem;
+                    }
+                }
+
+                for (var i1 = 0; i1 < this.items.Count; i1 = (i1 + 1) | 0) {
+                    var item1 = this.items.getItem(i1);
+                    if (UnityEngine.MonoBehaviour.op_Inequality(item1, null) && item1.onProcess && !item1.isDone && this.CanShowTutorialForItem(item1)) {
+                        return item1;
+                    }
+                }
+
+                for (var i2 = 0; i2 < this.items.Count; i2 = (i2 + 1) | 0) {
+                    var item2 = this.items.getItem(i2);
+                    if (UnityEngine.MonoBehaviour.op_Inequality(item2, null) && !item2.isDone && this.CanShowTutorialForItem(item2)) {
+                        return item2;
                     }
                 }
 
@@ -18802,7 +19232,7 @@ if ( TRACE ) { TRACE( "HandTutManager#CanShowTutorialForItem", this ); }
                     return UnityEngine.MonoBehaviour.op_Inequality(item.itemMoveToTarget, null) && UnityEngine.Component.op_Inequality(item.itemMoveToTarget.defaultTarget, null);
                 }
 
-                return UnityEngine.Component.op_Inequality(this.knife, null);
+                return UnityEngine.Component.op_Inequality(this.GetToolTargetingItem(item), null);
             },
             /*HandTutManager.CanShowTutorialForItem end.*/
 
@@ -18829,6 +19259,38 @@ if ( TRACE ) { TRACE( "HandTutManager#IsKnifeSpriteMaskCutterReady", this ); }
                 return UnityEngine.MonoBehaviour.op_Inequality(item.itemKnifeSpriteMaskCutter, null) && item.itemKnifeSpriteMaskCutter.enabled;
             },
             /*HandTutManager.IsKnifeSpriteMaskCutterReady end.*/
+
+            /*HandTutManager.GetToolTargetingItem start.*/
+            GetToolTargetingItem: function (item) {
+if ( TRACE ) { TRACE( "HandTutManager#GetToolTargetingItem", this ); }
+
+                if (UnityEngine.MonoBehaviour.op_Equality(item, null)) {
+                    return null;
+                }
+
+                if (this.IsToolTargetingItem(this.knife, item)) {
+                    return this.knife;
+                }
+                if (this.IsToolTargetingItem(this.peeler, item)) {
+                    return this.peeler;
+                }
+
+                return null;
+            },
+            /*HandTutManager.GetToolTargetingItem end.*/
+
+            /*HandTutManager.IsToolTargetingItem start.*/
+            IsToolTargetingItem: function (tool, item) {
+if ( TRACE ) { TRACE( "HandTutManager#IsToolTargetingItem", this ); }
+
+                if (UnityEngine.Component.op_Equality(tool, null) || UnityEngine.MonoBehaviour.op_Equality(item, null) || !tool.gameObject.activeInHierarchy) {
+                    return false;
+                }
+
+                var toolMoveToTarget = ComponentCache$1(ItemMoveToTarget).Get$1(tool);
+                return UnityEngine.MonoBehaviour.op_Inequality(toolMoveToTarget, null) && UnityEngine.Component.op_Equality(toolMoveToTarget.defaultTarget, item.transform);
+            },
+            /*HandTutManager.IsToolTargetingItem end.*/
 
             /*HandTutManager.PlayClickHint start.*/
             PlayClickHint: function (target) {
@@ -18949,12 +19411,27 @@ if ( TRACE ) { TRACE( "HandTutManager#CacheNoDelayItems", this ); }
             ShouldSkipDelayForCurrentItem: function () {
 if ( TRACE ) { TRACE( "HandTutManager#ShouldSkipDelayForCurrentItem", this ); }
 
+                if (this.isWaitingInitialSinkWaterTutorial) {
+                    return true;
+                }
                 if (this.isWaitingStoveToggle) {
                     return false;
                 }
 
                 var targetItem = this.GetFirstTutorialReadyItem();
-                return UnityEngine.MonoBehaviour.op_Inequality(targetItem, null) && this.noDelayItems.contains(targetItem);
+                if (UnityEngine.MonoBehaviour.op_Inequality(targetItem, null)) {
+                    if (this.IsClickableReady(targetItem)) {
+                        return false;
+                    }
+
+                    return this.forceNoDelayForNextHandTut || this.ShouldUseStartupNoDelayForItem(targetItem);
+                }
+
+                if (this.forceNoDelayForNextHandTut) {
+                    return true;
+                }
+
+                return this.HasInWaterItemNeedingHandTut();
             },
             /*HandTutManager.ShouldSkipDelayForCurrentItem end.*/
 
@@ -18980,6 +19457,7 @@ if ( TRACE ) { TRACE( "HandTutManager#ItemDone", this ); }
 
                 item.isDone = true;
                 this.items.remove(item);
+                this.RegisterCorrectAction();
                 if (!this.hasCompletedStoveToggle && UnityEngine.MonoBehaviour.op_Inequality(this.oilItem, null) && UnityEngine.MonoBehaviour.op_Equality(item, this.oilItem)) {
                     this.StartStoveToggleTutorial();
                 }
@@ -19049,10 +19527,193 @@ if ( TRACE ) { TRACE( "HandTutManager#StoveToggleDone", this ); }
 
                 this.hasCompletedStoveToggle = true;
                 this.isWaitingStoveToggle = false;
+                this.RegisterCorrectAction();
                 this.HideHandTut();
                 this.ResetIdleTimer();
             },
             /*HandTutManager.StoveToggleDone end.*/
+
+            /*HandTutManager.WaterToggleDone start.*/
+            WaterToggleDone: function (toggleEvent) {
+if ( TRACE ) { TRACE( "HandTutManager#WaterToggleDone", this ); }
+
+                if (UnityEngine.MonoBehaviour.op_Equality(this.waterToggleEvent, null)) {
+                    return;
+                }
+                if (UnityEngine.MonoBehaviour.op_Inequality(this.waterToggleEvent, null) && UnityEngine.MonoBehaviour.op_Inequality(toggleEvent, this.waterToggleEvent)) {
+                    return;
+                }
+
+                this.isWaitingInitialSinkWaterTutorial = false;
+                this.RegisterCorrectAction();
+                this.HideHandTut();
+                this.ResetIdleTimer();
+            },
+            /*HandTutManager.WaterToggleDone end.*/
+
+            /*HandTutManager.SinkBlockMoveDone start.*/
+            SinkBlockMoveDone: function (movedSinkBlock) {
+if ( TRACE ) { TRACE( "HandTutManager#SinkBlockMoveDone", this ); }
+
+                if (UnityEngine.MonoBehaviour.op_Inequality(this.sinkBlock, null) && UnityEngine.MonoBehaviour.op_Inequality(movedSinkBlock, this.sinkBlock)) {
+                    return;
+                }
+                if (!this.isWaitingInitialSinkWaterTutorial && !this.HasInWaterItemNeedingHandTut()) {
+                    return;
+                }
+
+                this.forceNoDelayForNextHandTut = true;
+                this.HideHandTut();
+                this.ResetIdleTimer();
+            },
+            /*HandTutManager.SinkBlockMoveDone end.*/
+
+            /*HandTutManager.RegisterBreakHeartDropFail start.*/
+            RegisterBreakHeartDropFail: function () {
+if ( TRACE ) { TRACE( "HandTutManager#RegisterBreakHeartDropFail", this ); }
+
+                this.consecutiveBreakHeartDropFails = (this.consecutiveBreakHeartDropFails + 1) | 0;
+
+                if (this.consecutiveBreakHeartDropFails >= this.breakHeartNoDelayThreshold) {
+                    this.forceNoDelayForNextHandTut = true;
+                    this.ResetIdleTimer();
+                }
+            },
+            /*HandTutManager.RegisterBreakHeartDropFail end.*/
+
+            /*HandTutManager.RegisterCorrectAction start.*/
+            RegisterCorrectAction: function () {
+if ( TRACE ) { TRACE( "HandTutManager#RegisterCorrectAction", this ); }
+
+                this.consecutiveBreakHeartDropFails = 0;
+                this.forceNoDelayForNextHandTut = false;
+            },
+            /*HandTutManager.RegisterCorrectAction end.*/
+
+            /*HandTutManager.RegisterItemInWater start.*/
+            RegisterItemInWater: function (item) {
+if ( TRACE ) { TRACE( "HandTutManager#RegisterItemInWater", this ); }
+
+                if (UnityEngine.MonoBehaviour.op_Equality(item, null) || this.itemsInWater.contains(item)) {
+                    return;
+                }
+
+                this.itemsInWater.add(item);
+                this.forceNoDelayForNextHandTut = true;
+                this.ResetIdleTimer();
+            },
+            /*HandTutManager.RegisterItemInWater end.*/
+
+            /*HandTutManager.UnregisterItemInWater start.*/
+            UnregisterItemInWater: function (item) {
+if ( TRACE ) { TRACE( "HandTutManager#UnregisterItemInWater", this ); }
+
+                if (UnityEngine.MonoBehaviour.op_Equality(item, null)) {
+                    return;
+                }
+
+                this.itemsInWater.remove(item);
+            },
+            /*HandTutManager.UnregisterItemInWater end.*/
+
+            /*HandTutManager.ShowSinkWaterHandTut start.*/
+            ShowSinkWaterHandTut: function (requireInWaterItem) {
+if ( TRACE ) { TRACE( "HandTutManager#ShowSinkWaterHandTut", this ); }
+
+                if (requireInWaterItem && !this.HasInWaterItemNeedingHandTut()) {
+                    return false;
+                }
+
+                if (UnityEngine.MonoBehaviour.op_Inequality(this.sinkBlock, null) && !this.sinkBlock.IsInside) {
+                    this.PlayMoveHint(this.sinkBlock.transform, this.sinkBlock.insideDefaultTarget);
+                    this.ConsumeStartupNoDelay();
+                    this.ConsumeForcedNoDelay();
+                    return true;
+                }
+
+                if (this.ShouldShowWaterToggleHandTut()) {
+                    this.PlayClickHint(this.waterToggleEvent.transform);
+                    this.ConsumeStartupNoDelay();
+                    this.ConsumeForcedNoDelay();
+                    return true;
+                }
+
+                if (!requireInWaterItem) {
+                    this.isWaitingInitialSinkWaterTutorial = false;
+                }
+
+                return false;
+            },
+            /*HandTutManager.ShowSinkWaterHandTut end.*/
+
+            /*HandTutManager.HasInWaterItemNeedingHandTut start.*/
+            HasInWaterItemNeedingHandTut: function () {
+if ( TRACE ) { TRACE( "HandTutManager#HasInWaterItemNeedingHandTut", this ); }
+
+                for (var i = (this.itemsInWater.Count - 1) | 0; i >= 0; i = (i - 1) | 0) {
+                    var item = this.itemsInWater.getItem(i);
+                    if (UnityEngine.MonoBehaviour.op_Equality(item, null) || item.isDone || !item.isInWater || item.isOnPlate) {
+                        this.itemsInWater.removeAt(i);
+                        continue;
+                    }
+
+                    return true;
+                }
+
+                return false;
+            },
+            /*HandTutManager.HasInWaterItemNeedingHandTut end.*/
+
+            /*HandTutManager.ShouldShowWaterToggleHandTut start.*/
+            ShouldShowWaterToggleHandTut: function () {
+if ( TRACE ) { TRACE( "HandTutManager#ShouldShowWaterToggleHandTut", this ); }
+
+                if (UnityEngine.MonoBehaviour.op_Equality(this.waterToggleEvent, null)) {
+                    return false;
+                }
+
+                var sink = UnityEngine.MonoBehaviour.op_Inequality(this.sinkBlock, null) ? this.sinkBlock.sink : null;
+                return UnityEngine.MonoBehaviour.op_Equality(sink, null) || !sink.isWaterDrop;
+            },
+            /*HandTutManager.ShouldShowWaterToggleHandTut end.*/
+
+            /*HandTutManager.ConsumeForcedNoDelay start.*/
+            ConsumeForcedNoDelay: function () {
+if ( TRACE ) { TRACE( "HandTutManager#ConsumeForcedNoDelay", this ); }
+
+                if (this.forceNoDelayForNextHandTut) {
+                    this.forceNoDelayForNextHandTut = false;
+                }
+            },
+            /*HandTutManager.ConsumeForcedNoDelay end.*/
+
+            /*HandTutManager.ShouldUseStartupNoDelayForItem start.*/
+            ShouldUseStartupNoDelayForItem: function (item) {
+if ( TRACE ) { TRACE( "HandTutManager#ShouldUseStartupNoDelayForItem", this ); }
+
+                return UnityEngine.MonoBehaviour.op_Inequality(item, null) && this.startupNoDelayTutorialCount < this.noDelayItemCount && this.noDelayItems.contains(item);
+            },
+            /*HandTutManager.ShouldUseStartupNoDelayForItem end.*/
+
+            /*HandTutManager.ConsumeStartupNoDelay start.*/
+            ConsumeStartupNoDelay: function () {
+if ( TRACE ) { TRACE( "HandTutManager#ConsumeStartupNoDelay", this ); }
+
+                if (this.startupNoDelayTutorialCount < this.noDelayItemCount) {
+                    this.startupNoDelayTutorialCount = (this.startupNoDelayTutorialCount + 1) | 0;
+                }
+            },
+            /*HandTutManager.ConsumeStartupNoDelay end.*/
+
+            /*HandTutManager.ConsumeStartupNoDelayForItem start.*/
+            ConsumeStartupNoDelayForItem: function (item) {
+if ( TRACE ) { TRACE( "HandTutManager#ConsumeStartupNoDelayForItem", this ); }
+
+                if (this.ShouldUseStartupNoDelayForItem(item)) {
+                    this.ConsumeStartupNoDelay();
+                }
+            },
+            /*HandTutManager.ConsumeStartupNoDelayForItem end.*/
 
 
         },
@@ -19116,7 +19777,7 @@ if ( TRACE ) { TRACE( "HeartBreakEffect#PlaySpawn$2", this ); }
 
                 this.CacheDefaultState();
                 this.ResetState();
-                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Wrong);
+                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Failed);
                 this.transform.localScale = pc.Vec3.ZERO.clone();
 
                 this.spawnSequence = DG.Tweening.DOTween.Sequence();
@@ -19238,6 +19899,7 @@ if ( TRACE ) { TRACE( "HeartEffect#PlaySpawn$2", this ); }
                 this.CacheDefaultState();
                 this.ResetState();
                 this.transform.localScale = pc.Vec3.ZERO.clone();
+                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Complete);
 
                 this.spawnSequence = DG.Tweening.DOTween.Sequence();
                 DG.Tweening.TweenSettingsExtensions.Append(this.spawnSequence, DG.Tweening.TweenSettingsExtensions.SetEase$2(DG.Tweening.Core.TweenerCore$3(UnityEngine.Vector3,UnityEngine.Vector3,DG.Tweening.Plugins.Options.VectorOptions), DG.Tweening.ShortcutExtensions.DOScale$1(this.transform, this.defaultScale.$clone().clone().scale( UnityEngine.Mathf.Max(0.0, scaleMultiplier) ), 0.25), DG.Tweening.Ease.OutBack));
@@ -19471,6 +20133,7 @@ if ( TRACE ) { TRACE( "InputManager#TryHandleToggleButton", this ); }
                 toggleEvent.ApplyState();
                 if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(HandTutManager).Ins, null)) {
                     Ply_Singleton$1(HandTutManager).Ins.StoveToggleDone(toggleEvent);
+                    Ply_Singleton$1(HandTutManager).Ins.WaterToggleDone(toggleEvent);
                 }
 
                 return true;
@@ -19527,6 +20190,7 @@ if ( TRACE ) { TRACE( "InputManager#HandleMouseUp", this ); }
             waterTarget: null,
             cuttingBoardTarget: null,
             plateTarget: null,
+            childObject: null,
             ply_TimerEvent: null,
             ply_BobEffect: null,
             collider1: null,
@@ -19536,19 +20200,37 @@ if ( TRACE ) { TRACE( "InputManager#HandleMouseUp", this ); }
             isOnPlate: false,
             isClean: false,
             isCutDone: false,
+            cuttingBoardColliderRadiusMultiplier: 0,
+            jumpToPlatePower: 0,
+            jumpToPlateDuration: 0,
+            jumpToPlateAfterCutDone: false,
+            plateFoodShadow: null,
+            platePunchScale: null,
+            platePunchDuration: 0,
+            onMoveToCuttingBoardComplete: null,
             initialized: false,
             isMoving: false,
-            moveDestination: 0
+            moveDestination: 0,
+            hasCachedColliderRadius: false,
+            originalSphereColliderRadius: 0,
+            originalCapsuleColliderRadius: 0
         },
         ctors: {
             init: function () {
 if ( TRACE ) { TRACE( "InWaterItem#init", this ); }
 
+                this.platePunchScale = new UnityEngine.Vector3();
                 this.isInWater = false;
                 this.isOnCuttingBoard = false;
                 this.isOnPlate = false;
                 this.isClean = false;
                 this.isCutDone = false;
+                this.cuttingBoardColliderRadiusMultiplier = 1.5;
+                this.jumpToPlatePower = 1.0;
+                this.jumpToPlateDuration = 0.5;
+                this.jumpToPlateAfterCutDone = true;
+                this.platePunchScale = new pc.Vec3( 0.1, -0.1, 0.0 );
+                this.platePunchDuration = 0.3;
             }
         },
         methods: {
@@ -19575,8 +20257,25 @@ if ( TRACE ) { TRACE( "InWaterItem#OnEnable", this ); }
 if ( TRACE ) { TRACE( "InWaterItem#OnDisable", this ); }
 
                 this.UnsubscribeMovementEvents();
+                this.SetColliderRadiusMultiplier(1.0);
             },
             /*InWaterItem.OnDisable end.*/
+
+            /*InWaterItem.LateUpdate start.*/
+            LateUpdate: function () {
+if ( TRACE ) { TRACE( "InWaterItem#LateUpdate", this ); }
+
+                if (this.isMoving) {
+                    return;
+                }
+
+                if (this.isOnPlate && UnityEngine.Component.op_Inequality(this.plateTarget, null)) {
+                    this.transform.position = this.plateTarget.position.$clone();
+                } else if (this.isOnCuttingBoard && UnityEngine.Component.op_Inequality(this.cuttingBoardTarget, null)) {
+                    this.transform.position = this.cuttingBoardTarget.position.$clone();
+                }
+            },
+            /*InWaterItem.LateUpdate end.*/
 
             /*InWaterItem.StartTimer start.*/
             StartTimer: function () {
@@ -19633,10 +20332,12 @@ if ( TRACE ) { TRACE( "InWaterItem#ShouldPlayBobEffectAfterReturn", this ); }
             SetClean: function () {
 if ( TRACE ) { TRACE( "InWaterItem#SetClean", this ); }
 
+                this.InitializeMovement();
                 this.isClean = true;
                 this.isCutDone = false;
                 UnityEngine.MonoBehaviour.op_Inequality(this.ply_TimerEvent, null) ? this.ply_TimerEvent.StopTimer() : null;
                 this.ConfigureNextTarget();
+                this.SetCuttingBoardAsDefaultTarget();
             },
             /*InWaterItem.SetClean end.*/
 
@@ -19645,13 +20346,29 @@ if ( TRACE ) { TRACE( "InWaterItem#SetClean", this ); }
 if ( TRACE ) { TRACE( "InWaterItem#CutDone", this ); }
 
                 this.InitializeMovement();
-                if (!this.isOnCuttingBoard || this.isOnPlate) {
+                if (!this.isOnCuttingBoard || this.isOnPlate || this.isMoving || this.isCutDone) {
+                    return;
+                }
+                this.itemType = ItemType.None;
+                this.isCutDone = true;
+                UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(HandTutManager).Ins, null) ? Ply_Singleton$1(HandTutManager).Ins.ItemDone(this) : null;
+                UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(PhaseManager).Ins, null) ? Ply_Singleton$1(PhaseManager).Ins.DoOneStep() : null;
+                if (UnityEngine.MonoBehaviour.op_Inequality(this.itemClickable, null)) {
+                    this.itemClickable.enabled = false;
+
+                }
+                if (UnityEngine.MonoBehaviour.op_Inequality(this.ply_BobEffect, null)) {
+                    this.ply_BobEffect.Stop$1(false);
+                    this.ply_BobEffect.enabled = false;
+                }
+
+                if (!this.jumpToPlateAfterCutDone) {
+                    var cuttingBoard = Bridge.as(this.GetTargetItem(this.cuttingBoardTarget), CuttingBoard);
+                    UnityEngine.MonoBehaviour.op_Inequality(cuttingBoard, null) ? cuttingBoard.IsFoodOn(false) : null;
                     return;
                 }
 
-                this.isCutDone = true;
-                this.ConfigureNextTarget();
-                this.UpdateDragAvailability();
+                this.JumpToPlate();
             },
             /*InWaterItem.CutDone end.*/
 
@@ -19677,6 +20394,9 @@ if ( TRACE ) { TRACE( "InWaterItem#PlayAnim", this ); }
             MoveToWater: function () {
 if ( TRACE ) { TRACE( "InWaterItem#MoveToWater", this ); }
 
+                if (UnityEngine.MonoBehaviour.op_Inequality(this.itemMoveToTarget, null)) {
+                    this.itemMoveToTarget.rotate360DuringJump = false;
+                }
                 this.OnMoveIntoWaterComplete();
             },
             /*InWaterItem.MoveToWater end.*/
@@ -19697,16 +20417,60 @@ if ( TRACE ) { TRACE( "InWaterItem#MoveToCurrentTarget", this ); }
                     return;
                 }
 
+                if (this.moveDestination === InWaterItem.MoveDestination.Plate) {
+                    this.JumpToPlate();
+                    return;
+                }
+
+                if (this.moveDestination === InWaterItem.MoveDestination.CuttingBoard && UnityEngine.MonoBehaviour.op_Inequality(this.ply_BobEffect, null)) {
+                    this.ply_BobEffect.Stop$1(false);
+                    this.ply_BobEffect.enabled = false;
+                }
+
                 this.isMoving = true;
                 this.UpdateDragAvailability();
                 this.itemMoveToTarget.ExecuteMove3D(destination);
             },
             /*InWaterItem.MoveToCurrentTarget end.*/
 
+            /*InWaterItem.JumpToPlate start.*/
+            JumpToPlate: function () {
+if ( TRACE ) { TRACE( "InWaterItem#JumpToPlate", this ); }
+
+                if (UnityEngine.Component.op_Equality(this.plateTarget, null)) {
+                    UnityEngine.Debug.LogWarning$1(System.String.format("[InWaterItem] {0} is missing the Plate target.", [this.name]), this);
+                    return;
+                }
+
+                this.isMoving = true;
+                if (UnityEngine.MonoBehaviour.op_Inequality(this.itemDraggable, null)) {
+                    this.itemDraggable.returnTransform = this.plateTarget;
+                    this.itemDraggable.targetItemType = ItemType.None;
+                    this.itemDraggable.enabled = false;
+                }
+                if (UnityEngine.MonoBehaviour.op_Inequality(this.itemMoveToTarget, null)) {
+                    this.itemMoveToTarget.SetDefaultTarget(this.plateTarget);
+                }
+                this.UpdateDragAvailability();
+
+                DG.Tweening.ShortcutExtensions.DOKill(this.transform);
+                DG.Tweening.TweenSettingsExtensions.OnComplete(DG.Tweening.Sequence, DG.Tweening.TweenSettingsExtensions.SetEase$2(DG.Tweening.Sequence, DG.Tweening.ShortcutExtensions.DOJump(this.transform, this.plateTarget.position.$clone(), this.jumpToPlatePower, 1, this.jumpToPlateDuration), DG.Tweening.Ease.OutQuad), Bridge.fn.bind(this, function () {
+                    DG.Tweening.ShortcutExtensions.DOKill(this.transform);
+                    this.transform.position = this.plateTarget.position.$clone();
+                    this.isMoving = false;
+                    this.SpawnHeart(false);
+                    this.OnMoveToPlateComplete();
+                    DG.Tweening.ShortcutExtensions.DOPunchScale(this.plateTarget, this.platePunchScale.$clone(), this.platePunchDuration);
+                    this.UpdateDragAvailability();
+                }));
+            },
+            /*InWaterItem.JumpToPlate end.*/
+
             /*InWaterItem.OnMoveIntoWaterComplete start.*/
             OnMoveIntoWaterComplete: function () {
 if ( TRACE ) { TRACE( "InWaterItem#OnMoveIntoWaterComplete", this ); }
 
+                var wasInWater = this.isInWater;
                 this.isInWater = true;
                 this.isOnCuttingBoard = false;
                 this.isOnPlate = false;
@@ -19714,6 +20478,9 @@ if ( TRACE ) { TRACE( "InWaterItem#OnMoveIntoWaterComplete", this ); }
 
                 if (UnityEngine.MonoBehaviour.op_Inequality(this.sink, null)) {
                     this.sink.RegisterInWaterItem(this);
+                    UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(HandTutManager).Ins, null) ? Ply_Singleton$1(HandTutManager).Ins.RegisterItemInWater(this) : null;
+                    this.SetPlateFoodShadowActive(true);
+                    this.SpawnWaterSplashOnEnter(wasInWater);
                     if (this.sink.isWaterIn) {
                         this.StartWaterEffects();
                     }
@@ -19723,22 +20490,45 @@ if ( TRACE ) { TRACE( "InWaterItem#OnMoveIntoWaterComplete", this ); }
             },
             /*InWaterItem.OnMoveIntoWaterComplete end.*/
 
+            /*InWaterItem.SpawnWaterSplashOnEnter start.*/
+            SpawnWaterSplashOnEnter: function (wasInWater) {
+if ( TRACE ) { TRACE( "InWaterItem#SpawnWaterSplashOnEnter", this ); }
+
+                if (wasInWater || UnityEngine.MonoBehaviour.op_Equality(this.sink, null) || !this.sink.isWaterIn || UnityEngine.Component.op_Equality(this.sink.waterSplashPos, null)) {
+                    return;
+                }
+
+                this.SpawnWaterSplash(this.sink.waterSplashPos.position);
+            },
+            /*InWaterItem.SpawnWaterSplashOnEnter end.*/
+
             /*InWaterItem.OnMoveToCuttingBoardComplete start.*/
             OnMoveToCuttingBoardComplete: function () {
 if ( TRACE ) { TRACE( "InWaterItem#OnMoveToCuttingBoardComplete", this ); }
 
-                this.StopWaterEffects();
+                UnityEngine.MonoBehaviour.op_Inequality(this.ply_BobEffect, null) ? this.ply_BobEffect.Stop$1(false) : null;
+                UnityEngine.MonoBehaviour.op_Inequality(this.ply_TimerEvent, null) ? this.ply_TimerEvent.StopTimer() : null;
                 UnityEngine.MonoBehaviour.op_Inequality(this.sink, null) ? this.sink.UnregisterInWaterItem(this) : null;
+                UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(HandTutManager).Ins, null) ? Ply_Singleton$1(HandTutManager).Ins.UnregisterItemInWater(this) : null;
+                DG.Tweening.ShortcutExtensions.DOKill(this.transform);
+                this.transform.position = this.cuttingBoardTarget.position.$clone();
 
                 this.isInWater = false;
                 this.isOnCuttingBoard = true;
                 this.isOnPlate = false;
                 this.onProcess = true;
+                this.itemType = ItemType.FoodOnCuttingBoard;
+                this.SetColliderRadiusMultiplier(this.cuttingBoardColliderRadiusMultiplier);
 
                 var cuttingBoard = Bridge.as(this.GetTargetItem(this.cuttingBoardTarget), CuttingBoard);
                 UnityEngine.MonoBehaviour.op_Inequality(cuttingBoard, null) ? cuttingBoard.IsFoodOn(true) : null;
+                UnityEngine.MonoBehaviour.op_Inequality(cuttingBoard, null) ? cuttingBoard.Punch() : null;
 
                 this.ConfigureNextTarget();
+                if (UnityEngine.MonoBehaviour.op_Inequality(this.itemDraggable, null)) {
+                    this.itemDraggable.enabled = false;
+                }
+                this.onMoveToCuttingBoardComplete != null ? this.onMoveToCuttingBoardComplete.Invoke() : null;
             },
             /*InWaterItem.OnMoveToCuttingBoardComplete end.*/
 
@@ -19746,8 +20536,10 @@ if ( TRACE ) { TRACE( "InWaterItem#OnMoveToCuttingBoardComplete", this ); }
             OnMoveToPlateComplete: function () {
 if ( TRACE ) { TRACE( "InWaterItem#OnMoveToPlateComplete", this ); }
 
-                this.StopWaterEffects();
+                UnityEngine.MonoBehaviour.op_Inequality(this.ply_BobEffect, null) ? this.ply_BobEffect.Stop$1(false) : null;
+                UnityEngine.MonoBehaviour.op_Inequality(this.ply_TimerEvent, null) ? this.ply_TimerEvent.StopTimer() : null;
                 UnityEngine.MonoBehaviour.op_Inequality(this.sink, null) ? this.sink.UnregisterInWaterItem(this) : null;
+                UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(HandTutManager).Ins, null) ? Ply_Singleton$1(HandTutManager).Ins.UnregisterItemInWater(this) : null;
 
                 var cuttingBoard = Bridge.as(this.GetTargetItem(this.cuttingBoardTarget), CuttingBoard);
                 UnityEngine.MonoBehaviour.op_Inequality(cuttingBoard, null) ? cuttingBoard.IsFoodOn(false) : null;
@@ -19756,6 +20548,9 @@ if ( TRACE ) { TRACE( "InWaterItem#OnMoveToPlateComplete", this ); }
                 this.isOnCuttingBoard = false;
                 this.isOnPlate = true;
                 this.onProcess = false;
+                this.SetPlateFoodShadowActive(false);
+                this.SetColliderRadiusMultiplier(1.0);
+
 
                 if (UnityEngine.MonoBehaviour.op_Inequality(this.itemDraggable, null)) {
                     this.itemDraggable.returnTransform = this.plateTarget;
@@ -19842,6 +20637,13 @@ if ( TRACE ) { TRACE( "InWaterItem#ConfigureNextTarget", this ); }
                     return;
                 }
 
+                if (this.isInWater && !this.isClean) {
+                    this.itemDraggable.targetItemType = ItemType.None;
+                    this.itemDraggable.returnTransform = this.waterTarget;
+                    this.itemMoveToTarget.SetDefaultTarget(null);
+                    return;
+                }
+
                 var nextDestination = this.GetNextDestination();
                 var nextTarget = this.GetDestinationTarget(nextDestination);
                 var targetItem = nextDestination === InWaterItem.MoveDestination.Water ? this.sink : this.GetTargetItem(nextTarget);
@@ -19925,33 +20727,120 @@ if ( TRACE ) { TRACE( "InWaterItem#UpdateDragAvailability", this ); }
             },
             /*InWaterItem.UpdateDragAvailability end.*/
 
-            /*InWaterItem.CheckLastPlate start.*/
-            CheckLastPlate: function () {
-if ( TRACE ) { TRACE( "InWaterItem#CheckLastPlate", this ); }
+            /*InWaterItem.SetCuttingBoardAsDefaultTarget start.*/
+            SetCuttingBoardAsDefaultTarget: function () {
+if ( TRACE ) { TRACE( "InWaterItem#SetCuttingBoardAsDefaultTarget", this ); }
 
-                var itemType = ComponentCache$1(Item).Get$1(this.itemMoveToTarget.defaultTarget).itemType;
-                // if (itemType == ItemType.DiaOt || itemType == ItemType.DiaNgao)
-                // {
-                //     ply_BobEffect.enabled = false;
-                //     itemDraggable.enabled = false;
-                //     collider1.enabled = false;
-                //     isOnPlate = true;
-                //     ItemDone();
-                //     PhaseManager.Ins.DoOneStep();
-                // }
-                // else
-                // {
-                //     ply_TimerEvent.enabled = true;
-                //     if (sink.isWaterIn)
-                //     {
-                //         ply_BobEffect.enabled = true;
+                if (UnityEngine.MonoBehaviour.op_Inequality(this.itemMoveToTarget, null)) {
+                    this.itemMoveToTarget.SetDefaultTarget(this.cuttingBoardTarget);
+                }
 
-                //         ply_TimerEvent.StartTimer();
-
-                //     }
-                // }
+                if (UnityEngine.MonoBehaviour.op_Inequality(this.itemDraggable, null)) {
+                    var cuttingBoardItem = this.GetTargetItem(this.cuttingBoardTarget);
+                    if (UnityEngine.MonoBehaviour.op_Inequality(cuttingBoardItem, null)) {
+                        this.itemDraggable.targetItemType = cuttingBoardItem.itemType;
+                    }
+                }
             },
-            /*InWaterItem.CheckLastPlate end.*/
+            /*InWaterItem.SetCuttingBoardAsDefaultTarget end.*/
+
+            /*InWaterItem.SetColliderRadiusMultiplier start.*/
+            SetColliderRadiusMultiplier: function (multiplier) {
+if ( TRACE ) { TRACE( "InWaterItem#SetColliderRadiusMultiplier", this ); }
+
+                this.CacheOriginalColliderRadius();
+                if (!this.hasCachedColliderRadius) {
+                    return;
+                }
+
+                multiplier = UnityEngine.Mathf.Max(0.0, multiplier);
+                var sphereCollider;
+                if (UnityEngine.Component.op_Inequality(((sphereCollider = Bridge.as(this.collider1, UnityEngine.SphereCollider))), null)) {
+                    sphereCollider.radius = this.originalSphereColliderRadius * multiplier;
+                } else {
+                    var capsuleCollider;
+                    if (UnityEngine.Component.op_Inequality(((capsuleCollider = Bridge.as(this.collider1, UnityEngine.CapsuleCollider))), null)) {
+                        capsuleCollider.radius = this.originalCapsuleColliderRadius * multiplier;
+                    }
+                }
+            },
+            /*InWaterItem.SetColliderRadiusMultiplier end.*/
+
+            /*InWaterItem.CacheOriginalColliderRadius start.*/
+            CacheOriginalColliderRadius: function () {
+if ( TRACE ) { TRACE( "InWaterItem#CacheOriginalColliderRadius", this ); }
+
+                if (this.hasCachedColliderRadius) {
+                    return;
+                }
+
+                if (UnityEngine.Component.op_Equality(this.collider1, null)) {
+                    this.collider1 = this.GetComponent(UnityEngine.Collider);
+                }
+                var sphereCollider;
+                if (UnityEngine.Component.op_Inequality(((sphereCollider = Bridge.as(this.collider1, UnityEngine.SphereCollider))), null)) {
+                    this.originalSphereColliderRadius = sphereCollider.radius;
+                    this.hasCachedColliderRadius = true;
+                } else {
+                    var capsuleCollider;
+                    if (UnityEngine.Component.op_Inequality(((capsuleCollider = Bridge.as(this.collider1, UnityEngine.CapsuleCollider))), null)) {
+                        this.originalCapsuleColliderRadius = capsuleCollider.radius;
+                        this.hasCachedColliderRadius = true;
+                    }
+                }
+            },
+            /*InWaterItem.CacheOriginalColliderRadius end.*/
+
+            /*InWaterItem.SetPlateFoodShadowActive start.*/
+            SetPlateFoodShadowActive: function (isActive) {
+if ( TRACE ) { TRACE( "InWaterItem#SetPlateFoodShadowActive", this ); }
+
+                if (UnityEngine.GameObject.op_Inequality(this.plateFoodShadow, null)) {
+                    this.plateFoodShadow.SetActive(isActive);
+                }
+            },
+            /*InWaterItem.SetPlateFoodShadowActive end.*/
+
+            /*InWaterItem.ResetChildRotate start.*/
+            ResetChildRotate: function () {
+if ( TRACE ) { TRACE( "InWaterItem#ResetChildRotate", this ); }
+
+                if (this.childObject != null) {
+                    for (var i = 0; i < this.childObject.length; i = (i + 1) | 0) {
+                        DG.Tweening.ShortcutExtensions.DORotate(this.childObject[i], new pc.Vec3( 0, 0, 0 ), 0.1);
+                    }
+                }
+            },
+            /*InWaterItem.ResetChildRotate end.*/
+
+            /*InWaterItem.EnableKnife start.*/
+            EnableKnife: function () {
+if ( TRACE ) { TRACE( "InWaterItem#EnableKnife", this ); }
+
+                Ply_Singleton$1(HandTutManager).Ins.knife.gameObject.SetActive(true);
+                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.KnifePlace);
+
+            },
+            /*InWaterItem.EnableKnife end.*/
+
+            /*InWaterItem.EnablePeeler start.*/
+            EnablePeeler: function () {
+if ( TRACE ) { TRACE( "InWaterItem#EnablePeeler", this ); }
+
+                Ply_Singleton$1(HandTutManager).Ins.peeler.gameObject.SetActive(true);
+                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.ItemPlace);
+
+            },
+            /*InWaterItem.EnablePeeler end.*/
+
+            /*InWaterItem.PeelerDone start.*/
+            PeelerDone: function () {
+if ( TRACE ) { TRACE( "InWaterItem#PeelerDone", this ); }
+
+                ComponentCache$1(Knife).Get$1(Ply_Singleton$1(HandTutManager).Ins.knife).SetTarget(this.transform);
+                this.itemClickable.enabled = false;
+            },
+            /*InWaterItem.PeelerDone end.*/
 
 
         }
@@ -20039,15 +20928,33 @@ if ( TRACE ) { TRACE( "ToolObject#FlyOut", this ); }
         inherits: [Item],
         fields: {
             knifeIdle: null,
-            knifeOnDrag: null
+            knifeOnDrag: null,
+            knifeOnDragRotationOffset: null,
+            knifeOnDragRotateDuration: 0,
+            knifeOnDragRotateEase: 0,
+            hasCachedKnifeOnDragRotation: false,
+            knifeOnDragOriginalLocalRotation: null,
+            knifeOnDragRotateTween: null
+        },
+        ctors: {
+            init: function () {
+if ( TRACE ) { TRACE( "Knife#init", this ); }
+
+                this.knifeOnDragRotationOffset = new UnityEngine.Vector3();
+                this.knifeOnDragOriginalLocalRotation = new UnityEngine.Quaternion();
+                this.knifeOnDragRotateDuration = 0.15;
+                this.knifeOnDragRotateEase = DG.Tweening.Ease.OutQuad;
+            }
         },
         methods: {
             /*Knife.KnifeOnDrag start.*/
             KnifeOnDrag: function () {
 if ( TRACE ) { TRACE( "Knife#KnifeOnDrag", this ); }
 
+                this.CacheKnifeOnDragRotation();
                 this.knifeIdle.SetActive(false);
                 this.knifeOnDrag.SetActive(true);
+                this.RotateKnifeOnDragTo(this.knifeOnDragOriginalLocalRotation.clone().mul( new pc.Quat().setFromEulerAngles_Unity( this.knifeOnDragRotationOffset.x, this.knifeOnDragRotationOffset.y, this.knifeOnDragRotationOffset.z ) ));
             },
             /*Knife.KnifeOnDrag end.*/
 
@@ -20055,6 +20962,7 @@ if ( TRACE ) { TRACE( "Knife#KnifeOnDrag", this ); }
             KnifeIdle: function () {
 if ( TRACE ) { TRACE( "Knife#KnifeIdle", this ); }
 
+                this.ResetKnifeOnDragRotation();
                 this.knifeIdle.SetActive(true);
                 this.knifeOnDrag.SetActive(false);
             },
@@ -20064,12 +20972,21 @@ if ( TRACE ) { TRACE( "Knife#KnifeIdle", this ); }
             TargetKnifeFlyEvent: function () {
 if ( TRACE ) { TRACE( "Knife#TargetKnifeFlyEvent", this ); }
 
-
+                UnityEngine.Debug.Log$1("TargetKnifeFlyEvent");
                 var target = ComponentCache$1(Item).Get$1(this.itemMoveToTarget.defaultTarget);
                 target.KnifeIn();
-
             },
             /*Knife.TargetKnifeFlyEvent end.*/
+
+            /*Knife.SetTarget start.*/
+            SetTarget: function (target) {
+if ( TRACE ) { TRACE( "Knife#SetTarget", this ); }
+
+                var targetItem = ComponentCache$1(Item).Get$1(target);
+                this.itemDraggable.targetItemType = targetItem.itemType;
+                this.itemMoveToTarget.defaultTarget = target;
+            },
+            /*Knife.SetTarget end.*/
 
             /*Knife.OnDragFailReturnComplete start.*/
             OnDragFailReturnComplete: function () {
@@ -20085,6 +21002,15 @@ if ( TRACE ) { TRACE( "Knife#OnDragFailReturnComplete", this ); }
             },
             /*Knife.OnDragFailReturnComplete end.*/
 
+            /*Knife.OnKnifeDone start.*/
+            OnKnifeDone: function () {
+if ( TRACE ) { TRACE( "Knife#OnKnifeDone", this ); }
+
+                this.itemDraggable.targetItemType = ItemType.None;
+                this.itemMoveToTarget.defaultTarget = null;
+            },
+            /*Knife.OnKnifeDone end.*/
+
             /*Knife.PlayKnifeSound start.*/
             PlayKnifeSound: function () {
 if ( TRACE ) { TRACE( "Knife#PlayKnifeSound", this ); }
@@ -20092,6 +21018,53 @@ if ( TRACE ) { TRACE( "Knife#PlayKnifeSound", this ); }
                 // Ply_SoundManager.Ins.PlayFx(FxType.PlaceKnife);
             },
             /*Knife.PlayKnifeSound end.*/
+
+            /*Knife.OnDisable start.*/
+            OnDisable: function () {
+if ( TRACE ) { TRACE( "Knife#OnDisable", this ); }
+
+                this.ResetKnifeOnDragRotation();
+            },
+            /*Knife.OnDisable end.*/
+
+            /*Knife.CacheKnifeOnDragRotation start.*/
+            CacheKnifeOnDragRotation: function () {
+if ( TRACE ) { TRACE( "Knife#CacheKnifeOnDragRotation", this ); }
+
+                if (this.hasCachedKnifeOnDragRotation || UnityEngine.GameObject.op_Equality(this.knifeOnDrag, null)) {
+                    return;
+                }
+
+                this.knifeOnDragOriginalLocalRotation = this.knifeOnDrag.transform.localRotation.$clone();
+                this.hasCachedKnifeOnDragRotation = true;
+            },
+            /*Knife.CacheKnifeOnDragRotation end.*/
+
+            /*Knife.ResetKnifeOnDragRotation start.*/
+            ResetKnifeOnDragRotation: function () {
+if ( TRACE ) { TRACE( "Knife#ResetKnifeOnDragRotation", this ); }
+
+                this.CacheKnifeOnDragRotation();
+                if (!this.hasCachedKnifeOnDragRotation || UnityEngine.GameObject.op_Equality(this.knifeOnDrag, null)) {
+                    return;
+                }
+
+                this.RotateKnifeOnDragTo(this.knifeOnDragOriginalLocalRotation);
+            },
+            /*Knife.ResetKnifeOnDragRotation end.*/
+
+            /*Knife.RotateKnifeOnDragTo start.*/
+            RotateKnifeOnDragTo: function (targetRotation) {
+if ( TRACE ) { TRACE( "Knife#RotateKnifeOnDragTo", this ); }
+
+                if (UnityEngine.GameObject.op_Equality(this.knifeOnDrag, null)) {
+                    return;
+                }
+
+                this.knifeOnDragRotateTween != null ? DG.Tweening.TweenExtensions.Kill(this.knifeOnDragRotateTween) : null;
+                this.knifeOnDragRotateTween = DG.Tweening.TweenSettingsExtensions.SetEase$2(DG.Tweening.Core.TweenerCore$3(UnityEngine.Quaternion,UnityEngine.Quaternion,DG.Tweening.Plugins.Options.NoOptions), DG.Tweening.ShortcutExtensions.DOLocalRotateQuaternion(this.knifeOnDrag.transform, targetRotation.$clone(), this.knifeOnDragRotateDuration), this.knifeOnDragRotateEase);
+            },
+            /*Knife.RotateKnifeOnDragTo end.*/
 
 
         }
@@ -20140,11 +21113,32 @@ if ( TRACE ) { TRACE( "LoseState#OnExit", this ); }
     /*MergeEffect start.*/
     Bridge.define("MergeEffect", {
         inherits: [Ply_GameUnit],
+        fields: {
+            defaultScale: null,
+            isDefaultScaleCached: false
+        },
+        ctors: {
+            init: function () {
+if ( TRACE ) { TRACE( "MergeEffect#init", this ); }
+
+                this.defaultScale = new UnityEngine.Vector3();
+            }
+        },
         methods: {
+            /*MergeEffect.SetScale start.*/
+            SetScale: function (scaleMultiplier) {
+if ( TRACE ) { TRACE( "MergeEffect#SetScale", this ); }
+
+                this.CacheDefaultScale();
+                this.tf.localScale = this.defaultScale.$clone().clone().scale( UnityEngine.Mathf.Max(0.0, scaleMultiplier) );
+            },
+            /*MergeEffect.SetScale end.*/
+
             /*MergeEffect.DeSpawnByTime start.*/
             DeSpawnByTime: function () {
 if ( TRACE ) { TRACE( "MergeEffect#DeSpawnByTime", this ); }
 
+                this.CancelInvoke$1("DeSpawn");
                 this.Invoke("DeSpawn", 3.0);
             },
             /*MergeEffect.DeSpawnByTime end.*/
@@ -20153,9 +21147,36 @@ if ( TRACE ) { TRACE( "MergeEffect#DeSpawnByTime", this ); }
             DeSpawn: function () {
 if ( TRACE ) { TRACE( "MergeEffect#DeSpawn", this ); }
 
+                this.CancelInvoke$1("DeSpawn");
+                this.ResetScale();
                 Ply_Singleton$1(Ply_Pool).Ins.Despawn(PoolType.MergeVFX, this);
             },
             /*MergeEffect.DeSpawn end.*/
+
+            /*MergeEffect.CacheDefaultScale start.*/
+            CacheDefaultScale: function () {
+if ( TRACE ) { TRACE( "MergeEffect#CacheDefaultScale", this ); }
+
+                if (this.isDefaultScaleCached) {
+                    return;
+                }
+
+                this.defaultScale = this.tf.localScale.$clone();
+                this.isDefaultScaleCached = true;
+            },
+            /*MergeEffect.CacheDefaultScale end.*/
+
+            /*MergeEffect.ResetScale start.*/
+            ResetScale: function () {
+if ( TRACE ) { TRACE( "MergeEffect#ResetScale", this ); }
+
+                if (!this.isDefaultScaleCached) {
+                    return;
+                }
+
+                this.tf.localScale = this.defaultScale.$clone();
+            },
+            /*MergeEffect.ResetScale end.*/
 
 
         }
@@ -20212,10 +21233,13 @@ if ( TRACE ) { TRACE( "PhaseManager#inherits", this ); }
             offScreenLeftX: 0,
             offScreenRightX: 0,
             centerScreenX: 0,
+            phaseTransitionObject: null,
+            phaseTransitionObjectDuration: 0,
             currentPhaseIndex: 0,
             currentStepCount: 0,
             isChangingPhase: false,
-            phaseDelayTween: null
+            phaseDelayTween: null,
+            phaseTransitionSequence: null
         },
         props: {
             CurrentPhaseObject: {
@@ -20238,6 +21262,7 @@ if ( TRACE ) { TRACE( "PhaseManager#init", this ); }
                 this.offScreenLeftX = -15.0;
                 this.offScreenRightX = 15.0;
                 this.centerScreenX = 0.0;
+                this.phaseTransitionObjectDuration = 1.5;
                 this.currentPhaseIndex = 0;
                 this.currentStepCount = 0;
             }
@@ -20262,6 +21287,10 @@ if ( TRACE ) { TRACE( "PhaseManager#Start", this ); }
                         }
                     }
                 }
+
+                if (UnityEngine.GameObject.op_Inequality(this.phaseTransitionObject, null)) {
+                    this.phaseTransitionObject.SetActive(false);
+                }
             },
             /*PhaseManager.Start end.*/
 
@@ -20270,6 +21299,7 @@ if ( TRACE ) { TRACE( "PhaseManager#Start", this ); }
 if ( TRACE ) { TRACE( "PhaseManager#OnDisable", this ); }
 
                 this.phaseDelayTween != null ? DG.Tweening.TweenExtensions.Kill(this.phaseDelayTween) : null;
+                this.phaseTransitionSequence != null ? DG.Tweening.TweenExtensions.Kill(this.phaseTransitionSequence) : null;
             },
             /*PhaseManager.OnDisable end.*/
 
@@ -20347,9 +21377,82 @@ if ( TRACE ) { TRACE( "PhaseManager#DelayGoToNextPhase", this ); }
                 }
                 Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Complete);
                 this.phaseDelayTween != null ? DG.Tweening.TweenExtensions.Kill(this.phaseDelayTween) : null;
+                this.phaseTransitionSequence != null ? DG.Tweening.TweenExtensions.Kill(this.phaseTransitionSequence) : null;
+
+                if (UnityEngine.GameObject.op_Inequality(this.phaseTransitionObject, null)) {
+                    this.phaseDelayTween = DG.Tweening.DOVirtual.DelayedCall(this.delayBeforeNextPhase, Bridge.fn.cacheBind(this, this.PlayPhaseObjectTransition));
+                    return;
+                }
+
                 this.phaseDelayTween = DG.Tweening.DOVirtual.DelayedCall(this.delayBeforeNextPhase, Bridge.fn.cacheBind(this, this.GoToNextPhase));
             },
             /*PhaseManager.DelayGoToNextPhase end.*/
+
+            /*PhaseManager.PlayPhaseObjectTransition start.*/
+            PlayPhaseObjectTransition: function () {
+if ( TRACE ) { TRACE( "PhaseManager#PlayPhaseObjectTransition", this ); }
+
+                this.phaseTransitionObject.SetActive(true);
+
+                var safeDuration = UnityEngine.Mathf.Max(0.01, this.phaseTransitionObjectDuration);
+                this.phaseTransitionSequence = DG.Tweening.DOTween.Sequence();
+                DG.Tweening.TweenSettingsExtensions.AppendInterval(this.phaseTransitionSequence, safeDuration * 0.5);
+                DG.Tweening.TweenSettingsExtensions.AppendCallback(this.phaseTransitionSequence, Bridge.fn.cacheBind(this, this.SwitchToNextPhaseBehindTransition));
+                DG.Tweening.TweenSettingsExtensions.AppendInterval(this.phaseTransitionSequence, safeDuration * 0.5);
+                DG.Tweening.TweenSettingsExtensions.OnComplete(DG.Tweening.Sequence, this.phaseTransitionSequence, Bridge.fn.bind(this, function () {
+                    this.phaseTransitionSequence = null;
+                    this.phaseTransitionObject.SetActive(false);
+                    this.FinishPhaseTransition();
+                }));
+            },
+            /*PhaseManager.PlayPhaseObjectTransition end.*/
+
+            /*PhaseManager.SwitchToNextPhaseBehindTransition start.*/
+            SwitchToNextPhaseBehindTransition: function () {
+if ( TRACE ) { TRACE( "PhaseManager#SwitchToNextPhaseBehindTransition", this ); }
+
+                var oldPhase = this.phases.getItem(this.currentPhaseIndex);
+                this.currentPhaseIndex = (this.currentPhaseIndex + 1) | 0;
+                this.currentStepCount = 0;
+
+                if (oldPhase != null && UnityEngine.GameObject.op_Inequality(oldPhase.phaseObject, null)) {
+                    oldPhase.phaseObject.SetActive(false);
+                }
+
+                if (this.currentPhaseIndex < this.phases.Count) {
+                    var newPhase = this.phases.getItem(this.currentPhaseIndex);
+                    if (newPhase != null && UnityEngine.GameObject.op_Inequality(newPhase.phaseObject, null)) {
+                        var newObj = newPhase.phaseObject;
+                        var pos = newObj.transform.position.$clone();
+                        pos.x = this.centerScreenX;
+                        newObj.transform.position = pos.$clone();
+                        newObj.SetActive(true);
+                        if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(GameManager).Ins, null) && !Ply_Singleton$1(GameManager).Ins.isLoseGame) {
+                            Ply_Singleton$1(GameManager).Ins.isPlaying = true;
+                        }
+                        newPhase.onPhaseReady != null ? newPhase.onPhaseReady.Invoke() : null;
+                        this.StartHandTutAfterPhaseReady();
+                    }
+                }
+            },
+            /*PhaseManager.SwitchToNextPhaseBehindTransition end.*/
+
+            /*PhaseManager.FinishPhaseTransition start.*/
+            FinishPhaseTransition: function () {
+if ( TRACE ) { TRACE( "PhaseManager#FinishPhaseTransition", this ); }
+
+                this.isChangingPhase = false;
+
+                if (this.currentPhaseIndex < this.phases.Count) {
+                    return;
+                }
+
+                UnityEngine.Debug.Log$1("Ho\u00e0n th\u00e0nh to\u00e0n b\u1ed9 Phase!");
+                if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(GameManager).Ins, null)) {
+                    Ply_Singleton$1(GameManager).Ins.WinGame();
+                }
+            },
+            /*PhaseManager.FinishPhaseTransition end.*/
 
             /*PhaseManager.GoToNextPhase start.*/
             GoToNextPhase: function () {
@@ -20387,14 +21490,15 @@ if ( TRACE ) { TRACE( "PhaseManager#GoToNextPhase", this ); }
                         newObj.SetActive(true);
                         DG.Tweening.TweenSettingsExtensions.OnComplete(DG.Tweening.Core.TweenerCore$3(UnityEngine.Vector3,UnityEngine.Vector3,DG.Tweening.Plugins.Options.VectorOptions), DG.Tweening.TweenSettingsExtensions.SetEase$2(DG.Tweening.Core.TweenerCore$3(UnityEngine.Vector3,UnityEngine.Vector3,DG.Tweening.Plugins.Options.VectorOptions), DG.Tweening.ShortcutExtensions.DOMoveX(newObj.transform, this.centerScreenX, this.transitionDuration), DG.Tweening.Ease.InOutQuad), Bridge.fn.bind(this, function () {
                             this.isChangingPhase = false;
-                            if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(GameManager).Ins, null)) {
+                            if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(GameManager).Ins, null) && !Ply_Singleton$1(GameManager).Ins.isLoseGame) {
                                 Ply_Singleton$1(GameManager).Ins.isPlaying = true;
                             }
                             newPhase.onPhaseReady != null ? newPhase.onPhaseReady.Invoke() : null;
+                            this.StartHandTutAfterPhaseReady();
                         }));
                     } else {
                         this.isChangingPhase = false;
-                        if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(GameManager).Ins, null)) {
+                        if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(GameManager).Ins, null) && !Ply_Singleton$1(GameManager).Ins.isLoseGame) {
                             Ply_Singleton$1(GameManager).Ins.isPlaying = true;
                         }
                     }
@@ -20408,6 +21512,20 @@ if ( TRACE ) { TRACE( "PhaseManager#GoToNextPhase", this ); }
                 }
             },
             /*PhaseManager.GoToNextPhase end.*/
+
+            /*PhaseManager.StartHandTutAfterPhaseReady start.*/
+            StartHandTutAfterPhaseReady: function () {
+if ( TRACE ) { TRACE( "PhaseManager#StartHandTutAfterPhaseReady", this ); }
+
+                if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(GameManager).Ins, null)) {
+                    if (!Ply_Singleton$1(GameManager).Ins.isLoseGame) {
+                        Ply_Singleton$1(GameManager).Ins.isPlaying = true;
+                    }
+                }
+
+                UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(HandTutManager).Ins, null) ? Ply_Singleton$1(HandTutManager).Ins.StartHandTutNoDelay() : null;
+            },
+            /*PhaseManager.StartHandTutAfterPhaseReady end.*/
 
 
         }
@@ -20463,6 +21581,16 @@ if ( TRACE ) { TRACE( "Ply_Pool#OnInit", this ); }
             /*Ply_Pool.Spawn$1 start.*/
             Spawn$1: function (poolType, pos, rot) {
 if ( TRACE ) { TRACE( "Ply_Pool#Spawn$1", this ); }
+
+                if (!this.dict.containsKey(poolType)) {
+                    var prefab = this.GetPrefab(poolType);
+                    if (UnityEngine.MonoBehaviour.op_Equality(prefab, null)) {
+                        UnityEngine.Debug.LogWarning$1(System.String.format("Ply_Pool: No prefab found for PoolType {0}", [Bridge.box(poolType, PoolType, System.Enum.toStringFn(PoolType))]));
+                        return null;
+                    }
+
+                    this.dict.setItem(poolType, new (System.Collections.Generic.Queue$1(Ply_GameUnit)).ctor());
+                }
 
                 var gameUnit = this.dict.getItem(poolType).Count > 0 ? this.dict.getItem(poolType).Dequeue() : UnityEngine.Object.Instantiate(Ply_GameUnit, this.GetPrefab(poolType));
                 gameUnit.transform.SetParent(this.poolHolder);
@@ -20578,6 +21706,11 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#PlayFx", this ); }
                     }
 
                     var source = this.GetOrCreateFxSource(fxType);
+                    if (source.loop) {
+                        source.loop = false;
+                        source.Stop();
+                    }
+
                     source.PlayOneShot(clip);
                 }
             },
@@ -21088,6 +22221,7 @@ if ( TRACE ) { TRACE( "Sink#DrawPointGizmo", this ); }
             isClose: false,
             isWaterDrop: false,
             isWaterIn: false,
+            waterSplashPos: null,
             waterState: 0,
             faucetAnimator: null,
             basinAnimator: null,
@@ -21198,6 +22332,7 @@ if ( TRACE ) { TRACE( "Sink#TurnOnWater", this ); }
                 this.isWaterDrop = true;
                 this.displayedWaterOn = true;
                 this.SetFaucetActive(true);
+                Ply_Singleton$1(Ply_SoundManager).Ins.PlayFxLoop(FxType.WaterDrop);
 
                 if (this.isClose && this.waterState !== SinkWaterState.Full) {
                     this.BeginWaterRise();
@@ -21217,6 +22352,7 @@ if ( TRACE ) { TRACE( "Sink#TurnOffWater", this ); }
                 this.isWaterDrop = false;
                 this.displayedWaterOn = false;
                 this.SetFaucetActive(false);
+                Ply_Singleton$1(Ply_SoundManager).Ins.StopFxLoop(FxType.WaterDrop);
 
                 if (this.waterState === SinkWaterState.Rising) {
                     this.PauseWaterRise();
@@ -21900,6 +23036,7 @@ if ( TRACE ) { TRACE( "SinkBlock#Initialize", this ); }
                     }
                 }
 
+                UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(HandTutManager).Ins, null) ? Ply_Singleton$1(HandTutManager).Ins.SinkBlockMoveDone(this) : null;
                 this.UpdateDragAvailability();
             },
             /*SinkBlock.Initialize end.*/
@@ -24036,6 +25173,31 @@ if ( TRACE ) { TRACE( "WaitingState#OnExit", this ); }
     });
     /*WaitingState end.*/
 
+    /*WaterSplash start.*/
+    Bridge.define("WaterSplash", {
+        inherits: [Ply_GameUnit],
+        methods: {
+            /*WaterSplash.DeSpawnByTime start.*/
+            DeSpawnByTime: function () {
+if ( TRACE ) { TRACE( "WaterSplash#DeSpawnByTime", this ); }
+
+                this.Invoke("DeSpawn", 1.0);
+            },
+            /*WaterSplash.DeSpawnByTime end.*/
+
+            /*WaterSplash.DeSpawn start.*/
+            DeSpawn: function () {
+if ( TRACE ) { TRACE( "WaterSplash#DeSpawn", this ); }
+
+                Ply_Singleton$1(Ply_Pool).Ins.Despawn(PoolType.WaterSplash, this);
+            },
+            /*WaterSplash.DeSpawn end.*/
+
+
+        }
+    });
+    /*WaterSplash end.*/
+
     /*WinState start.*/
     Bridge.define("WinState", {
         inherits: [IGameState],
@@ -24280,7 +25442,11 @@ if ( TRACE ) { TRACE( "Plate#FlyOut$2", this ); }
 if ( TRACE ) { TRACE( "Plate#SpawnFX", this ); }
 
                 var heartEffect = Ply_Singleton$1(Ply_Pool).Ins.Spawn(HeartEffect, PoolType.HeartFX, this.transform.position, this.transform.rotation);
+                if (UnityEngine.MonoBehaviour.op_Equality(heartEffect, null)) {
+                    return;
+                }
                 heartEffect.transform.SetParent(this.transform);
+                heartEffect.PlaySpawnWithScale(this.heartEffectScale);
             },
             /*Plate.SpawnFX end.*/
 
@@ -27593,7 +28759,7 @@ if ( TRACE ) { TRACE( "Spoon#OnFlyInComplete", this ); }
         $n = ["System","UnityEngine","UnityEngine.UI","DG.Tweening","UnityEngine.Events","System.Collections.Generic","System.Collections","Spine.Unity","Spine","UnityEngine.U2D","UnityEngine.Rendering","Spine.Unity.AttachmentTools","UnityEngine.Audio","DG.Tweening.Core","DG.Tweening.Plugins.Core.PathCore","System.Globalization","DG.Tweening.Plugins.Options"];
 
     /*BlinkEffect start.*/
-    $m("BlinkEffect", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"DeSpawn","t":8,"sn":"DeSpawn","rt":$n[0].Void},{"a":2,"n":"DeSpawnByTime","t":8,"sn":"DeSpawnByTime","rt":$n[0].Void}]}; }, $n);
+    $m("BlinkEffect", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"CacheDefaultScale","t":8,"sn":"CacheDefaultScale","rt":$n[0].Void},{"a":2,"n":"DeSpawn","t":8,"sn":"DeSpawn","rt":$n[0].Void},{"a":2,"n":"DeSpawnByTime","t":8,"sn":"DeSpawnByTime","rt":$n[0].Void},{"a":1,"n":"ResetScale","t":8,"sn":"ResetScale","rt":$n[0].Void},{"a":2,"n":"SetScale","t":8,"pi":[{"n":"scaleMultiplier","pt":$n[0].Single,"ps":0}],"sn":"SetScale","rt":$n[0].Void,"p":[$n[0].Single]},{"a":1,"n":"defaultScale","t":4,"rt":$n[1].Vector3,"sn":"defaultScale"},{"a":1,"n":"isDefaultScaleCached","t":4,"rt":$n[0].Boolean,"sn":"isDefaultScaleCached","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}]}; }, $n);
     /*BlinkEffect end.*/
 
     /*ClockTimer start.*/
@@ -27617,7 +28783,7 @@ if ( TRACE ) { TRACE( "Spoon#OnFlyInComplete", this ); }
     /*HeartEffect end.*/
 
     /*MergeEffect start.*/
-    $m("MergeEffect", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"DeSpawn","t":8,"sn":"DeSpawn","rt":$n[0].Void},{"a":2,"n":"DeSpawnByTime","t":8,"sn":"DeSpawnByTime","rt":$n[0].Void}]}; }, $n);
+    $m("MergeEffect", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"CacheDefaultScale","t":8,"sn":"CacheDefaultScale","rt":$n[0].Void},{"a":2,"n":"DeSpawn","t":8,"sn":"DeSpawn","rt":$n[0].Void},{"a":2,"n":"DeSpawnByTime","t":8,"sn":"DeSpawnByTime","rt":$n[0].Void},{"a":1,"n":"ResetScale","t":8,"sn":"ResetScale","rt":$n[0].Void},{"a":2,"n":"SetScale","t":8,"pi":[{"n":"scaleMultiplier","pt":$n[0].Single,"ps":0}],"sn":"SetScale","rt":$n[0].Void,"p":[$n[0].Single]},{"a":1,"n":"defaultScale","t":4,"rt":$n[1].Vector3,"sn":"defaultScale"},{"a":1,"n":"isDefaultScaleCached","t":4,"rt":$n[0].Boolean,"sn":"isDefaultScaleCached","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}]}; }, $n);
     /*MergeEffect end.*/
 
     /*ProgressBar start.*/
@@ -27628,12 +28794,16 @@ if ( TRACE ) { TRACE( "Spoon#OnFlyInComplete", this ); }
     $m("StarExploreFX", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"DeSpawn","t":8,"sn":"DeSpawn","rt":$n[0].Void},{"a":2,"n":"DeSpawnByTime","t":8,"sn":"DeSpawnByTime","rt":$n[0].Void}]}; }, $n);
     /*StarExploreFX end.*/
 
+    /*WaterSplash start.*/
+    $m("WaterSplash", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"DeSpawn","t":8,"sn":"DeSpawn","rt":$n[0].Void},{"a":2,"n":"DeSpawnByTime","t":8,"sn":"DeSpawnByTime","rt":$n[0].Void}]}; }, $n);
+    /*WaterSplash end.*/
+
     /*YellowPiece start.*/
     $m("YellowPiece", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"DeSpawn","t":8,"sn":"DeSpawn","rt":$n[0].Void},{"a":2,"n":"DeSpawnByTime","t":8,"sn":"DeSpawnByTime","rt":$n[0].Void}]}; }, $n);
     /*YellowPiece end.*/
 
     /*Item start.*/
-    $m("Item", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"a":1,"n":"CacheComponents","t":8,"pi":[{"n":"refreshHiddenReferences","dv":false,"o":true,"pt":$n[0].Boolean,"ps":0}],"sn":"CacheComponents","rt":$n[0].Void,"p":[$n[0].Boolean]},{"v":true,"a":2,"n":"ChangeAnim","t":8,"pi":[{"n":"animName","pt":$n[0].String,"ps":0}],"sn":"ChangeAnim","rt":$n[0].Void,"p":[$n[0].String]},{"v":true,"a":2,"n":"ChangeItemType","t":8,"pi":[{"n":"itemType","pt":ItemType,"ps":0}],"sn":"ChangeItemType","rt":$n[0].Void,"p":[ItemType]},{"a":2,"n":"ChangeSprite","t":8,"pi":[{"n":"sprite","pt":$n[1].Sprite,"ps":0}],"sn":"ChangeSprite","rt":$n[0].Void,"p":[$n[1].Sprite]},{"a":2,"n":"DoneAnimation","t":8,"sn":"DoneAnimation","rt":$n[0].Void},{"v":true,"a":2,"n":"GetInPlate","t":8,"pi":[{"n":"plate","pt":$n[1].Transform,"ps":0}],"sn":"GetInPlate","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":2,"n":"ItemDone","t":8,"sn":"ItemDone","rt":$n[0].Void},{"a":2,"n":"KnifeIn","t":8,"sn":"KnifeIn","rt":$n[0].Void},{"v":true,"a":2,"n":"OnDragFailReturnComplete","t":8,"sn":"OnDragFailReturnComplete","rt":$n[0].Void},{"a":1,"n":"OnValidate","t":8,"sn":"OnValidate","rt":$n[0].Void},{"a":2,"n":"PlayDropSound","t":8,"sn":"PlayDropSound","rt":$n[0].Void},{"a":2,"n":"PlayEggCrackSound","t":8,"sn":"PlayEggCrackSound","rt":$n[0].Void},{"a":2,"n":"PlayJumpSound","t":8,"sn":"PlayJumpSound","rt":$n[0].Void},{"a":2,"n":"PlayMoveToTargetFinishSound","t":8,"sn":"PlayMoveToTargetFinishSound","rt":$n[0].Void},{"a":2,"n":"PlayOilInSound","t":8,"sn":"PlayOilInSound","rt":$n[0].Void},{"a":2,"n":"PlayPlasticSound","t":8,"sn":"PlayPlasticSound","rt":$n[0].Void},{"a":2,"n":"PlayPourSaltSound","t":8,"sn":"PlayPourSaltSound","rt":$n[0].Void},{"a":1,"n":"Reset","t":8,"sn":"Reset","rt":$n[0].Void},{"v":true,"a":2,"n":"ShouldPlayBobEffectAfterReturn","t":8,"sn":"ShouldPlayBobEffectAfterReturn","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"SpawnBlinkEffect","t":8,"sn":"SpawnBlinkEffect","rt":$n[0].Void},{"a":2,"n":"SpawnGreenPiece","t":8,"sn":"SpawnGreenPiece","rt":$n[0].Void},{"a":2,"n":"SpawnHeart","t":8,"pi":[{"n":"isBreak","pt":$n[0].Boolean,"ps":0}],"sn":"SpawnHeart","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":2,"n":"SpawnYellowPiece","t":8,"sn":"SpawnYellowPiece","rt":$n[0].Void},{"a":2,"n":"TeleportToStart","t":8,"sn":"TeleportToStart","rt":$n[0].Void},{"at":[new UnityEngine.HideInInspector()],"a":2,"n":"animator","t":4,"rt":$n[1].Animator,"sn":"animator"},{"at":[new UnityEngine.HeaderAttribute("--- HEART EFFECT ---")],"a":2,"n":"heartEffectScale","t":4,"rt":$n[0].Single,"sn":"heartEffectScale","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("--- HAND TUTORIAL ---")],"a":2,"n":"isDone","t":4,"rt":$n[0].Boolean,"sn":"isDone","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HideInInspector()],"a":2,"n":"itemClickable","t":4,"rt":ItemClickable,"sn":"itemClickable"},{"at":[new UnityEngine.HideInInspector()],"a":2,"n":"itemDraggable","t":4,"rt":ItemDraggable,"sn":"itemDraggable"},{"at":[new UnityEngine.HideInInspector()],"a":2,"n":"itemKnifeSpriteMaskCutter","t":4,"rt":ItemKnifeSpriteMaskCutter,"sn":"itemKnifeSpriteMaskCutter"},{"at":[new UnityEngine.HideInInspector()],"a":2,"n":"itemMoveToTarget","t":4,"rt":ItemMoveToTarget,"sn":"itemMoveToTarget"},{"at":[new UnityEngine.HideInInspector()],"a":2,"n":"itemSpriteMaskPainter","t":4,"rt":ItemSpriteMaskPainter,"sn":"itemSpriteMaskPainter"},{"at":[new UnityEngine.HideInInspector()],"a":2,"n":"itemStirring","t":4,"rt":ItemStirring,"sn":"itemStirring"},{"a":2,"n":"itemType","t":4,"rt":ItemType,"sn":"itemType","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"moveToTargetFinishFxType","t":4,"rt":FxType,"sn":"moveToTargetFinishFxType","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"onKnifeIn","t":4,"rt":$n[4].UnityEvent,"sn":"onKnifeIn"},{"a":2,"n":"onProcess","t":4,"rt":$n[0].Boolean,"sn":"onProcess","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HeaderAttribute("--- MOVE TO TARGET SOUND ---")],"a":2,"n":"playMoveToTargetFinishSound","t":4,"rt":$n[0].Boolean,"sn":"playMoveToTargetFinishSound","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"spriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"spriteRenderer"}]}; }, $n);
+    $m("Item", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"a":1,"n":"CacheComponents","t":8,"pi":[{"n":"refreshHiddenReferences","dv":false,"o":true,"pt":$n[0].Boolean,"ps":0}],"sn":"CacheComponents","rt":$n[0].Void,"p":[$n[0].Boolean]},{"v":true,"a":2,"n":"ChangeAnim","t":8,"pi":[{"n":"animName","pt":$n[0].String,"ps":0}],"sn":"ChangeAnim","rt":$n[0].Void,"p":[$n[0].String]},{"v":true,"a":2,"n":"ChangeItemType","t":8,"pi":[{"n":"itemType","pt":ItemType,"ps":0}],"sn":"ChangeItemType","rt":$n[0].Void,"p":[ItemType]},{"a":2,"n":"ChangeSprite","t":8,"pi":[{"n":"sprite","pt":$n[1].Sprite,"ps":0}],"sn":"ChangeSprite","rt":$n[0].Void,"p":[$n[1].Sprite]},{"a":2,"n":"DoneAnimation","t":8,"sn":"DoneAnimation","rt":$n[0].Void},{"v":true,"a":2,"n":"GetInPlate","t":8,"pi":[{"n":"plate","pt":$n[1].Transform,"ps":0}],"sn":"GetInPlate","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":2,"n":"ItemDone","t":8,"sn":"ItemDone","rt":$n[0].Void},{"a":2,"n":"KnifeIn","t":8,"sn":"KnifeIn","rt":$n[0].Void},{"v":true,"a":2,"n":"OnDragFailReturnComplete","t":8,"sn":"OnDragFailReturnComplete","rt":$n[0].Void},{"a":1,"n":"OnValidate","t":8,"sn":"OnValidate","rt":$n[0].Void},{"a":2,"n":"PlayKnifeCutSound","t":8,"sn":"PlayKnifeCutSound","rt":$n[0].Void},{"a":2,"n":"PlayKnifePlaceSound","t":8,"sn":"PlayKnifePlaceSound","rt":$n[0].Void},{"a":2,"n":"PlayKnifeSwingSound","t":8,"sn":"PlayKnifeSwingSound","rt":$n[0].Void},{"a":2,"n":"PlayLemonJuiceSound","t":8,"sn":"PlayLemonJuiceSound","rt":$n[0].Void},{"a":2,"n":"PlayMoveToTargetFinishSound","t":8,"sn":"PlayMoveToTargetFinishSound","rt":$n[0].Void},{"a":2,"n":"PlayPeerSound","t":8,"sn":"PlayPeerSound","rt":$n[0].Void},{"a":2,"n":"PlaySoundFX","t":8,"pi":[{"n":"fxType","pt":FxType,"ps":0}],"sn":"PlaySoundFX","rt":$n[0].Void,"p":[FxType]},{"a":2,"n":"PlayWipeSound","t":8,"sn":"PlayWipeSound","rt":$n[0].Void},{"a":1,"n":"Reset","t":8,"sn":"Reset","rt":$n[0].Void},{"v":true,"a":2,"n":"ShouldPlayBobEffectAfterReturn","t":8,"sn":"ShouldPlayBobEffectAfterReturn","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"SpawnBlinkEffect","t":8,"sn":"SpawnBlinkEffect","rt":$n[0].Void},{"a":2,"n":"SpawnGreenPiece","t":8,"sn":"SpawnGreenPiece","rt":$n[0].Void},{"a":2,"n":"SpawnHeart","t":8,"pi":[{"n":"isBreak","pt":$n[0].Boolean,"ps":0}],"sn":"SpawnHeart","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":2,"n":"SpawnMergeEffect","t":8,"sn":"SpawnMergeEffect","rt":$n[0].Void},{"a":2,"n":"SpawnWaterSplash","t":8,"pi":[{"n":"position","pt":$n[1].Vector3,"ps":0}],"sn":"SpawnWaterSplash","rt":$n[0].Void,"p":[$n[1].Vector3]},{"a":2,"n":"SpawnYellowPiece","t":8,"sn":"SpawnYellowPiece","rt":$n[0].Void},{"a":2,"n":"TeleportToStart","t":8,"sn":"TeleportToStart","rt":$n[0].Void},{"at":[new UnityEngine.HideInInspector()],"a":2,"n":"animator","t":4,"rt":$n[1].Animator,"sn":"animator"},{"a":2,"n":"blinkEffectScale","t":4,"rt":$n[0].Single,"sn":"blinkEffectScale","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"breakHeartEffectScale","t":4,"rt":$n[0].Single,"sn":"breakHeartEffectScale","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("--- EFFECT SCALE ---")],"a":2,"n":"heartEffectScale","t":4,"rt":$n[0].Single,"sn":"heartEffectScale","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("--- HAND TUTORIAL ---")],"a":2,"n":"isDone","t":4,"rt":$n[0].Boolean,"sn":"isDone","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HideInInspector()],"a":2,"n":"itemClickable","t":4,"rt":ItemClickable,"sn":"itemClickable"},{"at":[new UnityEngine.HideInInspector()],"a":2,"n":"itemDraggable","t":4,"rt":ItemDraggable,"sn":"itemDraggable"},{"at":[new UnityEngine.HideInInspector()],"a":2,"n":"itemKnifeSpriteMaskCutter","t":4,"rt":ItemKnifeSpriteMaskCutter,"sn":"itemKnifeSpriteMaskCutter"},{"at":[new UnityEngine.HideInInspector()],"a":2,"n":"itemMoveToTarget","t":4,"rt":ItemMoveToTarget,"sn":"itemMoveToTarget"},{"at":[new UnityEngine.HideInInspector()],"a":2,"n":"itemSpriteMaskPainter","t":4,"rt":ItemSpriteMaskPainter,"sn":"itemSpriteMaskPainter"},{"at":[new UnityEngine.HideInInspector()],"a":2,"n":"itemStirring","t":4,"rt":ItemStirring,"sn":"itemStirring"},{"a":2,"n":"itemType","t":4,"rt":ItemType,"sn":"itemType","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"mergeEffectScale","t":4,"rt":$n[0].Single,"sn":"mergeEffectScale","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"moveToTargetFinishFxType","t":4,"rt":FxType,"sn":"moveToTargetFinishFxType","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"onKnifeIn","t":4,"rt":$n[4].UnityEvent,"sn":"onKnifeIn"},{"a":2,"n":"onProcess","t":4,"rt":$n[0].Boolean,"sn":"onProcess","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HeaderAttribute("--- MOVE TO TARGET SOUND ---")],"a":2,"n":"playMoveToTargetFinishSound","t":4,"rt":$n[0].Boolean,"sn":"playMoveToTargetFinishSound","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"spriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"spriteRenderer"}]}; }, $n);
     /*Item end.*/
 
     /*ItemClickable start.*/
@@ -27641,7 +28811,7 @@ if ( TRACE ) { TRACE( "Spoon#OnFlyInComplete", this ); }
     /*ItemClickable end.*/
 
     /*ItemDraggable start.*/
-    $m("ItemDraggable", function () { return {"att":1048577,"a":2,"at":[new UnityEngine.RequireComponent.ctor(UnityEngine.Collider)],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"BeginDrag","t":8,"sn":"BeginDrag","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"CanDrag","t":8,"sn":"CanDrag","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"ChangeReturnPoint","t":8,"pi":[{"n":"returnPoint","pt":$n[1].Transform,"ps":0}],"sn":"ChangeReturnPoint","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":2,"n":"ChangeTargetItemType","t":8,"pi":[{"n":"transform","pt":$n[1].Transform,"ps":0}],"sn":"ChangeTargetItemType","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":2,"n":"ConsumeCurrentDropFail","t":8,"sn":"ConsumeCurrentDropFail","rt":$n[0].Void},{"a":2,"n":"Drag","t":8,"sn":"Drag","rt":$n[0].Void},{"a":2,"n":"EndDrag","t":8,"sn":"EndDrag","rt":$n[0].Void},{"a":1,"n":"GetMouseWorldPos","t":8,"sn":"GetMouseWorldPos","rt":$n[1].Vector3},{"a":2,"n":"IsDraggable","t":8,"pi":[{"n":"isDraggable","pt":$n[0].Boolean,"ps":0}],"sn":"IsDraggable","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":1,"n":"OnDisable","t":8,"sn":"OnDisable","rt":$n[0].Void},{"a":1,"n":"OnReturnToStartComplete","t":8,"sn":"OnReturnToStartComplete","rt":$n[0].Void},{"a":1,"n":"PlayBobEffectIfEnabled","t":8,"sn":"PlayBobEffectIfEnabled","rt":$n[0].Void},{"a":1,"n":"PlayDragScale","t":8,"sn":"PlayDragScale","rt":$n[0].Void},{"a":1,"n":"PlayReturnToStartFinishSound","t":8,"sn":"PlayReturnToStartFinishSound","rt":$n[0].Void},{"a":1,"n":"ResetScale","t":8,"sn":"ResetScale","rt":$n[0].Void},{"a":2,"n":"ReturnToStart","t":8,"sn":"ReturnToStart","rt":$n[0].Void},{"a":1,"n":"ReturnToStart","t":8,"pi":[{"n":"spawnHeart","pt":$n[0].Boolean,"ps":0}],"sn":"ReturnToStart$1","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":2,"n":"ReturnToStartWithoutHeart","t":8,"sn":"ReturnToStartWithoutHeart","rt":$n[0].Void},{"a":1,"n":"SetShadowActive","t":8,"pi":[{"n":"isActive","pt":$n[0].Boolean,"ps":0}],"sn":"SetShadowActive","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":2,"n":"TeleportToStart","t":8,"sn":"TeleportToStart","rt":$n[0].Void},{"a":2,"n":"UnDraggable","t":8,"pi":[{"n":"transform","pt":$n[1].Transform,"ps":0}],"sn":"UnDraggable","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":1,"n":"bobEffect","t":4,"rt":Ply_BobEffect,"sn":"bobEffect"},{"a":2,"n":"checkState","t":4,"rt":$n[0].Boolean,"sn":"checkState","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"consumeCurrentDropFail","t":4,"rt":$n[0].Boolean,"sn":"consumeCurrentDropFail","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"hasOriginalScale","t":4,"rt":$n[0].Boolean,"sn":"hasOriginalScale","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HeaderAttribute("--- C\u00c0I \u0110\u1eb6T DRAG 3D ---")],"a":2,"n":"isDraggable","t":4,"rt":$n[0].Boolean,"sn":"isDraggable","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"item","t":4,"rt":Item,"sn":"item"},{"at":[new UnityEngine.TooltipAttribute("Khi nh\u1ea5c l\u00ean, v\u1eadt s\u1ebd nh\u00edch l\u1ea1i g\u1ea7n Camera (ho\u1eb7c bay cao l\u00ean) bao nhi\u00eau \u0111\u1ec3 kh\u00f4ng k\u1eb9t v\u00e0o b\u00e0n?")],"a":2,"n":"liftOffset","t":4,"rt":$n[0].Single,"sn":"liftOffset","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"mainCam","t":4,"rt":$n[1].Camera,"sn":"mainCam"},{"a":1,"n":"myCollider","t":4,"rt":$n[1].Collider,"sn":"myCollider"},{"a":1,"n":"offset","t":4,"rt":$n[1].Vector3,"sn":"offset"},{"at":[new UnityEngine.HeaderAttribute("--- S\u1ef0 KI\u1ec6N ---")],"a":2,"n":"onBeginDrag","t":4,"rt":$n[4].UnityEvent,"sn":"onBeginDrag"},{"a":2,"n":"onDropFail","t":4,"rt":$n[4].UnityEvent,"sn":"onDropFail"},{"a":2,"n":"onDropSuccess","t":4,"rt":$n[4].UnityEvent,"sn":"onDropSuccess"},{"a":1,"n":"originalLocalPos","t":4,"rt":$n[1].Vector3,"sn":"originalLocalPos"},{"a":1,"n":"originalParent","t":4,"rt":$n[1].Transform,"sn":"originalParent"},{"a":1,"n":"originalScale","t":4,"rt":$n[1].Vector3,"sn":"originalScale"},{"a":1,"n":"originalZ","t":4,"rt":$n[0].Single,"sn":"originalZ","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("--- RETURN TO START SOUND ---")],"a":2,"n":"playReturnToStartFinishSound","t":4,"rt":$n[0].Boolean,"sn":"playReturnToStartFinishSound","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"returnToExactReturnTransformPosition","t":4,"rt":$n[0].Boolean,"sn":"returnToExactReturnTransformPosition","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"returnToStartFinishFxType","t":4,"rt":FxType,"sn":"returnToStartFinishFxType","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"returnTransform","t":4,"rt":$n[1].Transform,"sn":"returnTransform"},{"a":1,"n":"scaleTween","t":4,"rt":$n[3].Tween,"sn":"scaleTween"},{"a":2,"n":"setParentToReturnTransform","t":4,"rt":$n[0].Boolean,"sn":"setParentToReturnTransform","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"shadowDefaultActive","t":4,"rt":$n[0].Boolean,"sn":"shadowDefaultActive","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"shadowObject","t":4,"rt":$n[1].GameObject,"sn":"shadowObject"},{"a":2,"n":"spawnBreakHeartOnDropFail","t":4,"rt":$n[0].Boolean,"sn":"spawnBreakHeartOnDropFail","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"spawnHeartOnReturnComplete","t":4,"rt":$n[0].Boolean,"sn":"spawnHeartOnReturnComplete","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"targetItemType","t":4,"rt":ItemType,"sn":"targetItemType","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":1,"n":"zCoord","t":4,"rt":$n[0].Single,"sn":"zCoord","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}}]}; }, $n);
+    $m("ItemDraggable", function () { return {"att":1048577,"a":2,"at":[new UnityEngine.RequireComponent.ctor(UnityEngine.Collider)],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"BeginDrag","t":8,"sn":"BeginDrag","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"CanDrag","t":8,"sn":"CanDrag","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"ChangeReturnPoint","t":8,"pi":[{"n":"returnPoint","pt":$n[1].Transform,"ps":0}],"sn":"ChangeReturnPoint","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":2,"n":"ChangeTargetItemType","t":8,"pi":[{"n":"transform","pt":$n[1].Transform,"ps":0}],"sn":"ChangeTargetItemType","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":2,"n":"ConsumeCurrentDropFail","t":8,"sn":"ConsumeCurrentDropFail","rt":$n[0].Void},{"a":2,"n":"Drag","t":8,"sn":"Drag","rt":$n[0].Void},{"a":2,"n":"EndDrag","t":8,"sn":"EndDrag","rt":$n[0].Void},{"a":1,"n":"GetMouseWorldPos","t":8,"sn":"GetMouseWorldPos","rt":$n[1].Vector3},{"a":2,"n":"IsDraggable","t":8,"pi":[{"n":"isDraggable","pt":$n[0].Boolean,"ps":0}],"sn":"IsDraggable","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":1,"n":"OnDisable","t":8,"sn":"OnDisable","rt":$n[0].Void},{"a":1,"n":"OnReturnToStartComplete","t":8,"sn":"OnReturnToStartComplete","rt":$n[0].Void},{"a":1,"n":"PlayBeginDragSound","t":8,"sn":"PlayBeginDragSound","rt":$n[0].Void},{"a":1,"n":"PlayBobEffectIfEnabled","t":8,"sn":"PlayBobEffectIfEnabled","rt":$n[0].Void},{"a":1,"n":"PlayDragScale","t":8,"sn":"PlayDragScale","rt":$n[0].Void},{"a":1,"n":"PlayReturnToStartFinishSound","t":8,"sn":"PlayReturnToStartFinishSound","rt":$n[0].Void},{"a":1,"n":"ResetScale","t":8,"sn":"ResetScale","rt":$n[0].Void},{"a":2,"n":"ReturnToStart","t":8,"sn":"ReturnToStart","rt":$n[0].Void},{"a":1,"n":"ReturnToStart","t":8,"pi":[{"n":"spawnHeart","pt":$n[0].Boolean,"ps":0}],"sn":"ReturnToStart$1","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":2,"n":"ReturnToStartWithoutHeart","t":8,"sn":"ReturnToStartWithoutHeart","rt":$n[0].Void},{"a":1,"n":"SetShadowActive","t":8,"pi":[{"n":"isActive","pt":$n[0].Boolean,"ps":0}],"sn":"SetShadowActive","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":2,"n":"TeleportToStart","t":8,"sn":"TeleportToStart","rt":$n[0].Void},{"a":2,"n":"UnDraggable","t":8,"pi":[{"n":"transform","pt":$n[1].Transform,"ps":0}],"sn":"UnDraggable","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":2,"n":"beginDragFxType","t":4,"rt":FxType,"sn":"beginDragFxType","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":1,"n":"bobEffect","t":4,"rt":Ply_BobEffect,"sn":"bobEffect"},{"a":2,"n":"checkState","t":4,"rt":$n[0].Boolean,"sn":"checkState","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"consumeCurrentDropFail","t":4,"rt":$n[0].Boolean,"sn":"consumeCurrentDropFail","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"hasOriginalScale","t":4,"rt":$n[0].Boolean,"sn":"hasOriginalScale","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HeaderAttribute("--- C\u00c0I \u0110\u1eb6T DRAG 3D ---")],"a":2,"n":"isDraggable","t":4,"rt":$n[0].Boolean,"sn":"isDraggable","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"item","t":4,"rt":Item,"sn":"item"},{"at":[new UnityEngine.TooltipAttribute("Khi nh\u1ea5c l\u00ean, v\u1eadt s\u1ebd nh\u00edch l\u1ea1i g\u1ea7n Camera (ho\u1eb7c bay cao l\u00ean) bao nhi\u00eau \u0111\u1ec3 kh\u00f4ng k\u1eb9t v\u00e0o b\u00e0n?")],"a":2,"n":"liftOffset","t":4,"rt":$n[0].Single,"sn":"liftOffset","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"mainCam","t":4,"rt":$n[1].Camera,"sn":"mainCam"},{"a":1,"n":"myCollider","t":4,"rt":$n[1].Collider,"sn":"myCollider"},{"a":1,"n":"offset","t":4,"rt":$n[1].Vector3,"sn":"offset"},{"at":[new UnityEngine.HeaderAttribute("--- S\u1ef0 KI\u1ec6N ---")],"a":2,"n":"onBeginDrag","t":4,"rt":$n[4].UnityEvent,"sn":"onBeginDrag"},{"a":2,"n":"onDropFail","t":4,"rt":$n[4].UnityEvent,"sn":"onDropFail"},{"a":2,"n":"onDropSuccess","t":4,"rt":$n[4].UnityEvent,"sn":"onDropSuccess"},{"a":1,"n":"originalLocalPos","t":4,"rt":$n[1].Vector3,"sn":"originalLocalPos"},{"a":1,"n":"originalParent","t":4,"rt":$n[1].Transform,"sn":"originalParent"},{"a":1,"n":"originalScale","t":4,"rt":$n[1].Vector3,"sn":"originalScale"},{"a":1,"n":"originalZ","t":4,"rt":$n[0].Single,"sn":"originalZ","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("--- BEGIN DRAG SOUND ---")],"a":2,"n":"playBeginDragSound","t":4,"rt":$n[0].Boolean,"sn":"playBeginDragSound","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HeaderAttribute("--- RETURN TO START SOUND ---")],"a":2,"n":"playReturnToStartFinishSound","t":4,"rt":$n[0].Boolean,"sn":"playReturnToStartFinishSound","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"returnToExactReturnTransformPosition","t":4,"rt":$n[0].Boolean,"sn":"returnToExactReturnTransformPosition","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"returnToStartFinishFxType","t":4,"rt":FxType,"sn":"returnToStartFinishFxType","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"returnTransform","t":4,"rt":$n[1].Transform,"sn":"returnTransform"},{"a":1,"n":"scaleTween","t":4,"rt":$n[3].Tween,"sn":"scaleTween"},{"a":2,"n":"setParentToReturnTransform","t":4,"rt":$n[0].Boolean,"sn":"setParentToReturnTransform","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"shadowDefaultActive","t":4,"rt":$n[0].Boolean,"sn":"shadowDefaultActive","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"shadowObject","t":4,"rt":$n[1].GameObject,"sn":"shadowObject"},{"a":2,"n":"spawnBreakHeartOnDropFail","t":4,"rt":$n[0].Boolean,"sn":"spawnBreakHeartOnDropFail","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"spawnHeartOnReturnComplete","t":4,"rt":$n[0].Boolean,"sn":"spawnHeartOnReturnComplete","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"targetItemType","t":4,"rt":ItemType,"sn":"targetItemType","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":1,"n":"zCoord","t":4,"rt":$n[0].Single,"sn":"zCoord","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}}]}; }, $n);
     /*ItemDraggable end.*/
 
     /*ItemKnifeSpriteMaskCutter start.*/
@@ -27657,7 +28827,7 @@ if ( TRACE ) { TRACE( "Spoon#OnFlyInComplete", this ); }
     /*MoveType end.*/
 
     /*ItemMoveToTarget start.*/
-    $m("ItemMoveToTarget", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"a":2,"n":"ExecuteMove","t":8,"sn":"ExecuteMove","rt":$n[0].Void},{"a":2,"n":"ExecuteMove3D","t":8,"pi":[{"n":"customTarget","pt":$n[1].Transform,"ps":0}],"sn":"ExecuteMove3D","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":1,"n":"FinishAction","t":8,"sn":"FinishAction","rt":$n[0].Void},{"a":2,"n":"SetDefaultTarget","t":8,"pi":[{"n":"t","pt":$n[1].Transform,"ps":0}],"sn":"SetDefaultTarget","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":1,"n":"SetWorldScale","t":8,"pi":[{"n":"worldScale","pt":$n[1].Vector3,"ps":0}],"sn":"SetWorldScale","rt":$n[0].Void,"p":[$n[1].Vector3]},{"a":2,"n":"TeleportToTarget","t":8,"pi":[{"n":"t","pt":$n[1].Transform,"ps":0}],"sn":"TeleportToTarget","rt":$n[0].Void,"p":[$n[1].Transform]},{"at":[new UnityEngine.HeaderAttribute("--- C\u1ea4U H\u00ccNH \u0110\u00cdCH ---")],"a":2,"n":"defaultTarget","t":4,"rt":$n[1].Transform,"sn":"defaultTarget"},{"a":2,"n":"duration","t":4,"rt":$n[0].Single,"sn":"duration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"easeType","t":4,"rt":$n[3].Ease,"sn":"easeType","box":function ($v) { return Bridge.box($v, DG.Tweening.Ease, System.Enum.toStringFn(DG.Tweening.Ease));}},{"a":1,"n":"item","t":4,"rt":Item,"sn":"item"},{"at":[new UnityEngine.HeaderAttribute("--- TH\u00d4NG S\u1ed0 NH\u1ea2Y (D\u00c0NH CHO JUMP) ---")],"a":2,"n":"jumpPower","t":4,"rt":$n[0].Single,"sn":"jumpPower","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"lockInputWhileMoving","t":4,"rt":$n[0].Boolean,"sn":"lockInputWhileMoving","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"moveType","t":4,"rt":MoveType,"sn":"moveType","box":function ($v) { return Bridge.box($v, MoveType, System.Enum.toStringFn(MoveType));}},{"a":2,"n":"numJumps","t":4,"rt":$n[0].Int32,"sn":"numJumps","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":2,"n":"onComplete","t":4,"rt":$n[4].UnityEvent,"sn":"onComplete"},{"a":1,"n":"originalParent","t":4,"rt":$n[1].Transform,"sn":"originalParent"},{"a":2,"n":"resetParentBeforeMove","t":4,"rt":$n[0].Boolean,"sn":"resetParentBeforeMove","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"rotate360DuringJump","t":4,"rt":$n[0].Boolean,"sn":"rotate360DuringJump","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HeaderAttribute("--- SAU KHI T\u1edaI N\u01a0I ---")],"a":2,"n":"setParentToTarget","t":4,"rt":$n[0].Boolean,"sn":"setParentToTarget","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}]}; }, $n);
+    $m("ItemMoveToTarget", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"a":2,"n":"ExecuteMove","t":8,"sn":"ExecuteMove","rt":$n[0].Void},{"a":2,"n":"ExecuteMove3D","t":8,"pi":[{"n":"customTarget","pt":$n[1].Transform,"ps":0}],"sn":"ExecuteMove3D","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":1,"n":"FinishAction","t":8,"sn":"FinishAction","rt":$n[0].Void},{"a":2,"n":"SetDefaultTarget","t":8,"pi":[{"n":"t","pt":$n[1].Transform,"ps":0}],"sn":"SetDefaultTarget","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":1,"n":"SetWorldScale","t":8,"pi":[{"n":"worldScale","pt":$n[1].Vector3,"ps":0}],"sn":"SetWorldScale","rt":$n[0].Void,"p":[$n[1].Vector3]},{"a":2,"n":"TeleportToTarget","t":8,"pi":[{"n":"t","pt":$n[1].Transform,"ps":0}],"sn":"TeleportToTarget","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":2,"n":"angleRotate","t":4,"rt":$n[0].Single,"sn":"angleRotate","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("--- C\u1ea4U H\u00ccNH \u0110\u00cdCH ---")],"a":2,"n":"defaultTarget","t":4,"rt":$n[1].Transform,"sn":"defaultTarget"},{"a":2,"n":"duration","t":4,"rt":$n[0].Single,"sn":"duration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"easeType","t":4,"rt":$n[3].Ease,"sn":"easeType","box":function ($v) { return Bridge.box($v, DG.Tweening.Ease, System.Enum.toStringFn(DG.Tweening.Ease));}},{"a":2,"n":"flipRotate","t":4,"rt":$n[0].Boolean,"sn":"flipRotate","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"item","t":4,"rt":Item,"sn":"item"},{"at":[new UnityEngine.HeaderAttribute("--- TH\u00d4NG S\u1ed0 NH\u1ea2Y (D\u00c0NH CHO JUMP) ---")],"a":2,"n":"jumpPower","t":4,"rt":$n[0].Single,"sn":"jumpPower","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"lockInputWhileMoving","t":4,"rt":$n[0].Boolean,"sn":"lockInputWhileMoving","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"moveType","t":4,"rt":MoveType,"sn":"moveType","box":function ($v) { return Bridge.box($v, MoveType, System.Enum.toStringFn(MoveType));}},{"a":2,"n":"numJumps","t":4,"rt":$n[0].Int32,"sn":"numJumps","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":2,"n":"onComplete","t":4,"rt":$n[4].UnityEvent,"sn":"onComplete"},{"a":1,"n":"originalParent","t":4,"rt":$n[1].Transform,"sn":"originalParent"},{"a":2,"n":"resetParentBeforeMove","t":4,"rt":$n[0].Boolean,"sn":"resetParentBeforeMove","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"rotate360DuringJump","t":4,"rt":$n[0].Boolean,"sn":"rotate360DuringJump","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HeaderAttribute("--- SAU KHI T\u1edaI N\u01a0I ---")],"a":2,"n":"setParentToTarget","t":4,"rt":$n[0].Boolean,"sn":"setParentToTarget","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}]}; }, $n);
     /*ItemMoveToTarget end.*/
 
     /*ItemSpriteMaskPainter start.*/
@@ -27673,15 +28843,19 @@ if ( TRACE ) { TRACE( "Spoon#OnFlyInComplete", this ); }
     /*ItemStirring end.*/
 
     /*ItemType start.*/
-    $m("ItemType", function () { return {"att":257,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"CuttingBoard","is":true,"t":4,"rt":ItemType,"sn":"CuttingBoard","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"ItemInWater","is":true,"t":4,"rt":ItemType,"sn":"ItemInWater","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"None","is":true,"t":4,"rt":ItemType,"sn":"None","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"Plate","is":true,"t":4,"rt":ItemType,"sn":"Plate","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"Sink","is":true,"t":4,"rt":ItemType,"sn":"Sink","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"SinkClosePos","is":true,"t":4,"rt":ItemType,"sn":"SinkClosePos","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"SinkWaitting","is":true,"t":4,"rt":ItemType,"sn":"SinkWaitting","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}}]}; }, $n);
+    $m("ItemType", function () { return {"att":257,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"CuttingBoard","is":true,"t":4,"rt":ItemType,"sn":"CuttingBoard","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"FoodOnCuttingBoard","is":true,"t":4,"rt":ItemType,"sn":"FoodOnCuttingBoard","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"ItemInWater","is":true,"t":4,"rt":ItemType,"sn":"ItemInWater","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"None","is":true,"t":4,"rt":ItemType,"sn":"None","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"Plate","is":true,"t":4,"rt":ItemType,"sn":"Plate","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"PlateAvocado","is":true,"t":4,"rt":ItemType,"sn":"PlateAvocado","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"PlateHerb","is":true,"t":4,"rt":ItemType,"sn":"PlateHerb","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"PlateLemon","is":true,"t":4,"rt":ItemType,"sn":"PlateLemon","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"PlateOlive","is":true,"t":4,"rt":ItemType,"sn":"PlateOlive","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"PlateOnion","is":true,"t":4,"rt":ItemType,"sn":"PlateOnion","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"PlatePotato","is":true,"t":4,"rt":ItemType,"sn":"PlatePotato","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"PlateTomato","is":true,"t":4,"rt":ItemType,"sn":"PlateTomato","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"Sink","is":true,"t":4,"rt":ItemType,"sn":"Sink","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"SinkClosePos","is":true,"t":4,"rt":ItemType,"sn":"SinkClosePos","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}},{"a":2,"n":"SinkWaitting","is":true,"t":4,"rt":ItemType,"sn":"SinkWaitting","box":function ($v) { return Bridge.box($v, ItemType, System.Enum.toStringFn(ItemType));}}]}; }, $n);
     /*ItemType end.*/
+
+    /*DuckManager start.*/
+    $m("DuckManager", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"GetRandomValidLaneIndex","t":8,"sn":"GetRandomValidLaneIndex","rt":$n[0].Int32,"box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"OnDisable","t":8,"sn":"OnDisable","rt":$n[0].Void},{"a":1,"n":"OnEnable","t":8,"sn":"OnEnable","rt":$n[0].Void},{"a":2,"n":"SpawnDuck","t":8,"sn":"SpawnDuck","rt":$n[0].Void},{"a":1,"n":"SpawnLoop","t":8,"sn":"SpawnLoop","rt":$n[6].IEnumerator},{"at":[new UnityEngine.HeaderAttribute("Sound"),new UnityEngine.SerializeFieldAttribute(),new UnityEngine.RangeAttribute(0.0, 1.0)],"a":1,"n":"duckSoundChance","t":4,"rt":$n[0].Single,"sn":"duckSoundChance","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Move Points"),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"leftPoints","t":4,"rt":System.Array.type(UnityEngine.Transform),"sn":"leftPoints"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"maxSpawnInterval","t":4,"rt":$n[0].Single,"sn":"maxSpawnInterval","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Spawn"),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"minSpawnInterval","t":4,"rt":$n[0].Single,"sn":"minSpawnInterval","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"moveSpeed","t":4,"rt":$n[0].Single,"sn":"moveSpeed","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"rightPoints","t":4,"rt":System.Array.type(UnityEngine.Transform),"sn":"rightPoints"},{"a":1,"n":"spawnCoroutine","t":4,"rt":$n[1].Coroutine,"sn":"spawnCoroutine"}]}; }, $n);
+    /*DuckManager end.*/
 
     /*GameManager start.*/
     $m("GameManager", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"ChangeState","t":8,"pi":[{"n":"newState","pt":IGameState,"ps":0}],"sn":"ChangeState","rt":$n[0].Void,"p":[IGameState]},{"a":2,"n":"GotoStore","t":8,"sn":"GotoStore","rt":$n[0].Void},{"a":2,"n":"IsPlaying","t":8,"sn":"IsPlaying","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"LoseGame","t":8,"sn":"LoseGame","rt":$n[0].Void},{"a":2,"n":"MoveOne","t":8,"sn":"MoveOne","rt":$n[0].Void},{"a":2,"n":"SetIsPlaying","t":8,"pi":[{"n":"isPlaying","pt":$n[0].Boolean,"ps":0}],"sn":"SetIsPlaying","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":2,"n":"TurnOffTut","t":8,"sn":"TurnOffTut","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"a":2,"n":"WinGame","t":8,"sn":"WinGame","rt":$n[0].Void},{"a":2,"n":"countMove","t":4,"rt":$n[0].Int32,"sn":"countMove","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":2,"n":"currentLayer","t":4,"rt":$n[0].Int32,"sn":"currentLayer","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"currentState","t":4,"rt":IGameState,"sn":"currentState"},{"a":2,"n":"isGotoStore","t":4,"rt":$n[0].Boolean,"sn":"isGotoStore","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isLoseGame","t":4,"rt":$n[0].Boolean,"sn":"isLoseGame","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isPlaying","t":4,"rt":$n[0].Boolean,"sn":"isPlaying","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isTutorial","t":4,"rt":$n[0].Boolean,"sn":"isTutorial","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}]}; }, $n);
     /*GameManager end.*/
 
     /*HandTutManager start.*/
-    $m("HandTutManager", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"ov":true,"a":2,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"a":1,"n":"CacheNoDelayItems","t":8,"sn":"CacheNoDelayItems","rt":$n[0].Void},{"a":1,"n":"CanShowTutorialForItem","t":8,"pi":[{"n":"item","pt":Item,"ps":0}],"sn":"CanShowTutorialForItem","rt":$n[0].Boolean,"p":[Item],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"CheckEndPhaseCondition","t":8,"sn":"CheckEndPhaseCondition","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"Get2DHandPosition","t":8,"pi":[{"n":"position","pt":$n[1].Vector3,"ps":0}],"sn":"Get2DHandPosition","rt":$n[1].Vector3,"p":[$n[1].Vector3]},{"a":1,"n":"GetFirstTutorialReadyItem","t":8,"sn":"GetFirstTutorialReadyItem","rt":Item},{"a":1,"n":"HasPlayerInput","t":8,"sn":"HasPlayerInput","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"HasPlayerInputDown","t":8,"sn":"HasPlayerInputDown","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"HideHandTut","t":8,"sn":"HideHandTut","rt":$n[0].Void},{"a":1,"n":"IsClickableReady","t":8,"pi":[{"n":"item","pt":Item,"ps":0}],"sn":"IsClickableReady","rt":$n[0].Boolean,"p":[Item],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"IsDraggableReady","t":8,"pi":[{"n":"item","pt":Item,"ps":0}],"sn":"IsDraggableReady","rt":$n[0].Boolean,"p":[Item],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"IsKnifeSpriteMaskCutterReady","t":8,"pi":[{"n":"item","pt":Item,"ps":0}],"sn":"IsKnifeSpriteMaskCutterReady","rt":$n[0].Boolean,"p":[Item],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"ItemDone","t":8,"pi":[{"n":"item","pt":Item,"ps":0}],"sn":"ItemDone","rt":$n[0].Void,"p":[Item]},{"a":2,"n":"ItemDone","t":8,"pi":[{"n":"itemObject","pt":$n[1].GameObject,"ps":0}],"sn":"ItemDone$1","rt":$n[0].Void,"p":[$n[1].GameObject]},{"a":2,"n":"ItemDone","t":8,"pi":[{"n":"itemTransform","pt":$n[1].Transform,"ps":0}],"sn":"ItemDone$2","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":2,"n":"OilDone","t":8,"sn":"OilDone","rt":$n[0].Void},{"a":1,"n":"PlayClickHint","t":8,"pi":[{"n":"target","pt":$n[1].Transform,"ps":0}],"sn":"PlayClickHint","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":1,"n":"PlayMoveHint","t":8,"pi":[{"n":"start","pt":$n[1].Transform,"ps":0},{"n":"end","pt":$n[1].Transform,"ps":1}],"sn":"PlayMoveHint","rt":$n[0].Void,"p":[$n[1].Transform,$n[1].Transform]},{"a":1,"n":"PrepareHand","t":8,"pi":[{"n":"position","pt":$n[1].Vector3,"ps":0}],"sn":"PrepareHand","rt":$n[0].Void,"p":[$n[1].Vector3]},{"a":1,"n":"RemoveDoneAndNullItems","t":8,"sn":"RemoveDoneAndNullItems","rt":$n[0].Void},{"a":1,"n":"ResetIdleTimer","t":8,"sn":"ResetIdleTimer","rt":$n[0].Void},{"a":1,"n":"SetHandAlpha","t":8,"pi":[{"n":"alpha","pt":$n[0].Single,"ps":0}],"sn":"SetHandAlpha","rt":$n[0].Void,"p":[$n[0].Single]},{"a":1,"n":"ShouldSkipDelayForCurrentItem","t":8,"sn":"ShouldSkipDelayForCurrentItem","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"ShowNextHandTut","t":8,"sn":"ShowNextHandTut","rt":$n[0].Void},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":2,"n":"StartHandTut","t":8,"sn":"StartHandTut","rt":$n[0].Void},{"a":1,"n":"StartHandTutAfterTapToCook","t":8,"sn":"StartHandTutAfterTapToCook","rt":$n[0].Void},{"a":1,"n":"StartStoveToggleTutorial","t":8,"sn":"StartStoveToggleTutorial","rt":$n[0].Void},{"a":2,"n":"StoveToggleDone","t":8,"pi":[{"n":"toggleEvent","pt":Ply_ToggleEvent,"ps":0}],"sn":"StoveToggleDone","rt":$n[0].Void,"p":[Ply_ToggleEvent]},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"a":2,"n":"ShouldBlockGameplayInput","t":16,"rt":$n[0].Boolean,"g":{"a":2,"n":"get_ShouldBlockGameplayInput","t":8,"rt":$n[0].Boolean,"fg":"ShouldBlockGameplayInput","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},"fn":"ShouldBlockGameplayInput"},{"a":2,"n":"clickScaleDuration","t":4,"rt":$n[0].Single,"sn":"clickScaleDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"clickScaleMultiplier","t":4,"rt":$n[0].Single,"sn":"clickScaleMultiplier","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"defaultHandAlpha","t":4,"rt":$n[0].Single,"sn":"defaultHandAlpha","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"defaultHandScale","t":4,"rt":$n[1].Vector3,"sn":"defaultHandScale"},{"a":2,"n":"dragFadeDuration","t":4,"rt":$n[0].Single,"sn":"dragFadeDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"handSequence","t":4,"rt":$n[3].Sequence,"sn":"handSequence"},{"a":1,"n":"handSpriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"handSpriteRenderer"},{"a":2,"n":"handTutObject","t":4,"rt":$n[1].GameObject,"sn":"handTutObject"},{"at":[new UnityEngine.HeaderAttribute("--- DISPLAY ---")],"a":2,"n":"handZPosition","t":4,"rt":$n[0].Single,"sn":"handZPosition","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"hasCompletedStoveToggle","t":4,"rt":$n[0].Boolean,"sn":"hasCompletedStoveToggle","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"hasHiddenTapToCook","t":4,"rt":$n[0].Boolean,"sn":"hasHiddenTapToCook","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"hasStartedHandTut","t":4,"rt":$n[0].Boolean,"sn":"hasStartedHandTut","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HeaderAttribute("--- TIMING ---")],"a":2,"n":"idleDelay","t":4,"rt":$n[0].Single,"sn":"idleDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"idleTimer","t":4,"rt":$n[0].Single,"sn":"idleTimer","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"ignoreInputUntilRelease","t":4,"rt":$n[0].Boolean,"sn":"ignoreInputUntilRelease","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"isWaitingStoveToggle","t":4,"rt":$n[0].Boolean,"sn":"isWaitingStoveToggle","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"isWaitingTapToCook","t":4,"rt":$n[0].Boolean,"sn":"isWaitingTapToCook","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HeaderAttribute("--- HAND TUTORIAL ---")],"a":2,"n":"items","t":4,"rt":$n[5].List$1(Item),"sn":"items"},{"a":2,"n":"knife","t":4,"rt":$n[1].Transform,"sn":"knife"},{"a":2,"n":"moveDuration","t":4,"rt":$n[0].Single,"sn":"moveDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"moveEase","t":4,"rt":$n[3].Ease,"sn":"moveEase","box":function ($v) { return Bridge.box($v, DG.Tweening.Ease, System.Enum.toStringFn(DG.Tweening.Ease));}},{"a":2,"n":"noDelayItemCount","t":4,"rt":$n[0].Int32,"sn":"noDelayItemCount","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"noDelayItems","t":4,"rt":$n[5].List$1(Item),"sn":"noDelayItems","ro":true},{"a":2,"n":"oilItem","t":4,"rt":Item,"sn":"oilItem"},{"a":2,"n":"stoveToggleEvent","t":4,"rt":Ply_ToggleEvent,"sn":"stoveToggleEvent"},{"a":2,"n":"tapToCookObject","t":4,"rt":$n[1].GameObject,"sn":"tapToCookObject"},{"a":2,"n":"waitAtEndDuration","t":4,"rt":$n[0].Single,"sn":"waitAtEndDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"waitForBowlIntro","t":4,"rt":$n[0].Boolean,"sn":"waitForBowlIntro","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}]}; }, $n);
+    $m("HandTutManager", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"ov":true,"a":2,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"a":1,"n":"CacheNoDelayItems","t":8,"sn":"CacheNoDelayItems","rt":$n[0].Void},{"a":1,"n":"CanShowTutorialForItem","t":8,"pi":[{"n":"item","pt":Item,"ps":0}],"sn":"CanShowTutorialForItem","rt":$n[0].Boolean,"p":[Item],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"CheckEndPhaseCondition","t":8,"sn":"CheckEndPhaseCondition","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"ConsumeForcedNoDelay","t":8,"sn":"ConsumeForcedNoDelay","rt":$n[0].Void},{"a":1,"n":"ConsumeStartupNoDelay","t":8,"sn":"ConsumeStartupNoDelay","rt":$n[0].Void},{"a":1,"n":"ConsumeStartupNoDelayForItem","t":8,"pi":[{"n":"item","pt":Item,"ps":0}],"sn":"ConsumeStartupNoDelayForItem","rt":$n[0].Void,"p":[Item]},{"a":1,"n":"Get2DHandPosition","t":8,"pi":[{"n":"position","pt":$n[1].Vector3,"ps":0}],"sn":"Get2DHandPosition","rt":$n[1].Vector3,"p":[$n[1].Vector3]},{"a":1,"n":"GetFirstTutorialReadyItem","t":8,"sn":"GetFirstTutorialReadyItem","rt":Item},{"a":1,"n":"GetToolTargetingItem","t":8,"pi":[{"n":"item","pt":Item,"ps":0}],"sn":"GetToolTargetingItem","rt":$n[1].Transform,"p":[Item]},{"a":1,"n":"HasInWaterItemNeedingHandTut","t":8,"sn":"HasInWaterItemNeedingHandTut","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"HasPlayerInput","t":8,"sn":"HasPlayerInput","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"HasPlayerInputDown","t":8,"sn":"HasPlayerInputDown","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"HideHandTut","t":8,"sn":"HideHandTut","rt":$n[0].Void},{"a":1,"n":"IsClickableReady","t":8,"pi":[{"n":"item","pt":Item,"ps":0}],"sn":"IsClickableReady","rt":$n[0].Boolean,"p":[Item],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"IsDraggableReady","t":8,"pi":[{"n":"item","pt":Item,"ps":0}],"sn":"IsDraggableReady","rt":$n[0].Boolean,"p":[Item],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"IsKnifeSpriteMaskCutterReady","t":8,"pi":[{"n":"item","pt":Item,"ps":0}],"sn":"IsKnifeSpriteMaskCutterReady","rt":$n[0].Boolean,"p":[Item],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"IsToolTargetingItem","t":8,"pi":[{"n":"tool","pt":$n[1].Transform,"ps":0},{"n":"item","pt":Item,"ps":1}],"sn":"IsToolTargetingItem","rt":$n[0].Boolean,"p":[$n[1].Transform,Item],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"ItemDone","t":8,"pi":[{"n":"item","pt":Item,"ps":0}],"sn":"ItemDone","rt":$n[0].Void,"p":[Item]},{"a":2,"n":"ItemDone","t":8,"pi":[{"n":"itemObject","pt":$n[1].GameObject,"ps":0}],"sn":"ItemDone$1","rt":$n[0].Void,"p":[$n[1].GameObject]},{"a":2,"n":"ItemDone","t":8,"pi":[{"n":"itemTransform","pt":$n[1].Transform,"ps":0}],"sn":"ItemDone$2","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":2,"n":"OilDone","t":8,"sn":"OilDone","rt":$n[0].Void},{"a":1,"n":"PlayClickHint","t":8,"pi":[{"n":"target","pt":$n[1].Transform,"ps":0}],"sn":"PlayClickHint","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":1,"n":"PlayMoveHint","t":8,"pi":[{"n":"start","pt":$n[1].Transform,"ps":0},{"n":"end","pt":$n[1].Transform,"ps":1}],"sn":"PlayMoveHint","rt":$n[0].Void,"p":[$n[1].Transform,$n[1].Transform]},{"a":1,"n":"PrepareHand","t":8,"pi":[{"n":"position","pt":$n[1].Vector3,"ps":0}],"sn":"PrepareHand","rt":$n[0].Void,"p":[$n[1].Vector3]},{"a":2,"n":"RegisterBreakHeartDropFail","t":8,"sn":"RegisterBreakHeartDropFail","rt":$n[0].Void},{"a":2,"n":"RegisterCorrectAction","t":8,"sn":"RegisterCorrectAction","rt":$n[0].Void},{"a":2,"n":"RegisterItemInWater","t":8,"pi":[{"n":"item","pt":InWaterItem,"ps":0}],"sn":"RegisterItemInWater","rt":$n[0].Void,"p":[InWaterItem]},{"a":1,"n":"RemoveDoneAndNullItems","t":8,"sn":"RemoveDoneAndNullItems","rt":$n[0].Void},{"a":1,"n":"ResetIdleTimer","t":8,"sn":"ResetIdleTimer","rt":$n[0].Void},{"a":1,"n":"SetHandAlpha","t":8,"pi":[{"n":"alpha","pt":$n[0].Single,"ps":0}],"sn":"SetHandAlpha","rt":$n[0].Void,"p":[$n[0].Single]},{"a":1,"n":"ShouldShowWaterToggleHandTut","t":8,"sn":"ShouldShowWaterToggleHandTut","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"ShouldSkipDelayForCurrentItem","t":8,"sn":"ShouldSkipDelayForCurrentItem","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"ShouldUseStartupNoDelayForItem","t":8,"pi":[{"n":"item","pt":Item,"ps":0}],"sn":"ShouldUseStartupNoDelayForItem","rt":$n[0].Boolean,"p":[Item],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"ShowNextHandTut","t":8,"sn":"ShowNextHandTut","rt":$n[0].Void},{"a":1,"n":"ShowSinkWaterHandTut","t":8,"pi":[{"n":"requireInWaterItem","pt":$n[0].Boolean,"ps":0}],"sn":"ShowSinkWaterHandTut","rt":$n[0].Boolean,"p":[$n[0].Boolean],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"SinkBlockMoveDone","t":8,"pi":[{"n":"movedSinkBlock","pt":SinkBlock,"ps":0}],"sn":"SinkBlockMoveDone","rt":$n[0].Void,"p":[SinkBlock]},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":2,"n":"StartHandTut","t":8,"sn":"StartHandTut","rt":$n[0].Void},{"a":1,"n":"StartHandTutAfterTapToCook","t":8,"sn":"StartHandTutAfterTapToCook","rt":$n[0].Void},{"a":2,"n":"StartHandTutNoDelay","t":8,"sn":"StartHandTutNoDelay","rt":$n[0].Void},{"a":1,"n":"StartStoveToggleTutorial","t":8,"sn":"StartStoveToggleTutorial","rt":$n[0].Void},{"a":2,"n":"StoveToggleDone","t":8,"pi":[{"n":"toggleEvent","pt":Ply_ToggleEvent,"ps":0}],"sn":"StoveToggleDone","rt":$n[0].Void,"p":[Ply_ToggleEvent]},{"a":2,"n":"UnregisterItemInWater","t":8,"pi":[{"n":"item","pt":InWaterItem,"ps":0}],"sn":"UnregisterItemInWater","rt":$n[0].Void,"p":[InWaterItem]},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"a":2,"n":"WaterToggleDone","t":8,"pi":[{"n":"toggleEvent","pt":Ply_ToggleEvent,"ps":0}],"sn":"WaterToggleDone","rt":$n[0].Void,"p":[Ply_ToggleEvent]},{"a":2,"n":"ShouldBlockGameplayInput","t":16,"rt":$n[0].Boolean,"g":{"a":2,"n":"get_ShouldBlockGameplayInput","t":8,"rt":$n[0].Boolean,"fg":"ShouldBlockGameplayInput","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},"fn":"ShouldBlockGameplayInput"},{"a":2,"n":"breakHeartNoDelayThreshold","t":4,"rt":$n[0].Int32,"sn":"breakHeartNoDelayThreshold","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":2,"n":"clickScaleDuration","t":4,"rt":$n[0].Single,"sn":"clickScaleDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"clickScaleMultiplier","t":4,"rt":$n[0].Single,"sn":"clickScaleMultiplier","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"consecutiveBreakHeartDropFails","t":4,"rt":$n[0].Int32,"sn":"consecutiveBreakHeartDropFails","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"defaultHandAlpha","t":4,"rt":$n[0].Single,"sn":"defaultHandAlpha","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"defaultHandScale","t":4,"rt":$n[1].Vector3,"sn":"defaultHandScale"},{"a":2,"n":"dragFadeDuration","t":4,"rt":$n[0].Single,"sn":"dragFadeDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"forceNoDelayForNextHandTut","t":4,"rt":$n[0].Boolean,"sn":"forceNoDelayForNextHandTut","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"handSequence","t":4,"rt":$n[3].Sequence,"sn":"handSequence"},{"a":1,"n":"handSpriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"handSpriteRenderer"},{"a":2,"n":"handTutObject","t":4,"rt":$n[1].GameObject,"sn":"handTutObject"},{"at":[new UnityEngine.HeaderAttribute("--- DISPLAY ---")],"a":2,"n":"handZPosition","t":4,"rt":$n[0].Single,"sn":"handZPosition","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"hasCompletedStoveToggle","t":4,"rt":$n[0].Boolean,"sn":"hasCompletedStoveToggle","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"hasHiddenTapToCook","t":4,"rt":$n[0].Boolean,"sn":"hasHiddenTapToCook","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"hasStartedHandTut","t":4,"rt":$n[0].Boolean,"sn":"hasStartedHandTut","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HeaderAttribute("--- TIMING ---")],"a":2,"n":"idleDelay","t":4,"rt":$n[0].Single,"sn":"idleDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"idleTimer","t":4,"rt":$n[0].Single,"sn":"idleTimer","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"ignoreInputUntilRelease","t":4,"rt":$n[0].Boolean,"sn":"ignoreInputUntilRelease","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"isWaitingInitialSinkWaterTutorial","t":4,"rt":$n[0].Boolean,"sn":"isWaitingInitialSinkWaterTutorial","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"isWaitingStoveToggle","t":4,"rt":$n[0].Boolean,"sn":"isWaitingStoveToggle","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"isWaitingTapToCook","t":4,"rt":$n[0].Boolean,"sn":"isWaitingTapToCook","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HeaderAttribute("--- HAND TUTORIAL ---")],"a":2,"n":"items","t":4,"rt":$n[5].List$1(Item),"sn":"items"},{"a":2,"n":"itemsInWater","t":4,"rt":$n[5].List$1(InWaterItem),"sn":"itemsInWater"},{"a":2,"n":"knife","t":4,"rt":$n[1].Transform,"sn":"knife"},{"a":2,"n":"moveDuration","t":4,"rt":$n[0].Single,"sn":"moveDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"moveEase","t":4,"rt":$n[3].Ease,"sn":"moveEase","box":function ($v) { return Bridge.box($v, DG.Tweening.Ease, System.Enum.toStringFn(DG.Tweening.Ease));}},{"a":2,"n":"noDelayItemCount","t":4,"rt":$n[0].Int32,"sn":"noDelayItemCount","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"noDelayItems","t":4,"rt":$n[5].List$1(Item),"sn":"noDelayItems","ro":true},{"a":2,"n":"oilItem","t":4,"rt":Item,"sn":"oilItem"},{"a":2,"n":"peeler","t":4,"rt":$n[1].Transform,"sn":"peeler"},{"a":2,"n":"showSinkWaterTutorialOnStart","t":4,"rt":$n[0].Boolean,"sn":"showSinkWaterTutorialOnStart","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"sinkBlock","t":4,"rt":SinkBlock,"sn":"sinkBlock"},{"a":1,"n":"startupNoDelayTutorialCount","t":4,"rt":$n[0].Int32,"sn":"startupNoDelayTutorialCount","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":2,"n":"stoveToggleEvent","t":4,"rt":Ply_ToggleEvent,"sn":"stoveToggleEvent"},{"a":2,"n":"tapToCookObject","t":4,"rt":$n[1].GameObject,"sn":"tapToCookObject"},{"a":2,"n":"waitAtEndDuration","t":4,"rt":$n[0].Single,"sn":"waitAtEndDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"waitForBowlIntro","t":4,"rt":$n[0].Boolean,"sn":"waitForBowlIntro","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"waterToggleEvent","t":4,"rt":Ply_ToggleEvent,"sn":"waterToggleEvent"}]}; }, $n);
     /*HandTutManager end.*/
 
     /*HandTutorial start.*/
@@ -27697,7 +28871,7 @@ if ( TRACE ) { TRACE( "Spoon#OnFlyInComplete", this ); }
     /*PhaseData end.*/
 
     /*PhaseManager start.*/
-    $m("PhaseManager", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"DelayGoToNextPhase","t":8,"sn":"DelayGoToNextPhase","rt":$n[0].Void},{"a":2,"n":"DoOneStep","t":8,"sn":"DoOneStep","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"GoToNextPhase","t":8,"sn":"GoToNextPhase","rt":$n[0].Void},{"a":2,"n":"IsCurrentPhaseStepComplete","t":8,"sn":"IsCurrentPhaseStepComplete","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"OnDisable","t":8,"sn":"OnDisable","rt":$n[0].Void},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":2,"n":"TryEndCurrentPhase","t":8,"sn":"TryEndCurrentPhase","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"CurrentPhaseObject","t":16,"rt":$n[1].Transform,"g":{"a":2,"n":"get_CurrentPhaseObject","t":8,"rt":$n[1].Transform,"fg":"CurrentPhaseObject"},"fn":"CurrentPhaseObject"},{"a":2,"n":"centerScreenX","t":4,"rt":$n[0].Single,"sn":"centerScreenX","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"currentPhaseIndex","t":4,"rt":$n[0].Int32,"sn":"currentPhaseIndex","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":2,"n":"currentStepCount","t":4,"rt":$n[0].Int32,"sn":"currentStepCount","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":2,"n":"delayBeforeNextPhase","t":4,"rt":$n[0].Single,"sn":"delayBeforeNextPhase","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"isChangingPhase","t":4,"rt":$n[0].Boolean,"sn":"isChangingPhase","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"offScreenLeftX","t":4,"rt":$n[0].Single,"sn":"offScreenLeftX","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"offScreenRightX","t":4,"rt":$n[0].Single,"sn":"offScreenRightX","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"phaseDelayTween","t":4,"rt":$n[3].Tween,"sn":"phaseDelayTween"},{"at":[new UnityEngine.HeaderAttribute("--- C\u00c0I \u0110\u1eb6T C\u00c1C PHASE ---")],"a":2,"n":"phases","t":4,"rt":$n[5].List$1(PhaseData),"sn":"phases"},{"at":[new UnityEngine.HeaderAttribute("--- HI\u1ec6U \u1ee8NG CHUY\u1ec2N PHASE ---")],"a":2,"n":"transitionDuration","t":4,"rt":$n[0].Single,"sn":"transitionDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}}]}; }, $n);
+    $m("PhaseManager", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"DelayGoToNextPhase","t":8,"sn":"DelayGoToNextPhase","rt":$n[0].Void},{"a":2,"n":"DoOneStep","t":8,"sn":"DoOneStep","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"FinishPhaseTransition","t":8,"sn":"FinishPhaseTransition","rt":$n[0].Void},{"a":1,"n":"GoToNextPhase","t":8,"sn":"GoToNextPhase","rt":$n[0].Void},{"a":2,"n":"IsCurrentPhaseStepComplete","t":8,"sn":"IsCurrentPhaseStepComplete","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"OnDisable","t":8,"sn":"OnDisable","rt":$n[0].Void},{"a":1,"n":"PlayPhaseObjectTransition","t":8,"sn":"PlayPhaseObjectTransition","rt":$n[0].Void},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"StartHandTutAfterPhaseReady","t":8,"sn":"StartHandTutAfterPhaseReady","rt":$n[0].Void},{"a":1,"n":"SwitchToNextPhaseBehindTransition","t":8,"sn":"SwitchToNextPhaseBehindTransition","rt":$n[0].Void},{"a":2,"n":"TryEndCurrentPhase","t":8,"sn":"TryEndCurrentPhase","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"CurrentPhaseObject","t":16,"rt":$n[1].Transform,"g":{"a":2,"n":"get_CurrentPhaseObject","t":8,"rt":$n[1].Transform,"fg":"CurrentPhaseObject"},"fn":"CurrentPhaseObject"},{"a":2,"n":"centerScreenX","t":4,"rt":$n[0].Single,"sn":"centerScreenX","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"currentPhaseIndex","t":4,"rt":$n[0].Int32,"sn":"currentPhaseIndex","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":2,"n":"currentStepCount","t":4,"rt":$n[0].Int32,"sn":"currentStepCount","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":2,"n":"delayBeforeNextPhase","t":4,"rt":$n[0].Single,"sn":"delayBeforeNextPhase","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"isChangingPhase","t":4,"rt":$n[0].Boolean,"sn":"isChangingPhase","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"offScreenLeftX","t":4,"rt":$n[0].Single,"sn":"offScreenLeftX","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"offScreenRightX","t":4,"rt":$n[0].Single,"sn":"offScreenRightX","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"phaseDelayTween","t":4,"rt":$n[3].Tween,"sn":"phaseDelayTween"},{"a":2,"n":"phaseTransitionObject","t":4,"rt":$n[1].GameObject,"sn":"phaseTransitionObject"},{"a":2,"n":"phaseTransitionObjectDuration","t":4,"rt":$n[0].Single,"sn":"phaseTransitionObjectDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"phaseTransitionSequence","t":4,"rt":$n[3].Sequence,"sn":"phaseTransitionSequence"},{"at":[new UnityEngine.HeaderAttribute("--- C\u00c0I \u0110\u1eb6T C\u00c1C PHASE ---")],"a":2,"n":"phases","t":4,"rt":$n[5].List$1(PhaseData),"sn":"phases"},{"at":[new UnityEngine.HeaderAttribute("--- HI\u1ec6U \u1ee8NG CHUY\u1ec2N PHASE ---")],"a":2,"n":"transitionDuration","t":4,"rt":$n[0].Single,"sn":"transitionDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}}]}; }, $n);
     /*PhaseManager end.*/
 
     /*IGameState start.*/
@@ -27753,7 +28927,7 @@ if ( TRACE ) { TRACE( "Spoon#OnFlyInComplete", this ); }
     /*Bread end.*/
 
     /*CuttingBoard start.*/
-    $m("CuttingBoard", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"IsFoodOn","t":8,"pi":[{"n":"isFoodOn","pt":$n[0].Boolean,"ps":0}],"sn":"IsFoodOn","rt":$n[0].Void,"p":[$n[0].Boolean]}]}; }, $n);
+    $m("CuttingBoard", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"IsFoodOn","t":8,"pi":[{"n":"isFoodOn","pt":$n[0].Boolean,"ps":0}],"sn":"IsFoodOn","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":2,"n":"Punch","t":8,"sn":"Punch","rt":$n[0].Void},{"a":2,"n":"punchDuration","t":4,"rt":$n[0].Single,"sn":"punchDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("--- PUNCH EFFECT ---")],"a":2,"n":"punchScale","t":4,"rt":$n[1].Vector3,"sn":"punchScale"}]}; }, $n);
     /*CuttingBoard end.*/
 
     /*CuttingItem start.*/
@@ -27761,7 +28935,7 @@ if ( TRACE ) { TRACE( "Spoon#OnFlyInComplete", this ); }
     /*CuttingItem end.*/
 
     /*InWaterItem start.*/
-    $m("InWaterItem", function () { return {"nested":[InWaterItem.MoveDestination],"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"CheckLastPlate","t":8,"sn":"CheckLastPlate","rt":$n[0].Void},{"a":1,"n":"ConfigureNextTarget","t":8,"sn":"ConfigureNextTarget","rt":$n[0].Void},{"a":2,"n":"CutDone","t":8,"sn":"CutDone","rt":$n[0].Void},{"a":1,"n":"GetDestinationTarget","t":8,"pi":[{"n":"destination","pt":InWaterItem.MoveDestination,"ps":0}],"sn":"GetDestinationTarget","rt":$n[1].Transform,"p":[InWaterItem.MoveDestination]},{"a":1,"n":"GetNextDestination","t":8,"sn":"GetNextDestination","rt":InWaterItem.MoveDestination,"box":function ($v) { return Bridge.box($v, InWaterItem.MoveDestination, System.Enum.toStringFn(InWaterItem.MoveDestination));}},{"a":1,"n":"GetTargetItem","t":8,"pi":[{"n":"target","pt":$n[1].Transform,"ps":0}],"sn":"GetTargetItem","rt":Item,"p":[$n[1].Transform]},{"a":1,"n":"HandleMoveComplete","t":8,"sn":"HandleMoveComplete","rt":$n[0].Void},{"a":1,"n":"InitializeMovement","t":8,"sn":"InitializeMovement","rt":$n[0].Void},{"a":2,"n":"MoveToCurrentTarget","t":8,"sn":"MoveToCurrentTarget","rt":$n[0].Void},{"a":2,"n":"MoveToWater","t":8,"sn":"MoveToWater","rt":$n[0].Void},{"a":1,"n":"OnDisable","t":8,"sn":"OnDisable","rt":$n[0].Void},{"a":1,"n":"OnEnable","t":8,"sn":"OnEnable","rt":$n[0].Void},{"a":2,"n":"OnMoveIntoWaterComplete","t":8,"sn":"OnMoveIntoWaterComplete","rt":$n[0].Void},{"a":2,"n":"OnMoveToCuttingBoardComplete","t":8,"sn":"OnMoveToCuttingBoardComplete","rt":$n[0].Void},{"a":2,"n":"OnMoveToPlateComplete","t":8,"sn":"OnMoveToPlateComplete","rt":$n[0].Void},{"a":2,"n":"PlayAnim","t":8,"pi":[{"n":"isTrue","pt":$n[0].Boolean,"ps":0}],"sn":"PlayAnim","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":2,"n":"SetClean","t":8,"sn":"SetClean","rt":$n[0].Void},{"ov":true,"a":2,"n":"ShouldPlayBobEffectAfterReturn","t":8,"sn":"ShouldPlayBobEffectAfterReturn","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":2,"n":"StartTimer","t":8,"sn":"StartTimer","rt":$n[0].Void},{"a":2,"n":"StartWaterEffects","t":8,"sn":"StartWaterEffects","rt":$n[0].Void},{"a":2,"n":"StopWaterEffects","t":8,"sn":"StopWaterEffects","rt":$n[0].Void},{"a":1,"n":"SubscribeMovementEvents","t":8,"sn":"SubscribeMovementEvents","rt":$n[0].Void},{"a":1,"n":"UnsubscribeMovementEvents","t":8,"sn":"UnsubscribeMovementEvents","rt":$n[0].Void},{"a":1,"n":"UpdateDragAvailability","t":8,"sn":"UpdateDragAvailability","rt":$n[0].Void},{"a":2,"n":"collider1","t":4,"rt":$n[1].Collider,"sn":"collider1"},{"a":2,"n":"cuttingBoardTarget","t":4,"rt":$n[1].Transform,"sn":"cuttingBoardTarget"},{"a":1,"n":"initialized","t":4,"rt":$n[0].Boolean,"sn":"initialized","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isClean","t":4,"rt":$n[0].Boolean,"sn":"isClean","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isCutDone","t":4,"rt":$n[0].Boolean,"sn":"isCutDone","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isInWater","t":4,"rt":$n[0].Boolean,"sn":"isInWater","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"isMoving","t":4,"rt":$n[0].Boolean,"sn":"isMoving","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isOnCuttingBoard","t":4,"rt":$n[0].Boolean,"sn":"isOnCuttingBoard","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isOnPlate","t":4,"rt":$n[0].Boolean,"sn":"isOnPlate","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"moveDestination","t":4,"rt":InWaterItem.MoveDestination,"sn":"moveDestination","box":function ($v) { return Bridge.box($v, InWaterItem.MoveDestination, System.Enum.toStringFn(InWaterItem.MoveDestination));}},{"a":2,"n":"plateTarget","t":4,"rt":$n[1].Transform,"sn":"plateTarget"},{"a":2,"n":"ply_BobEffect","t":4,"rt":Ply_BobEffect,"sn":"ply_BobEffect"},{"a":2,"n":"ply_TimerEvent","t":4,"rt":Ply_TimerEvent,"sn":"ply_TimerEvent"},{"a":2,"n":"sink","t":4,"rt":Sink,"sn":"sink"},{"at":[new UnityEngine.HeaderAttribute("--- WATER ITEM TARGETS ---")],"a":2,"n":"waterTarget","t":4,"rt":$n[1].Transform,"sn":"waterTarget"}]}; }, $n);
+    $m("InWaterItem", function () { return {"nested":[InWaterItem.MoveDestination],"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"CacheOriginalColliderRadius","t":8,"sn":"CacheOriginalColliderRadius","rt":$n[0].Void},{"a":1,"n":"ConfigureNextTarget","t":8,"sn":"ConfigureNextTarget","rt":$n[0].Void},{"a":2,"n":"CutDone","t":8,"sn":"CutDone","rt":$n[0].Void},{"a":2,"n":"EnableKnife","t":8,"sn":"EnableKnife","rt":$n[0].Void},{"a":2,"n":"EnablePeeler","t":8,"sn":"EnablePeeler","rt":$n[0].Void},{"a":1,"n":"GetDestinationTarget","t":8,"pi":[{"n":"destination","pt":InWaterItem.MoveDestination,"ps":0}],"sn":"GetDestinationTarget","rt":$n[1].Transform,"p":[InWaterItem.MoveDestination]},{"a":1,"n":"GetNextDestination","t":8,"sn":"GetNextDestination","rt":InWaterItem.MoveDestination,"box":function ($v) { return Bridge.box($v, InWaterItem.MoveDestination, System.Enum.toStringFn(InWaterItem.MoveDestination));}},{"a":1,"n":"GetTargetItem","t":8,"pi":[{"n":"target","pt":$n[1].Transform,"ps":0}],"sn":"GetTargetItem","rt":Item,"p":[$n[1].Transform]},{"a":1,"n":"HandleMoveComplete","t":8,"sn":"HandleMoveComplete","rt":$n[0].Void},{"a":1,"n":"InitializeMovement","t":8,"sn":"InitializeMovement","rt":$n[0].Void},{"a":1,"n":"JumpToPlate","t":8,"sn":"JumpToPlate","rt":$n[0].Void},{"a":1,"n":"LateUpdate","t":8,"sn":"LateUpdate","rt":$n[0].Void},{"a":2,"n":"MoveToCurrentTarget","t":8,"sn":"MoveToCurrentTarget","rt":$n[0].Void},{"a":2,"n":"MoveToWater","t":8,"sn":"MoveToWater","rt":$n[0].Void},{"a":1,"n":"OnDisable","t":8,"sn":"OnDisable","rt":$n[0].Void},{"a":1,"n":"OnEnable","t":8,"sn":"OnEnable","rt":$n[0].Void},{"a":2,"n":"OnMoveIntoWaterComplete","t":8,"sn":"OnMoveIntoWaterComplete","rt":$n[0].Void},{"a":2,"n":"OnMoveToCuttingBoardComplete","t":8,"sn":"OnMoveToCuttingBoardComplete","rt":$n[0].Void},{"a":2,"n":"OnMoveToPlateComplete","t":8,"sn":"OnMoveToPlateComplete","rt":$n[0].Void},{"a":2,"n":"PeelerDone","t":8,"sn":"PeelerDone","rt":$n[0].Void},{"a":2,"n":"PlayAnim","t":8,"pi":[{"n":"isTrue","pt":$n[0].Boolean,"ps":0}],"sn":"PlayAnim","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":2,"n":"ResetChildRotate","t":8,"sn":"ResetChildRotate","rt":$n[0].Void},{"a":2,"n":"SetClean","t":8,"sn":"SetClean","rt":$n[0].Void},{"a":1,"n":"SetColliderRadiusMultiplier","t":8,"pi":[{"n":"multiplier","pt":$n[0].Single,"ps":0}],"sn":"SetColliderRadiusMultiplier","rt":$n[0].Void,"p":[$n[0].Single]},{"a":1,"n":"SetCuttingBoardAsDefaultTarget","t":8,"sn":"SetCuttingBoardAsDefaultTarget","rt":$n[0].Void},{"a":1,"n":"SetPlateFoodShadowActive","t":8,"pi":[{"n":"isActive","pt":$n[0].Boolean,"ps":0}],"sn":"SetPlateFoodShadowActive","rt":$n[0].Void,"p":[$n[0].Boolean]},{"ov":true,"a":2,"n":"ShouldPlayBobEffectAfterReturn","t":8,"sn":"ShouldPlayBobEffectAfterReturn","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"SpawnWaterSplashOnEnter","t":8,"pi":[{"n":"wasInWater","pt":$n[0].Boolean,"ps":0}],"sn":"SpawnWaterSplashOnEnter","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":2,"n":"StartTimer","t":8,"sn":"StartTimer","rt":$n[0].Void},{"a":2,"n":"StartWaterEffects","t":8,"sn":"StartWaterEffects","rt":$n[0].Void},{"a":2,"n":"StopWaterEffects","t":8,"sn":"StopWaterEffects","rt":$n[0].Void},{"a":1,"n":"SubscribeMovementEvents","t":8,"sn":"SubscribeMovementEvents","rt":$n[0].Void},{"a":1,"n":"UnsubscribeMovementEvents","t":8,"sn":"UnsubscribeMovementEvents","rt":$n[0].Void},{"a":1,"n":"UpdateDragAvailability","t":8,"sn":"UpdateDragAvailability","rt":$n[0].Void},{"a":2,"n":"childObject","t":4,"rt":System.Array.type(UnityEngine.Transform),"sn":"childObject"},{"a":2,"n":"collider1","t":4,"rt":$n[1].Collider,"sn":"collider1"},{"a":2,"n":"cuttingBoardColliderRadiusMultiplier","t":4,"rt":$n[0].Single,"sn":"cuttingBoardColliderRadiusMultiplier","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"cuttingBoardTarget","t":4,"rt":$n[1].Transform,"sn":"cuttingBoardTarget"},{"a":1,"n":"hasCachedColliderRadius","t":4,"rt":$n[0].Boolean,"sn":"hasCachedColliderRadius","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"initialized","t":4,"rt":$n[0].Boolean,"sn":"initialized","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isClean","t":4,"rt":$n[0].Boolean,"sn":"isClean","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isCutDone","t":4,"rt":$n[0].Boolean,"sn":"isCutDone","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isInWater","t":4,"rt":$n[0].Boolean,"sn":"isInWater","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"isMoving","t":4,"rt":$n[0].Boolean,"sn":"isMoving","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isOnCuttingBoard","t":4,"rt":$n[0].Boolean,"sn":"isOnCuttingBoard","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isOnPlate","t":4,"rt":$n[0].Boolean,"sn":"isOnPlate","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"jumpToPlateAfterCutDone","t":4,"rt":$n[0].Boolean,"sn":"jumpToPlateAfterCutDone","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"jumpToPlateDuration","t":4,"rt":$n[0].Single,"sn":"jumpToPlateDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("--- JUMP TO PLATE ---")],"a":2,"n":"jumpToPlatePower","t":4,"rt":$n[0].Single,"sn":"jumpToPlatePower","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"moveDestination","t":4,"rt":InWaterItem.MoveDestination,"sn":"moveDestination","box":function ($v) { return Bridge.box($v, InWaterItem.MoveDestination, System.Enum.toStringFn(InWaterItem.MoveDestination));}},{"at":[new UnityEngine.HeaderAttribute("--- EVENTS ---")],"a":2,"n":"onMoveToCuttingBoardComplete","t":4,"rt":$n[4].UnityEvent,"sn":"onMoveToCuttingBoardComplete"},{"a":1,"n":"originalCapsuleColliderRadius","t":4,"rt":$n[0].Single,"sn":"originalCapsuleColliderRadius","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"originalSphereColliderRadius","t":4,"rt":$n[0].Single,"sn":"originalSphereColliderRadius","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"plateFoodShadow","t":4,"rt":$n[1].GameObject,"sn":"plateFoodShadow"},{"a":2,"n":"platePunchDuration","t":4,"rt":$n[0].Single,"sn":"platePunchDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"platePunchScale","t":4,"rt":$n[1].Vector3,"sn":"platePunchScale"},{"a":2,"n":"plateTarget","t":4,"rt":$n[1].Transform,"sn":"plateTarget"},{"a":2,"n":"ply_BobEffect","t":4,"rt":Ply_BobEffect,"sn":"ply_BobEffect"},{"a":2,"n":"ply_TimerEvent","t":4,"rt":Ply_TimerEvent,"sn":"ply_TimerEvent"},{"a":2,"n":"sink","t":4,"rt":Sink,"sn":"sink"},{"at":[new UnityEngine.HeaderAttribute("--- WATER ITEM TARGETS ---")],"a":2,"n":"waterTarget","t":4,"rt":$n[1].Transform,"sn":"waterTarget"}]}; }, $n);
     /*InWaterItem end.*/
 
     /*InWaterItem+MoveDestination start.*/
@@ -27769,7 +28943,7 @@ if ( TRACE ) { TRACE( "Spoon#OnFlyInComplete", this ); }
     /*InWaterItem+MoveDestination end.*/
 
     /*Knife start.*/
-    $m("Knife", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"KnifeIdle","t":8,"sn":"KnifeIdle","rt":$n[0].Void},{"a":2,"n":"KnifeOnDrag","t":8,"sn":"KnifeOnDrag","rt":$n[0].Void},{"ov":true,"a":2,"n":"OnDragFailReturnComplete","t":8,"sn":"OnDragFailReturnComplete","rt":$n[0].Void},{"a":2,"n":"PlayKnifeSound","t":8,"sn":"PlayKnifeSound","rt":$n[0].Void},{"a":2,"n":"TargetKnifeFlyEvent","t":8,"sn":"TargetKnifeFlyEvent","rt":$n[0].Void},{"a":2,"n":"knifeIdle","t":4,"rt":$n[1].GameObject,"sn":"knifeIdle"},{"a":2,"n":"knifeOnDrag","t":4,"rt":$n[1].GameObject,"sn":"knifeOnDrag"}]}; }, $n);
+    $m("Knife", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"CacheKnifeOnDragRotation","t":8,"sn":"CacheKnifeOnDragRotation","rt":$n[0].Void},{"a":2,"n":"KnifeIdle","t":8,"sn":"KnifeIdle","rt":$n[0].Void},{"a":2,"n":"KnifeOnDrag","t":8,"sn":"KnifeOnDrag","rt":$n[0].Void},{"a":1,"n":"OnDisable","t":8,"sn":"OnDisable","rt":$n[0].Void},{"ov":true,"a":2,"n":"OnDragFailReturnComplete","t":8,"sn":"OnDragFailReturnComplete","rt":$n[0].Void},{"a":2,"n":"OnKnifeDone","t":8,"sn":"OnKnifeDone","rt":$n[0].Void},{"a":2,"n":"PlayKnifeSound","t":8,"sn":"PlayKnifeSound","rt":$n[0].Void},{"a":1,"n":"ResetKnifeOnDragRotation","t":8,"sn":"ResetKnifeOnDragRotation","rt":$n[0].Void},{"a":1,"n":"RotateKnifeOnDragTo","t":8,"pi":[{"n":"targetRotation","pt":$n[1].Quaternion,"ps":0}],"sn":"RotateKnifeOnDragTo","rt":$n[0].Void,"p":[$n[1].Quaternion]},{"a":2,"n":"SetTarget","t":8,"pi":[{"n":"target","pt":$n[1].Transform,"ps":0}],"sn":"SetTarget","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":2,"n":"TargetKnifeFlyEvent","t":8,"sn":"TargetKnifeFlyEvent","rt":$n[0].Void},{"a":1,"n":"hasCachedKnifeOnDragRotation","t":4,"rt":$n[0].Boolean,"sn":"hasCachedKnifeOnDragRotation","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"knifeIdle","t":4,"rt":$n[1].GameObject,"sn":"knifeIdle"},{"a":2,"n":"knifeOnDrag","t":4,"rt":$n[1].GameObject,"sn":"knifeOnDrag"},{"a":1,"n":"knifeOnDragOriginalLocalRotation","t":4,"rt":$n[1].Quaternion,"sn":"knifeOnDragOriginalLocalRotation"},{"a":2,"n":"knifeOnDragRotateDuration","t":4,"rt":$n[0].Single,"sn":"knifeOnDragRotateDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"knifeOnDragRotateEase","t":4,"rt":$n[3].Ease,"sn":"knifeOnDragRotateEase","box":function ($v) { return Bridge.box($v, DG.Tweening.Ease, System.Enum.toStringFn(DG.Tweening.Ease));}},{"a":1,"n":"knifeOnDragRotateTween","t":4,"rt":$n[3].Tween,"sn":"knifeOnDragRotateTween"},{"a":2,"n":"knifeOnDragRotationOffset","t":4,"rt":$n[1].Vector3,"sn":"knifeOnDragRotationOffset"}]}; }, $n);
     /*Knife end.*/
 
     /*SinkWaterState start.*/
@@ -27777,7 +28951,7 @@ if ( TRACE ) { TRACE( "Spoon#OnFlyInComplete", this ); }
     /*SinkWaterState end.*/
 
     /*Sink start.*/
-    $m("Sink", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"ApplyStableVisuals","t":8,"sn":"ApplyStableVisuals","rt":$n[0].Void},{"a":1,"n":"ApplyWaterDropPosition","t":8,"pi":[{"n":"localPosition","pt":$n[1].Vector3,"ps":0}],"sn":"ApplyWaterDropPosition","rt":$n[0].Void,"p":[$n[1].Vector3]},{"a":1,"n":"ApplyWaterRect","t":8,"pi":[{"n":"rect","pt":$n[1].Rect,"ps":0}],"sn":"ApplyWaterRect","rt":$n[0].Void,"p":[$n[1].Rect]},{"a":1,"n":"BeginWaterFall","t":8,"sn":"BeginWaterFall","rt":$n[0].Void},{"a":1,"n":"BeginWaterRise","t":8,"sn":"BeginWaterRise","rt":$n[0].Void},{"a":1,"n":"CacheBasinWaterRenderer","t":8,"sn":"CacheBasinWaterRenderer","rt":$n[0].Void},{"a":1,"n":"CacheWaterDropTransform","t":8,"sn":"CacheWaterDropTransform","rt":$n[0].Void},{"a":2,"n":"CheckEndPhaseCondition","t":8,"sn":"CheckEndPhaseCondition","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"Close","t":8,"sn":"Close","rt":$n[0].Void},{"a":2,"n":"CompleteWaterFall","t":8,"sn":"CompleteWaterFall","rt":$n[0].Void},{"a":2,"n":"CompleteWaterRise","t":8,"sn":"CompleteWaterRise","rt":$n[0].Void},{"a":1,"n":"DrawPointGizmo","is":true,"t":8,"pi":[{"n":"reference","pt":$n[1].Transform,"ps":0},{"n":"localPoint","pt":$n[1].Vector3,"ps":1},{"n":"color","pt":$n[1].Color,"ps":2},{"n":"radius","pt":$n[0].Single,"ps":3}],"sn":"DrawPointGizmo","rt":$n[0].Void,"p":[$n[1].Transform,$n[1].Vector3,$n[1].Color,$n[0].Single]},{"a":1,"n":"DrawPointLineGizmo","t":8,"pi":[{"n":"reference","pt":$n[1].Transform,"ps":0}],"sn":"DrawPointLineGizmo","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":1,"n":"DrawRectGizmo","is":true,"t":8,"pi":[{"n":"reference","pt":$n[1].Transform,"ps":0},{"n":"rect","pt":$n[1].Rect,"ps":1},{"n":"color","pt":$n[1].Color,"ps":2}],"sn":"DrawRectGizmo","rt":$n[0].Void,"p":[$n[1].Transform,$n[1].Rect,$n[1].Color]},{"a":1,"n":"EndTransition","t":8,"sn":"EndTransition","rt":$n[0].Void},{"a":1,"n":"EnsureInitialized","t":8,"sn":"EnsureInitialized","rt":$n[0].Void},{"a":1,"n":"EvaluateStableState","t":8,"sn":"EvaluateStableState","rt":$n[0].Void},{"a":1,"n":"GetCurrentWaterLevel","t":8,"sn":"GetCurrentWaterLevel","rt":$n[0].Single,"box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"GetCurrentWaterRect","t":8,"sn":"GetCurrentWaterRect","rt":$n[1].Rect},{"a":1,"n":"GetFaucetStateHash","t":8,"sn":"GetFaucetStateHash","rt":$n[0].Int32,"box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"InitializeState","t":8,"sn":"InitializeState","rt":$n[0].Void},{"a":2,"n":"IsWaterIn","t":8,"sn":"IsWaterIn","rt":$n[0].Void},{"a":1,"n":"LerpRect","is":true,"t":8,"pi":[{"n":"from","pt":$n[1].Rect,"ps":0},{"n":"to","pt":$n[1].Rect,"ps":1},{"n":"progress","pt":$n[0].Single,"ps":2}],"sn":"LerpRect","rt":$n[1].Rect,"p":[$n[1].Rect,$n[1].Rect,$n[0].Single]},{"a":2,"n":"NoWaterIn","t":8,"sn":"NoWaterIn","rt":$n[0].Void},{"a":1,"n":"OnDisable","t":8,"sn":"OnDisable","rt":$n[0].Void},{"a":1,"n":"OnDrawGizmosSelected","t":8,"sn":"OnDrawGizmosSelected","rt":$n[0].Void},{"a":2,"n":"Open","t":8,"sn":"Open","rt":$n[0].Void},{"a":1,"n":"PauseWaterRise","t":8,"sn":"PauseWaterRise","rt":$n[0].Void},{"a":1,"n":"PlayBasinEmpty","t":8,"sn":"PlayBasinEmpty","rt":$n[0].Void},{"a":1,"n":"PlayState","is":true,"t":8,"pi":[{"n":"targetAnimator","pt":$n[1].Animator,"ps":0},{"n":"stateHash","pt":$n[0].Int32,"ps":1}],"sn":"PlayState","rt":$n[0].Boolean,"p":[$n[1].Animator,$n[0].Int32],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"PlayWaterOutSound","t":8,"sn":"PlayWaterOutSound","rt":$n[0].Void},{"a":2,"n":"RegisterInWaterItem","t":8,"pi":[{"n":"item","pt":InWaterItem,"ps":0}],"sn":"RegisterInWaterItem","rt":$n[0].Void,"p":[InWaterItem]},{"a":1,"n":"SetBasinActive","t":8,"pi":[{"n":"value","pt":$n[0].Boolean,"ps":0}],"sn":"SetBasinActive","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":1,"n":"SetFaucetActive","t":8,"pi":[{"n":"value","pt":$n[0].Boolean,"ps":0}],"sn":"SetFaucetActive","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":1,"n":"SetWaterIn","t":8,"pi":[{"n":"value","pt":$n[0].Boolean,"ps":0}],"sn":"SetWaterIn","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"StartInWaterItems","t":8,"sn":"StartInWaterItems","rt":$n[0].Void},{"a":1,"n":"StopInWaterItems","t":8,"sn":"StopInWaterItems","rt":$n[0].Void},{"a":2,"n":"TurnOffWater","t":8,"sn":"TurnOffWater","rt":$n[0].Void},{"a":2,"n":"TurnOnWater","t":8,"sn":"TurnOnWater","rt":$n[0].Void},{"a":1,"n":"TweenWaterLevel","t":8,"pi":[{"n":"targetRect","pt":$n[1].Rect,"ps":0},{"n":"targetWaterDropPoint","pt":$n[1].Vector3,"ps":1},{"n":"duration","pt":$n[0].Single,"ps":2},{"n":"ease","pt":$n[3].Ease,"ps":3},{"n":"onComplete","pt":Function,"ps":4}],"sn":"TweenWaterLevel","rt":$n[0].Void,"p":[$n[1].Rect,$n[1].Vector3,$n[0].Single,$n[3].Ease,Function]},{"a":2,"n":"UnregisterInWaterItem","t":8,"pi":[{"n":"item","pt":InWaterItem,"ps":0}],"sn":"UnregisterInWaterItem","rt":$n[0].Void,"p":[InWaterItem]},{"a":2,"n":"IsWaterTransitioning","t":16,"rt":$n[0].Boolean,"g":{"a":2,"n":"get_IsWaterTransitioning","t":8,"rt":$n[0].Boolean,"fg":"IsWaterTransitioning","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},"fn":"IsWaterTransitioning"},{"a":2,"n":"WaterState","t":16,"rt":SinkWaterState,"g":{"a":2,"n":"get_WaterState","t":8,"rt":SinkWaterState,"fg":"WaterState","box":function ($v) { return Bridge.box($v, SinkWaterState, System.Enum.toStringFn(SinkWaterState));}},"fn":"WaterState"},{"a":1,"n":"FlowEmptyState","is":true,"t":4,"rt":$n[0].Int32,"sn":"FlowEmptyState","ro":true,"box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"FlowFallingState","is":true,"t":4,"rt":$n[0].Int32,"sn":"FlowFallingState","ro":true,"box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"FlowFullState","is":true,"t":4,"rt":$n[0].Int32,"sn":"FlowFullState","ro":true,"box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"FlowRisingState","is":true,"t":4,"rt":$n[0].Int32,"sn":"FlowRisingState","ro":true,"box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":2,"n":"basinAnimator","t":4,"rt":$n[1].Animator,"sn":"basinAnimator"},{"a":1,"n":"basinWaterDefaultLocalEulerAngles","t":4,"rt":$n[1].Vector3,"sn":"basinWaterDefaultLocalEulerAngles"},{"a":1,"n":"basinWaterLocalZ","t":4,"rt":$n[0].Single,"sn":"basinWaterLocalZ","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("--- BASIN WATER RECT ---")],"a":2,"n":"basinWaterRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"basinWaterRenderer"},{"a":1,"n":"basinWaterTween","t":4,"rt":$n[3].Tween,"sn":"basinWaterTween"},{"a":1,"n":"desiredWaterOn","t":4,"rt":$n[0].Boolean,"sn":"desiredWaterOn","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"displayedWaterOn","t":4,"rt":$n[0].Boolean,"sn":"displayedWaterOn","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"drawWaterDropPoints","t":4,"rt":$n[0].Boolean,"sn":"drawWaterDropPoints","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"drawWaterRects","t":4,"rt":$n[0].Boolean,"sn":"drawWaterRects","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"emptyRectColor","t":4,"rt":$n[1].Color,"sn":"emptyRectColor"},{"at":[new UnityEngine.TooltipAttribute("Water drop position when basin water is at the bottom, in the water drop parent's local space.")],"a":2,"n":"emptyWaterDropPoint","t":4,"rt":$n[1].Vector3,"sn":"emptyWaterDropPoint"},{"a":2,"n":"emptyWaterDropPointColor","t":4,"rt":$n[1].Color,"sn":"emptyWaterDropPointColor"},{"at":[new UnityEngine.TooltipAttribute("Rect of the water when the basin is empty, in the renderer parent's local space.")],"a":2,"n":"emptyWaterRect","t":4,"rt":$n[1].Rect,"sn":"emptyWaterRect"},{"at":[new UnityEngine.HeaderAttribute("--- WATER ANIMATORS ---")],"a":2,"n":"faucetAnimator","t":4,"rt":$n[1].Animator,"sn":"faucetAnimator"},{"a":2,"n":"fullRectColor","t":4,"rt":$n[1].Color,"sn":"fullRectColor"},{"at":[new UnityEngine.TooltipAttribute("Water drop position when basin water is full, in the water drop parent's local space.")],"a":2,"n":"fullWaterDropPoint","t":4,"rt":$n[1].Vector3,"sn":"fullWaterDropPoint"},{"a":2,"n":"fullWaterDropPointColor","t":4,"rt":$n[1].Color,"sn":"fullWaterDropPointColor"},{"at":[new UnityEngine.TooltipAttribute("Rect of the water when the basin is full, in the renderer parent's local space.")],"a":2,"n":"fullWaterRect","t":4,"rt":$n[1].Rect,"sn":"fullWaterRect"},{"at":[new UnityEngine.HeaderAttribute("--- WATER EVENTS ---")],"a":2,"n":"inWaterItems","t":4,"rt":$n[5].List$1(InWaterItem),"sn":"inWaterItems"},{"a":1,"n":"initialized","t":4,"rt":$n[0].Boolean,"sn":"initialized","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HeaderAttribute("--- SINK STATE ---")],"a":2,"n":"isClose","t":4,"rt":$n[0].Boolean,"sn":"isClose","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isWaterDrop","t":4,"rt":$n[0].Boolean,"sn":"isWaterDrop","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isWaterIn","t":4,"rt":$n[0].Boolean,"sn":"isWaterIn","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"onNoWaterIn","t":4,"rt":$n[4].UnityEvent,"sn":"onNoWaterIn"},{"a":2,"n":"onWaterIn","t":4,"rt":$n[4].UnityEvent,"sn":"onWaterIn"},{"a":2,"n":"waterDrop","t":4,"rt":$n[1].GameObject,"sn":"waterDrop"},{"a":2,"n":"waterDropPointRadius","t":4,"rt":$n[0].Single,"sn":"waterDropPointRadius","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("--- WATER DROP POINTS ---")],"a":2,"n":"waterDropTransform","t":4,"rt":$n[1].Transform,"sn":"waterDropTransform"},{"a":2,"n":"waterFallDuration","t":4,"rt":$n[0].Single,"sn":"waterFallDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"waterFallEase","t":4,"rt":$n[3].Ease,"sn":"waterFallEase","box":function ($v) { return Bridge.box($v, DG.Tweening.Ease, System.Enum.toStringFn(DG.Tweening.Ease));}},{"a":2,"n":"waterIn","t":4,"rt":$n[1].GameObject,"sn":"waterIn"},{"a":2,"n":"waterRiseDuration","t":4,"rt":$n[0].Single,"sn":"waterRiseDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"waterRiseEase","t":4,"rt":$n[3].Ease,"sn":"waterRiseEase","box":function ($v) { return Bridge.box($v, DG.Tweening.Ease, System.Enum.toStringFn(DG.Tweening.Ease));}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"waterState","t":4,"rt":SinkWaterState,"sn":"waterState","box":function ($v) { return Bridge.box($v, SinkWaterState, System.Enum.toStringFn(SinkWaterState));}},{"a":2,"n":"WaterTransitionChanged","t":2,"ad":{"a":2,"n":"add_WaterTransitionChanged","t":8,"pi":[{"n":"value","pt":Function,"ps":0}],"sn":"addWaterTransitionChanged","rt":$n[0].Void,"p":[Function]},"r":{"a":2,"n":"remove_WaterTransitionChanged","t":8,"pi":[{"n":"value","pt":Function,"ps":0}],"sn":"removeWaterTransitionChanged","rt":$n[0].Void,"p":[Function]}}]}; }, $n);
+    $m("Sink", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"ApplyStableVisuals","t":8,"sn":"ApplyStableVisuals","rt":$n[0].Void},{"a":1,"n":"ApplyWaterDropPosition","t":8,"pi":[{"n":"localPosition","pt":$n[1].Vector3,"ps":0}],"sn":"ApplyWaterDropPosition","rt":$n[0].Void,"p":[$n[1].Vector3]},{"a":1,"n":"ApplyWaterRect","t":8,"pi":[{"n":"rect","pt":$n[1].Rect,"ps":0}],"sn":"ApplyWaterRect","rt":$n[0].Void,"p":[$n[1].Rect]},{"a":1,"n":"BeginWaterFall","t":8,"sn":"BeginWaterFall","rt":$n[0].Void},{"a":1,"n":"BeginWaterRise","t":8,"sn":"BeginWaterRise","rt":$n[0].Void},{"a":1,"n":"CacheBasinWaterRenderer","t":8,"sn":"CacheBasinWaterRenderer","rt":$n[0].Void},{"a":1,"n":"CacheWaterDropTransform","t":8,"sn":"CacheWaterDropTransform","rt":$n[0].Void},{"a":2,"n":"CheckEndPhaseCondition","t":8,"sn":"CheckEndPhaseCondition","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"Close","t":8,"sn":"Close","rt":$n[0].Void},{"a":2,"n":"CompleteWaterFall","t":8,"sn":"CompleteWaterFall","rt":$n[0].Void},{"a":2,"n":"CompleteWaterRise","t":8,"sn":"CompleteWaterRise","rt":$n[0].Void},{"a":1,"n":"DrawPointGizmo","is":true,"t":8,"pi":[{"n":"reference","pt":$n[1].Transform,"ps":0},{"n":"localPoint","pt":$n[1].Vector3,"ps":1},{"n":"color","pt":$n[1].Color,"ps":2},{"n":"radius","pt":$n[0].Single,"ps":3}],"sn":"DrawPointGizmo","rt":$n[0].Void,"p":[$n[1].Transform,$n[1].Vector3,$n[1].Color,$n[0].Single]},{"a":1,"n":"DrawPointLineGizmo","t":8,"pi":[{"n":"reference","pt":$n[1].Transform,"ps":0}],"sn":"DrawPointLineGizmo","rt":$n[0].Void,"p":[$n[1].Transform]},{"a":1,"n":"DrawRectGizmo","is":true,"t":8,"pi":[{"n":"reference","pt":$n[1].Transform,"ps":0},{"n":"rect","pt":$n[1].Rect,"ps":1},{"n":"color","pt":$n[1].Color,"ps":2}],"sn":"DrawRectGizmo","rt":$n[0].Void,"p":[$n[1].Transform,$n[1].Rect,$n[1].Color]},{"a":1,"n":"EndTransition","t":8,"sn":"EndTransition","rt":$n[0].Void},{"a":1,"n":"EnsureInitialized","t":8,"sn":"EnsureInitialized","rt":$n[0].Void},{"a":1,"n":"EvaluateStableState","t":8,"sn":"EvaluateStableState","rt":$n[0].Void},{"a":1,"n":"GetCurrentWaterLevel","t":8,"sn":"GetCurrentWaterLevel","rt":$n[0].Single,"box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"GetCurrentWaterRect","t":8,"sn":"GetCurrentWaterRect","rt":$n[1].Rect},{"a":1,"n":"GetFaucetStateHash","t":8,"sn":"GetFaucetStateHash","rt":$n[0].Int32,"box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"InitializeState","t":8,"sn":"InitializeState","rt":$n[0].Void},{"a":2,"n":"IsWaterIn","t":8,"sn":"IsWaterIn","rt":$n[0].Void},{"a":1,"n":"LerpRect","is":true,"t":8,"pi":[{"n":"from","pt":$n[1].Rect,"ps":0},{"n":"to","pt":$n[1].Rect,"ps":1},{"n":"progress","pt":$n[0].Single,"ps":2}],"sn":"LerpRect","rt":$n[1].Rect,"p":[$n[1].Rect,$n[1].Rect,$n[0].Single]},{"a":2,"n":"NoWaterIn","t":8,"sn":"NoWaterIn","rt":$n[0].Void},{"a":1,"n":"OnDisable","t":8,"sn":"OnDisable","rt":$n[0].Void},{"a":1,"n":"OnDrawGizmosSelected","t":8,"sn":"OnDrawGizmosSelected","rt":$n[0].Void},{"a":2,"n":"Open","t":8,"sn":"Open","rt":$n[0].Void},{"a":1,"n":"PauseWaterRise","t":8,"sn":"PauseWaterRise","rt":$n[0].Void},{"a":1,"n":"PlayBasinEmpty","t":8,"sn":"PlayBasinEmpty","rt":$n[0].Void},{"a":1,"n":"PlayState","is":true,"t":8,"pi":[{"n":"targetAnimator","pt":$n[1].Animator,"ps":0},{"n":"stateHash","pt":$n[0].Int32,"ps":1}],"sn":"PlayState","rt":$n[0].Boolean,"p":[$n[1].Animator,$n[0].Int32],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"PlayWaterOutSound","t":8,"sn":"PlayWaterOutSound","rt":$n[0].Void},{"a":2,"n":"RegisterInWaterItem","t":8,"pi":[{"n":"item","pt":InWaterItem,"ps":0}],"sn":"RegisterInWaterItem","rt":$n[0].Void,"p":[InWaterItem]},{"a":1,"n":"SetBasinActive","t":8,"pi":[{"n":"value","pt":$n[0].Boolean,"ps":0}],"sn":"SetBasinActive","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":1,"n":"SetFaucetActive","t":8,"pi":[{"n":"value","pt":$n[0].Boolean,"ps":0}],"sn":"SetFaucetActive","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":1,"n":"SetWaterIn","t":8,"pi":[{"n":"value","pt":$n[0].Boolean,"ps":0}],"sn":"SetWaterIn","rt":$n[0].Void,"p":[$n[0].Boolean]},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"StartInWaterItems","t":8,"sn":"StartInWaterItems","rt":$n[0].Void},{"a":1,"n":"StopInWaterItems","t":8,"sn":"StopInWaterItems","rt":$n[0].Void},{"a":2,"n":"TurnOffWater","t":8,"sn":"TurnOffWater","rt":$n[0].Void},{"a":2,"n":"TurnOnWater","t":8,"sn":"TurnOnWater","rt":$n[0].Void},{"a":1,"n":"TweenWaterLevel","t":8,"pi":[{"n":"targetRect","pt":$n[1].Rect,"ps":0},{"n":"targetWaterDropPoint","pt":$n[1].Vector3,"ps":1},{"n":"duration","pt":$n[0].Single,"ps":2},{"n":"ease","pt":$n[3].Ease,"ps":3},{"n":"onComplete","pt":Function,"ps":4}],"sn":"TweenWaterLevel","rt":$n[0].Void,"p":[$n[1].Rect,$n[1].Vector3,$n[0].Single,$n[3].Ease,Function]},{"a":2,"n":"UnregisterInWaterItem","t":8,"pi":[{"n":"item","pt":InWaterItem,"ps":0}],"sn":"UnregisterInWaterItem","rt":$n[0].Void,"p":[InWaterItem]},{"a":2,"n":"IsWaterTransitioning","t":16,"rt":$n[0].Boolean,"g":{"a":2,"n":"get_IsWaterTransitioning","t":8,"rt":$n[0].Boolean,"fg":"IsWaterTransitioning","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},"fn":"IsWaterTransitioning"},{"a":2,"n":"WaterState","t":16,"rt":SinkWaterState,"g":{"a":2,"n":"get_WaterState","t":8,"rt":SinkWaterState,"fg":"WaterState","box":function ($v) { return Bridge.box($v, SinkWaterState, System.Enum.toStringFn(SinkWaterState));}},"fn":"WaterState"},{"a":1,"n":"FlowEmptyState","is":true,"t":4,"rt":$n[0].Int32,"sn":"FlowEmptyState","ro":true,"box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"FlowFallingState","is":true,"t":4,"rt":$n[0].Int32,"sn":"FlowFallingState","ro":true,"box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"FlowFullState","is":true,"t":4,"rt":$n[0].Int32,"sn":"FlowFullState","ro":true,"box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"FlowRisingState","is":true,"t":4,"rt":$n[0].Int32,"sn":"FlowRisingState","ro":true,"box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":2,"n":"basinAnimator","t":4,"rt":$n[1].Animator,"sn":"basinAnimator"},{"a":1,"n":"basinWaterDefaultLocalEulerAngles","t":4,"rt":$n[1].Vector3,"sn":"basinWaterDefaultLocalEulerAngles"},{"a":1,"n":"basinWaterLocalZ","t":4,"rt":$n[0].Single,"sn":"basinWaterLocalZ","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("--- BASIN WATER RECT ---")],"a":2,"n":"basinWaterRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"basinWaterRenderer"},{"a":1,"n":"basinWaterTween","t":4,"rt":$n[3].Tween,"sn":"basinWaterTween"},{"a":1,"n":"desiredWaterOn","t":4,"rt":$n[0].Boolean,"sn":"desiredWaterOn","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"displayedWaterOn","t":4,"rt":$n[0].Boolean,"sn":"displayedWaterOn","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"drawWaterDropPoints","t":4,"rt":$n[0].Boolean,"sn":"drawWaterDropPoints","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"drawWaterRects","t":4,"rt":$n[0].Boolean,"sn":"drawWaterRects","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"emptyRectColor","t":4,"rt":$n[1].Color,"sn":"emptyRectColor"},{"at":[new UnityEngine.TooltipAttribute("Water drop position when basin water is at the bottom, in the water drop parent's local space.")],"a":2,"n":"emptyWaterDropPoint","t":4,"rt":$n[1].Vector3,"sn":"emptyWaterDropPoint"},{"a":2,"n":"emptyWaterDropPointColor","t":4,"rt":$n[1].Color,"sn":"emptyWaterDropPointColor"},{"at":[new UnityEngine.TooltipAttribute("Rect of the water when the basin is empty, in the renderer parent's local space.")],"a":2,"n":"emptyWaterRect","t":4,"rt":$n[1].Rect,"sn":"emptyWaterRect"},{"at":[new UnityEngine.HeaderAttribute("--- WATER ANIMATORS ---")],"a":2,"n":"faucetAnimator","t":4,"rt":$n[1].Animator,"sn":"faucetAnimator"},{"a":2,"n":"fullRectColor","t":4,"rt":$n[1].Color,"sn":"fullRectColor"},{"at":[new UnityEngine.TooltipAttribute("Water drop position when basin water is full, in the water drop parent's local space.")],"a":2,"n":"fullWaterDropPoint","t":4,"rt":$n[1].Vector3,"sn":"fullWaterDropPoint"},{"a":2,"n":"fullWaterDropPointColor","t":4,"rt":$n[1].Color,"sn":"fullWaterDropPointColor"},{"at":[new UnityEngine.TooltipAttribute("Rect of the water when the basin is full, in the renderer parent's local space.")],"a":2,"n":"fullWaterRect","t":4,"rt":$n[1].Rect,"sn":"fullWaterRect"},{"at":[new UnityEngine.HeaderAttribute("--- WATER EVENTS ---")],"a":2,"n":"inWaterItems","t":4,"rt":$n[5].List$1(InWaterItem),"sn":"inWaterItems"},{"a":1,"n":"initialized","t":4,"rt":$n[0].Boolean,"sn":"initialized","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HeaderAttribute("--- SINK STATE ---")],"a":2,"n":"isClose","t":4,"rt":$n[0].Boolean,"sn":"isClose","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isWaterDrop","t":4,"rt":$n[0].Boolean,"sn":"isWaterDrop","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"isWaterIn","t":4,"rt":$n[0].Boolean,"sn":"isWaterIn","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"onNoWaterIn","t":4,"rt":$n[4].UnityEvent,"sn":"onNoWaterIn"},{"a":2,"n":"onWaterIn","t":4,"rt":$n[4].UnityEvent,"sn":"onWaterIn"},{"a":2,"n":"waterDrop","t":4,"rt":$n[1].GameObject,"sn":"waterDrop"},{"a":2,"n":"waterDropPointRadius","t":4,"rt":$n[0].Single,"sn":"waterDropPointRadius","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("--- WATER DROP POINTS ---")],"a":2,"n":"waterDropTransform","t":4,"rt":$n[1].Transform,"sn":"waterDropTransform"},{"a":2,"n":"waterFallDuration","t":4,"rt":$n[0].Single,"sn":"waterFallDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"waterFallEase","t":4,"rt":$n[3].Ease,"sn":"waterFallEase","box":function ($v) { return Bridge.box($v, DG.Tweening.Ease, System.Enum.toStringFn(DG.Tweening.Ease));}},{"a":2,"n":"waterIn","t":4,"rt":$n[1].GameObject,"sn":"waterIn"},{"a":2,"n":"waterRiseDuration","t":4,"rt":$n[0].Single,"sn":"waterRiseDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"waterRiseEase","t":4,"rt":$n[3].Ease,"sn":"waterRiseEase","box":function ($v) { return Bridge.box($v, DG.Tweening.Ease, System.Enum.toStringFn(DG.Tweening.Ease));}},{"a":2,"n":"waterSplashPos","t":4,"rt":$n[1].Transform,"sn":"waterSplashPos"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"waterState","t":4,"rt":SinkWaterState,"sn":"waterState","box":function ($v) { return Bridge.box($v, SinkWaterState, System.Enum.toStringFn(SinkWaterState));}},{"a":2,"n":"WaterTransitionChanged","t":2,"ad":{"a":2,"n":"add_WaterTransitionChanged","t":8,"pi":[{"n":"value","pt":Function,"ps":0}],"sn":"addWaterTransitionChanged","rt":$n[0].Void,"p":[Function]},"r":{"a":2,"n":"remove_WaterTransitionChanged","t":8,"pi":[{"n":"value","pt":Function,"ps":0}],"sn":"removeWaterTransitionChanged","rt":$n[0].Void,"p":[Function]}}]}; }, $n);
     /*Sink end.*/
 
     /*SinkBlock start.*/
@@ -27813,7 +28987,7 @@ if ( TRACE ) { TRACE( "Spoon#OnFlyInComplete", this ); }
     /*Ply_GameUnit end.*/
 
     /*PoolType start.*/
-    $m("PoolType", function () { return {"att":257,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"BlinkFX","is":true,"t":4,"rt":PoolType,"sn":"BlinkFX","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"ClockTimer","is":true,"t":4,"rt":PoolType,"sn":"ClockTimer","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"Duck","is":true,"t":4,"rt":PoolType,"sn":"Duck","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"FlourSmoke","is":true,"t":4,"rt":PoolType,"sn":"FlourSmoke","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"GreenPiece","is":true,"t":4,"rt":PoolType,"sn":"GreenPiece","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"HeartBreakFX","is":true,"t":4,"rt":PoolType,"sn":"HeartBreakFX","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"HeartFX","is":true,"t":4,"rt":PoolType,"sn":"HeartFX","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"MergeVFX","is":true,"t":4,"rt":PoolType,"sn":"MergeVFX","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"ProgressBar","is":true,"t":4,"rt":PoolType,"sn":"ProgressBar","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"StarExploreFX","is":true,"t":4,"rt":PoolType,"sn":"StarExploreFX","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"YellowPiece","is":true,"t":4,"rt":PoolType,"sn":"YellowPiece","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}}]}; }, $n);
+    $m("PoolType", function () { return {"att":257,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"BlinkFX","is":true,"t":4,"rt":PoolType,"sn":"BlinkFX","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"ClockTimer","is":true,"t":4,"rt":PoolType,"sn":"ClockTimer","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"Duck","is":true,"t":4,"rt":PoolType,"sn":"Duck","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"FlourSmoke","is":true,"t":4,"rt":PoolType,"sn":"FlourSmoke","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"GreenPiece","is":true,"t":4,"rt":PoolType,"sn":"GreenPiece","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"HeartBreakFX","is":true,"t":4,"rt":PoolType,"sn":"HeartBreakFX","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"HeartFX","is":true,"t":4,"rt":PoolType,"sn":"HeartFX","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"MergeVFX","is":true,"t":4,"rt":PoolType,"sn":"MergeVFX","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"ProgressBar","is":true,"t":4,"rt":PoolType,"sn":"ProgressBar","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"StarExploreFX","is":true,"t":4,"rt":PoolType,"sn":"StarExploreFX","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"WaterSplash","is":true,"t":4,"rt":PoolType,"sn":"WaterSplash","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}},{"a":2,"n":"YellowPiece","is":true,"t":4,"rt":PoolType,"sn":"YellowPiece","box":function ($v) { return Bridge.box($v, PoolType, System.Enum.toStringFn(PoolType));}}]}; }, $n);
     /*PoolType end.*/
 
     /*Ply_Pool start.*/
@@ -27837,7 +29011,7 @@ if ( TRACE ) { TRACE( "Spoon#OnFlyInComplete", this ); }
     /*Ply_Singleton$1 end.*/
 
     /*FxType start.*/
-    $m("FxType", function () { return {"att":257,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"ChangePhase","is":true,"t":4,"rt":FxType,"sn":"ChangePhase","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Click","is":true,"t":4,"rt":FxType,"sn":"Click","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Clock","is":true,"t":4,"rt":FxType,"sn":"Clock","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Complete","is":true,"t":4,"rt":FxType,"sn":"Complete","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Drop","is":true,"t":4,"rt":FxType,"sn":"Drop","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"DuckSound","is":true,"t":4,"rt":FxType,"sn":"DuckSound","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"EggCrack","is":true,"t":4,"rt":FxType,"sn":"EggCrack","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"FlourDrop","is":true,"t":4,"rt":FxType,"sn":"FlourDrop","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"FoodDone","is":true,"t":4,"rt":FxType,"sn":"FoodDone","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"FoodToBowl","is":true,"t":4,"rt":FxType,"sn":"FoodToBowl","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Frying","is":true,"t":4,"rt":FxType,"sn":"Frying","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Jump","is":true,"t":4,"rt":FxType,"sn":"Jump","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"OilIn","is":true,"t":4,"rt":FxType,"sn":"OilIn","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Plastic","is":true,"t":4,"rt":FxType,"sn":"Plastic","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"PourSalt","is":true,"t":4,"rt":FxType,"sn":"PourSalt","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"SpoonStirring","is":true,"t":4,"rt":FxType,"sn":"SpoonStirring","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Swipe","is":true,"t":4,"rt":FxType,"sn":"Swipe","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"TurnOn","is":true,"t":4,"rt":FxType,"sn":"TurnOn","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"WaterDrop","is":true,"t":4,"rt":FxType,"sn":"WaterDrop","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Wrong","is":true,"t":4,"rt":FxType,"sn":"Wrong","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}}]}; }, $n);
+    $m("FxType", function () { return {"att":257,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"Blink","is":true,"t":4,"rt":FxType,"sn":"Blink","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Click","is":true,"t":4,"rt":FxType,"sn":"Click","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Complete","is":true,"t":4,"rt":FxType,"sn":"Complete","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Drop","is":true,"t":4,"rt":FxType,"sn":"Drop","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Failed","is":true,"t":4,"rt":FxType,"sn":"Failed","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"FoodToWater","is":true,"t":4,"rt":FxType,"sn":"FoodToWater","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"ItemPlace","is":true,"t":4,"rt":FxType,"sn":"ItemPlace","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Jump","is":true,"t":4,"rt":FxType,"sn":"Jump","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"KnifeCut","is":true,"t":4,"rt":FxType,"sn":"KnifeCut","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"KnifePlace","is":true,"t":4,"rt":FxType,"sn":"KnifePlace","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"KnifeSwing","is":true,"t":4,"rt":FxType,"sn":"KnifeSwing","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"LemonJuice","is":true,"t":4,"rt":FxType,"sn":"LemonJuice","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Peer","is":true,"t":4,"rt":FxType,"sn":"Peer","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"PlaceVege","is":true,"t":4,"rt":FxType,"sn":"PlaceVege","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Swipe","is":true,"t":4,"rt":FxType,"sn":"Swipe","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"WaterDrop","is":true,"t":4,"rt":FxType,"sn":"WaterDrop","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Wipe","is":true,"t":4,"rt":FxType,"sn":"Wipe","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}}]}; }, $n);
     /*FxType end.*/
 
     /*Ply_SoundManager start.*/
@@ -27859,6 +29033,10 @@ if ( TRACE ) { TRACE( "Spoon#OnFlyInComplete", this ); }
     /*SortChildByZPos start.*/
     $m("SortChildByZPos", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"at":[new UnityEngine.ContextMenu.ctor("Sort Children By Z Position")],"a":2,"n":"SortChildrenByZPosition","t":8,"sn":"SortChildrenByZPosition","rt":$n[0].Void},{"a":2,"n":"baseZ","t":4,"rt":$n[0].Single,"sn":"baseZ","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"childrenToSort","t":4,"rt":$n[5].List$1(UnityEngine.Transform),"sn":"childrenToSort"},{"a":2,"n":"transformToSort","t":4,"rt":$n[1].Transform,"sn":"transformToSort"},{"a":2,"n":"zOffset","t":4,"rt":$n[0].Single,"sn":"zOffset","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}}]}; }, $n);
     /*SortChildByZPos end.*/
+
+    /*Yielders start.*/
+    $m("Yielders", function () { return {"att":1048961,"a":2,"s":true,"m":[{"a":2,"n":"Get","is":true,"t":8,"pi":[{"n":"seconds","pt":$n[0].Single,"ps":0}],"sn":"Get","rt":$n[1].WaitForSeconds,"p":[$n[0].Single]},{"a":2,"n":"EndOfFrame","is":true,"t":16,"rt":$n[1].WaitForEndOfFrame,"g":{"a":2,"n":"get_EndOfFrame","t":8,"rt":$n[1].WaitForEndOfFrame,"fg":"EndOfFrame","is":true},"fn":"EndOfFrame"},{"a":2,"n":"FixedUpdate","is":true,"t":16,"rt":$n[1].WaitForFixedUpdate,"g":{"a":2,"n":"get_FixedUpdate","t":8,"rt":$n[1].WaitForFixedUpdate,"fg":"FixedUpdate","is":true},"fn":"FixedUpdate"},{"a":1,"n":"_endOfFrame","is":true,"t":4,"rt":$n[1].WaitForEndOfFrame,"sn":"_endOfFrame"},{"a":1,"n":"_fixedUpdate","is":true,"t":4,"rt":$n[1].WaitForFixedUpdate,"sn":"_fixedUpdate"},{"a":1,"n":"_timeInterval","is":true,"t":4,"rt":$n[5].Dictionary$2(System.Single,UnityEngine.WaitForSeconds),"sn":"_timeInterval"}]}; }, $n);
+    /*Yielders end.*/
 
     /*IAmAnEmptyScriptJustToMakeCodelessProjectsCompileProperty start.*/
     $m("IAmAnEmptyScriptJustToMakeCodelessProjectsCompileProperty", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"}]}; }, $n);
