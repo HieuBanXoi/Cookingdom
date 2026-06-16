@@ -1,22 +1,34 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class Knife : Item
 {
     public GameObject knifeIdle;
     public GameObject knifeOnDrag;
+    public Vector3 knifeOnDragRotationOffset;
+    public float knifeOnDragRotateDuration = 0.15f;
+    public Ease knifeOnDragRotateEase = Ease.OutQuad;
+
+    private bool hasCachedKnifeOnDragRotation;
+    private Quaternion knifeOnDragOriginalLocalRotation;
+    private Tween knifeOnDragRotateTween;
 
     public void KnifeOnDrag()
     {
+        CacheKnifeOnDragRotation();
         knifeIdle.SetActive(false);
         knifeOnDrag.SetActive(true);
+        RotateKnifeOnDragTo(knifeOnDragOriginalLocalRotation * Quaternion.Euler(knifeOnDragRotationOffset));
     }
     public void KnifeIdle()
     {
+        ResetKnifeOnDragRotation();
         knifeIdle.SetActive(true);
         knifeOnDrag.SetActive(false);
     }
     public void TargetKnifeFlyEvent()
     {
+        Debug.Log("TargetKnifeFlyEvent");
         Item target = ComponentCache<Item>.Get(itemMoveToTarget.defaultTarget);
         target.KnifeIn();
     }
@@ -45,4 +57,34 @@ public class Knife : Item
         // Ply_SoundManager.Ins.PlayFx(FxType.PlaceKnife);
     }
 
+    private void OnDisable()
+    {
+        ResetKnifeOnDragRotation();
+    }
+
+    private void CacheKnifeOnDragRotation()
+    {
+        if (hasCachedKnifeOnDragRotation || knifeOnDrag == null) return;
+
+        knifeOnDragOriginalLocalRotation = knifeOnDrag.transform.localRotation;
+        hasCachedKnifeOnDragRotation = true;
+    }
+
+    private void ResetKnifeOnDragRotation()
+    {
+        CacheKnifeOnDragRotation();
+        if (!hasCachedKnifeOnDragRotation || knifeOnDrag == null) return;
+
+        RotateKnifeOnDragTo(knifeOnDragOriginalLocalRotation);
+    }
+
+    private void RotateKnifeOnDragTo(Quaternion targetRotation)
+    {
+        if (knifeOnDrag == null) return;
+
+        knifeOnDragRotateTween?.Kill();
+        knifeOnDragRotateTween = knifeOnDrag.transform
+            .DOLocalRotateQuaternion(targetRotation, knifeOnDragRotateDuration)
+            .SetEase(knifeOnDragRotateEase);
+    }
 }

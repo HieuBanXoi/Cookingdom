@@ -23,6 +23,8 @@ public class InWaterItem : Item
     [Header("--- JUMP TO PLATE ---")]
     public float jumpToPlatePower = 1f;
     public float jumpToPlateDuration = 0.5f;
+    public bool jumpToPlateAfterCutDone = true;
+    public GameObject plateFoodShadow;
     public Vector3 platePunchScale = new Vector3(0.1f, -0.1f, 0f);
     public float platePunchDuration = 0.3f;
 
@@ -124,12 +126,24 @@ public class InWaterItem : Item
         if (!isOnCuttingBoard || isOnPlate || isMoving) return;
         itemType = ItemType.None;
         isCutDone = true;
+        if (itemClickable != null)
+        {
         itemClickable.enabled = false;
+            
+        }
         if (ply_BobEffect != null)
         {
             ply_BobEffect.Stop(false);
             ply_BobEffect.enabled = false;
         }
+
+        if (!jumpToPlateAfterCutDone)
+        {
+            CuttingBoard cuttingBoard = GetTargetItem(cuttingBoardTarget) as CuttingBoard;
+            cuttingBoard?.IsFoodOn(false);
+            return;
+        }
+
         JumpToPlate();
     }
 
@@ -151,10 +165,6 @@ public class InWaterItem : Item
 
     public void MoveToWater()
     {
-        if (sink.isWaterIn &&  !isInWater)
-        {
-            SpawnWaterSplash(sink.waterSplashPos.position);
-        }
         if(itemMoveToTarget != null)
         {
             itemMoveToTarget.rotate360DuringJump = false;
@@ -232,6 +242,7 @@ public class InWaterItem : Item
 
     public void OnMoveIntoWaterComplete()
     {
+        bool wasInWater = isInWater;
         isInWater = true;
         isOnCuttingBoard = false;
         isOnPlate = false;
@@ -240,6 +251,8 @@ public class InWaterItem : Item
         if (sink != null)
         {
             sink.RegisterInWaterItem(this);
+            SetPlateFoodShadowActive(true);
+            SpawnWaterSplashOnEnter(wasInWater);
             if (sink.isWaterIn)
             {
                 StartWaterEffects();
@@ -247,6 +260,13 @@ public class InWaterItem : Item
         }
 
         ConfigureNextTarget();
+    }
+
+    private void SpawnWaterSplashOnEnter(bool wasInWater)
+    {
+        if (wasInWater || sink == null || !sink.isWaterIn || sink.waterSplashPos == null) return;
+
+        SpawnWaterSplash(sink.waterSplashPos.position);
     }
 
     public void OnMoveToCuttingBoardComplete()
@@ -288,6 +308,7 @@ public class InWaterItem : Item
         isOnCuttingBoard = false;
         isOnPlate = true;
         onProcess = false;
+        SetPlateFoodShadowActive(false);
 
         if (itemDraggable != null)
         {
@@ -456,6 +477,14 @@ public class InWaterItem : Item
             && (!isOnCuttingBoard || isCutDone);
     }
 
+    private void SetPlateFoodShadowActive(bool isActive)
+    {
+        if (plateFoodShadow != null)
+        {
+            plateFoodShadow.SetActive(isActive);
+        }
+    }
+
     public void ResetChildRotate()
     {
         if(childObject != null)
@@ -473,5 +502,10 @@ public class InWaterItem : Item
     public void EnablePeeler()
     {
         HandTutManager.Ins.peeler.gameObject.SetActive(true);
+    }
+    public void PeelerDone()
+    {
+        ComponentCache<Knife>.Get(HandTutManager.Ins.knife).SetTarget(transform);
+        itemClickable.enabled = false;
     }
 }
