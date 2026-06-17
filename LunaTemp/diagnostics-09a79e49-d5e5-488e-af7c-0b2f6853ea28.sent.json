@@ -1,12 +1,12 @@
 {
-    "BuildID": "3eba8981-0c26-4f13-81b8-892108932571",
-    "Command": "project:deploy",
+    "BuildID": "09a79e49-d5e5-488e-af7c-0b2f6853ea28",
+    "Command": "project:upload",
     "ProjectID": "8cfa86f1caa935a41ac1489c608212f7",
-    "ProjectStateHash": "25d7f465d3d68e2e5ef8f4b2750dc173a776205237c3b17347c90d7f8b78c91f",
+    "ProjectStateHash": "1907bcc9f57ba2269abf29851ddf5615f9e014c68256c43fb77db0d022a9efd8",
     "StageCompletedAt": 3,
     "EarliestFatalError": 0,
-    "StartTime": 1781663196956,
-    "EndTime": 1781663236734,
+    "StartTime": 1781665457364,
+    "EndTime": 1781665499254,
     "PlaygroundUserID": 33919,
     "OperatingSystem": "win32",
     "UnityPackageID": null,
@@ -16,9 +16,9 @@
     "LogCount": 9,
     "Logs": [
         {
-            "LogID": "e7954f62-ac59-44d4-86e0-92bbd2f461bd",
+            "LogID": "bbbbf8f5-39ca-4266-950a-e91dc7c633f4",
             "Order": 8,
-            "Timestamp": 1781663237444,
+            "Timestamp": 1781665499985,
             "Stage": 3,
             "ErrorType": 3,
             "ErrorCode": "LP3007",
@@ -40,18 +40,24 @@
             "Severity": 0
         },
         {
-            "LogID": "b3544918-decf-4ff0-8976-77ab0c58c4f9",
+            "LogID": "c3c4798c-884d-4625-a762-fdbf2cb276b2",
             "Order": 8,
-            "Timestamp": 1781663237444,
+            "Timestamp": 1781665499986,
             "Stage": 3,
             "ErrorType": 3,
-            "ErrorCode": "LP3011",
-            "Description": "You are not using any LunaPlaygroundFields attributes.",
+            "ErrorCode": "LP3012",
+            "Description": "You are not using the minimum recommended amount of LunaPlaygroundFields attributes.",
             "Details": [
-                "You are not using any LunaPlaygroundFields attributes, it allows you to configure your playable to different concepts to find the best variation, which can drastically improve playable performance on all ad networks."
+                "You are not using the minimum recommended amount of LunaPlaygroundFields attributes, you are using: 1 and we recommend using a minimum of: 3. It allows you to configure your playable to different concepts to find the best variation, which can drastically improve playable performance on all ad networks."
             ],
-            "DescriptionValues": null,
-            "DetailsValues": null,
+            "DescriptionValues": [
+                "1",
+                "3"
+            ],
+            "DetailsValues": [
+                "1",
+                "3"
+            ],
             "LogCount": 1,
             "LinePosition": null,
             "FilePath": "",
@@ -60,9 +66,9 @@
             "Severity": 0
         },
         {
-            "LogID": "89bbfc34-af76-425f-a7fd-a4c01758cef2",
+            "LogID": "f52502d5-f33b-42f6-a1b0-fd244297fb66",
             "Order": 0,
-            "Timestamp": 1781663206423,
+            "Timestamp": 1781665465407,
             "Stage": 1,
             "ErrorType": 2,
             "ErrorCode": "LP1014",
@@ -80,9 +86,9 @@
             "Severity": 0
         },
         {
-            "LogID": "f869d9a2-027b-455a-b144-1b4b1593cf74",
+            "LogID": "b239f002-911a-496b-9ddd-ba05dd89780a",
             "Order": 1,
-            "Timestamp": 1781663206423,
+            "Timestamp": 1781665465407,
             "Stage": 1,
             "ErrorType": 2,
             "ErrorCode": "LP1016",
@@ -106,9 +112,9 @@
             "Severity": 0
         },
         {
-            "LogID": "d1f9c4fc-67d6-414f-8d5e-d94e7be17d3a",
+            "LogID": "d500101a-d9a1-4e0f-ae6a-ea03d5208891",
             "Order": 2,
-            "Timestamp": 1781663206423,
+            "Timestamp": 1781665465407,
             "Stage": 1,
             "ErrorType": 1,
             "ErrorCode": "LP1023",
@@ -129,9 +135,9 @@
             "Severity": 0
         },
         {
-            "LogID": "3e4a6983-998f-4a4f-9d84-7f4c7bb28969",
+            "LogID": "79fbda71-c2f4-4e2f-a257-c3eebbce68ce",
             "Order": 3,
-            "Timestamp": 1781663206441,
+            "Timestamp": 1781665465423,
             "Stage": 1,
             "ErrorType": 0,
             "ErrorCode": "LP1027",
@@ -151,9 +157,9 @@
             "Severity": 0
         },
         {
-            "LogID": "6b249070-dc98-448d-8c43-025bbe5a5338",
+            "LogID": "e2a5d489-1714-496f-a503-c964f8d6f24f",
             "Order": 4,
-            "Timestamp": 1781663206441,
+            "Timestamp": 1781665465423,
             "Stage": 1,
             "ErrorType": 0,
             "ErrorCode": "LP1015",
@@ -173,9 +179,9 @@
             "Severity": 0
         },
         {
-            "LogID": "d74d27bf-cd97-4d4e-8fd4-d564dae3d222",
+            "LogID": "dc58de8e-63f3-4fd8-afaf-ea4a0eb7e965",
             "Order": 5,
-            "Timestamp": 1781663206441,
+            "Timestamp": 1781665465423,
             "Stage": 1,
             "ErrorType": 0,
             "ErrorCode": "LP1032",
@@ -197,9 +203,9 @@
             "Severity": 0
         },
         {
-            "LogID": "2af346d0-c401-4e49-8179-88f9b548bff2",
+            "LogID": "27dca479-ae8d-4886-acb9-68a507b68615",
             "Order": 6,
-            "Timestamp": 1781663206441,
+            "Timestamp": 1781665465424,
             "Stage": 1,
             "ErrorType": 2,
             "ErrorCode": "LP1010",

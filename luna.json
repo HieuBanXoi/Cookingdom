@@ -23619,6 +23619,14 @@
                     {
                         "name": "GetDefaultPortraitSize",
                         "excluded": false
+                    },
+                    {
+                        "name": "ActiveDownloadButtons",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FindChildByName",
+                        "excluded": true
                     }
                 ]
             },

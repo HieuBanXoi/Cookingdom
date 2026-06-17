@@ -29,6 +29,9 @@ public class UIManager : Ply_Singleton<UIManager>
     public GameObject verticalUI;
     public GameObject horizontalUI;
     public Transform downloadBtn;
+    public Transform horizontalDownloadBtn;
+    [LunaPlaygroundField("Google Build", 0, "Build Settings")]
+    public bool isGoogleBuild = false;
 
     public float screenWidth;
     public float screenHeight;
@@ -111,7 +114,7 @@ public class UIManager : Ply_Singleton<UIManager>
     {
         winUI.SetActive(false);
         loseUI.SetActive(false);
-        downloadBtn.gameObject.SetActive(true);
+        ActiveDownloadButtons(!isGoogleBuild);
         CachePerspectiveCamera();
         UpdateUI();
     }
@@ -392,5 +395,46 @@ public class UIManager : Ply_Singleton<UIManager>
     public void ActiveTutorialUI(bool isActive)
     {
         tutorial.SetActive(isActive);
+    }
+
+    public void ActiveDownloadButtons(bool isActive)
+    {
+        if (isGoogleBuild)
+        {
+            isActive = false;
+        }
+
+        if (downloadBtn != null)
+        {
+            downloadBtn.gameObject.SetActive(isActive);
+        }
+
+        if (horizontalDownloadBtn == null && horizontalUI != null)
+        {
+            horizontalDownloadBtn = FindChildByName(horizontalUI.transform, "DownloadBtn");
+        }
+
+        if (horizontalDownloadBtn != null && horizontalDownloadBtn != downloadBtn)
+        {
+            horizontalDownloadBtn.gameObject.SetActive(isActive);
+        }
+    }
+
+    private Transform FindChildByName(Transform root, string childName)
+    {
+        if (root == null)
+        {
+            return null;
+        }
+
+        foreach (Transform child in root.GetComponentsInChildren<Transform>(true))
+        {
+            if (child.name == childName)
+            {
+                return child;
+            }
+        }
+
+        return null;
     }
 }
