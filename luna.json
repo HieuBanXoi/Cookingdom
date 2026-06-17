@@ -2,7 +2,7 @@
     "version": "7.1.0",
     "projectId": "8cfa86f1caa935a41ac1489c608212f7",
     "applicationID": 27404,
-    "creativeName": "Cookingdom_PLY_v58_StuffedPotatoCasserole",
+    "creativeName": "Cookingdom_PLY_v58_StuffedPotatoCasserole_NoPhase2",
     "pgServer": "EU",
     "window": {
         "‐⁙": true
@@ -7441,10 +7441,6 @@
                 "excluded": true
             },
             {
-                "name": "WinState",
-                "excluded": true
-            },
-            {
                 "name": "Ply_GameUnit",
                 "excluded": false
             },
@@ -12534,11 +12530,11 @@
                     },
                     {
                         "name": "IncreaseCapacity",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetCapacity",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "AddIfNotPresent",
@@ -12696,7 +12692,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -18566,7 +18562,7 @@
                     },
                     {
                         "name": "offsetMin#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "offsetMin#set",
@@ -18574,7 +18570,7 @@
                     },
                     {
                         "name": "offsetMax#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "offsetMax#set",
@@ -19432,7 +19428,7 @@
                     },
                     {
                         "name": "color#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ctor",
@@ -19564,11 +19560,11 @@
                     },
                     {
                         "name": "OnRectTransformDimensionsChange",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnDidApplyAnimationProperties",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnTransformParentChanged",
@@ -19868,7 +19864,7 @@
                     },
                     {
                         "name": "OnDidApplyAnimationProperties",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "CalculateLayoutInputHorizontal",
@@ -23056,7 +23052,7 @@
                     },
                     {
                         "name": "WinGame",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "LoseGame",
@@ -23367,6 +23363,14 @@
                     {
                         "name": "StartHandTutAfterPhaseReady",
                         "excluded": false
+                    },
+                    {
+                        "name": "HasNextPhase",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FinishGameByPhase",
+                        "excluded": false
                     }
                 ]
             },
@@ -23562,7 +23566,7 @@
                     },
                     {
                         "name": "ActiveGameWinUI",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ActiveGameLoseUI",
@@ -27514,7 +27518,7 @@
                     },
                     {
                         "name": "IsRebuildingLayout",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "IsRebuildingGraphics",
@@ -30098,7 +30102,7 @@
                     },
                     {
                         "name": "fontWeightTable#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "fontWeightTable#set",
@@ -34603,10 +34607,6 @@
                     {
                         "name": "Tick",
                         "excluded": false
-                    },
-                    {
-                        "name": "Tick\",this)}this.c$-=t;if(this.c$<=0){pc.Application.getApplication().events.off(\"update",
-                        "excluded": false
                     }
                 ]
             },
@@ -38623,6 +38623,24 @@
                         "excluded": false
                     }
                 ]
+            },
+            {
+                "className": "WinState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "OnEnter",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnExecute",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnExit",
+                        "excluded": true
+                    }
+                ]
             }
         ],
         "stubberDataList": [],
@@ -38870,6 +38888,16 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/Assets/asset-cook-casserole/Export/bg/bg.png"
+                    },
+                    {
+                        "maxWidth": 512,
+                        "maxHeight": 512,
+                        "format": "png32",
+                        "compression": "none",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_GamePlay_/Font/LilitaOne-Regular SDF 2.asset"
                     }
                 ]
             },

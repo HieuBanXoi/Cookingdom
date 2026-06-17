@@ -128,6 +128,12 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
         phaseDelayTween?.Kill();
         phaseTransitionSequence?.Kill();
 
+        if (!HasNextPhase())
+        {
+            phaseDelayTween = DOVirtual.DelayedCall(delayBeforeNextPhase, FinishGameByPhase);
+            return;
+        }
+
         if (phaseTransitionObject != null)
         {
             phaseDelayTween = DOVirtual.DelayedCall(delayBeforeNextPhase, PlayPhaseObjectTransition);
@@ -135,6 +141,11 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
         }
 
         phaseDelayTween = DOVirtual.DelayedCall(delayBeforeNextPhase, GoToNextPhase);
+    }
+
+    private bool HasNextPhase()
+    {
+        return currentPhaseIndex + 1 < phases.Count;
     }
 
     private void PlayPhaseObjectTransition()
@@ -195,10 +206,7 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
         }
 
         Debug.Log("Hoàn thành toàn bộ Phase!");
-        if (GameManager.Ins != null)
-        {
-            GameManager.Ins.WinGame();
-        }
+        FinishGameByPhase();
     }
 
     private void GoToNextPhase()
@@ -262,10 +270,17 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
             isChangingPhase = false;
             // Đã đi qua hết tất cả các Phase trong danh sách, kết thúc game win
             Debug.Log("Hoàn thành toàn bộ Phase!");
-            if (GameManager.Ins != null)
-            {
-                GameManager.Ins.WinGame();
-            }
+            FinishGameByPhase();
+        }
+    }
+
+    private void FinishGameByPhase()
+    {
+        isChangingPhase = false;
+        currentStepCount = 0;
+        if (GameManager.Ins != null)
+        {
+            GameManager.Ins.WinGame();
         }
     }
 
