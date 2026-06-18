@@ -1109,27 +1109,29 @@ Deserializers["UIManager"] = function (request, data, root) {
   i3674.screenHeight = i3675[16]
   i3674.scaleHeightOnWidth = i3675[17]
   i3674.isVertical = !!i3675[18]
-  request.r(i3675[19], i3675[20], 0, i3674, 'cam')
-  i3674.verticalUIHeightOnWidthRatio = i3675[21]
-  i3674.scaleCameraOnValidate = !!i3675[22]
-  i3674.useContinuousScaling = !!i3675[23]
-  i3674.baseOrthographicSize = i3675[24]
-  i3674.baseAspect = i3675[25]
-  i3674.landscapeSizeRatio = i3675[26]
-  i3674.defaultPortraitSizeRatio = i3675[27]
-  var i3677 = i3675[28]
+  i3674.isScreenVertical = !!i3675[19]
+  request.r(i3675[20], i3675[21], 0, i3674, 'cam')
+  i3674.verticalUIHeightOnWidthRatio = i3675[22]
+  i3674.scaleCameraOnValidate = !!i3675[23]
+  i3674.screenVerticalHeightOnWidthRatio = i3675[24]
+  i3674.useContinuousScaling = !!i3675[25]
+  i3674.baseOrthographicSize = i3675[26]
+  i3674.baseAspect = i3675[27]
+  i3674.landscapeSizeRatio = i3675[28]
+  i3674.defaultPortraitSizeRatio = i3675[29]
+  var i3677 = i3675[30]
   var i3676 = new (System.Collections.Generic.List$1(Bridge.ns('ScreenScaleStep')))
   for(var i = 0; i < i3677.length; i += 1) {
     i3676.add(request.d('ScreenScaleStep', i3677[i + 0]));
   }
   i3674.discreteScaleSteps = i3676
-  i3674.usePerspectiveCamera = !!i3675[29]
-  request.r(i3675[30], i3675[31], 0, i3674, 'perspectiveFocus')
-  i3674.perspectiveFocusDistance = i3675[32]
-  i3674.perspectivePadding = i3675[33]
-  i3674.fitRendererBounds = !!i3675[34]
-  request.r(i3675[35], i3675[36], 0, i3674, 'boundsRoot')
-  var i3679 = i3675[37]
+  i3674.usePerspectiveCamera = !!i3675[31]
+  request.r(i3675[32], i3675[33], 0, i3674, 'perspectiveFocus')
+  i3674.perspectiveFocusDistance = i3675[34]
+  i3674.perspectivePadding = i3675[35]
+  i3674.fitRendererBounds = !!i3675[36]
+  request.r(i3675[37], i3675[38], 0, i3674, 'boundsRoot')
+  var i3679 = i3675[39]
   var i3678 = new (System.Collections.Generic.List$1(Bridge.ns('UnityEngine.Renderer')))
   for(var i = 0; i < i3679.length; i += 2) {
   request.r(i3679[i + 0], i3679[i + 1], 1, i3678, '')
@@ -3064,7 +3066,7 @@ Deserializers.productName = "New2D";
 
 Deserializers.lunaInitializationTime = "06/04/2026 10:17:48";
 
-Deserializers.lunaDaysRunning = "12.7";
+Deserializers.lunaDaysRunning = "13.7";
 
 Deserializers.lunaVersion = "7.1.0";
 
@@ -3094,7 +3096,7 @@ Deserializers.isAntiAliasingEnabled = "True";
 
 Deserializers.isRuntimeAnalysisEnabledForCode = "False";
 
-Deserializers.runtimeAnalysisExcludedClassesCount = "1768";
+Deserializers.runtimeAnalysisExcludedClassesCount = "1770";
 
 Deserializers.runtimeAnalysisExcludedMethodsCount = "4898";
 
@@ -3120,7 +3122,7 @@ Deserializers.graphicsConstraint = 24;
 
 Deserializers.linearColorSpace = true;
 
-Deserializers.buildID = "09a79e49-d5e5-488e-af7c-0b2f6853ea28";
+Deserializers.buildID = "36cc3478-5e7e-4cfe-81f2-fc71f2142562";
 
 Deserializers.runtimeInitializeOnLoadInfos = [[["UnityEngine","U2D","Animation","GpuDeformationSystem","CreateFallbackBuffer"],["UnityEngine","Experimental","Rendering","ScriptableRuntimeReflectionSystemSettings","ScriptingDirtyReflectionSystemInstance"]],[["DG","Tweening","DOTween","RuntimeOnLoad"],["Unity","VisualScripting","RuntimeVSUsageUtility","RuntimeInitializeOnLoadBeforeSceneLoad"],["UnityEngine","InputSystem","InputSystem","RunInitialUpdate"],["UnityEngine","AI","NavMesh","ClearPreUpdateListeners"]],[["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"]],[],[["UnityEngine","InputSystem","Plugins","InputForUI","InputSystemProvider","Bootstrap"],["UnityEngine","InputSystem","InputSystem","RunInitializeInPlayer"],["Spine","Unity","AttachmentTools","AtlasUtilities","Init"]]];
 

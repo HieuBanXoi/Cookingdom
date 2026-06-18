@@ -8847,6 +8847,14 @@
             {
                 "name": "Yielders",
                 "excluded": true
+            },
+            {
+                "name": "pc.Debugger.Components.EditorCamera",
+                "excluded": true
+            },
+            {
+                "name": "pc.Debugger.Components.EditorGUI",
+                "excluded": true
             }
         ],
         "unusedMethods": [
@@ -23627,6 +23635,10 @@
                     {
                         "name": "FindChildByName",
                         "excluded": true
+                    },
+                    {
+                        "name": "GetScreenHeightOnWidthRatio",
+                        "excluded": false
                     }
                 ]
             },
@@ -34614,6 +34626,10 @@
                     },
                     {
                         "name": "Tick",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Tick\",this)}this.c$-=t;if(this.c$<=0){pc.Application.getApplication().events.off(\"update",
                         "excluded": false
                     }
                 ]

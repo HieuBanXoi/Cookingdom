@@ -2603,9 +2603,11 @@ MonoBehaviour:
   screenHeight: 933
   scaleHeightOnWidth: 2.1547344
   isVertical: 1
+  isScreenVertical: 0
   cam: {fileID: 519420031}
   verticalUIHeightOnWidthRatio: 0.6
   scaleCameraOnValidate: 0
+  screenVerticalHeightOnWidthRatio: 1.5
   useContinuousScaling: 1
   baseOrthographicSize: 8.83
   baseAspect: 1.777

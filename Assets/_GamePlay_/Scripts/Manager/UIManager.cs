@@ -37,6 +37,7 @@ public class UIManager : Ply_Singleton<UIManager>
     public float screenHeight;
     public float scaleHeightOnWidth;
     public bool isVertical;
+    public bool isScreenVertical;
     public Camera cam;
 
     [Header("--- UI ORIENTATION SETTINGS ---")]
@@ -46,6 +47,9 @@ public class UIManager : Ply_Singleton<UIManager>
     [Header("--- SCREEN SCALE SETTINGS ---")]
     [Tooltip("Bat de tu can lai camera khi thay doi thong so trong Inspector.")]
     public bool scaleCameraOnValidate = false;
+
+    [Tooltip("Neu ty le Chieu cao / Chieu rong >= muc nay thi tinh la man doc khi scale camera, nguoc lai tinh la man ngang.")]
+    public float screenVerticalHeightOnWidthRatio = 1f;
 
     [Tooltip("Bat de camera tang size lien tuc theo ty le man hinh. Tat de dung cac moc discrete ben duoi.")]
     public bool useContinuousScaling = false;
@@ -91,6 +95,7 @@ public class UIManager : Ply_Singleton<UIManager>
     private void OnValidate()
     {
         verticalUIHeightOnWidthRatio = Mathf.Max(0.01f, verticalUIHeightOnWidthRatio);
+        screenVerticalHeightOnWidthRatio = Mathf.Max(0.01f, screenVerticalHeightOnWidthRatio);
         baseAspect = Mathf.Max(0.01f, baseAspect);
         baseOrthographicSize = Mathf.Max(0.01f, baseOrthographicSize);
         landscapeSizeRatio = Mathf.Max(0.01f, landscapeSizeRatio);
@@ -150,8 +155,9 @@ public class UIManager : Ply_Singleton<UIManager>
 
     private void GetSreenType()
     {
-        scaleHeightOnWidth = screenHeight / screenWidth;
+        scaleHeightOnWidth = GetScreenHeightOnWidthRatio();
         isVertical = scaleHeightOnWidth >= verticalUIHeightOnWidthRatio;
+        isScreenVertical = scaleHeightOnWidth >= screenVerticalHeightOnWidthRatio;
     }
 
     private void ScreenScale()
@@ -174,7 +180,7 @@ public class UIManager : Ply_Singleton<UIManager>
     {
         if (useContinuousScaling)
         {
-            if (!isVertical)
+            if (!isScreenVertical)
             {
                 return GetLandscapeSize();
             }
@@ -182,7 +188,7 @@ public class UIManager : Ply_Singleton<UIManager>
             return GetDefaultPortraitSize() * (scaleHeightOnWidth / baseAspect);
         }
 
-        if (!isVertical)
+        if (!isScreenVertical)
         {
             return GetLandscapeSize();
         }
@@ -203,6 +209,11 @@ public class UIManager : Ply_Singleton<UIManager>
         }
 
         return matchedSize;
+    }
+
+    private float GetScreenHeightOnWidthRatio()
+    {
+        return screenWidth > 0f ? screenHeight / screenWidth : 1f;
     }
 
     private float GetLandscapeSize()
