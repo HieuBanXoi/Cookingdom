@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mold_chicken_0: 5102051652184373401
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      coriander_final_0: -1306989533894629561
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

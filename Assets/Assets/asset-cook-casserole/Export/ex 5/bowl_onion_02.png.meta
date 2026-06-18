@@ -572,7 +572,25 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bowl_onion_02_0: -2256497157673471380
+      bowl_onion_02_1: -3043144332355654765
+      bowl_onion_02_10: -838646376647553964
+      bowl_onion_02_11: 227960178117880881
+      bowl_onion_02_12: -2182653786512522330
+      bowl_onion_02_13: 506011792420827239
+      bowl_onion_02_14: 8758630166943919087
+      bowl_onion_02_15: 7103840165167978960
+      bowl_onion_02_16: 1093572156112886628
+      bowl_onion_02_17: 1041112765362973907
+      bowl_onion_02_2: -5042621961663880078
+      bowl_onion_02_3: -8285057922280877244
+      bowl_onion_02_4: -5897463431878863255
+      bowl_onion_02_5: -2980568738093207873
+      bowl_onion_02_6: -2504459269576924925
+      bowl_onion_02_7: 1088325948220378343
+      bowl_onion_02_8: 7009239872099644730
+      bowl_onion_02_9: 3225225442720883321
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

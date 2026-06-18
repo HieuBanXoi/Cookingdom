@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      olive_oil_01_0: 5999997003880049030
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

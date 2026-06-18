@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mold_potato_lower_0: 2915676095232848210
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mold_fish_0: 1072812023136313373
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

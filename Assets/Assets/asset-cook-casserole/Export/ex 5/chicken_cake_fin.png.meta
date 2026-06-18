@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      chicken_cake_fin_0: 7403539807322550973
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

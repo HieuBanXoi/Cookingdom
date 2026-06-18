@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cake_coriander_0: 3685643577333642912
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

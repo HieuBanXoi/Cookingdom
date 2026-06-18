@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Potato_boiled_0: -9124177409986164368
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

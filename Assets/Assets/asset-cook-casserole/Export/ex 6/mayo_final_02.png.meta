@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mayo_final_02_0: -5894310402735678732
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

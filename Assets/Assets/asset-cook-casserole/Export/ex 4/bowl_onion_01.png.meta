@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bowl_onion_01_0: -8525227737653230692
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

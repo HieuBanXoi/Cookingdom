@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mashing_tool_01_0: 9222848278763508208
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

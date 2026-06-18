@@ -3066,7 +3066,7 @@ Deserializers.productName = "New2D";
 
 Deserializers.lunaInitializationTime = "06/04/2026 10:17:48";
 
-Deserializers.lunaDaysRunning = "13.7";
+Deserializers.lunaDaysRunning = "13.8";
 
 Deserializers.lunaVersion = "7.1.0";
 
@@ -3096,7 +3096,7 @@ Deserializers.isAntiAliasingEnabled = "True";
 
 Deserializers.isRuntimeAnalysisEnabledForCode = "False";
 
-Deserializers.runtimeAnalysisExcludedClassesCount = "1768";
+Deserializers.runtimeAnalysisExcludedClassesCount = "1770";
 
 Deserializers.runtimeAnalysisExcludedMethodsCount = "4898";
 
@@ -3122,7 +3122,7 @@ Deserializers.graphicsConstraint = 24;
 
 Deserializers.linearColorSpace = true;
 
-Deserializers.buildID = "25905ce0-6d96-430b-889d-6f4a5a35e244";
+Deserializers.buildID = "7fddf137-d279-4ec1-a1ec-eb5bf7844690";
 
 Deserializers.runtimeInitializeOnLoadInfos = [[["UnityEngine","U2D","Animation","GpuDeformationSystem","CreateFallbackBuffer"],["UnityEngine","Experimental","Rendering","ScriptableRuntimeReflectionSystemSettings","ScriptingDirtyReflectionSystemInstance"]],[["DG","Tweening","DOTween","RuntimeOnLoad"],["Unity","VisualScripting","RuntimeVSUsageUtility","RuntimeInitializeOnLoadBeforeSceneLoad"],["UnityEngine","InputSystem","InputSystem","RunInitialUpdate"],["UnityEngine","AI","NavMesh","ClearPreUpdateListeners"]],[["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"]],[],[["UnityEngine","InputSystem","Plugins","InputForUI","InputSystemProvider","Bootstrap"],["UnityEngine","InputSystem","InputSystem","RunInitializeInPlayer"],["Spine","Unity","AttachmentTools","AtlasUtilities","Init"]]];
 

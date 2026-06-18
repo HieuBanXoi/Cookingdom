@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Eggshell_04_0: -989378890815749515
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
