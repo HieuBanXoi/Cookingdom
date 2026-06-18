@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lettuce_03_0: 2233252471306591914
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

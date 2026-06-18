@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lemon_07_0: -1672928022335074605
+      Lemon_07_1: -4160912061381453766
+      Lemon_07_2: 2871236973635876625
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

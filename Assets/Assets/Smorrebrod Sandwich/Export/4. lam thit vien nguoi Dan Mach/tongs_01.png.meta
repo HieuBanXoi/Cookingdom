@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tongs_01_0: -6985569927430232674
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

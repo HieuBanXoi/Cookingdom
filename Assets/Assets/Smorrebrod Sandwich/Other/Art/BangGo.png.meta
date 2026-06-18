@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BangGo_0: 1333348175665936123
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

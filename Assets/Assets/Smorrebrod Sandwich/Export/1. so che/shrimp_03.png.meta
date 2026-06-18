@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      shrimp_03_0: -684689266362194585
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

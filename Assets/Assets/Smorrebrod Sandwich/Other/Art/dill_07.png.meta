@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dill_07_0: -3999724262058860291
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      quail_egg_shell_02_0: 2861071546745070818
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

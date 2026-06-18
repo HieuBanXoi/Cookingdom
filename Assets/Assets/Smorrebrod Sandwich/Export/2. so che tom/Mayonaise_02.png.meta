@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Mayonaise_02_0: 7064288388495299357
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

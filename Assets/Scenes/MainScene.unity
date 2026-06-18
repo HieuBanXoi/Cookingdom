@@ -1236,13 +1236,17 @@ MonoBehaviour:
   verticalUI: {fileID: 1614640730}
   horizontalUI: {fileID: 1757395964}
   downloadBtn: {fileID: 1659095169}
+  horizontalDownloadBtn: {fileID: 460210356}
+  isGoogleBuild: 0
   screenWidth: 433
   screenHeight: 933
   scaleHeightOnWidth: 2.1547344
   isVertical: 1
+  isScreenVertical: 1
   cam: {fileID: 519420031}
   verticalUIHeightOnWidthRatio: 0.6
   scaleCameraOnValidate: 0
+  screenVerticalHeightOnWidthRatio: 1.5
   useContinuousScaling: 1
   baseOrthographicSize: 9.49
   baseAspect: 1.777

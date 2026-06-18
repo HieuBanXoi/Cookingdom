@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      parsley_04_0: -6486552991013116244
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

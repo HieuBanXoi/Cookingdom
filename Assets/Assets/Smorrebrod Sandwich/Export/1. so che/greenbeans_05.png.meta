@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      greenbeans_05_0: -6009184325781788666
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

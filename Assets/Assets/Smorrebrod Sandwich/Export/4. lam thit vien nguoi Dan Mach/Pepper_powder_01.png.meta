@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pepper_powder_01_0: 3363857855625911450
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

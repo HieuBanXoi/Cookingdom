@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      beetroot_sauce_01_0: 3328357481913403590
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

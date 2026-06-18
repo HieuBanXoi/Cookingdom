@@ -8819,6 +8819,14 @@
             {
                 "name": "HandTutManager.TutorialAction",
                 "excluded": false
+            },
+            {
+                "name": "pc.Debugger.Components.EditorCamera",
+                "excluded": true
+            },
+            {
+                "name": "pc.Debugger.Components.EditorGUI",
+                "excluded": true
             }
         ],
         "unusedMethods": [
@@ -23575,6 +23583,18 @@
                     {
                         "name": "GetDefaultPortraitSize",
                         "excluded": false
+                    },
+                    {
+                        "name": "GetScreenHeightOnWidthRatio",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ActiveDownloadButtons",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FindChildByName",
+                        "excluded": true
                     }
                 ]
             },

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tartar_03_0: 6818992267265557906
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

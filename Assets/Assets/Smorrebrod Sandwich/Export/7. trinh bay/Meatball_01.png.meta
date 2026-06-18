@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Meatball_01_0: 4654351313783003373
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

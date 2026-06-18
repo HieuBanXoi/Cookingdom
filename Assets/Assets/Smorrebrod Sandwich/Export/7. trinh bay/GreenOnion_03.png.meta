@@ -347,7 +347,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GreenOnion_03_0: 3476249572168926086
+      GreenOnion_03_1: -4675638747182138216
+      GreenOnion_03_2: -750598385380245586
+      GreenOnion_03_3: -1283257669427114150
+      GreenOnion_03_4: 4093897038501210958
+      GreenOnion_03_5: 5910341166677597716
+      GreenOnion_03_6: -8904138320295903040
+      GreenOnion_03_7: -5863414044832926027
+      GreenOnion_03_8: 7512131654519173686
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cuttingboard_01_0: -9106300451219277580
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

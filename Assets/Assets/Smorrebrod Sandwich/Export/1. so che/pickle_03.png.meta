@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pickle_03_0: 8590828927922709056
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mud_coriander_01_0: -8283930034238084032
+      mud_coriander_01_1: -3287958616322770480
+      mud_coriander_01_2: 2771546372383582885
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

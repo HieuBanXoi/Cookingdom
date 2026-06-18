@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      salmon_06_0: -8382565645212271140
+      salmon_06_1: 8879150420616277782
+      salmon_06_2: 8565279850692933520
+      salmon_06_3: 525743710185074353
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
