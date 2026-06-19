@@ -135,6 +135,8 @@ public class Item : MonoBehaviour
     public void ItemDone()
     {
         // SpawnHeart(false);
+        ItemTypeDoneManager.Ins?.ItemDone(this);
+
         if (itemDraggable != null)
         {
             itemDraggable.enabled = false;

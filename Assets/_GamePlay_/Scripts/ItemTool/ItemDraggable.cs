@@ -129,6 +129,12 @@ public class ItemDraggable : MonoBehaviour
 
         SetShadowActive(shadowDefaultActive);
 
+        if (targetItemType == ItemType.None)
+        {
+            HandleDropFail();
+            return;
+        }
+
         if (returnTransform != null)
         {
             if (setParentToReturnTransform)
@@ -213,13 +219,7 @@ public class ItemDraggable : MonoBehaviour
             {
                 if (targetItem.itemType == ItemType.None) continue;
 
-                bool matchesTargetType = targetItem.itemType == targetItemType;
-                bool matchesDefaultTarget = item != null
-                    && item.itemMoveToTarget != null
-                    && item.itemMoveToTarget.defaultTarget != null
-                    && targetItem.transform == item.itemMoveToTarget.defaultTarget;
-
-                if (matchesTargetType || matchesDefaultTarget)
+                if (targetItem.itemType == targetItemType)
                 {
                     isHitValid = true;
                     break;
@@ -237,18 +237,22 @@ public class ItemDraggable : MonoBehaviour
         }
         else
         {
-            ResetScale();
-            onDropFail?.Invoke();
-            if (!consumeCurrentDropFail)
-            {
-                if (spawnBreakHeartOnDropFail)
-                {
-                    HandTutManager.Ins?.RegisterBreakHeartDropFail();
-                }
-
-                ReturnToStart(spawnBreakHeartOnDropFail);
-            }
+            HandleDropFail();
         }
+    }
+
+    private void HandleDropFail()
+    {
+        ResetScale();
+        onDropFail?.Invoke();
+        if (consumeCurrentDropFail) return;
+
+        if (spawnBreakHeartOnDropFail)
+        {
+            HandTutManager.Ins?.RegisterBreakHeartDropFail();
+        }
+
+        ReturnToStart(spawnBreakHeartOnDropFail);
     }
 
     public void ConsumeCurrentDropFail()
