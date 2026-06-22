@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using Spine.Unity;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class Capybara : MonoBehaviour
 {
     public Transform popup1;
     public Transform popup2;
+    public Transform tick;
     public float popupShowScale = 1.5f;
     public float popupShowDuration = 0.25f;
     public float popupHideDuration = 0.2f;
@@ -33,8 +35,15 @@ public class Capybara : MonoBehaviour
 
     private void Start()
     {
+        HideTickIcon();
         HidePopupImmediately(popup1);
         HidePopupImmediately(popup2);
+        ShowFirstPopup();
+    }
+
+    private void HideTickIcon()
+    {
+        tick.localScale = Vector3.zero;
     }
 
     public void ClickCapybara()
@@ -154,6 +163,7 @@ public class Capybara : MonoBehaviour
             .SetEase(Ease.InQuad)
             .OnComplete(() =>
             {
+                HideTickIcon();
                 HidePopup(popup1);
                 SetSkin(bassSkinName);
                 capybaraTransform.DOLocalMoveY(startLocalPosition.y, skinMoveUpDuration)
@@ -180,5 +190,9 @@ public class Capybara : MonoBehaviour
         {
             skeletonAnimation.transform.DOKill();
         }
+    }
+    public void TickAppear()
+    {
+        tick.DOScale(2.27f,0.5f);
     }
 }

@@ -31,6 +31,7 @@ public class ItemDraggable : MonoBehaviour
     public UnityEvent onBeginDrag;
     public UnityEvent onDropSuccess;
     public UnityEvent onDropFail;
+    public UnityEvent onReturnToStartComplete;
 
     private Transform originalParent;
     private Vector3 originalLocalPos;
@@ -46,6 +47,9 @@ public class ItemDraggable : MonoBehaviour
     private bool hasOriginalScale;
     private bool spawnHeartOnReturnComplete = true;
     private bool consumeCurrentDropFail;
+    private bool isForceReturningToStart;
+    private bool isDraggingSession;
+    private ItemDragChildRotator itemDragChildRotator;
 
 
     void Start()
@@ -53,6 +57,7 @@ public class ItemDraggable : MonoBehaviour
         item = ComponentCache<Item>.Get(transform);
         mainCam = Camera.main;
         myCollider = ComponentCache<Collider>.Get(transform);
+        itemDragChildRotator = ComponentCache<ItemDragChildRotator>.Get(transform);
         bobEffect = ComponentCache<Ply_BobEffect>.Get(transform);
         originalParent = transform.parent;
         originalLocalPos = transform.localPosition;
@@ -73,6 +78,17 @@ public class ItemDraggable : MonoBehaviour
     public void ReturnToStartWithoutHeart()
     {
         ReturnToStart(false);
+    }
+
+    public void ForceDropFailReturnToStart(bool spawnHeart)
+    {
+        if (isForceReturningToStart) return;
+
+        isForceReturningToStart = true;
+        isDraggingSession = false;
+        ResetScale();
+        onDropFail?.Invoke();
+        ReturnToStart(spawnHeart);
     }
 
     private void ReturnToStart(bool spawnHeart)
@@ -126,14 +142,9 @@ public class ItemDraggable : MonoBehaviour
         }
 
         ResetScale();
+        itemDragChildRotator?.ResetToOriginalRotation();
 
         SetShadowActive(shadowDefaultActive);
-
-        if (targetItemType == ItemType.None)
-        {
-            HandleDropFail();
-            return;
-        }
 
         if (returnTransform != null)
         {
@@ -185,13 +196,14 @@ public class ItemDraggable : MonoBehaviour
         transform.position = pos;
 
         offset = transform.position - GetMouseWorldPos();
+        isDraggingSession = true;
         onBeginDrag?.Invoke();
         return true;
     }
 
     public void Drag()
     {
-        if (!CanDrag()) return;
+        if (!CanDrag() || !isDraggingSession) return;
         transform.position = GetMouseWorldPos() + offset;
         Vector3 newPos = GetMouseWorldPos() + offset;
         newPos.z = -7f; // Đảm bảo vật thể luôn giữ ở mức Z = -5 trong suốt quá trình kéo
@@ -200,10 +212,11 @@ public class ItemDraggable : MonoBehaviour
 
     public void EndDrag()
     {
-        if (!CanDrag()) return;
+        if (!CanDrag() || !isDraggingSession) return;
+
+        isDraggingSession = false;
 
         consumeCurrentDropFail = false;
-        SetShadowActive(shadowDefaultActive);
 
         myCollider.enabled = false; // Tắt collider của mình để tia xuyên qua
 
@@ -219,7 +232,14 @@ public class ItemDraggable : MonoBehaviour
             {
                 if (targetItem.itemType == ItemType.None) continue;
 
-                if (targetItem.itemType == targetItemType)
+                bool matchesTargetType = targetItem.itemType == targetItemType;
+                bool matchesDefaultTarget = targetItemType != ItemType.None
+                    && item != null
+                    && item.itemMoveToTarget != null
+                    && item.itemMoveToTarget.defaultTarget != null
+                    && targetItem.transform == item.itemMoveToTarget.defaultTarget;
+
+                if (matchesTargetType || matchesDefaultTarget)
                 {
                     isHitValid = true;
                     break;
@@ -232,27 +252,28 @@ public class ItemDraggable : MonoBehaviour
         if (isHitValid)
         {
             ResetScale();
+            SetShadowActive(shadowDefaultActive);
             HandTutManager.Ins?.RegisterCorrectAction();
             onDropSuccess?.Invoke();
         }
         else
         {
-            HandleDropFail();
+            ResetScale();
+            onDropFail?.Invoke();
+            if (!consumeCurrentDropFail)
+            {
+                if (spawnBreakHeartOnDropFail)
+                {
+                    HandTutManager.Ins?.RegisterBreakHeartDropFail();
+                }
+
+                ReturnToStart(spawnBreakHeartOnDropFail);
+            }
+            else
+            {
+                SetShadowActive(shadowDefaultActive);
+            }
         }
-    }
-
-    private void HandleDropFail()
-    {
-        ResetScale();
-        onDropFail?.Invoke();
-        if (consumeCurrentDropFail) return;
-
-        if (spawnBreakHeartOnDropFail)
-        {
-            HandTutManager.Ins?.RegisterBreakHeartDropFail();
-        }
-
-        ReturnToStart(spawnBreakHeartOnDropFail);
     }
 
     public void ConsumeCurrentDropFail()
@@ -273,7 +294,7 @@ public class ItemDraggable : MonoBehaviour
 
     public bool CanDrag()
     {
-        return enabled && isDraggable;
+        return enabled && isDraggable && !isForceReturningToStart;
     }
 
     public void ChangeReturnPoint(Transform returnPoint)
@@ -327,8 +348,11 @@ public class ItemDraggable : MonoBehaviour
 
     private void OnReturnToStartComplete()
     {
+        isForceReturningToStart = false;
+        SetShadowActive(shadowDefaultActive);
         PlayBobEffectIfEnabled();
         PlayReturnToStartFinishSound();
+        onReturnToStartComplete?.Invoke();
 
         if (spawnHeartOnReturnComplete && item != null)
         {

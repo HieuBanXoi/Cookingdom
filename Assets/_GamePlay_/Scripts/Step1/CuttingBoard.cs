@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CuttingBoard : Item
@@ -8,6 +9,8 @@ public class CuttingBoard : Item
     public float punchDuration = 0.3f;
     public int foodInCount= 0;
     public bool isRiceIn = false;
+    public Shushi shushi;
+
     public void AddFood(string animName)
     {
         animator.SetTrigger(animName);
@@ -21,8 +24,8 @@ public class CuttingBoard : Item
         {
             DOVirtual.DelayedCall(0.3f, () =>
             {
-                SpawnBlinkEffect();
-                
+                // SpawnBlinkEffect();
+                itemClickable.enabled = true;
             });
         }
     }
@@ -54,5 +57,8 @@ public class CuttingBoard : Item
     {
         transform.DOPunchScale(punchScale, punchDuration);
     }
-
+    public void ShushiDone()
+    {
+        shushi.transform.gameObject.SetActive(true);
+    }
 }
