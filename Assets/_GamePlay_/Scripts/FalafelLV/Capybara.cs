@@ -3,8 +3,18 @@ using DG.Tweening;
 using Spine.Unity;
 using UnityEngine;
 
+public enum PlaySkinChangeMode
+{
+    PlaySkinChange,
+    NoChangeSkin
+}
 public class Capybara : MonoBehaviour
 {
+
+
+    [LunaPlaygroundField("Play Skin Change", 0, "Play Skin Change")]
+    public PlaySkinChangeMode playSkinChangeMode = PlaySkinChangeMode.PlaySkinChange;
+
     public Transform popup1;
     public Transform popup2;
     public Transform tick;
@@ -71,6 +81,7 @@ public class Capybara : MonoBehaviour
     public void CapyDone()
     {
         SpawnHeart(false);
+        HandTutManager.Ins.enabled = false;
         if (Ply_SoundManager.Ins != null)
         {
             // Ply_SoundManager.Ins.PlayFx(FxType.CapyYay);
@@ -78,9 +89,18 @@ public class Capybara : MonoBehaviour
 
         skinChangeDelayTween?.Kill();
         skinChangeDelayTween = DOVirtual.DelayedCall(skinChangeDelay, () =>
-        {
-            PlaySkinChange(ShowSecondPopup);
-        });
+            {
+                if (playSkinChangeMode == PlaySkinChangeMode.PlaySkinChange)
+                {
+                    PlaySkinChange(ShowSecondPopup);
+                    HandTutManager.Ins.enabled = true;
+                    GameManager.Ins.LoseGame();
+                }
+                else
+                {
+                    GameManager.Ins.WinGame();
+                }
+            });
     }
 
     public void SpawnHeart(bool isBreak)
@@ -193,6 +213,6 @@ public class Capybara : MonoBehaviour
     }
     public void TickAppear()
     {
-        tick.DOScale(2.27f,0.5f);
+        tick.DOScale(2.27f, 0.5f);
     }
 }

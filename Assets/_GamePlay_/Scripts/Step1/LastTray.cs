@@ -21,25 +21,36 @@ public class LastTray : Item
     }
     public void SauceOn()
     {
+
         isSauceOn = true;
         CheckState();
     }
     private void CheckState()
     {
-        if(isSauceOn && isShushiOn)
+        if (isSauceOn && isShushiOn)
         {
             capybara.TickAppear();
-            tf.DOLocalMoveY(tf.position.y+0.5f, 0.5f).OnComplete(()=>{
+            SpawnBlinkEffect();
+            DOVirtual.DelayedCall(2f, () =>
+                    {
+                        tf.DOLocalMoveY(tf.position.y + 0.5f, 0.5f).OnComplete(() =>
+            {
                 capybara.CapyDone();
-                DOVirtual.DelayedCall(capybara.skinChangeDelay, () =>
+                if (capybara.playSkinChangeMode == PlaySkinChangeMode.PlaySkinChange)
                 {
-                    FadeOutItemsSprites();
-                    tf.DOLocalMoveY(tf.position.y-0.5f, 0.5f);
-                });
+
+                    DOVirtual.DelayedCall(capybara.skinChangeDelay, () =>
+                    {
+                        FadeOutItemsSprites();
+                        tf.DOLocalMoveY(tf.position.y - 0.5f, 0.5f);
+                    });
+                }
             });
+                    });
+
         }
     }
-    
+
     private void FadeOutItemsSprites()
     {
         SpriteRenderer[] spriteRenderers = items.GetComponentsInChildren<SpriteRenderer>();

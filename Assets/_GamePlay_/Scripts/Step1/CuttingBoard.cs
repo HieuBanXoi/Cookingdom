@@ -24,7 +24,7 @@ public class CuttingBoard : Item
         {
             DOVirtual.DelayedCall(0.3f, () =>
             {
-                // SpawnBlinkEffect();
+                SpawnBlinkEffect();
                 itemClickable.enabled = true;
             });
         }

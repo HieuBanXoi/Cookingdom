@@ -14,6 +14,7 @@ public class Shushi : Item
     public void CutDone()
     {
         itemDraggable.enabled = true;
+        SpawnBlinkEffect();
         knife.transform.gameObject.SetActive(true);
     }
 }

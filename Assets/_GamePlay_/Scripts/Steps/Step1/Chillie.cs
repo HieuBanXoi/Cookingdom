@@ -6,7 +6,7 @@ public class Chillie : Item
     public void SetTargetBowl(Item item)
     {
         targetBowl = item;
-        ComponentCache<ItemDragRaycastTarget>.Get(this.transform).ChangeTargetToFind(item);
+        itemDraggable.targetItemType = ItemType.SmallBowlTarget;
     }
     public void PutSauceToBowl()
     {

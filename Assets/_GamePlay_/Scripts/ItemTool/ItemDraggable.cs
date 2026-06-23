@@ -218,6 +218,28 @@ public class ItemDraggable : MonoBehaviour
 
         consumeCurrentDropFail = false;
 
+        // Nếu targetItemType là None thì bất kể trường hợp nào đều trả về vị trí bắt đầu (treat as drop fail)
+        if (targetItemType == ItemType.None)
+        {
+            ResetScale();
+            onDropFail?.Invoke();
+            if (!consumeCurrentDropFail)
+            {
+                if (spawnBreakHeartOnDropFail)
+                {
+                    HandTutManager.Ins?.RegisterBreakHeartDropFail();
+                }
+
+                ReturnToStart(spawnBreakHeartOnDropFail);
+            }
+            else
+            {
+                SetShadowActive(shadowDefaultActive);
+            }
+
+            return;
+        }
+
         myCollider.enabled = false; // Tắt collider của mình để tia xuyên qua
 
         Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
@@ -233,7 +255,7 @@ public class ItemDraggable : MonoBehaviour
                 if (targetItem.itemType == ItemType.None) continue;
 
                 bool matchesTargetType = targetItem.itemType == targetItemType;
-                bool matchesDefaultTarget = targetItemType != ItemType.None
+                bool matchesDefaultTarget = targetItemType == ItemType.None
                     && item != null
                     && item.itemMoveToTarget != null
                     && item.itemMoveToTarget.defaultTarget != null
