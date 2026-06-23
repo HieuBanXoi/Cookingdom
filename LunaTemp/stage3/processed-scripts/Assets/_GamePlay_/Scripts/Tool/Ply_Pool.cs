@@ -15,7 +15,8 @@ public enum PoolType
     StarExploreFX,
     FlourSmoke,
     WaterSplash,
-    Duck
+    Duck,
+    BrushMask
 }
 
 public class Ply_Pool : Ply_Singleton<Ply_Pool>

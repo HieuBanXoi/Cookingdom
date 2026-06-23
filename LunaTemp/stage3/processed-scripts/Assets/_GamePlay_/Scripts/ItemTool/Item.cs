@@ -13,6 +13,7 @@ public class Item : MonoBehaviour
     [HideInInspector] public ItemStirring itemStirring;
     [HideInInspector] public ItemKnifeSpriteMaskCutter itemKnifeSpriteMaskCutter;
     [HideInInspector] public ItemSpriteMaskPainter itemSpriteMaskPainter;
+    [HideInInspector] public ItemDragSpriteMaskPainter itemDragSpriteMaskPainter;
     [HideInInspector] public ItemMoveToTarget itemMoveToTarget;
     [HideInInspector] public Animator animator;
     public ItemType itemType;
@@ -29,9 +30,15 @@ public class Item : MonoBehaviour
     public bool playMoveToTargetFinishSound = false;
     public FxType moveToTargetFinishFxType = FxType.Complete;
 
+    private Ply_GameUnit activeEffect;
+    private PoolType activeEffectPoolType;
+    private Tween activeEffectClearTween;
+    private float minZ=0;
+
     private void Awake()
     {
         CacheComponents(true);
+        minZ = GetMinChildZ();
     }
 
     void Reset()
@@ -42,6 +49,7 @@ public class Item : MonoBehaviour
     private void OnValidate()
     {
         CacheComponents(true);
+        
     }
 
     private void CacheComponents(bool refreshHiddenReferences = false)
@@ -54,6 +62,7 @@ public class Item : MonoBehaviour
         if (refreshHiddenReferences || itemStirring == null) itemStirring = GetComponent<ItemStirring>();
         if (refreshHiddenReferences || itemKnifeSpriteMaskCutter == null) itemKnifeSpriteMaskCutter = GetComponent<ItemKnifeSpriteMaskCutter>();
         if (refreshHiddenReferences || itemSpriteMaskPainter == null) itemSpriteMaskPainter = GetComponent<ItemSpriteMaskPainter>();
+        if (refreshHiddenReferences || itemDragSpriteMaskPainter == null) itemDragSpriteMaskPainter = GetComponent<ItemDragSpriteMaskPainter>();
     }
     public virtual void ChangeItemType(ItemType itemType)
     {
@@ -89,17 +98,21 @@ public class Item : MonoBehaviour
     public void SpawnHeart(bool isBreak)
     {
         if (Ply_Pool.Ins == null) return;
+        TurnOffActiveEffect();
+        Vector3 spawnPosition = GetEffectSpawnPosition();
         if (isBreak)
         {
-            HeartBreakEffect heartEffect = Ply_Pool.Ins.Spawn<HeartBreakEffect>(PoolType.HeartBreakFX, transform.position, transform.rotation);
+            HeartBreakEffect heartEffect = Ply_Pool.Ins.Spawn<HeartBreakEffect>(PoolType.HeartBreakFX, spawnPosition, transform.rotation);
             if (heartEffect == null) return;
+            CacheActiveEffect(heartEffect, PoolType.HeartBreakFX, heartEffect.defaultLifeTime);
             heartEffect.transform.localRotation = Quaternion.identity;
             heartEffect.PlaySpawnWithScale(breakHeartEffectScale);
         }
         else
         {
-            HeartEffect heartEffect = Ply_Pool.Ins.Spawn<HeartEffect>(PoolType.HeartFX, transform.position, transform.rotation);
+            HeartEffect heartEffect = Ply_Pool.Ins.Spawn<HeartEffect>(PoolType.HeartFX, spawnPosition, transform.rotation);
             if (heartEffect == null) return;
+            CacheActiveEffect(heartEffect, PoolType.HeartFX, heartEffect.defaultLifeTime);
             heartEffect.transform.localRotation = Quaternion.identity;
             heartEffect.PlaySpawnWithScale(heartEffectScale);
         }
@@ -135,6 +148,8 @@ public class Item : MonoBehaviour
     public void ItemDone()
     {
         // SpawnHeart(false);
+        ItemTypeDoneManager.Ins?.ItemDone(this);
+
         if (itemDraggable != null)
         {
             itemDraggable.enabled = false;
@@ -155,35 +170,136 @@ public class Item : MonoBehaviour
     }
     public void SpawnGreenPiece()
     {
-        GreenPiece greenPiece = Ply_Pool.Ins.Spawn<GreenPiece>(PoolType.GreenPiece, transform.position, transform.rotation);
+        TurnOffActiveEffect();
+        GreenPiece greenPiece = Ply_Pool.Ins.Spawn<GreenPiece>(PoolType.GreenPiece, GetEffectSpawnPosition(), transform.rotation);
+        if (greenPiece == null) return;
+        CacheActiveEffect(greenPiece, PoolType.GreenPiece, 1.5f);
         greenPiece.DeSpawnByTime();
     }
     public void SpawnYellowPiece()
     {
-        YellowPiece yellowPiece = Ply_Pool.Ins.Spawn<YellowPiece>(PoolType.YellowPiece, transform.position, transform.rotation);
+        TurnOffActiveEffect();
+        YellowPiece yellowPiece = Ply_Pool.Ins.Spawn<YellowPiece>(PoolType.YellowPiece, GetEffectSpawnPosition(), transform.rotation);
+        if (yellowPiece == null) return;
+        CacheActiveEffect(yellowPiece, PoolType.YellowPiece, 1.5f);
         yellowPiece.DeSpawnByTime();
     }
-    public void SpawnWaterSplash([Bridge.Ref] Vector3 position)
+    public void SpawnWaterSplash(Vector3 position)
     {
         Ply_SoundManager.Ins.PlayFx(FxType.FoodToWater);
+        TurnOffActiveEffect();
+        position.z = minZ;
         WaterSplash waterSplash = Ply_Pool.Ins.Spawn<WaterSplash>(PoolType.WaterSplash, position, transform.rotation);
+        if (waterSplash == null) return;
+        CacheActiveEffect(waterSplash, PoolType.WaterSplash, 1f);
         waterSplash.DeSpawnByTime();
     }
     public void SpawnBlinkEffect()
     {
         Ply_SoundManager.Ins.PlayFx(FxType.Blink);
-        BlinkEffect blinkEffect = Ply_Pool.Ins.Spawn<BlinkEffect>(PoolType.BlinkFX, transform.position, transform.rotation);
+        TurnOffActiveEffect();
+        BlinkEffect blinkEffect = Ply_Pool.Ins.Spawn<BlinkEffect>(PoolType.BlinkFX, GetEffectSpawnPosition(), transform.rotation);
         if (blinkEffect == null) return;
+        CacheActiveEffect(blinkEffect, PoolType.BlinkFX, 2f);
         blinkEffect.tf.SetParent(this.transform);
         blinkEffect.SetScale(blinkEffectScale);
         blinkEffect.DeSpawnByTime();
     }
     public void SpawnMergeEffect()
     {
-        MergeEffect mergeEffect = Ply_Pool.Ins.Spawn<MergeEffect>(PoolType.MergeVFX, transform.position, transform.rotation);
+        TurnOffActiveEffect();
+        MergeEffect mergeEffect = Ply_Pool.Ins.Spawn<MergeEffect>(PoolType.MergeVFX, GetEffectSpawnPosition(), transform.rotation);
         if (mergeEffect == null) return;
+        CacheActiveEffect(mergeEffect, PoolType.MergeVFX, 3f);
         mergeEffect.SetScale(mergeEffectScale);
         mergeEffect.DeSpawnByTime();
+    }
+
+    public void TurnOffActiveEffect()
+    {
+        if (activeEffect == null) return;
+
+        activeEffectClearTween?.Kill();
+        activeEffectClearTween = null;
+
+        if (!activeEffect.gameObject.activeSelf)
+        {
+            activeEffect = null;
+            return;
+        }
+
+        if (activeEffect is HeartEffect heartEffect)
+        {
+            heartEffect.DeSpawn();
+        }
+        else if (activeEffect is HeartBreakEffect heartBreakEffect)
+        {
+            heartBreakEffect.DeSpawn();
+        }
+        else if (activeEffect is BlinkEffect blinkEffect)
+        {
+            blinkEffect.DeSpawn();
+        }
+        else if (activeEffect is MergeEffect mergeEffect)
+        {
+            mergeEffect.DeSpawn();
+        }
+        else if (activeEffect is GreenPiece greenPiece)
+        {
+            greenPiece.DeSpawn();
+        }
+        else if (activeEffect is YellowPiece yellowPiece)
+        {
+            yellowPiece.DeSpawn();
+        }
+        else if (activeEffect is WaterSplash waterSplash)
+        {
+            waterSplash.DeSpawn();
+        }
+        else if (Ply_Pool.Ins != null)
+        {
+            Ply_Pool.Ins.Despawn(activeEffectPoolType, activeEffect);
+        }
+
+        activeEffect = null;
+    }
+
+    private void CacheActiveEffect(Ply_GameUnit effect, PoolType poolType, float lifeTime)
+    {
+        TurnOffActiveEffect();
+        activeEffect = effect;
+        activeEffectPoolType = poolType;
+        activeEffectClearTween = DOVirtual.DelayedCall(lifeTime, () =>
+        {
+            if (activeEffect == effect)
+            {
+                activeEffect = null;
+                activeEffectClearTween = null;
+            }
+        });
+    }
+
+    private Vector3 GetEffectSpawnPosition()
+    {
+        Vector3 spawnPosition = transform.position;
+        spawnPosition.z = minZ;
+        return spawnPosition;
+    }
+
+    private float GetMinChildZ()
+    {
+        float minZ = transform.position.z;
+        Transform[] children = GetComponentsInChildren<Transform>(false);
+
+        for (int i = 0; i < children.Length; i++)
+        {
+            Transform child = children[i];
+            if (child == transform || !child.gameObject.activeInHierarchy) continue;
+
+            minZ = Mathf.Min(minZ, child.position.z);
+        }
+
+        return minZ;
     }
 
     public void PlayMoveToTargetFinishSound()

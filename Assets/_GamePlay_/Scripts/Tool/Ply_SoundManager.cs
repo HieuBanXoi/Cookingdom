@@ -19,7 +19,12 @@ public enum FxType
     Blink,
     Failed,
     Wipe,
-    Peer
+    Peer,
+    Cream,
+    CapyYay,
+
+    LeafOn,
+    Wipe2
 }
 
 public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>

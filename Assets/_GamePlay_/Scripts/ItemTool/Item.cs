@@ -332,8 +332,24 @@ public class Item : MonoBehaviour
     {
         PlaySoundFX(FxType.Wipe);
     }
+    public void PlayWipe2Sound()
+    {
+        PlaySoundFX(FxType.Wipe2);
+    }
     public void PlayPeerSound()
     {
         PlaySoundFX(FxType.Peer);
+    }
+    public void PlayPlaceFoodSound()
+    {
+        PlaySoundFX(FxType.ItemPlace);
+    }
+    public void PlayCreamSound()
+    {
+        PlaySoundFX(FxType.Cream);
+    }
+    public void PlayLeafSound()
+    {
+        PlaySoundFX(FxType.LeafOn);
     }
 }

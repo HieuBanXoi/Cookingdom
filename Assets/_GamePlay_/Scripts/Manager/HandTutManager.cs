@@ -597,7 +597,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
     private void ResetIdleTimer()
     {
-        idleTimer = 0f;
+        idleTimer = 1f;
     }
 
     private float GetCurrentIdleDelay()

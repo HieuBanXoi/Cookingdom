@@ -5,8 +5,16 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider))]
 public class ItemSpriteMaskPainter : MonoBehaviour
 {
+    private struct BrushStamp
+    {
+        public SpriteMask mask;
+        public BrushMaskUnit poolUnit;
+    }
+
     [Header("--- BRUSH MASK ---")]
     public SpriteMask brushMaskPrefab;
+    public bool useBrushMaskPool = true;
+    public PoolType brushMaskPoolType = PoolType.BrushMask;
     public Transform brushParent;
     public float brushRadius = 0.25f;
     public float brushDiameterAtScaleOne = 1f;
@@ -27,7 +35,7 @@ public class ItemSpriteMaskPainter : MonoBehaviour
     public UnityEvent onPaint;
     public UnityEvent onPaintComplete;
 
-    private readonly List<SpriteMask> spawnedBrushes = new List<SpriteMask>();
+    private readonly List<BrushStamp> spawnedBrushes = new List<BrushStamp>();
     private bool[] coveredSamples;
     private Bounds paintBounds;
     private Plane paintPlane;
@@ -38,6 +46,7 @@ public class ItemSpriteMaskPainter : MonoBehaviour
     private Vector3 lastPaintPoint;
     private int coveredCount;
     private int totalSamples;
+    private bool isPlayingPaintFx;
 
     private void Awake()
     {
@@ -54,14 +63,18 @@ public class ItemSpriteMaskPainter : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        StopPaintFx();
+    }
+
     public void ResetPaint()
     {
+        StopPaintFx();
+
         for (int i = 0; i < spawnedBrushes.Count; i++)
         {
-            if (spawnedBrushes[i] != null)
-            {
-                Destroy(spawnedBrushes[i].gameObject);
-            }
+            ReleaseBrush(spawnedBrushes[i]);
         }
 
         spawnedBrushes.Clear();
@@ -75,8 +88,37 @@ public class ItemSpriteMaskPainter : MonoBehaviour
 
     public void BeginPaint()
     {
-        if (!enabled || isComplete || brushMaskPrefab == null) return;
+        if (!enabled || isComplete || !HasBrushSource()) return;
 
+        BeginPaintSession();
+        Paint();
+    }
+
+    public void BeginPaintAtWorldPoint([Bridge.Ref] Vector3 worldPoint)
+    {
+        if (!enabled || isComplete || !HasBrushSource()) return;
+
+        BeginPaintSession();
+        PaintAtWorldPoint(worldPoint);
+    }
+
+    public void Paint()
+    {
+        if (!isPainting || isComplete || !HasBrushSource()) return;
+
+        Vector3 point = GetMouseOnPaintPlane();
+        PaintAtPoint(point);
+    }
+
+    public void PaintAtWorldPoint([Bridge.Ref] Vector3 worldPoint)
+    {
+        if (!isPainting || isComplete || !HasBrushSource()) return;
+
+        PaintAtPoint(ProjectPointToPaintPlane(worldPoint));
+    }
+
+    private void BeginPaintSession()
+    {
         if (coveredSamples == null || coveredSamples.Length == 0)
         {
             CacheSamples();
@@ -87,15 +129,15 @@ public class ItemSpriteMaskPainter : MonoBehaviour
         paintPlane = CreatePaintPlane();
 
         onPaintBegin?.Invoke();
-        Paint();
     }
 
-    public void Paint()
+    private void PaintAtPoint([Bridge.Ref] Vector3 point)
     {
-        if (!isPainting || isComplete || brushMaskPrefab == null) return;
-
-        Vector3 point = GetMouseOnPaintPlane();
-        if (!IsPointInsidePaintArea(point)) return;
+        if (!IsPointInsidePaintArea(point))
+        {
+            StopPaintFx();
+            return;
+        }
 
         if (!hasLastPoint)
         {
@@ -117,6 +159,7 @@ public class ItemSpriteMaskPainter : MonoBehaviour
     {
         isPainting = false;
         hasLastPoint = false;
+        StopPaintFx();
     }
 
     private void StampLine([Bridge.Ref] Vector3 from, [Bridge.Ref] Vector3 to)
@@ -134,14 +177,65 @@ public class ItemSpriteMaskPainter : MonoBehaviour
     private void Stamp([Bridge.Ref] Vector3 point)
     {
         Vector3 stampPos = point + mainCam.transform.forward * brushZOffset;
-        SpriteMask mask = Instantiate(brushMaskPrefab, stampPos, Quaternion.identity, brushParent);
+        BrushStamp brushStamp = SpawnBrush(stampPos);
+        SpriteMask mask = brushStamp.mask;
+        if (mask == null)
+        {
+            StopPaintFx();
+            return;
+        }
+
         if (scaleBrushFromRadius)
         {
             float scale = (brushRadius * 2f) / Mathf.Max(0.001f, brushDiameterAtScaleOne);
             mask.transform.localScale = new Vector3(scale, scale, mask.transform.localScale.z);
         }
-        spawnedBrushes.Add(mask);
+
+        StartPaintFx();
+        spawnedBrushes.Add(brushStamp);
         MarkCoveredSamples(point);
+    }
+
+    private BrushStamp SpawnBrush([Bridge.Ref] Vector3 stampPos)
+    {
+        if (useBrushMaskPool && Ply_Pool.Ins != null)
+        {
+            BrushMaskUnit brushMaskUnit = Ply_Pool.Ins.Spawn<BrushMaskUnit>(brushMaskPoolType, stampPos, Quaternion.identity);
+            if (brushMaskUnit != null)
+            {
+                Transform brushTransform = brushMaskUnit.transform;
+                brushTransform.SetParent(brushParent, true);
+                return new BrushStamp
+                {
+                    mask = brushMaskUnit.spriteMask != null ? brushMaskUnit.spriteMask : brushMaskUnit.GetComponent<SpriteMask>(),
+                    poolUnit = brushMaskUnit
+                };
+            }
+        }
+
+        if (brushMaskPrefab == null) return default(ItemSpriteMaskPainter.BrushStamp);
+
+        SpriteMask mask = Instantiate(brushMaskPrefab, stampPos, Quaternion.identity, brushParent);
+        return new BrushStamp { mask = mask };
+    }
+
+    private bool HasBrushSource()
+    {
+        return brushMaskPrefab != null || useBrushMaskPool && Ply_Pool.Ins != null && Ply_Pool.Ins.GetPrefab(brushMaskPoolType) != null;
+    }
+
+    private void ReleaseBrush([Bridge.Ref] BrushStamp brushStamp)
+    {
+        if (brushStamp.poolUnit != null && Ply_Pool.Ins != null)
+        {
+            Ply_Pool.Ins.Despawn(brushMaskPoolType, brushStamp.poolUnit);
+            return;
+        }
+
+        if (brushStamp.mask != null)
+        {
+            Destroy(brushStamp.mask.gameObject);
+        }
     }
 
     private void CacheSamples()
@@ -195,7 +289,27 @@ public class ItemSpriteMaskPainter : MonoBehaviour
         {
             isComplete = true;
             isPainting = false;
+            StopPaintFx();
             onPaintComplete?.Invoke();
+        }
+    }
+
+    private void StartPaintFx()
+    {
+        if (isPlayingPaintFx || Ply_SoundManager.Ins == null) return;
+
+        isPlayingPaintFx = true;
+        // Ply_SoundManager.Ins.PlayFxLoop(FxType.PaintSauce);
+    }
+
+    private void StopPaintFx()
+    {
+        if (!isPlayingPaintFx) return;
+
+        isPlayingPaintFx = false;
+        if (Ply_SoundManager.Ins != null)
+        {
+            // Ply_SoundManager.Ins.StopFxLoop(FxType.PaintSauce);
         }
     }
 
@@ -214,6 +328,11 @@ public class ItemSpriteMaskPainter : MonoBehaviour
         }
 
         return paintPlaneCenter != null ? paintPlaneCenter.position : transform.position;
+    }
+
+    private Vector3 ProjectPointToPaintPlane([Bridge.Ref] Vector3 worldPoint)
+    {
+        return worldPoint - paintPlane.normal * paintPlane.GetDistanceToPoint(worldPoint);
     }
 
     private bool IsPointInsidePaintArea([Bridge.Ref] Vector3 point)

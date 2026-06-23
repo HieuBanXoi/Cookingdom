@@ -66,6 +66,7 @@ public class InputManager : Ply_Singleton<InputManager>
 
             if (interactableItem.itemDraggable != null && interactableItem.itemDraggable.CanDrag())
             {
+                interactableItem.TurnOffActiveEffect();
                 currentDraggable = interactableItem.itemDraggable;
                 if (currentDraggable.BeginDrag())
                 {
@@ -75,6 +76,7 @@ public class InputManager : Ply_Singleton<InputManager>
             }
             else if (interactableItem.itemStirring != null && interactableItem.itemStirring.enabled)
             {
+                interactableItem.TurnOffActiveEffect();
                 currentStirring = interactableItem.itemStirring;
                 currentStirring.BeginStir();
                 isDragging = true;
@@ -82,6 +84,7 @@ public class InputManager : Ply_Singleton<InputManager>
             }
             else if (interactableItem.itemSpriteMaskPainter != null && interactableItem.itemSpriteMaskPainter.enabled)
             {
+                interactableItem.TurnOffActiveEffect();
                 currentSpriteMaskPainter = interactableItem.itemSpriteMaskPainter;
                 currentSpriteMaskPainter.BeginPaint();
                 isDragging = true;
@@ -89,11 +92,13 @@ public class InputManager : Ply_Singleton<InputManager>
             }
             else if (interactableItem.itemKnifeSpriteMaskCutter != null && interactableItem.itemKnifeSpriteMaskCutter.enabled)
             {
+                interactableItem.TurnOffActiveEffect();
                 interactableItem.itemKnifeSpriteMaskCutter.PerformCut();
                 isInteracted = true;
             }
             else if (interactableItem.itemClickable != null && interactableItem.itemClickable.enabled)
             {
+                interactableItem.TurnOffActiveEffect();
                 interactableItem.itemClickable.PerformClick();
                 isInteracted = true;
             }

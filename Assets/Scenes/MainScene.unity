@@ -340,8 +340,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -825,8 +825,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -1569,7 +1569,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   heartEffectScale: 1
-  breakHeartEffectScale: 1
+  breakHeartEffectScale: 0.7
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -2134,8 +2134,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -3541,8 +3541,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -3985,8 +3985,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -5199,8 +5199,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -7003,8 +7003,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -7325,8 +7325,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -7692,8 +7692,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -8419,8 +8419,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -9450,8 +9450,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -11081,8 +11081,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -11745,8 +11745,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -12819,8 +12819,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -13012,8 +13012,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -13387,8 +13387,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -14582,8 +14582,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -15353,8 +15353,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -15658,8 +15658,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -16294,8 +16294,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -16519,8 +16519,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -17262,8 +17262,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -17403,8 +17403,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -18717,8 +18717,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -19538,8 +19538,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -21272,8 +21272,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -21325,8 +21325,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -21606,8 +21606,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -24824,8 +24824,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -25617,8 +25617,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -26609,8 +26609,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -27843,8 +27843,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -30189,8 +30189,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -32472,8 +32472,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -32965,7 +32965,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   heartEffectScale: 1
-  breakHeartEffectScale: 1
+  breakHeartEffectScale: 0.7
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -33789,8 +33789,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
@@ -35140,8 +35140,8 @@ MonoBehaviour:
   onKnifeIn:
     m_PersistentCalls:
       m_Calls: []
-  heartEffectScale: 1
-  breakHeartEffectScale: 1
+  heartEffectScale: 0.5
+  breakHeartEffectScale: 0.5
   blinkEffectScale: 1
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0

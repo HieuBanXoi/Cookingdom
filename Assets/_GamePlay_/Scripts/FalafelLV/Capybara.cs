@@ -84,7 +84,7 @@ public class Capybara : MonoBehaviour
         HandTutManager.Ins.enabled = false;
         if (Ply_SoundManager.Ins != null)
         {
-            // Ply_SoundManager.Ins.PlayFx(FxType.CapyYay);
+            Ply_SoundManager.Ins.PlayFx(FxType.CapyYay);
         }
 
         skinChangeDelayTween?.Kill();

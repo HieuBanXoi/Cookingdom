@@ -17,12 +17,16 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     public List<InWaterItem> itemsInWater = new List<InWaterItem>();
     public int noDelayItemCount = 3;
     public int breakHeartNoDelayThreshold = 3;
+    [Tooltip("So lan hien hand tutorial toi da. De 0 de khong gioi han.")]
+    [Min(0)] public int maxHandTutShowCount = 0;
     public bool showSinkWaterTutorialOnStart = true;
     public bool waitForBowlIntro = true;
 
 
     [Header("--- TIMING ---")]
     public float idleDelay = 5f;
+    [Min(0f)] public float firstHandTutDelay = 5f;
+    [Min(0f)] public float phaseHandTutDelay = 0f;
     public float moveDuration = 1.2f;
     public float dragFadeDuration = 0.2f;
     public float clickScaleDuration = 0.35f;
@@ -47,7 +51,11 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     private bool isWaitingInitialSinkWaterTutorial;
     private int consecutiveBreakHeartDropFails;
     private int startupNoDelayTutorialCount;
+    private int handTutShowCount;
+    private bool hasShownFirstHandTut;
     private bool forceNoDelayForNextHandTut;
+    private bool isWaitingPhaseHandTutDelay;
+    private float phaseHandTutDelayTimer;
     private readonly List<Item> noDelayItems = new List<Item>();
 
     public bool ShouldBlockGameplayInput => isWaitingTapToCook || ignoreInputUntilRelease;
@@ -94,6 +102,21 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
         if (!hasStartedHandTut) return;
 
+        if (isWaitingPhaseHandTutDelay)
+        {
+            if (HasPlayerInput())
+            {
+                ResetIdleTimer();
+            }
+
+            phaseHandTutDelayTimer -= Time.deltaTime;
+            if (phaseHandTutDelayTimer > 0f) return;
+
+            isWaitingPhaseHandTutDelay = false;
+            StartHandTutNoDelay();
+            return;
+        }
+
         if (isWaitingTapToCook)
         {
             if (HasPlayerInputDown())
@@ -125,7 +148,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         }
 
         idleTimer += Time.deltaTime;
-        float currentIdleDelay = ShouldSkipDelayForCurrentItem() ? 0f : idleDelay;
+        float currentIdleDelay = ShouldSkipDelayForCurrentItem() ? 0f : GetCurrentIdleDelay();
         if (idleTimer >= currentIdleDelay && handSequence == null)
         {
             idleTimer = 0f;
@@ -176,7 +199,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         }
 
         ResetIdleTimer();
-        ShowNextHandTut();
+        ShowHandTutIfDelayCanBeSkipped();
     }
 
     public void StartHandTut()
@@ -185,21 +208,54 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         isWaitingTapToCook = false;
 
         ResetIdleTimer();
-        ShowNextHandTut();
+        ShowHandTutIfDelayCanBeSkipped();
     }
 
     public void StartHandTutNoDelay()
     {
         hasStartedHandTut = true;
         isWaitingTapToCook = false;
-        forceNoDelayForNextHandTut = true;
+        isWaitingPhaseHandTutDelay = false;
+        forceNoDelayForNextHandTut = HasStartupNoDelayItemCount();
 
         ResetIdleTimer();
+        ShowHandTutIfDelayCanBeSkipped();
+    }
+
+    public void StartHandTutAfterPhaseChange()
+    {
+        hasStartedHandTut = true;
+        isWaitingTapToCook = false;
+        HideHandTut();
+        ResetIdleTimer();
+
+        if (phaseHandTutDelay <= 0f)
+        {
+            StartHandTutNoDelay();
+            return;
+        }
+
+        isWaitingPhaseHandTutDelay = true;
+        phaseHandTutDelayTimer = phaseHandTutDelay;
+        forceNoDelayForNextHandTut = false;
+    }
+
+    private void ShowHandTutIfDelayCanBeSkipped()
+    {
+        if (!ShouldSkipDelayForCurrentItem()) return;
+
+        idleTimer = 0f;
         ShowNextHandTut();
     }
 
     private void ShowNextHandTut()
     {
+        if (!CanShowMoreHandTut())
+        {
+            HideHandTut();
+            return;
+        }
+
         RemoveDoneAndNullItems();
 
         if (isWaitingInitialSinkWaterTutorial)
@@ -252,6 +308,22 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         if (IsKnifeSpriteMaskCutterReady(targetItem))
         {
             PlayClickHint(targetItem.transform);
+            ConsumeStartupNoDelayForItem(targetItem);
+            ConsumeForcedNoDelay();
+            return;
+        }
+
+        if (IsStirringReady(targetItem))
+        {
+            PlayStirringHint(targetItem.itemStirring);
+            ConsumeStartupNoDelayForItem(targetItem);
+            ConsumeForcedNoDelay();
+            return;
+        }
+
+        if (IsDragSpriteMaskPainterReady(targetItem))
+        {
+            PlayMoveHint(targetItem.itemDragSpriteMaskPainter.GetTutorialStart(), targetItem.itemDragSpriteMaskPainter.GetTutorialTarget());
             ConsumeStartupNoDelayForItem(targetItem);
             ConsumeForcedNoDelay();
             return;
@@ -310,9 +382,12 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     private bool CanShowTutorialForItem(Item item)
     {
         if (item == null || item.isDone) return false;
+        if (!item.gameObject.activeInHierarchy) return false;
 
         if (IsClickableReady(item)) return true;
         if (IsKnifeSpriteMaskCutterReady(item)) return true;
+        if (IsStirringReady(item)) return true;
+        if (IsDragSpriteMaskPainterReady(item)) return true;
 
         if (IsDraggableReady(item))
         {
@@ -324,17 +399,50 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
     private bool IsClickableReady(Item item)
     {
-        return item.itemClickable != null && item.itemClickable.enabled && item.itemClickable.canClick;
+        return item != null
+            && item.gameObject.activeInHierarchy
+            && item.itemClickable != null
+            && item.itemClickable.enabled
+            && item.itemClickable.canClick;
     }
 
     private bool IsDraggableReady(Item item)
     {
-        return item.itemDraggable != null && item.itemDraggable.CanDrag();
+        return item != null
+            && item.gameObject.activeInHierarchy
+            && item.itemDraggable != null
+            && item.itemDraggable.CanDrag();
     }
 
     private bool IsKnifeSpriteMaskCutterReady(Item item)
     {
-        return item.itemKnifeSpriteMaskCutter != null && item.itemKnifeSpriteMaskCutter.enabled;
+        return item != null
+            && item.gameObject.activeInHierarchy
+            && item.itemKnifeSpriteMaskCutter != null
+            && item.itemKnifeSpriteMaskCutter.enabled;
+    }
+
+    private bool IsStirringReady(Item item)
+    {
+        return item != null
+            && item.gameObject.activeInHierarchy
+            && item.itemStirring != null
+            && item.itemStirring.enabled
+            && item.itemStirring.gameObject.activeInHierarchy
+            && !item.itemStirring.IsDone;
+    }
+
+    private bool IsDragSpriteMaskPainterReady(Item item)
+    {
+        return item != null
+            && item.gameObject.activeInHierarchy
+            && item.itemDragSpriteMaskPainter != null
+            && item.itemDragSpriteMaskPainter.enabled
+            && item.itemDragSpriteMaskPainter.gameObject.activeInHierarchy
+            && !item.itemDragSpriteMaskPainter.IsPaintComplete
+            && item.itemDragSpriteMaskPainter.GetTutorialTarget() != null
+            && item.itemDragSpriteMaskPainter.GetTutorialTarget().gameObject.activeInHierarchy
+            && IsDraggableReady(item);
     }
 
     private Transform GetToolTargetingItem(Item item)
@@ -385,13 +493,76 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         handSequence.SetLoops(-1, LoopType.Restart);
     }
 
+    private void PlayStirringHint(ItemStirring itemStirring)
+    {
+        if (itemStirring == null) return;
+
+        if (itemStirring.movementMode == StirMovementMode.Line)
+        {
+            PlayMoveHint(itemStirring.GetTutorialLineStartPosition(), itemStirring.GetTutorialLineEndPosition());
+            return;
+        }
+
+        PlayCircleHint(itemStirring.GetTutorialCenterPosition(), itemStirring.GetTutorialRadius());
+    }
+
+    private void PlayMoveHint([Bridge.Ref] Vector3 start, [Bridge.Ref] Vector3 end)
+    {
+        PrepareHand(start);
+        Vector3 endPosition = Get2DHandPosition(end);
+
+        handSequence = DOTween.Sequence();
+        handSequence.Append(handTutObject.transform.DOMove(endPosition, moveDuration).SetEase(moveEase));
+        if (handSpriteRenderer != null)
+        {
+            handSequence.Append(handSpriteRenderer.DOFade(0f, dragFadeDuration));
+        }
+        handSequence.AppendInterval(waitAtEndDuration);
+        handSequence.SetLoops(-1, LoopType.Restart);
+    }
+
+    private void PlayCircleHint([Bridge.Ref] Vector3 center, float radius)
+    {
+        float angle = 0f;
+        float safeRadius = Mathf.Max(0.01f, radius);
+        Vector3 startPosition = center + new Vector3(safeRadius, 0f, 0f);
+
+        PrepareHand(startPosition);
+
+        handSequence = DOTween.Sequence();
+        handSequence.Append(DOTween.To(() => angle, value =>
+        {
+            angle = value;
+            Vector3 position = center + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f) * safeRadius;
+            handTutObject.transform.position = Get2DHandPosition(position);
+        }, Mathf.PI * 2f, moveDuration).SetEase(Ease.Linear));
+        handSequence.AppendInterval(waitAtEndDuration);
+        handSequence.SetLoops(-1, LoopType.Restart);
+    }
+
     private void PrepareHand([Bridge.Ref] Vector3 position)
     {
+        RegisterHandTutShown();
+
         handTutObject.transform.DOKill();
         handTutObject.transform.position = Get2DHandPosition(position);
         handTutObject.transform.localScale = defaultHandScale;
         SetHandAlpha(defaultHandAlpha);
         handTutObject.SetActive(true);
+    }
+
+    private bool CanShowMoreHandTut()
+    {
+        return maxHandTutShowCount <= 0 || handTutShowCount < maxHandTutShowCount;
+    }
+
+    private void RegisterHandTutShown()
+    {
+        hasShownFirstHandTut = true;
+
+        if (maxHandTutShowCount <= 0) return;
+
+        handTutShowCount++;
     }
 
     private Vector3 Get2DHandPosition([Bridge.Ref] Vector3 position)
@@ -426,7 +597,12 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
     private void ResetIdleTimer()
     {
-        idleTimer = 0f;
+        idleTimer = 1f;
+    }
+
+    private float GetCurrentIdleDelay()
+    {
+        return hasShownFirstHandTut ? idleDelay : firstHandTutDelay;
     }
 
     private void CacheNoDelayItems()
@@ -444,7 +620,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
     private bool ShouldSkipDelayForCurrentItem()
     {
-        if (isWaitingInitialSinkWaterTutorial) return true;
+        if (isWaitingInitialSinkWaterTutorial) return HasStartupNoDelayItemCount();
         if (isWaitingStoveToggle) return false;
 
         Item targetItem = GetFirstTutorialReadyItem();
@@ -651,8 +827,14 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     private bool ShouldUseStartupNoDelayForItem(Item item)
     {
         return item != null
+            && HasStartupNoDelayItemCount()
             && startupNoDelayTutorialCount < noDelayItemCount
             && noDelayItems.Contains(item);
+    }
+
+    private bool HasStartupNoDelayItemCount()
+    {
+        return noDelayItemCount > 0;
     }
 
     private void ConsumeStartupNoDelay()

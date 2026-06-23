@@ -12,7 +12,13 @@ public class StirMilestone
     [HideInInspector] public bool isReached = false;
 }
 
-[RequireComponent(typeof(Collider))] // Chuyển sang 3D
+public enum StirMovementMode
+{
+    Circle,
+    Line
+}
+
+[RequireComponent(typeof(Collider))]
 public class ItemStirring : MonoBehaviour
 {
     public bool IsDone => isDone;
@@ -22,6 +28,11 @@ public class ItemStirring : MonoBehaviour
     public Transform stirrerTransform;
     [Tooltip("Tâm của cái nồi. Nếu để trống sẽ lấy tâm của chính object này.")]
     public Transform centerPoint;
+    public StirMovementMode movementMode = StirMovementMode.Circle;
+    public float lineLength = 2f;
+    public Vector3 lineDirection = Vector3.up;
+    public bool flipScaleYByLineDragDirection = false;
+    public Transform flipScaleTarget;
 
     [Header("--- ANIMATION TARGET ---")]
     public Animator targetAnimator;
@@ -47,6 +58,9 @@ public class ItemStirring : MonoBehaviour
     public bool spawnProgressBarOnStir = false;
     public Transform spawnProgressBarPoint;
 
+    [Header("--- SOUND ---")]
+    [Min(0f)] public float rollingSoundCooldown = 0.2f;
+
     [Header("--- SỰ KIỆN ---")]
     public UnityEvent onStirBegin;
     public UnityEvent onStirComplete;
@@ -62,6 +76,8 @@ public class ItemStirring : MonoBehaviour
     private Tween speedTween;
     private ProgressBar stirProgressBar;
     private bool isPlayingStirringFx;
+    private int lastLineDragDirection;
+    private float lastRollingSoundTime = -999f;
 
     void Start()
     {
@@ -97,6 +113,7 @@ public class ItemStirring : MonoBehaviour
         lastMousePos = GetMouseOnPlane();
         currentGestureDistance = 0f;
         canDriveAnimation = false;
+        lastLineDragDirection = 0;
 
         if (!hasBegunStir && milestones != null)
         {
@@ -130,21 +147,12 @@ public class ItemStirring : MonoBehaviour
         currentGestureDistance += dragDistance;
         Vector3 center = centerPoint != null ? centerPoint.position : transform.position;
 
+        UpdateRollingSound(currentMousePos, lastMousePos);
+        UpdateFlipScaleY(currentMousePos, lastMousePos);
+
         if (stirrerTransform != null)
         {
-            // Tính toán hướng khuấy trên mặt phẳng 3D
-            Vector3 dir = currentMousePos - center;
-
-            // Giới hạn trong bán kính nồi
-            if (dir.magnitude > stirRadius) dir = dir.normalized * stirRadius;
-
-            stirrerTransform.position = center + dir;
-
-            if (dir != Vector3.zero)
-            {
-                // Ép cái thìa luôn hướng mặt lên trên/hoặc theo camera (Tùy chỉnh nếu cần)
-                // stirrerTransform.rotation = Quaternion.LookRotation(dir, mainCam.transform.up);
-            }
+            stirrerTransform.position = GetStirrerPosition(currentMousePos, center);
         }
 
         lastMousePos = currentMousePos;
@@ -161,6 +169,8 @@ public class ItemStirring : MonoBehaviour
 
         float progress = GetAnimationProgress();
         UpdateStirProgressBar(progress);
+        if (!canDriveAnimation) return;
+
         if (milestones != null)
         {
             for (int i = 0; i < milestones.Count; i++)
@@ -190,6 +200,32 @@ public class ItemStirring : MonoBehaviour
     }
 
     // Tính toán vị trí chuột chính xác trên mặt phẳng 3D của cái nồi
+    public Vector3 GetTutorialCenterPosition()
+    {
+        return centerPoint != null ? centerPoint.position : transform.position;
+    }
+
+    public float GetTutorialRadius()
+    {
+        return Mathf.Max(0.01f, stirRadius);
+    }
+
+    public Vector3 GetTutorialLineStartPosition()
+    {
+        Vector3 center = GetTutorialCenterPosition();
+        Vector3 lineAxis = GetLineDirection();
+        float halfLength = Mathf.Max(0.01f, lineLength) * 0.5f;
+        return center - lineAxis * halfLength;
+    }
+
+    public Vector3 GetTutorialLineEndPosition()
+    {
+        Vector3 center = GetTutorialCenterPosition();
+        Vector3 lineAxis = GetLineDirection();
+        float halfLength = Mathf.Max(0.01f, lineLength) * 0.5f;
+        return center + lineAxis * halfLength;
+    }
+
     private Vector3 GetMouseOnPlane()
     {
         Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
@@ -198,6 +234,62 @@ public class ItemStirring : MonoBehaviour
             return ray.GetPoint(enter);
         }
         return centerPoint != null ? centerPoint.position : transform.position;
+    }
+
+    private Vector3 GetStirrerPosition([Bridge.Ref] Vector3 mousePosition, [Bridge.Ref] Vector3 center)
+    {
+        Vector3 dir = mousePosition - center;
+
+        if (movementMode == StirMovementMode.Line)
+        {
+            Vector3 lineAxis = GetLineDirection();
+            float halfLength = Mathf.Max(0f, lineLength) * 0.5f;
+            float distanceOnLine = Mathf.Clamp(Vector3.Dot(dir, lineAxis), -halfLength, halfLength);
+            return center + lineAxis * distanceOnLine;
+        }
+
+        if (dir.magnitude > stirRadius)
+        {
+            dir = dir.normalized * stirRadius;
+        }
+
+        return center + dir;
+    }
+
+    private Vector3 GetLineDirection()
+    {
+        return lineDirection.sqrMagnitude > 0.0001f ? lineDirection.normalized : Vector3.up;
+    }
+
+    private void UpdateFlipScaleY(Vector3 currentMousePos, Vector3 previousMousePos)
+    {
+        if (!flipScaleYByLineDragDirection) return;
+
+        float dragOnLine = Vector3.Dot(currentMousePos - previousMousePos, GetLineDirection());
+        if (Mathf.Approximately(dragOnLine, 0f)) return;
+
+        Transform target = flipScaleTarget != null ? flipScaleTarget : stirrerTransform;
+        if (target == null) return;
+
+        Vector3 scale = target.localScale;
+        scale.y = dragOnLine > 0f ? -Mathf.Abs(scale.y) : Mathf.Abs(scale.y);
+        target.localScale = scale;
+    }
+
+    private void UpdateRollingSound([Bridge.Ref] Vector3 currentMousePos, [Bridge.Ref] Vector3 previousMousePos)
+    {
+        if (movementMode != StirMovementMode.Line) return;
+
+        float dragOnLine = Vector3.Dot(currentMousePos - previousMousePos, GetLineDirection());
+        if (Mathf.Abs(dragOnLine) <= 0.001f) return;
+
+        int currentDirection = dragOnLine > 0f ? 1 : -1;
+        if (lastLineDragDirection != 0 && currentDirection != lastLineDragDirection)
+        {
+            PlayRollingFx();
+        }
+
+        lastLineDragDirection = currentDirection;
     }
 
     private float GetAnimationProgress()
@@ -263,7 +355,7 @@ public class ItemStirring : MonoBehaviour
 
         isDone = true;
         isStirring = false;
-        SetAnimatorSpeed(stoppedSpeed);
+        SetAnimatorSpeed(1f, true);
         StopStirringFx();
         UpdateStirProgressBar(1f);
         StopStirProgressBar();
@@ -276,7 +368,7 @@ public class ItemStirring : MonoBehaviour
         speedTween?.Kill();
         speedTween = null;
         StopStirProgressBar();
-        SetAnimatorSpeed(stoppedSpeed, true);
+        SetAnimatorSpeed(isDone ? 1f : stoppedSpeed, true);
     }
 
     private void StartStirringFx()
@@ -284,7 +376,7 @@ public class ItemStirring : MonoBehaviour
         if (isPlayingStirringFx || Ply_SoundManager.Ins == null) return;
 
         isPlayingStirringFx = true;
-        // Ply_SoundManager.Ins.PlayFxLoop(FxType.SpoonStirring);
+        // Ply_SoundManager.Ins.PlayFxLoop(FxType.Stirring);
     }
 
     private void StopStirringFx()
@@ -294,8 +386,17 @@ public class ItemStirring : MonoBehaviour
         isPlayingStirringFx = false;
         if (Ply_SoundManager.Ins != null)
         {
-            // Ply_SoundManager.Ins.StopFxLoop(FxType.SpoonStirring);
+            // Ply_SoundManager.Ins.StopFxLoop(FxType.Stirring);
         }
+    }
+
+    private void PlayRollingFx()
+    {
+        if (Ply_SoundManager.Ins == null) return;
+        if (Time.time - lastRollingSoundTime < rollingSoundCooldown) return;
+
+        lastRollingSoundTime = Time.time;
+        // Ply_SoundManager.Ins.PlayFx(FxType.Rolling);
     }
 
     private void SpawnStirProgressBar()
@@ -338,6 +439,20 @@ public class ItemStirring : MonoBehaviour
     private void OnDrawGizmos()
     {
         Vector3 center = centerPoint != null ? centerPoint.position : transform.position;
+        if (movementMode == StirMovementMode.Line)
+        {
+            Vector3 lineAxis = GetLineDirection();
+            float halfLength = Mathf.Max(0f, lineLength) * 0.5f;
+            Vector3 start = center - lineAxis * halfLength;
+            Vector3 end = center + lineAxis * halfLength;
+
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawLine(start, end);
+            Gizmos.DrawWireSphere(start, 0.12f);
+            Gizmos.DrawWireSphere(end, 0.12f);
+            return;
+        }
+
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(center, stirRadius);
     }
