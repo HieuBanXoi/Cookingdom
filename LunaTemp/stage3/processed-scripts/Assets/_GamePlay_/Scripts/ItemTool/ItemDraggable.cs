@@ -404,4 +404,8 @@ public class ItemDraggable : MonoBehaviour
             this.enabled = false;
         }
     }
+    public void TurnOnSpawnBreakHeartOnFailed(bool isOn)
+    {
+        spawnBreakHeartOnDropFail = isOn;
+    }
 }

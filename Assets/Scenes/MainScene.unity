@@ -346,6 +346,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &11089452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +361,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -585,8 +611,9 @@ MonoBehaviour:
   breakHeartEffectScale: 1
   blinkEffectScale: 1
   mergeEffectScale: 1
-  playMoveToTargetFinishSound: 0
-  moveToTargetFinishFxType: 4
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 12
+  fxSpawnZPos: 0
 --- !u!114 &11137662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,6 +628,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1895143886}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -831,6 +883,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &24595288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,6 +898,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -1210,6 +1288,60 @@ Transform:
   - {fileID: 2075048999}
   m_Father: {fileID: 1535239121}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &48379043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 48379044}
+  - component: {fileID: 48379045}
+  m_Layer: 0
+  m_Name: DogManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &48379044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48379043}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 473912107}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &48379045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48379043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3a85a46b0eae94195eadded3be5b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  rightPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  minSpawnInterval: 1
+  maxSpawnInterval: 3
+  moveSpeed: 2
+  duckSoundChance: 0.3
 --- !u!1 &52814230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,6 +1468,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1895143886}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -1574,6 +1731,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
   targetBowl: {fileID: 0}
 --- !u!1 &76666359
 GameObject:
@@ -1628,6 +1786,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
   knife: {fileID: 0}
   cuttingBoard: {fileID: 0}
   targetPlate: {fileID: 0}
@@ -1654,6 +1813,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -2140,6 +2324,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &102373667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2154,6 +2339,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -2232,6 +2442,30 @@ MonoBehaviour:
           m_StringArgument: RiceIn
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 102373666}
+        m_TargetAssemblyTypeName: Item, Assembly-CSharp
+        m_MethodName: PlayCreamSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RiceIn
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 102373668}
+        m_TargetAssemblyTypeName: ItemDraggable, Assembly-CSharp
+        m_MethodName: TurnOnSpawnBreakHeartOnFailed
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RiceIn
+          m_BoolArgument: 1
+        m_CallState: 2
   onDropSuccess:
     m_PersistentCalls:
       m_Calls: []
@@ -2285,7 +2519,7 @@ Transform:
   m_GameObject: {fileID: 102373665}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.4745491, w: 0.88022906}
-  m_LocalPosition: {x: -2.11, y: -5.334, z: 0}
+  m_LocalPosition: {x: -2.146, y: -5.465, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2358,6 +2592,18 @@ MonoBehaviour:
       - m_Target: {fileID: 102373671}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RiceIn
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 102373668}
+        m_TargetAssemblyTypeName: ItemDraggable, Assembly-CSharp
+        m_MethodName: TurnOnSpawnBreakHeartOnFailed
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2945,6 +3191,131 @@ Transform:
   - {fileID: 1984842237}
   m_Father: {fileID: 309240660}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &145433076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 145433077}
+  - component: {fileID: 145433080}
+  - component: {fileID: 145433079}
+  - component: {fileID: 145433078}
+  m_Layer: 0
+  m_Name: Spine GameObject (char)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &145433077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145433076}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.08, y: -3.38, z: 0}
+  m_LocalScale: {x: 1.6666664, y: 1.6666664, z: 1.6666664}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 884215857}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &145433078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145433076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonDataAsset: {fileID: 11400000, guid: 987661dac1a8e014b9ae8da87c8b49a5, type: 2}
+  initialSkinName: 
+  fixPrefabOverrideViaMeshFilter: 2
+  initialFlipX: 0
+  initialFlipY: 0
+  updateWhenInvisible: 3
+  separatorSlotNames: []
+  zSpacing: 0
+  useClipping: 1
+  immutableTriangles: 0
+  pmaVertexColors: 1
+  clearStateOnDisable: 0
+  tintBlack: 0
+  singleSubmesh: 0
+  fixDrawOrder: 0
+  addNormals: 0
+  calculateTangents: 0
+  maskInteraction: 0
+  maskMaterials:
+    materialsMaskDisabled: []
+    materialsInsideMask: []
+    materialsOutsideMask: []
+  disableRenderingOnOverride: 1
+  _animationName: idle
+  loop: 1
+  timeScale: 1
+--- !u!23 &145433079
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145433076}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: fd39a834d29109f478180b3e6ee65705, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &145433080
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145433076}
+  m_Mesh: {fileID: 0}
 --- !u!1 &151311160
 GameObject:
   m_ObjectHideFlags: 0
@@ -3547,6 +3918,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &224260789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3561,6 +3933,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -3728,6 +4125,9 @@ Transform:
   - {fileID: 1575200909}
   - {fileID: 1324405755}
   - {fileID: 967492146}
+  - {fileID: 1003012970}
+  - {fileID: 802852864}
+  - {fileID: 1239409441}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &245754943
@@ -3991,6 +4391,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &256875748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4005,6 +4406,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -5205,6 +5631,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &323976710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5219,6 +5646,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -5252,8 +5704,8 @@ MonoBehaviour:
   item: {fileID: 0}
   checkState: 0
   shadowObject: {fileID: 0}
-  playReturnToStartFinishSound: 0
-  returnToStartFinishFxType: 14
+  playReturnToStartFinishSound: 1
+  returnToStartFinishFxType: 19
   spawnBreakHeartOnDropFail: 1
   playBeginDragSound: 1
   beginDragFxType: 0
@@ -7009,6 +7461,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &398780766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7023,6 +7476,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -7331,6 +7809,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &420552543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7345,6 +7824,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -7698,6 +8202,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &446581199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7712,6 +8217,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -8283,6 +8813,7 @@ Transform:
   - {fileID: 2120577746}
   - {fileID: 748161339}
   - {fileID: 323782669}
+  - {fileID: 48379044}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &483413202
@@ -8425,6 +8956,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &496302270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8439,6 +8971,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -8752,7 +9309,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.16078432, g: 0.89019614, b: 0, a: 0}
+  m_BackGroundColor: {r: 0, g: 0.25882354, b: 0.47058827, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -8945,7 +9502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.9607843}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6862745}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8969,6 +9526,100 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531656835}
+  m_CullTransparentMesh: 1
+--- !u!1 &534393312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 534393313}
+  - component: {fileID: 534393315}
+  - component: {fileID: 534393314}
+  m_Layer: 0
+  m_Name: SkeletonGraphic (char)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &534393313
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534393312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.03, y: 1.03, z: 1.03}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 717999782}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -83, y: -206}
+  m_SizeDelta: {x: 377.04642, y: 534.8112}
+  m_Pivot: {x: 0.504648, y: 0.010893429}
+--- !u!114 &534393314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534393312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85b887af7e6c3f45a2e2d2920d641bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: b66cf7a186d13054989b33a5c90044e4, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  skeletonDataAsset: {fileID: 11400000, guid: 987661dac1a8e014b9ae8da87c8b49a5, type: 2}
+  additiveMaterial: {fileID: 2100000, guid: 2e8245019faeb8c43b75f9ca3ac8ee34, type: 2}
+  multiplyMaterial: {fileID: 2100000, guid: e74a1f8978a7da348a721508d0d58834, type: 2}
+  screenMaterial: {fileID: 2100000, guid: bab24c479f34eec45be6ea8595891569, type: 2}
+  initialSkinName: default
+  initialFlipX: 0
+  initialFlipY: 0
+  startingAnimation: idle
+  startingLoop: 1
+  timeScale: 1
+  freeze: 0
+  updateWhenInvisible: 3
+  unscaledTime: 0
+  allowMultipleCanvasRenderers: 0
+  canvasRenderers: []
+  separatorSlotNames: []
+  enableSeparatorSlots: 0
+  separatorParts: []
+  updateSeparatorPartLocation: 1
+  meshGenerator:
+    settings:
+      useClipping: 1
+      zSpacing: 0
+      pmaVertexColors: 1
+      tintBlack: 0
+      canvasGroupTintBlack: 0
+      calculateTangents: 0
+      addNormals: 0
+      immutableTriangles: 0
+--- !u!222 &534393315
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534393312}
   m_CullTransparentMesh: 1
 --- !u!1 &551594944
 GameObject:
@@ -9456,6 +10107,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &590739970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9470,6 +10122,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -11087,6 +11764,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &701909656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11101,6 +11779,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -11690,6 +12393,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 534393313}
   - {fileID: 1830821050}
   m_Father: {fileID: 119173038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11751,6 +12455,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &719526670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11765,6 +12470,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -12825,6 +13555,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &788303891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12839,6 +13570,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -13018,6 +13774,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &792372017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13032,6 +13789,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -13340,6 +14122,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &802852863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 802852864}
+  m_Layer: 0
+  m_Name: EndDogPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &802852864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802852863}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.2300005, y: 3.8, z: 22.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 244963705}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &803718864
 GameObject:
   m_ObjectHideFlags: 0
@@ -13393,6 +14206,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &803718866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13407,6 +14221,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -13440,8 +14279,8 @@ MonoBehaviour:
   item: {fileID: 0}
   checkState: 0
   shadowObject: {fileID: 0}
-  playReturnToStartFinishSound: 0
-  returnToStartFinishFxType: 14
+  playReturnToStartFinishSound: 1
+  returnToStartFinishFxType: 19
   spawnBreakHeartOnDropFail: 1
   playBeginDragSound: 1
   beginDragFxType: 0
@@ -13968,8 +14807,9 @@ MonoBehaviour:
   breakHeartEffectScale: 1
   blinkEffectScale: 1
   mergeEffectScale: 1
-  playMoveToTargetFinishSound: 0
-  moveToTargetFinishFxType: 4
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 12
+  fxSpawnZPos: 0
 --- !u!114 &839683606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13984,6 +14824,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1895143886}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -14000,7 +14865,7 @@ MonoBehaviour:
         m_MethodName: SetTargetBowl
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11137661}
+          m_ObjectArgument: {fileID: 839683605}
           m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -14411,8 +15276,9 @@ MonoBehaviour:
   breakHeartEffectScale: 1
   blinkEffectScale: 1
   mergeEffectScale: 1
-  playMoveToTargetFinishSound: 0
-  moveToTargetFinishFxType: 4
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 12
+  fxSpawnZPos: 0
 --- !u!114 &849871545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14427,6 +15293,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1895143886}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -14588,6 +15479,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &853667537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14602,6 +15494,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -14635,8 +15552,8 @@ MonoBehaviour:
   item: {fileID: 0}
   checkState: 0
   shadowObject: {fileID: 0}
-  playReturnToStartFinishSound: 0
-  returnToStartFinishFxType: 14
+  playReturnToStartFinishSound: 1
+  returnToStartFinishFxType: 19
   spawnBreakHeartOnDropFail: 1
   playBeginDragSound: 1
   beginDragFxType: 0
@@ -14928,7 +15845,7 @@ Transform:
   m_GameObject: {fileID: 868390541}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.023, y: 0.094, z: -2.909}
+  m_LocalPosition: {x: -0.023, y: 0.094, z: -1.283}
   m_LocalScale: {x: 1.12, y: 1.12, z: 1.12}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -15076,6 +15993,70 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &877321128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 877321129}
+  m_Layer: 0
+  m_Name: Cha1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &877321129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877321128}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1031687114741627728}
+  m_Father: {fileID: 4509755046806757809}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &884215856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 884215857}
+  m_Layer: 0
+  m_Name: Cha2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &884215857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884215856}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 145433077}
+  m_Father: {fileID: 4509755046806757809}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &895677024
 GameObject:
   m_ObjectHideFlags: 0
@@ -15359,6 +16340,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &914619055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15373,6 +16355,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1897428976}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -15439,6 +16446,30 @@ MonoBehaviour:
           m_StringArgument: RiceIn
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 914619054}
+        m_TargetAssemblyTypeName: Item, Assembly-CSharp
+        m_MethodName: PlayCreamSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RiceIn
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 914619056}
+        m_TargetAssemblyTypeName: ItemDraggable, Assembly-CSharp
+        m_MethodName: TurnOnSpawnBreakHeartOnFailed
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RiceIn
+          m_BoolArgument: 1
+        m_CallState: 2
   onDropSuccess:
     m_PersistentCalls:
       m_Calls: []
@@ -15492,7 +16523,7 @@ Transform:
   m_GameObject: {fileID: 914619053}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.40194777, w: 0.91566265}
-  m_LocalPosition: {x: 1.573, y: 0.618, z: 0}
+  m_LocalPosition: {x: 1.616, y: 0.561, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15586,6 +16617,18 @@ MonoBehaviour:
           m_StringArgument: RiceIn
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 914619056}
+        m_TargetAssemblyTypeName: ItemDraggable, Assembly-CSharp
+        m_MethodName: TurnOnSpawnBreakHeartOnFailed
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RiceIn
+          m_BoolArgument: 0
+        m_CallState: 2
   onTargetFoundWithItem:
     m_PersistentCalls:
       m_Calls: []
@@ -15664,6 +16707,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &933383012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15678,6 +16722,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -16300,6 +17369,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &976549199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16314,6 +17384,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -16525,6 +17620,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &983676583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16539,6 +17635,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -16703,6 +17824,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1650866542}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1003012969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1003012970}
+  m_Layer: 0
+  m_Name: StartDogPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1003012970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003012969}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.2400002, y: 3.8, z: 22.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 244963705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1003318445
 GameObject:
@@ -17091,6 +18243,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
   tf: {fileID: 1052097500}
   isShushiOn: 0
   isSauceOn: 0
@@ -17128,7 +18281,7 @@ Transform:
   m_GameObject: {fileID: 1053170337}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.40194777, w: 0.91566265}
-  m_LocalPosition: {x: -2.194, y: -3.27, z: -2.6}
+  m_LocalPosition: {x: -2.194, y: -3.27, z: -0.848}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17210,6 +18363,18 @@ MonoBehaviour:
           m_StringArgument: RiceIn
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1053170343}
+        m_TargetAssemblyTypeName: ItemDraggable, Assembly-CSharp
+        m_MethodName: TurnOnSpawnBreakHeartOnFailed
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RiceIn
+          m_BoolArgument: 0
+        m_CallState: 2
   onTargetFoundWithItem:
     m_PersistentCalls:
       m_Calls: []
@@ -17268,6 +18433,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &1053170342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17282,6 +18448,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1897428976}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -17323,7 +18514,19 @@ MonoBehaviour:
   liftOffset: 1
   onBeginDrag:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1053170343}
+        m_TargetAssemblyTypeName: ItemDraggable, Assembly-CSharp
+        m_MethodName: TurnOnSpawnBreakHeartOnFailed
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onDropSuccess:
     m_PersistentCalls:
       m_Calls: []
@@ -17409,6 +18612,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &1055323169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17423,6 +18627,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -18374,6 +19603,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
   knife: {fileID: 0}
   cuttingBoard: {fileID: 0}
   targetPlate: {fileID: 0}
@@ -18400,6 +19630,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -18723,6 +19978,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &1117345669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18737,6 +19993,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -19544,6 +20825,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &1175848203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19558,6 +20840,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -20476,6 +21783,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1239409439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1239409441}
+  - component: {fileID: 1239409440}
+  m_Layer: 0
+  m_Name: Dog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1239409440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239409439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca3edebc64970449bea2700e39304f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPoint: {fileID: 1003012970}
+  endPoint: {fileID: 802852864}
+  moveDuration: 10
+  easeType: 1
+--- !u!4 &1239409441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239409439}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.64, y: 3.8, z: 22.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1776701846}
+  m_Father: {fileID: 244963705}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1239905429
 GameObject:
   m_ObjectHideFlags: 0
@@ -21119,6 +22475,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -21278,6 +22659,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!1 &1304697361
 GameObject:
   m_ObjectHideFlags: 0
@@ -21331,6 +22713,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &1304697363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21345,6 +22728,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -21612,6 +23020,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &1314690235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21626,6 +23035,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -23862,8 +25296,9 @@ MonoBehaviour:
   breakHeartEffectScale: 1
   blinkEffectScale: 1
   mergeEffectScale: 1
-  playMoveToTargetFinishSound: 0
-  moveToTargetFinishFxType: 4
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 12
+  fxSpawnZPos: 0
 --- !u!114 &1426299986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23878,6 +25313,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1895143886}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -23894,7 +25354,7 @@ MonoBehaviour:
         m_MethodName: SetTargetBowl
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11137661}
+          m_ObjectArgument: {fileID: 1426299985}
           m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -24830,6 +26290,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &1524984239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24844,6 +26305,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -25245,6 +26731,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: -2
   punchScale: {x: 0.1, y: -0.1, z: 0}
   punchDuration: 0.3
   foodInCount: 0
@@ -25623,6 +27110,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &1550904222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25637,6 +27125,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1897428976}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -25795,7 +27308,19 @@ MonoBehaviour:
       m_Calls: []
   onReturnToStartComplete:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1550904221}
+        m_TargetAssemblyTypeName: Item, Assembly-CSharp
+        m_MethodName: PlayKnifePlaceSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!136 &1550904224
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -26615,6 +28140,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &1622473662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26629,6 +28155,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -27449,8 +29000,9 @@ MonoBehaviour:
   breakHeartEffectScale: 1
   blinkEffectScale: 1
   mergeEffectScale: 1
-  playMoveToTargetFinishSound: 0
-  moveToTargetFinishFxType: 4
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 12
+  fxSpawnZPos: 0
 --- !u!114 &1675644400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27465,6 +29017,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1895143886}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -27481,7 +29058,7 @@ MonoBehaviour:
         m_MethodName: SetTargetBowl
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 849871544}
+          m_ObjectArgument: {fileID: 1675644399}
           m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -27849,6 +29426,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &1712331440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27863,6 +29441,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -29122,6 +30725,131 @@ Transform:
   - {fileID: 1113714798}
   m_Father: {fileID: 144410830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1776701842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1776701846}
+  - component: {fileID: 1776701845}
+  - component: {fileID: 1776701844}
+  - component: {fileID: 1776701843}
+  m_Layer: 0
+  m_Name: Spine GameObject (Home)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1776701843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776701842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonDataAsset: {fileID: 11400000, guid: d058ac0a46b4e21428a1a58f9c5da72f, type: 2}
+  initialSkinName: 
+  fixPrefabOverrideViaMeshFilter: 2
+  initialFlipX: 0
+  initialFlipY: 0
+  updateWhenInvisible: 3
+  separatorSlotNames: []
+  zSpacing: 0
+  useClipping: 1
+  immutableTriangles: 0
+  pmaVertexColors: 1
+  clearStateOnDisable: 0
+  tintBlack: 0
+  singleSubmesh: 0
+  fixDrawOrder: 0
+  addNormals: 0
+  calculateTangents: 0
+  maskInteraction: 0
+  maskMaterials:
+    materialsMaskDisabled: []
+    materialsInsideMask: []
+    materialsOutsideMask: []
+  disableRenderingOnOverride: 1
+  _animationName: dog_walk
+  loop: 1
+  timeScale: 1
+--- !u!23 &1776701844
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776701842}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: e306a282967b54c4ba2a82764346c764, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1776701845
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776701842}
+  m_Mesh: {fileID: 0}
+--- !u!4 &1776701846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776701842}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1239409441}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1792651364
 GameObject:
   m_ObjectHideFlags: 0
@@ -29647,7 +31375,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Casserole
+  m_text: Ms. Wolf
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 66e5cae35d4785c4f8f1ad2ada2b2471, type: 2}
   m_sharedMaterial: {fileID: 5375066065756455533, guid: 66e5cae35d4785c4f8f1ad2ada2b2471, type: 2}
@@ -29847,6 +31575,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 0}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -29968,6 +31721,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
   knife: {fileID: 0}
   cuttingBoard: {fileID: 0}
   targetPlate: {fileID: 0}
@@ -30195,6 +31949,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &1859564306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30209,6 +31964,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -30825,8 +32605,9 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
---- !u!135 &1895143888
-SphereCollider:
+  fxSpawnZPos: 0
+--- !u!136 &1895143888
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -30843,9 +32624,11 @@ SphereCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.18
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Radius: 1.37
+  m_Height: 3.82
+  m_Direction: 0
+  m_Center: {x: 0.75, y: 0.23, z: 0}
 --- !u!1 &1895241558
 GameObject:
   m_ObjectHideFlags: 0
@@ -31009,8 +32792,9 @@ MonoBehaviour:
   breakHeartEffectScale: 1
   blinkEffectScale: 1
   mergeEffectScale: 1
-  playMoveToTargetFinishSound: 0
-  moveToTargetFinishFxType: 4
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 12
+  fxSpawnZPos: 0
   knife: {fileID: 1550904221}
 --- !u!114 &1897428978
 MonoBehaviour:
@@ -31026,7 +32810,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1052097500}
   duration: 0.5
-  easeType: 1
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.65442485
+      value: 0.709816
+      inSlope: -2.0511806
+      outSlope: -2.0511806
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.080888554
+      outWeight: 0.116260536
+    - serializedVersion: 3
+      time: 1.0018921
+      value: 1
+      inSlope: -0.16137627
+      outSlope: -0.16137627
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.6710138
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  easeType: 6
   moveType: 1
   jumpPower: 2
   numJumps: 1
@@ -31720,8 +33538,9 @@ MonoBehaviour:
   breakHeartEffectScale: 1
   blinkEffectScale: 1
   mergeEffectScale: 1
-  playMoveToTargetFinishSound: 0
-  moveToTargetFinishFxType: 4
+  playMoveToTargetFinishSound: 1
+  moveToTargetFinishFxType: 12
+  fxSpawnZPos: 0
 --- !u!114 &1944685354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31736,6 +33555,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1895143886}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -31752,7 +33596,7 @@ MonoBehaviour:
         m_MethodName: SetTargetBowl
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 849871544}
+          m_ObjectArgument: {fileID: 1944685353}
           m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -32079,7 +33923,7 @@ MonoBehaviour:
   - fxType: 6
     audioClip: {fileID: 8300000, guid: 7a34b1a53386f29459a5c5c3c66bd501, type: 3}
   - fxType: 7
-    audioClip: {fileID: 8300000, guid: c6c638df8b3d0a1449deb6ffaca709fd, type: 3}
+    audioClip: {fileID: 8300000, guid: 7820bc778e84b87438eec8822207591a, type: 3}
   - fxType: 8
     audioClip: {fileID: 8300000, guid: 128a71065e296cd40a9fd40a1eaf71e4, type: 3}
   - fxType: 9
@@ -32091,13 +33935,21 @@ MonoBehaviour:
   - fxType: 12
     audioClip: {fileID: 8300000, guid: e5cc2f488600259499d7cf0b4154534f, type: 3}
   - fxType: 13
-    audioClip: {fileID: 8300000, guid: 69cb579182614a147a0672eae5c65566, type: 3}
+    audioClip: {fileID: 8300000, guid: a1f58db45a60a08449af869f6187059b, type: 3}
   - fxType: 14
     audioClip: {fileID: 8300000, guid: de44daa9cad285646b50ad915e9a4065, type: 3}
   - fxType: 15
-    audioClip: {fileID: 8300000, guid: 576092f3ede04e743a82ac8f808f81fb, type: 3}
+    audioClip: {fileID: 8300000, guid: 209a96cdca1abc24c81b738366d566d4, type: 3}
   - fxType: 16
     audioClip: {fileID: 8300000, guid: 71240349605385c4f9057416f1b83d36, type: 3}
+  - fxType: 17
+    audioClip: {fileID: 8300000, guid: cfdd64eb7ec5b8f46ab49eb968681448, type: 3}
+  - fxType: 18
+    audioClip: {fileID: 8300000, guid: 4aae1c0a95610ad478db15495f3b22cc, type: 3}
+  - fxType: 19
+    audioClip: {fileID: 8300000, guid: 0058791f8a479fe44bae86c99f6ff264, type: 3}
+  - fxType: 20
+    audioClip: {fileID: 8300000, guid: 8d54cf5e9729f6c4e88ec0b32266ea1d, type: 3}
   audioClips:
   - {fileID: 8300000, guid: 60f0c4cf59df7a744b189cffce477bde, type: 3}
   - {fileID: 8300000, guid: 7f0d20000df9be645a9cd53d803202fc, type: 3}
@@ -32106,16 +33958,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bf5fa92206181c74d9dfd7a8bccc8d92, type: 3}
   - {fileID: 8300000, guid: e7a161e3bac8feb438b05338c889a15c, type: 3}
   - {fileID: 8300000, guid: 7a34b1a53386f29459a5c5c3c66bd501, type: 3}
-  - {fileID: 8300000, guid: c6c638df8b3d0a1449deb6ffaca709fd, type: 3}
+  - {fileID: 8300000, guid: 7820bc778e84b87438eec8822207591a, type: 3}
   - {fileID: 8300000, guid: 128a71065e296cd40a9fd40a1eaf71e4, type: 3}
   - {fileID: 8300000, guid: 2e2cb903ce3129948bca9aee0fb08939, type: 3}
   - {fileID: 8300000, guid: 766671b8e6771464b842e1e46e968662, type: 3}
   - {fileID: 8300000, guid: 803d603c99b47ef41a7c67fe7c445e72, type: 3}
   - {fileID: 8300000, guid: e5cc2f488600259499d7cf0b4154534f, type: 3}
-  - {fileID: 8300000, guid: 69cb579182614a147a0672eae5c65566, type: 3}
+  - {fileID: 8300000, guid: a1f58db45a60a08449af869f6187059b, type: 3}
   - {fileID: 8300000, guid: de44daa9cad285646b50ad915e9a4065, type: 3}
-  - {fileID: 8300000, guid: 576092f3ede04e743a82ac8f808f81fb, type: 3}
+  - {fileID: 8300000, guid: 209a96cdca1abc24c81b738366d566d4, type: 3}
   - {fileID: 8300000, guid: 71240349605385c4f9057416f1b83d36, type: 3}
+  - {fileID: 8300000, guid: cfdd64eb7ec5b8f46ab49eb968681448, type: 3}
+  - {fileID: 8300000, guid: 4aae1c0a95610ad478db15495f3b22cc, type: 3}
+  - {fileID: 8300000, guid: 0058791f8a479fe44bae86c99f6ff264, type: 3}
+  - {fileID: 8300000, guid: 8d54cf5e9729f6c4e88ec0b32266ea1d, type: 3}
   sound: {fileID: 2101441070}
 --- !u!1 &1968342770
 GameObject:
@@ -32478,6 +34334,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &1984842234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32492,6 +34349,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -32844,6 +34726,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 0}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -32970,6 +34877,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!1 &2003786988
 GameObject:
   m_ObjectHideFlags: 0
@@ -33507,7 +35415,7 @@ Transform:
   m_GameObject: {fileID: 2043633448}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.03400004, y: 0.055999994, z: -4.56}
+  m_LocalPosition: {x: -0.03400004, y: 0.055999994, z: -2.56}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -33795,6 +35703,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &2048999668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33809,6 +35718,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -34488,7 +36422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2101441069
 Transform:
   m_ObjectHideFlags: 0
@@ -35146,6 +37080,7 @@ MonoBehaviour:
   mergeEffectScale: 1
   playMoveToTargetFinishSound: 0
   moveToTargetFinishFxType: 4
+  fxSpawnZPos: 0
 --- !u!114 &2145550507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35160,6 +37095,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTarget: {fileID: 1535239121}
   duration: 0.5
+  useAnimationCurve: 0
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   easeType: 6
   moveType: 0
   jumpPower: 2
@@ -35336,7 +37296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a13021df4b2c8f43b8605d0daff335e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playSkinChangeMode: 0
+  playSkinChangeMode: 1
   popup1: {fileID: 3498584386669778653}
   popup2: {fileID: 8597626433217175372}
   tick: {fileID: 658939988}
@@ -35347,9 +37307,10 @@ MonoBehaviour:
   spawnHeartPoint: {fileID: 4139536201183786182}
   heartEffectScale: 1
   skeletonAnimation: {fileID: 314955553169069774}
-  bassSkinName: hat/MUSICAL-KICK
+  skinObject1: {fileID: 877321129}
+  skinObject2: {fileID: 884215857}
   skinChangeDelay: 2
-  skinMoveYOffset: 5
+  skinMoveYOffset: 8
   skinMoveDownDuration: 1
   skinMoveUpDuration: 1
 --- !u!4 &1031687114741627728
@@ -35365,7 +37326,7 @@ Transform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4509755046806757809}
+  m_Father: {fileID: 877321129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1777437813481071757
 GameObject:
@@ -35400,7 +37361,7 @@ GameObject:
   m_Layer: 0
   m_Name: Capybara
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -35449,7 +37410,8 @@ Transform:
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1031687114741627728}
+  - {fileID: 877321129}
+  - {fileID: 884215857}
   - {fileID: 3498584386669778653}
   - {fileID: 8597626433217175372}
   - {fileID: 4139536201183786182}

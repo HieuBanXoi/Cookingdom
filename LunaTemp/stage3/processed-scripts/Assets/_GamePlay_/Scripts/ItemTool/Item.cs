@@ -33,12 +33,11 @@ public class Item : MonoBehaviour
     private Ply_GameUnit activeEffect;
     private PoolType activeEffectPoolType;
     private Tween activeEffectClearTween;
-    private float minZ=0;
+    public float fxSpawnZPos=0;
 
     private void Awake()
     {
         CacheComponents(true);
-        minZ = GetMinChildZ();
     }
 
     void Reset()
@@ -188,7 +187,7 @@ public class Item : MonoBehaviour
     {
         Ply_SoundManager.Ins.PlayFx(FxType.FoodToWater);
         TurnOffActiveEffect();
-        position.z = minZ;
+        position.z = fxSpawnZPos;
         WaterSplash waterSplash = Ply_Pool.Ins.Spawn<WaterSplash>(PoolType.WaterSplash, position, transform.rotation);
         if (waterSplash == null) return;
         CacheActiveEffect(waterSplash, PoolType.WaterSplash, 1f);
@@ -282,14 +281,14 @@ public class Item : MonoBehaviour
     private Vector3 GetEffectSpawnPosition()
     {
         Vector3 spawnPosition = transform.position;
-        spawnPosition.z = minZ;
+        spawnPosition.z = fxSpawnZPos;
         return spawnPosition;
     }
-
-    private float GetMinChildZ()
+    [ContextMenu("GetMinChildZ")]
+    public void GetMinChildZ()
     {
         float minZ = transform.position.z;
-        Transform[] children = GetComponentsInChildren<Transform>(false);
+        Transform[] children = GetComponentsInChildren<Transform>();
 
         for (int i = 0; i < children.Length; i++)
         {
@@ -299,7 +298,7 @@ public class Item : MonoBehaviour
             minZ = Mathf.Min(minZ, child.position.z);
         }
 
-        return minZ;
+        fxSpawnZPos = minZ;
     }
 
     public void PlayMoveToTargetFinishSound()
@@ -332,8 +331,24 @@ public class Item : MonoBehaviour
     {
         PlaySoundFX(FxType.Wipe);
     }
+    public void PlayWipe2Sound()
+    {
+        PlaySoundFX(FxType.Wipe2);
+    }
     public void PlayPeerSound()
     {
         PlaySoundFX(FxType.Peer);
+    }
+    public void PlayPlaceFoodSound()
+    {
+        PlaySoundFX(FxType.ItemPlace);
+    }
+    public void PlayCreamSound()
+    {
+        PlaySoundFX(FxType.Cream);
+    }
+    public void PlayLeafSound()
+    {
+        PlaySoundFX(FxType.LeafOn);
     }
 }

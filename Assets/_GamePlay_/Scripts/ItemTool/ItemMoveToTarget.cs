@@ -8,6 +8,8 @@ public class ItemMoveToTarget : MonoBehaviour
     [Header("--- CẤU HÌNH ĐÍCH ---")]
     public Transform defaultTarget;
     public float duration = 0.5f;
+    public bool useAnimationCurve = false;
+    public AnimationCurve moveCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
     public Ease easeType = Ease.OutQuad;
     public MoveType moveType = MoveType.Smooth;
 
@@ -72,23 +74,42 @@ public class ItemMoveToTarget : MonoBehaviour
         switch (moveType)
         {
             case MoveType.Smooth:
-                transform.DOMove(targetPos, duration)
-                    .SetEase(easeType)
-                    .OnComplete(FinishAction);
-
+                if (useAnimationCurve)
+                {
+                    transform.DOMove(targetPos, duration)
+                        .SetEase(moveCurve)
+                        .OnComplete(FinishAction);
+                }
+                else
+                {
+                    transform.DOMove(targetPos, duration)
+                        .SetEase(easeType)
+                        .OnComplete(FinishAction);
+                }
                 break;
 
             case MoveType.Jump:
                 // Kiểu nảy vào nồi cực đẹp
-                transform.DOJump(targetPos, jumpPower, numJumps, duration)
-                    .SetEase(easeType)
-                    .OnComplete(FinishAction);
+                if (useAnimationCurve)
+                {
+                    transform.DOJump(targetPos, jumpPower, numJumps, duration)
+                        .SetEase(moveCurve)
+                        .OnComplete(FinishAction);
+                }
+                else
+                {
+                    transform.DOJump(targetPos, jumpPower, numJumps, duration)
+                        .SetEase(easeType)
+                        .OnComplete(FinishAction);
+                }
+
                 if (rotate360DuringJump)
                 {
                     if (flipRotate)
                     {
                         angleRotate = -angleRotate;
                     }
+
                     transform.DORotate(new Vector3(0, 0, angleRotate), duration, RotateMode.FastBeyond360).SetEase(easeType);
                 }
                 break;
@@ -103,7 +124,14 @@ public class ItemMoveToTarget : MonoBehaviour
                 transform.DOShakePosition(0.2f, 0.2f)
                     .OnComplete(() =>
                     {
-                        transform.DOMove(targetPos, duration).SetEase(easeType).OnComplete(FinishAction);
+                        if (useAnimationCurve)
+                        {
+                            transform.DOMove(targetPos, duration).SetEase(moveCurve).OnComplete(FinishAction);
+                        }
+                        else
+                        {
+                            transform.DOMove(targetPos, duration).SetEase(easeType).OnComplete(FinishAction);
+                        }
                     });
                 break;
         }

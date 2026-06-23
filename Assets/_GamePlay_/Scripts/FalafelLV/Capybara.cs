@@ -25,7 +25,8 @@ public class Capybara : MonoBehaviour
     public Transform spawnHeartPoint;
     [Min(0f)] public float heartEffectScale = 2f;
     public SkeletonAnimation skeletonAnimation;
-    public string bassSkinName = "hat/MUSICAL-BASS";
+    public Transform skinObject1;  // Skin ban đầu
+    public Transform skinObject2;  // Skin sau khi thay đổi
     public float skinChangeDelay = 2f;
     public float skinMoveYOffset = 1f;
     public float skinMoveDownDuration = 0.2f;
@@ -34,6 +35,8 @@ public class Capybara : MonoBehaviour
     private Transform currentPopup;
     private Tween hidePopupTween;
     private Tween skinChangeDelayTween;
+    private Vector3 skinObject1StartLocalPos;
+    private Vector3 skinObject2StartLocalPos;
 
     private void Awake()
     {
@@ -45,6 +48,16 @@ public class Capybara : MonoBehaviour
 
     private void Start()
     {
+        if (skinObject1 != null)
+        {
+            skinObject1StartLocalPos = skinObject1.localPosition;
+        }
+
+        if (skinObject2 != null)
+        {
+            skinObject2StartLocalPos = skinObject2.localPosition;
+        }
+
         HideTickIcon();
         HidePopupImmediately(popup1);
         HidePopupImmediately(popup2);
@@ -77,7 +90,7 @@ public class Capybara : MonoBehaviour
     {
         HidePopup(popup1);
     }
-
+    [ContextMenu("CapyDone")]
     public void CapyDone()
     {
         SpawnHeart(false);
@@ -168,39 +181,52 @@ public class Capybara : MonoBehaviour
 
     private void PlaySkinChange(TweenCallback onComplete = null)
     {
-        if (skeletonAnimation == null)
+        if (skinObject1 == null)
         {
             onComplete?.Invoke();
             return;
         }
 
-        Transform capybaraTransform = skeletonAnimation.transform;
-        Vector3 startLocalPosition = capybaraTransform.localPosition;
+        HideTickIcon();
+        HidePopup(popup1);
+
+        Vector3 startLocalPosition = skinObject1.localPosition;
         Vector3 downLocalPosition = startLocalPosition + Vector3.down * skinMoveYOffset;
 
-        capybaraTransform.DOKill();
-        capybaraTransform.DOLocalMoveY(downLocalPosition.y, skinMoveDownDuration)
-            .SetEase(Ease.InQuad)
-            .OnComplete(() =>
+        if (skinObject2 != null)
+        {
+            skinObject2.localPosition = skinObject2StartLocalPos - Vector3.up * skinMoveYOffset;
+            skinObject2.gameObject.SetActive(false);
+        }
+
+        Sequence skinChangeSequence = DOTween.Sequence();
+
+        skinChangeSequence.Append(skinObject1.DOLocalMoveY(downLocalPosition.y, skinMoveDownDuration).SetEase(Ease.InQuad));
+
+        skinChangeSequence.AppendCallback(() =>
+        {
+            if (skinObject1 != null)
             {
-                HideTickIcon();
-                HidePopup(popup1);
-                SetSkin(bassSkinName);
-                capybaraTransform.DOLocalMoveY(startLocalPosition.y, skinMoveUpDuration)
-                    .SetEase(Ease.OutBack)
-                    .OnComplete(onComplete);
-            });
+                skinObject1.gameObject.SetActive(false);
+            }
+
+            if (skinObject2 != null)
+            {
+                skinObject2.gameObject.SetActive(true);
+            }
+        });
+
+        skinChangeSequence.Append(skinObject1.DOLocalMoveY(startLocalPosition.y, skinMoveUpDuration).SetEase(Ease.OutBack));
+
+        if (skinObject2 != null)
+        {
+            skinChangeSequence.Join(skinObject2.DOLocalMoveY(skinObject2StartLocalPos.y, skinMoveUpDuration).SetEase(Ease.OutBack));
+        }
+
+        skinChangeSequence.OnComplete(onComplete);
     }
 
-    private void SetSkin(string skinName)
-    {
-        if (skeletonAnimation == null || skeletonAnimation.Skeleton == null || string.IsNullOrEmpty(skinName)) return;
-        if (skeletonAnimation.Skeleton.Data.FindSkin(skinName) == null) return;
 
-        skeletonAnimation.Skeleton.SetSkin(skinName);
-        skeletonAnimation.Skeleton.SetSlotsToSetupPose();
-        skeletonAnimation.AnimationState.Apply(skeletonAnimation.Skeleton);
-    }
 
     private void OnDestroy()
     {
