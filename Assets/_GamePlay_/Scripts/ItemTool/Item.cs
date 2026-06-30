@@ -63,6 +63,7 @@ public class Item : MonoBehaviour
         if (refreshHiddenReferences || itemSpriteMaskPainter == null) itemSpriteMaskPainter = GetComponent<ItemSpriteMaskPainter>();
         if (refreshHiddenReferences || itemDragSpriteMaskPainter == null) itemDragSpriteMaskPainter = GetComponent<ItemDragSpriteMaskPainter>();
     }
+    
     public virtual void ChangeItemType(ItemType itemType)
     {
         this.itemType = itemType;
@@ -187,7 +188,7 @@ public class Item : MonoBehaviour
     {
         Ply_SoundManager.Ins.PlayFx(FxType.FoodToWater);
         TurnOffActiveEffect();
-        position.z = fxSpawnZPos;
+        
         WaterSplash waterSplash = Ply_Pool.Ins.Spawn<WaterSplash>(PoolType.WaterSplash, position, transform.rotation);
         if (waterSplash == null) return;
         CacheActiveEffect(waterSplash, PoolType.WaterSplash, 1f);

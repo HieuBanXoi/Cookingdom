@@ -213,7 +213,10 @@ public class InWaterItem : Item
         UpdateDragAvailability();
         itemMoveToTarget.ExecuteMove3D(destination);
     }
-
+    protected virtual void SpecialMove()
+    {
+        //for override
+    }
     private void JumpToPlate()
     {
         if (plateTarget == null)
@@ -282,12 +285,14 @@ public class InWaterItem : Item
 
     public void OnMoveToCuttingBoardComplete()
     {
+
         ply_BobEffect?.Stop(false);
         ply_TimerEvent?.StopTimer();
         sink?.UnregisterInWaterItem(this);
         HandTutManager.Ins?.UnregisterItemInWater(this);
         transform.DOKill();
         transform.position = cuttingBoardTarget.position;
+        SpecialMove();
 
         isInWater = false;
         isOnCuttingBoard = true;

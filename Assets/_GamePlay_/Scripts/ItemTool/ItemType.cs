@@ -10,7 +10,7 @@ public enum ItemType
     ItemInWater,
     Plate,
     Sink,
-    FoodOnCuttingBoard,
+    FoodOnCuttingBoard, Pan, PanBoiling
 
     
     
