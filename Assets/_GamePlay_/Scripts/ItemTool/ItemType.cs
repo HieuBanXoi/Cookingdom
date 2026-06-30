@@ -12,10 +12,6 @@ public enum ItemType
     Sink,
     FoodOnCuttingBoard,
 
-    YellowPickled, SmallBowl, Spinach, Perilla, Carrot, Cucumber, CarbStick, FriedPotato, YellowSingleLeft, Meat,
-
-    RollEmpty,RollRongBien,RollPerilla,
-    SmallBowlTarget, LastTray,
-    ShushiDone, ShushiOilIn, ShushiBeanIn
+    
     
 }
