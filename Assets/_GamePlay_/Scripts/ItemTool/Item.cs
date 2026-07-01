@@ -2,7 +2,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Item : MonoBehaviour
+public class Item : Ply_GameUnit
 {
     [Header("--- HAND TUTORIAL ---")]
     public bool isDone = false;

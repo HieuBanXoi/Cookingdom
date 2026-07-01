@@ -213,7 +213,7 @@ public class InWaterItem : Item
         UpdateDragAvailability();
         itemMoveToTarget.ExecuteMove3D(destination);
     }
-    protected virtual void SpecialMove()
+    protected virtual void OnMoveToCuttingBoard()
     {
         //for override
     }
@@ -292,13 +292,14 @@ public class InWaterItem : Item
         HandTutManager.Ins?.UnregisterItemInWater(this);
         transform.DOKill();
         transform.position = cuttingBoardTarget.position;
-        SpecialMove();
 
         isInWater = false;
         isOnCuttingBoard = true;
         isOnPlate = false;
         onProcess = true;
         itemType = ItemType.FoodOnCuttingBoard;
+        OnMoveToCuttingBoard();
+
         SetColliderRadiusMultiplier(cuttingBoardColliderRadiusMultiplier);
 
         CuttingBoard cuttingBoard = GetTargetItem(cuttingBoardTarget) as CuttingBoard;
@@ -310,6 +311,7 @@ public class InWaterItem : Item
         {
             itemDraggable.enabled = false;
         }
+
         onMoveToCuttingBoardComplete?.Invoke();
     }
 
@@ -581,7 +583,6 @@ public class InWaterItem : Item
     {
         HandTutManager.Ins.peeler.gameObject.SetActive(true);
         Ply_SoundManager.Ins.PlayFx(FxType.ItemPlace);
-
     }
     public void PeelerDone()
     {

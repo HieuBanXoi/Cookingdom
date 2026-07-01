@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 20761e10da49a0745951615d45ea9a7b
+guid: 98f990782b6491e4c928f7b4d5557e89
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5112831604100457602
-    second: water_04_40_0
+      213: -2828018527907540398
+    second: paper_04_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: water_04_40_0
+      name: paper_04_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 311
-        height: 296
+        width: 125
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2846cc6414d64f640800000000000000
-      internalID: 5112831604100457602
+      spriteID: 25219d1e12cd0c8d0800000000000000
+      internalID: -2828018527907540398
       vertices: []
       indices: 
       edges: []

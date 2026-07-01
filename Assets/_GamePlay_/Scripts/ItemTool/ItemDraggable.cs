@@ -9,6 +9,7 @@ public class ItemDraggable : MonoBehaviour
     public bool isDraggable = true;
     public Transform returnTransform;
     public bool setParentToReturnTransform = true;
+    public bool returnToStartOnDragFailed = true;
     public bool returnToExactReturnTransformPosition = true;
     public ItemType targetItemType;
     public Item item;
@@ -230,7 +231,17 @@ public class ItemDraggable : MonoBehaviour
                     HandTutManager.Ins?.RegisterBreakHeartDropFail();
                 }
 
-                ReturnToStart(spawnBreakHeartOnDropFail);
+                if (returnToStartOnDragFailed)
+                {
+                    ReturnToStart(spawnBreakHeartOnDropFail);
+                }
+                else
+                {
+                    Vector3 currentPos = transform.position;
+                    currentPos.z += 1f;
+                    transform.position = currentPos;
+                    FinalizeFailedDrag(spawnBreakHeartOnDropFail);
+                }
             }
             else
             {
@@ -289,7 +300,17 @@ public class ItemDraggable : MonoBehaviour
                     HandTutManager.Ins?.RegisterBreakHeartDropFail();
                 }
 
-                ReturnToStart(spawnBreakHeartOnDropFail);
+                if (returnToStartOnDragFailed)
+                {
+                    ReturnToStart(spawnBreakHeartOnDropFail);
+                }
+                else
+                {
+                    Vector3 currentPos = transform.position;
+                    currentPos.z += 1f;
+                    transform.position = currentPos;
+                    FinalizeFailedDrag(spawnBreakHeartOnDropFail);
+                }
             }
             else
             {
@@ -368,18 +389,22 @@ public class ItemDraggable : MonoBehaviour
         ResetScale();
     }
 
-    private void OnReturnToStartComplete()
+    private void FinalizeFailedDrag(bool spawnHeart)
     {
         isForceReturningToStart = false;
         SetShadowActive(shadowDefaultActive);
         PlayBobEffectIfEnabled();
         PlayReturnToStartFinishSound();
         onReturnToStartComplete?.Invoke();
-
-        if (spawnHeartOnReturnComplete && item != null)
+        if (spawnHeart && item != null)
         {
             item.OnDragFailReturnComplete();
         }
+    }
+
+    private void OnReturnToStartComplete()
+    {
+        FinalizeFailedDrag(spawnHeartOnReturnComplete);
 
         spawnHeartOnReturnComplete = true;
     }

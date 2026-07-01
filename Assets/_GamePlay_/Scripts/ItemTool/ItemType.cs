@@ -10,7 +10,10 @@ public enum ItemType
     ItemInWater,
     Plate,
     Sink,
-    FoodOnCuttingBoard, Pan, PanBoiling
+    FoodOnCuttingBoard, Pan, PanBoiling,
+    Fish, FishWet, Paper, Trash,
+    FishKnife, FishSalt
+
 
     
     

@@ -20,6 +20,12 @@ public class ItemMoveToTarget : MonoBehaviour
     public bool flipRotate = false;
     public float angleRotate = -360;
 
+    [Header("--- TÙY CHỌN SCALE KHI MOVE ---")]
+    [Tooltip("Bật/tắt chức năng scale khi di chuyển.")]
+    public bool scaleOnMove = false;
+    [Tooltip("Scale cuối cùng của vật thể (đồng nhất các trục). Ví dụ: 0 để làm vật thể biến mất.")]
+    public float endScale = 1f;
+
     [Header("--- SAU KHI TỚI NƠI ---")]
     public bool setParentToTarget = false;
     public UnityEngine.Events.UnityEvent onComplete;
@@ -69,6 +75,20 @@ public class ItemMoveToTarget : MonoBehaviour
         if (lockInputWhileMoving && GameManager.Ins != null)
         {
             GameManager.Ins.isPlaying = false;
+        }
+
+        if (scaleOnMove)
+        {
+            if (useAnimationCurve)
+            {
+                transform.DOScale(endScale, duration)
+                    .SetEase(moveCurve);
+            }
+            else
+            {
+                transform.DOScale(endScale, duration)
+                    .SetEase(easeType);
+            }
         }
 
         switch (moveType)
@@ -186,5 +206,9 @@ public class ItemMoveToTarget : MonoBehaviour
             parentScale.y != 0f ? worldScale.y / parentScale.y : transform.localScale.y,
             parentScale.z != 0f ? worldScale.z / parentScale.z : transform.localScale.z
         );
+    }
+    public void SetEndScale(float scale)
+    {
+        endScale = scale;
     }
 }
