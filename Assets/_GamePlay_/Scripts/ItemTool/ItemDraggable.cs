@@ -28,6 +28,11 @@ public class ItemDraggable : MonoBehaviour
     [Tooltip("Khi nhấc lên, vật sẽ nhích lại gần Camera (hoặc bay cao lên) bao nhiêu để không kẹt vào bàn?")]
     public float liftOffset = 1.0f;
 
+    [Header("--- DRAG SCALE ---")]
+    [Tooltip("Nhân với scale gốc khi bắt đầu kéo vật phẩm.")]
+    public float dragScaleMultiplier = 1.1f;
+    public float dragScaleDuration = 0.15f;
+
     [Header("--- SỰ KIỆN ---")]
     public UnityEvent onBeginDrag;
     public UnityEvent onDropSuccess;
@@ -51,6 +56,8 @@ public class ItemDraggable : MonoBehaviour
     private bool isForceReturningToStart;
     private bool isDraggingSession;
     private ItemDragChildRotator itemDragChildRotator;
+
+    public bool IsDragging => isDraggingSession;
 
 
     void Start()
@@ -92,7 +99,7 @@ public class ItemDraggable : MonoBehaviour
         ReturnToStart(spawnHeart);
     }
 
-    private void ReturnToStart(bool spawnHeart)
+    public void ReturnToStart(bool spawnHeart)
     {
         Tween returnTween = null;
         spawnHeartOnReturnComplete = spawnHeart;
@@ -179,6 +186,12 @@ public class ItemDraggable : MonoBehaviour
         if (!CanDrag()) return false;
 
         transform.DOKill(); // Dừng tween bay về nếu người chơi cầm lại vật thể giữa chừng
+
+        // Cập nhật lại originalScale trước khi kéo để lấy đúng scale hiện tại,
+        // đặc biệt trong trường hợp scale đã bị thay đổi (ví dụ: flip) bởi animation hoặc script khác.
+        if (hasOriginalScale) {
+            originalScale = transform.localScale;
+        }
 
         PlayDragScale();
 
@@ -374,7 +387,7 @@ public class ItemDraggable : MonoBehaviour
     private void PlayDragScale()
     {
         scaleTween?.Kill();
-        scaleTween = transform.DOScale(originalScale * 1.1f, 0.15f).SetEase(Ease.OutBack);
+        scaleTween = transform.DOScale(originalScale * dragScaleMultiplier, dragScaleDuration).SetEase(Ease.OutBack);
     }
 
     private void PlayBeginDragSound()

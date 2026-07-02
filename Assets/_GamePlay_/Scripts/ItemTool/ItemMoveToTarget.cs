@@ -23,8 +23,8 @@ public class ItemMoveToTarget : MonoBehaviour
     [Header("--- TÙY CHỌN SCALE KHI MOVE ---")]
     [Tooltip("Bật/tắt chức năng scale khi di chuyển.")]
     public bool scaleOnMove = false;
-    [Tooltip("Scale cuối cùng của vật thể (đồng nhất các trục). Ví dụ: 0 để làm vật thể biến mất.")]
-    public float endScale = 1f;
+    [Tooltip("Hệ số nhân với scale hiện tại của vật thể khi di chuyển. Ví dụ: 0 để làm vật thể biến mất.")]
+    public float endScaleMultiplier = 1f;
 
     [Header("--- SAU KHI TỚI NƠI ---")]
     public bool setParentToTarget = false;
@@ -79,14 +79,15 @@ public class ItemMoveToTarget : MonoBehaviour
 
         if (scaleOnMove)
         {
+            Vector3 targetScale = transform.localScale * endScaleMultiplier;
             if (useAnimationCurve)
             {
-                transform.DOScale(endScale, duration)
+                transform.DOScale(targetScale, duration)
                     .SetEase(moveCurve);
             }
             else
             {
-                transform.DOScale(endScale, duration)
+                transform.DOScale(targetScale, duration)
                     .SetEase(easeType);
             }
         }
@@ -209,6 +210,6 @@ public class ItemMoveToTarget : MonoBehaviour
     }
     public void SetEndScale(float scale)
     {
-        endScale = scale;
+        endScaleMultiplier = scale;
     }
 }

@@ -8,6 +8,8 @@ public class Fish : InWaterItem
     public GameObject waterFx;
     public GameObject fishIntestine;
     public GameObject fishBranchial;
+    public Transform panPos;
+    public GameObject fishOnPan;
 
     private Vector3 originalScale;
     private bool wasInWaterOnDrag;
@@ -70,6 +72,7 @@ public class Fish : InWaterItem
     protected override void OnMoveToCuttingBoard()
     {
         ChangeItemType(ItemType.FishWet);
+        animator.enabled = true;
         animator.SetTrigger("Wet");
     }
 
@@ -107,9 +110,7 @@ public class Fish : InWaterItem
 
     private void ChangerItemType(ItemType newType)
     {
-            itemType = newType;
-            Debug.Log("ChangerItemType" + newType);
-        
+        itemType = newType;
     }
     public void ChangeToFishKnife()
     {
@@ -130,5 +131,22 @@ public class Fish : InWaterItem
     public void EnableFishBranchial()
     {
         if (fishBranchial != null) fishBranchial.SetActive(true);
+    }
+    public void EnableClick()
+    {
+        if (itemClickable != null) itemClickable.enabled = true;
+    }
+    public void FishDone()
+    {
+        // Đánh dấu là đã cắt xong để logic của lớp cha (InWaterItem) cho phép kéo thả.
+        isCutDone = true;
+
+        if (itemDraggable != null) itemDraggable.enabled = true;
+        itemDraggable.targetItemType = ItemType.PanBoiling;
+        itemMoveToTarget.defaultTarget = panPos;
+        animator.enabled = false;
+        itemMoveToTarget.SetEndScale(0.85f);
+        // Cập nhật lại trạng thái có thể kéo thả sau khi thay đổi state.
+        UpdateDragAvailability();
     }
 }

@@ -12,7 +12,8 @@ public enum ItemType
     Sink,
     FoodOnCuttingBoard, Pan, PanBoiling,
     Fish, FishWet, Paper, Trash,
-    FishKnife, FishSalt
+    FishKnife, FishSalt,
+    FishOnPan, FishFlip,FishDone
 
 
     

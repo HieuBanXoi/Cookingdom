@@ -7,7 +7,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     [Header("--- HAND TUTORIAL ---")]
     public List<Item> items = new List<Item>();
     public Transform knife;
-    public Transform peeler;
+    public Transform salt;
     public GameObject handTutObject;
     public GameObject tapToCookObject;
     public Item oilItem;
@@ -450,7 +450,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         if (item == null) return null;
 
         if (IsToolTargetingItem(knife, item)) return knife;
-        if (IsToolTargetingItem(peeler, item)) return peeler;
+        if (IsToolTargetingItem(salt, item)) return salt;
 
         return null;
     }

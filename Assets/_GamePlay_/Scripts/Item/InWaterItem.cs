@@ -69,6 +69,9 @@ public class InWaterItem : Item
     {
         if (isMoving) return;
 
+        // Nếu đang được kéo thì không cập nhật vị trí, để cho ItemDraggable xử lý.
+        if (itemDraggable != null && itemDraggable.IsDragging) return;
+
         if (isOnPlate && plateTarget != null)
         {
             transform.position = plateTarget.position;
@@ -153,7 +156,10 @@ public class InWaterItem : Item
             return;
         }
 
-        JumpToPlate();
+        ConfigureNextTarget();
+        UpdateDragAvailability();
+        if (itemDraggable != null)
+            itemDraggable.enabled = true;
     }
 
     public void PlayAnim(bool isTrue)
@@ -197,12 +203,6 @@ public class InWaterItem : Item
             return;
         }
 
-        if (moveDestination == MoveDestination.Plate)
-        {
-            JumpToPlate();
-            return;
-        }
-
         if (moveDestination == MoveDestination.CuttingBoard && ply_BobEffect != null)
         {
             ply_BobEffect.Stop(false);
@@ -216,41 +216,6 @@ public class InWaterItem : Item
     protected virtual void OnMoveToCuttingBoard()
     {
         //for override
-    }
-    private void JumpToPlate()
-    {
-        if (plateTarget == null)
-        {
-            Debug.LogWarning($"[InWaterItem] {name} is missing the Plate target.", this);
-            return;
-        }
-
-        isMoving = true;
-        if (itemDraggable != null)
-        {
-            itemDraggable.returnTransform = plateTarget;
-            itemDraggable.targetItemType = ItemType.None;
-            itemDraggable.enabled = false;
-        }
-        if (itemMoveToTarget != null)
-        {
-            itemMoveToTarget.SetDefaultTarget(plateTarget);
-        }
-        UpdateDragAvailability();
-
-        transform.DOKill();
-        transform.DOJump(plateTarget.position, jumpToPlatePower, 1, jumpToPlateDuration)
-            .SetEase(Ease.OutQuad)
-            .OnComplete(() =>
-            {
-                transform.DOKill();
-                transform.position = plateTarget.position;
-                isMoving = false;
-                SpawnHeart(false);
-                OnMoveToPlateComplete();
-                plateTarget.DOPunchScale(platePunchScale, platePunchDuration);
-                UpdateDragAvailability();
-            });
     }
 
     public void OnMoveIntoWaterComplete()
@@ -337,7 +302,15 @@ public class InWaterItem : Item
         {
             itemDraggable.returnTransform = plateTarget;
             itemDraggable.targetItemType = ItemType.None;
+            itemDraggable.enabled = false;
         }
+
+        if (plateTarget != null)
+        {
+            plateTarget.DOPunchScale(platePunchScale, platePunchDuration);
+        }
+
+        SpawnHeart(false);
     }
 
     private void InitializeMovement()
@@ -491,7 +464,7 @@ public class InWaterItem : Item
         return targetItem;
     }
 
-    private void UpdateDragAvailability()
+    protected void UpdateDragAvailability()
     {
         if (itemDraggable == null) return;
 
@@ -579,9 +552,9 @@ public class InWaterItem : Item
         Ply_SoundManager.Ins.PlayFx(FxType.KnifePlace);
 
     }
-    public void EnablePeeler()
+    public void EnableSalt()
     {
-        HandTutManager.Ins.peeler.gameObject.SetActive(true);
+        HandTutManager.Ins.salt.gameObject.SetActive(true);
         Ply_SoundManager.Ins.PlayFx(FxType.ItemPlace);
     }
     public void PeelerDone()
