@@ -7,6 +7,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     [Header("--- HAND TUTORIAL ---")]
     public List<Item> items = new List<Item>();
     public Transform knife;
+    public Transform knife2;
     public Transform salt;
     public GameObject handTutObject;
     public GameObject tapToCookObject;
@@ -17,6 +18,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     public List<InWaterItem> itemsInWater = new List<InWaterItem>();
     public int noDelayItemCount = 3;
     public int breakHeartNoDelayThreshold = 3;
+    public float shortIdleDelay = 0.5f;
     [Tooltip("So lan hien hand tutorial toi da. De 0 de khong gioi han.")]
     [Min(0)] public int maxHandTutShowCount = 0;
     public bool showSinkWaterTutorialOnStart = true;
@@ -148,7 +150,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         }
 
         idleTimer += Time.deltaTime;
-        float currentIdleDelay = ShouldSkipDelayForCurrentItem() ? 0f : GetCurrentIdleDelay();
+        float currentIdleDelay = GetCurrentIdleDelay();
         if (idleTimer >= currentIdleDelay && handSequence == null)
         {
             idleTimer = 0f;
@@ -242,7 +244,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
     private void ShowHandTutIfDelayCanBeSkipped()
     {
-        if (!ShouldSkipDelayForCurrentItem()) return;
+        if (GetCurrentIdleDelay() >= idleDelay) return;
 
         idleTimer = 0f;
         ShowNextHandTut();
@@ -602,6 +604,11 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
     private float GetCurrentIdleDelay()
     {
+        if (ShouldSkipDelayForCurrentItem())
+        {
+            return shortIdleDelay;
+        }
+
         return hasShownFirstHandTut ? idleDelay : firstHandTutDelay;
     }
 

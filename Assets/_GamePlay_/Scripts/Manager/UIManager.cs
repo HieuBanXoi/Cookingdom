@@ -30,7 +30,7 @@ public class UIManager : Ply_Singleton<UIManager>
     public GameObject horizontalUI;
     public Transform downloadBtn;
     public Transform horizontalDownloadBtn;
-    // [LunaPlaygroundField("Google Build", 0, "Build Settings")]
+    [LunaPlaygroundField("Google Build", 0, "Build Settings")]
     public bool isGoogleBuild = false;
 
     public float screenWidth;

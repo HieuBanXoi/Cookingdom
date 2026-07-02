@@ -10,6 +10,13 @@ public class InWaterItem : Item
     public Transform plateTarget;
     public Transform[] childObject;
     public Transform[] trashObj;
+    public Knife knife;
+
+    [Header("--- DRAG FROM WATER ---")]
+    public GameObject waterFx;
+    public bool scaleOnDragFromWater = true;
+    public Vector3 dragFromWaterScale = Vector3.one;
+    [Min(0f)] public float dragFromWaterScaleDuration = 0.2f;
 
     public Ply_TimerEvent ply_TimerEvent;
     public Ply_BobEffect ply_BobEffect;
@@ -40,6 +47,8 @@ public class InWaterItem : Item
     private float originalSphereColliderRadius;
     private float originalCapsuleColliderRadius;
     private bool hasSpawnedTrashDragObjects;
+    private Vector3 waterDragOriginalScale;
+    private bool wasInWaterOnDrag;
 
     private enum MoveDestination
     {
@@ -65,6 +74,8 @@ public class InWaterItem : Item
     {
         UnsubscribeMovementEvents();
         SetColliderRadiusMultiplier(1f);
+        SetWaterFxActive(false);
+        wasInWaterOnDrag = false;
     }
 
     private void LateUpdate()
@@ -120,6 +131,12 @@ public class InWaterItem : Item
         if (!isInWater) return true;
 
         return sink != null && sink.isWaterIn;
+    }
+
+    public override void OnDragFailReturnComplete()
+    {
+        base.OnDragFailReturnComplete();
+        ResetWaterDragState(true);
     }
 
     public void SetClean()
@@ -283,11 +300,14 @@ public class InWaterItem : Item
             itemDraggable.enabled = false;
         }
 
+        ApplyDragFromWaterScale();
         onMoveToCuttingBoardComplete?.Invoke();
+        ApplyDragFromWaterScale();
     }
 
     public void OnMoveToPlateComplete()
     {
+        Debug.Log("OnMoveToPlateComplete");
         ply_BobEffect?.Stop(false);
         ply_TimerEvent?.StopTimer();
         sink?.UnregisterInWaterItem(this);
@@ -336,7 +356,11 @@ public class InWaterItem : Item
     {
         if (itemDraggable != null)
         {
+            itemDraggable.onBeginDrag.RemoveListener(OnBeginDragInWater);
+            itemDraggable.onDropSuccess.RemoveListener(OnDropSuccessInWater);
             itemDraggable.onDropSuccess.RemoveListener(MoveToCurrentTarget);
+            itemDraggable.onBeginDrag.AddListener(OnBeginDragInWater);
+            itemDraggable.onDropSuccess.AddListener(OnDropSuccessInWater);
             itemDraggable.onDropSuccess.AddListener(MoveToCurrentTarget);
         }
 
@@ -351,6 +375,8 @@ public class InWaterItem : Item
     {
         if (itemDraggable != null)
         {
+            itemDraggable.onBeginDrag.RemoveListener(OnBeginDragInWater);
+            itemDraggable.onDropSuccess.RemoveListener(OnDropSuccessInWater);
             itemDraggable.onDropSuccess.RemoveListener(MoveToCurrentTarget);
         }
 
@@ -359,6 +385,7 @@ public class InWaterItem : Item
             itemMoveToTarget.onComplete.RemoveListener(HandleMoveComplete);
         }
     }
+
 
     private void HandleMoveComplete()
     {
@@ -380,6 +407,66 @@ public class InWaterItem : Item
         }
 
         UpdateDragAvailability();
+    }
+
+    private void OnBeginDragInWater()
+    {
+        wasInWaterOnDrag = isInWater;
+        if (!wasInWaterOnDrag) return;
+
+        waterDragOriginalScale = transform.localScale;
+
+        if (scaleOnDragFromWater)
+        {
+            transform.DOScale(dragFromWaterScale, dragFromWaterScaleDuration);
+        }
+
+        SetWaterFxActive(true);
+    }
+
+    private void OnDropSuccessInWater()
+    {
+        ResetWaterDragState(false);
+    }
+
+    private void ResetWaterDragState(bool restoreScale)
+    {
+        if (!wasInWaterOnDrag) return;
+
+        if (!scaleOnDragFromWater)
+        {
+            SetWaterFxActive(false);
+            wasInWaterOnDrag = false;
+            return;
+        }
+
+        if (restoreScale)
+        {
+            transform.DOScale(waterDragOriginalScale, dragFromWaterScaleDuration);
+        }
+        else
+        {
+            transform.localScale = dragFromWaterScale;
+        }
+
+        SetWaterFxActive(false);
+        wasInWaterOnDrag = false;
+    }
+
+    private void SetWaterFxActive(bool isActive)
+    {
+        if (waterFx != null)
+        {
+            waterFx.SetActive(isActive);
+        }
+    }
+
+    private void ApplyDragFromWaterScale()
+    {
+        if (scaleOnDragFromWater)
+        {
+            transform.localScale = dragFromWaterScale;
+        }
     }
 
     private void ConfigureNextTarget()
@@ -570,6 +657,12 @@ public class InWaterItem : Item
         Ply_SoundManager.Ins.PlayFx(FxType.KnifePlace);
 
     }
+    public void EnableKnife2()
+    {
+        HandTutManager.Ins.knife2.gameObject.SetActive(true);
+        Ply_SoundManager.Ins.PlayFx(FxType.KnifePlace);
+
+    }
     public void EnableSalt()
     {
         HandTutManager.Ins.salt.gameObject.SetActive(true);
@@ -604,6 +697,9 @@ public class InWaterItem : Item
                 item.itemDraggable.enabled = true;
             }
         }
-
+    }
+    public void CanKnifeCut()
+    {
+        knife.SetTarget(transform);
     }
 }

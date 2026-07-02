@@ -3340,6 +3340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items: []
   knife: {fileID: 1306003952}
+  knife2: {fileID: 714132889}
   salt: {fileID: 798177010}
   handTutObject: {fileID: 287876779}
   tapToCookObject: {fileID: 1372715517}
@@ -3350,6 +3351,7 @@ MonoBehaviour:
   itemsInWater: []
   noDelayItemCount: 3
   breakHeartNoDelayThreshold: 3
+  shortIdleDelay: 2
   maxHandTutShowCount: 0
   showSinkWaterTutorialOnStart: 1
   waitForBowlIntro: 0
@@ -4416,6 +4418,11 @@ MonoBehaviour:
   plateTarget: {fileID: 1615101230}
   childObject: []
   trashObj: []
+  knife: {fileID: 0}
+  waterFx: {fileID: 1049017274}
+  scaleOnDragFromWater: 1
+  dragFromWaterScale: {x: 1, y: 1, z: 1}
+  dragFromWaterScaleDuration: 0.2
   ply_TimerEvent: {fileID: 290063900}
   ply_BobEffect: {fileID: 290063901}
   collider1: {fileID: 0}
@@ -4436,7 +4443,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   lastPlate: {fileID: 0}
-  waterFx: {fileID: 1049017274}
   fishIntestine: {fileID: 795384908}
   fishBranchial: {fileID: 839604308}
   panPos: {fileID: 1615101230}
@@ -9256,6 +9262,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 714132891}
+        m_TargetAssemblyTypeName: Knife, Assembly-CSharp
+        m_MethodName: KnifeIdle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 714132891}
+        m_TargetAssemblyTypeName: Knife, Assembly-CSharp
+        m_MethodName: OnKnifeDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   lockInputWhileMoving: 1
   resetParentBeforeMove: 1
 --- !u!114 &714132893
@@ -9289,17 +9319,29 @@ MonoBehaviour:
   dragScaleDuration: 0.15
   onBeginDrag:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 714132891}
+        m_TargetAssemblyTypeName: Knife, Assembly-CSharp
+        m_MethodName: KnifeOnDrag
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDropSuccess:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 714132892}
         m_TargetAssemblyTypeName: ItemMoveToTarget, Assembly-CSharp
-        m_MethodName: ExecuteMove3D
-        m_Mode: 2
+        m_MethodName: ExecuteMove
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1323974407}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9307,7 +9349,19 @@ MonoBehaviour:
         m_CallState: 2
   onDropFail:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 714132891}
+        m_TargetAssemblyTypeName: Knife, Assembly-CSharp
+        m_MethodName: KnifeIdle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onReturnToStartComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -9471,7 +9525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &748161339
 Transform:
   m_ObjectHideFlags: 0
@@ -9505,10 +9559,18 @@ MonoBehaviour:
     onPhaseReady:
       m_PersistentCalls:
         m_Calls: []
+  - phaseObject: {fileID: 276499252}
+    totalSteps: 1
+    onPhaseReady:
+      m_PersistentCalls:
+        m_Calls: []
+  transitionType: 0
   transitionDuration: 2
   delayBeforeNextPhase: 2
-  offScreenLeftX: -15
-  offScreenRightX: 15
+  offScreenLeftX: -19.7
+  offScreenRightX: 19.9
+  offScreenBottomY: -21.3
+  offScreenTopY: 15
   centerScreenX: 0
   phaseTransitionObject: {fileID: 1167335586}
   phaseTransitionObjectDuration: 1.5
@@ -10759,7 +10821,7 @@ Transform:
   m_GameObject: {fileID: 850283439}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.098, y: -0.363, z: -0.5}
+  m_LocalPosition: {x: -0.098, y: -0.07, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10933,7 +10995,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &874263880
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22334,7 +22396,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1494886582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22504,6 +22566,11 @@ MonoBehaviour:
   - {fileID: 209300706}
   - {fileID: 203336345}
   - {fileID: 599897892}
+  knife: {fileID: 0}
+  waterFx: {fileID: 0}
+  scaleOnDragFromWater: 1
+  dragFromWaterScale: {x: 1, y: 1, z: 1}
+  dragFromWaterScaleDuration: 0.2
   ply_TimerEvent: {fileID: 1494886583}
   ply_BobEffect: {fileID: 1494886582}
   collider1: {fileID: 0}
@@ -23192,6 +23259,11 @@ MonoBehaviour:
   plateTarget: {fileID: 1949104464}
   childObject: []
   trashObj: []
+  knife: {fileID: 0}
+  waterFx: {fileID: 0}
+  scaleOnDragFromWater: 1
+  dragFromWaterScale: {x: 1, y: 1, z: 1}
+  dragFromWaterScaleDuration: 0.2
   ply_TimerEvent: {fileID: 1525758318}
   ply_BobEffect: {fileID: 1525758317}
   collider1: {fileID: 0}
@@ -24299,6 +24371,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1594388107}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: ResetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Next
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1594388107}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: SetTrigger
         m_Mode: 5
         m_Arguments:
@@ -24324,6 +24408,11 @@ MonoBehaviour:
   - {fileID: 110219488}
   - {fileID: 1603108304}
   - {fileID: 1953256600}
+  knife: {fileID: 714132891}
+  waterFx: {fileID: 0}
+  scaleOnDragFromWater: 1
+  dragFromWaterScale: {x: 1, y: 1, z: 1}
+  dragFromWaterScaleDuration: 0.2
   ply_TimerEvent: {fileID: 1594388105}
   ply_BobEffect: {fileID: 1594388104}
   collider1: {fileID: 0}
@@ -24344,18 +24433,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1594388106}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1594388107}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -24493,7 +24570,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.17, y: -3.44074, z: -0.42}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.74, y: 0.74, z: 0.74}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 205307081}
@@ -24767,6 +24844,11 @@ MonoBehaviour:
   plateTarget: {fileID: 888216729}
   childObject: []
   trashObj: []
+  knife: {fileID: 0}
+  waterFx: {fileID: 0}
+  scaleOnDragFromWater: 1
+  dragFromWaterScale: {x: 1, y: 1, z: 1}
+  dragFromWaterScaleDuration: 0.2
   ply_TimerEvent: {fileID: 1600571539}
   ply_BobEffect: {fileID: 1600571538}
   collider1: {fileID: 0}
@@ -27875,6 +27957,11 @@ MonoBehaviour:
   plateTarget: {fileID: 0}
   childObject: []
   trashObj: []
+  knife: {fileID: 0}
+  waterFx: {fileID: 0}
+  scaleOnDragFromWater: 1
+  dragFromWaterScale: {x: 1, y: 1, z: 1}
+  dragFromWaterScaleDuration: 0.2
   ply_TimerEvent: {fileID: 1788397767}
   ply_BobEffect: {fileID: 1788397766}
   collider1: {fileID: 0}
@@ -29784,6 +29871,18 @@ MonoBehaviour:
           m_StringArgument: LeafOut
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1953256601}
+        m_TargetAssemblyTypeName: Item, Assembly-CSharp
+        m_MethodName: SpawnHeart
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LeafOut
+          m_BoolArgument: 0
+        m_CallState: 2
   lockInputWhileMoving: 1
   resetParentBeforeMove: 1
 --- !u!114 &1953256603
@@ -30676,7 +30775,7 @@ Transform:
   m_GameObject: {fileID: 2040613621}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.682, y: -0.008, z: 0}
+  m_LocalPosition: {x: -0.682, y: 0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

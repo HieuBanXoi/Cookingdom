@@ -1,74 +1,13 @@
-using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Fish : InWaterItem
 {
     public Transform lastPlate;
-    public GameObject waterFx;
     public GameObject fishIntestine;
     public GameObject fishBranchial;
     public Transform panPos;
     public GameObject fishOnPan;
     public GameObject oilTop;
-
-    private Vector3 originalScale;
-    private bool wasInWaterOnDrag;
-    private bool isSubscribedToDragEvents;
-
-    private void Awake()
-    {
-        // Item.Awake() được gọi trước, đã cache itemDraggable.
-        // Chúng ta đăng ký các sự kiện kéo thả ở đây.
-        SubscribeToDragEvents();
-    }
-
-    private void OnEnable()
-    {
-        // Đảm bảo đã đăng ký sự kiện khi object được bật lại.
-        SubscribeToDragEvents();
-    }
-
-    private void OnDisable()
-    {
-        // Hủy đăng ký sự kiện để tránh memory leak.
-        UnsubscribeFromDragEvents();
-    }
-
-    private void SubscribeToDragEvents()
-    {
-        if (itemDraggable != null && !isSubscribedToDragEvents)
-        {
-            itemDraggable.onBeginDrag.AddListener(OnBeginDragFish);
-            itemDraggable.onDropSuccess.AddListener(OnDropSuccessFish);
-            isSubscribedToDragEvents = true;
-        }
-    }
-
-    private void UnsubscribeFromDragEvents()
-    {
-        if (itemDraggable != null && isSubscribedToDragEvents)
-        {
-            itemDraggable.onBeginDrag.RemoveListener(OnBeginDragFish);
-            itemDraggable.onDropSuccess.RemoveListener(OnDropSuccessFish);
-            isSubscribedToDragEvents = false;
-        }
-    }
-
-    private void OnBeginDragFish()
-    {
-        if (isInWater)
-        {
-            wasInWaterOnDrag = true;
-            originalScale = transform.localScale;
-            transform.DOScale(1f, 0.2f);
-            if (waterFx != null) waterFx.SetActive(true);
-        }
-        else
-        {
-            wasInWaterOnDrag = false;
-        }
-    }
 
     protected override void OnMoveToCuttingBoard()
     {
@@ -77,28 +16,6 @@ public class Fish : InWaterItem
         animator.SetTrigger("Wet");
     }
 
-    private void OnDropSuccessFish()
-    {
-        // Khi thả thành công, không scale về cũ, chỉ tắt hiệu ứng.
-        if (wasInWaterOnDrag)
-        {
-            if (waterFx != null) waterFx.SetActive(false);
-            wasInWaterOnDrag = false; // Reset lại trạng thái
-        }
-    }
-
-    public override void OnDragFailReturnComplete()
-    {
-        base.OnDragFailReturnComplete();
-
-        // Khi thả thất bại và quay về vị trí cũ, scale về ban đầu và tắt hiệu ứng.
-        if (wasInWaterOnDrag)
-        {
-            transform.DOScale(originalScale, 0.2f);
-            if (waterFx != null) waterFx.SetActive(false);
-            wasInWaterOnDrag = false; // Reset lại trạng thái
-        }
-    }
 
     public void EnablePlateTarget()
     {
@@ -149,7 +66,6 @@ public class Fish : InWaterItem
         itemMoveToTarget.SetEndScale(0.85f);
         // Cập nhật lại trạng thái có thể kéo thả sau khi thay đổi state.
         UpdateDragAvailability();
-            itemDraggable.onDropSuccess.RemoveListener(OnDropSuccessFish);
 
         itemDraggable.onDropSuccess.AddListener(() =>
         {

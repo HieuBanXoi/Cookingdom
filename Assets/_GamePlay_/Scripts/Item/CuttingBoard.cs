@@ -7,7 +7,7 @@ public class CuttingBoard : Item
     public Vector3 punchScale = new Vector3(0.1f, -0.1f, 0f);
     public float punchDuration = 0.3f;
 
-        public void IsFoodOn(bool isFoodOn)
+    public void IsFoodOn(bool isFoodOn)
     {
         if (isFoodOn)
         {
