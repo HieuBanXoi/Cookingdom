@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fish_Mask_3_0: 8552007968431347999
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

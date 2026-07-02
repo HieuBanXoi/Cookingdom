@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fireFrly_wing_2_0: -3536353782427937432
+      fireFrly_wing_2_1: -2692656294761178268
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

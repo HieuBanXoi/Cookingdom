@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      powerBar_slider_0: 7688681504976524954
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

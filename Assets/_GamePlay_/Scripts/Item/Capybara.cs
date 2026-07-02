@@ -12,7 +12,7 @@ public class Capybara : MonoBehaviour
 {
 
 
-    [LunaPlaygroundField("Play Skin Change", 0, "Play Skin Change")]
+    // [LunaPlaygroundField("Play Skin Change", 0, "Play Skin Change")]
     public PlaySkinChangeMode playSkinChangeMode = PlaySkinChangeMode.PlaySkinChange;
 
     public Transform popup1;

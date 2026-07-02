@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cilantro_Pcs_4_0: -8078326834994320748
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

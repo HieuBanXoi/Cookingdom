@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      oil_Boild_Sprite_0: -4440792767488235441
+      oil_Boild_Sprite_1: -1009347884631417545
+      oil_Boild_Sprite_2: 1153044469536053739
+      oil_Boild_Sprite_3: 2514301456336335611
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

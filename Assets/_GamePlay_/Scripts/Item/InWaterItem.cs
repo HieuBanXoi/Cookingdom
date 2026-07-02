@@ -39,6 +39,7 @@ public class InWaterItem : Item
     private bool hasCachedColliderRadius;
     private float originalSphereColliderRadius;
     private float originalCapsuleColliderRadius;
+    private bool hasSpawnedTrashDragObjects;
 
     private enum MoveDestination
     {
@@ -143,8 +144,8 @@ public class InWaterItem : Item
         PhaseManager.Ins?.DoOneStep();
         if (itemClickable != null)
         {
-        itemClickable.enabled = false;
-            
+            itemClickable.enabled = false;
+
         }
         if (ply_BobEffect != null)
         {
@@ -185,7 +186,7 @@ public class InWaterItem : Item
 
     public void MoveToWater()
     {
-        if(itemMoveToTarget != null)
+        if (itemMoveToTarget != null)
         {
             itemMoveToTarget.rotate360DuringJump = false;
         }
@@ -301,7 +302,7 @@ public class InWaterItem : Item
         onProcess = false;
         SetPlateFoodShadowActive(false);
         SetColliderRadiusMultiplier(1f);
-        
+
 
         if (itemDraggable != null)
         {
@@ -555,11 +556,11 @@ public class InWaterItem : Item
 
     public void ResetChildRotate()
     {
-        if(childObject != null)
+        if (childObject != null)
         {
-            for(int i = 0; i < childObject.Length; i++)
+            for (int i = 0; i < childObject.Length; i++)
             {
-                childObject[i].DORotate(new Vector3(0,0,0),0.1f);
+                childObject[i].DORotate(new Vector3(0, 0, 0), 0.1f);
             }
         }
     }
@@ -581,17 +582,25 @@ public class InWaterItem : Item
     }
     public void CanTrashDrag()
     {
-        animator.enabled = false;
+        if (hasSpawnedTrashDragObjects) return;
+
+        hasSpawnedTrashDragObjects = true;
         for (int i = 0; i < trashObj.Length; i++)
         {
             if (trashObj[i] == null) continue;
 
-            Item item = ComponentCache<Item>.Get(trashObj[i]);
+            Transform trashToHide = trashObj[i];
+            Transform trashToDrag = Instantiate(trashToHide, transform.parent, true);
+            trashToDrag.name = trashToHide.name;
+            trashObj[i] = trashToDrag;
+            trashToHide.gameObject.SetActive(false);
+
+            Item item = ComponentCache<Item>.Get(trashToDrag);
             if (item == null) continue;
 
-            trashObj[i].SetParent(transform.parent, true);
             if (item.itemDraggable != null)
             {
+                item.itemDraggable.RefreshDragParentContext();
                 item.itemDraggable.enabled = true;
             }
         }

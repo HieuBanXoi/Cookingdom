@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BG_Tree_Bright_0: 6493618155931975312
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

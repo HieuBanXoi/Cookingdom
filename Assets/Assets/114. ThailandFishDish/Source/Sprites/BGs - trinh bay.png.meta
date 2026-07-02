@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BGs - trinh bay_0: -3508887677778950036
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

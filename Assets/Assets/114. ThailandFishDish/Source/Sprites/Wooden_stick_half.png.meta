@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Wooden_stick_half_0: 7560702349436300664
+      Wooden_stick_half_1: 4381949745064831441
+      Wooden_stick_half_2: -2105703162664325933
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

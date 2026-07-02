@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BG_Ground_Big_Bright_0: 5557928342834288656
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

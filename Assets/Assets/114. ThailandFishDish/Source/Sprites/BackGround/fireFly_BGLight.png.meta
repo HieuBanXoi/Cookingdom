@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fireFly_BGLight_0: -8746665124668658177
+      fireFly_BGLight_1: -7809838358415732569
+      fireFly_BGLight_2: -5564181624291810319
+      fireFly_BGLight_3: -6602590682294235981
+      fireFly_BGLight_4: -8612343642325330929
+      fireFly_BGLight_5: 8440437254014739767
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

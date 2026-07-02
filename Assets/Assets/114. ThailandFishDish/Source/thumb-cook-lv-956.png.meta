@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      thumb-cook-lv-956_0: -8926541651362737148
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

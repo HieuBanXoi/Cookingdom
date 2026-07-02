@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bush across river_0: 5805582901875109840
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
