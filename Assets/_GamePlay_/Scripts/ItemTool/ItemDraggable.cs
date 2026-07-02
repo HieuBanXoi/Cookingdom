@@ -55,9 +55,11 @@ public class ItemDraggable : MonoBehaviour
     private bool consumeCurrentDropFail;
     private bool isForceReturningToStart;
     private bool isDraggingSession;
+    private bool isReturningToStart;
     private ItemDragChildRotator itemDragChildRotator;
 
     public bool IsDragging => isDraggingSession;
+    public bool IsReturningToStart => isReturningToStart;
 
 
     void Start()
@@ -103,6 +105,7 @@ public class ItemDraggable : MonoBehaviour
     {
         Tween returnTween = null;
         spawnHeartOnReturnComplete = spawnHeart;
+        isReturningToStart = true;
 
         transform.DOKill();
 
@@ -115,7 +118,9 @@ public class ItemDraggable : MonoBehaviour
         {
             if (setParentToReturnTransform)
             {
+                Vector3 worldScaleBeforeParentChange = transform.lossyScale;
                 transform.SetParent(returnTransform);
+                SetWorldScale(transform, worldScaleBeforeParentChange);
                 Vector3 localTargetPos = returnToExactReturnTransformPosition ? Vector3.zero : new Vector3(0, 0, originalLocalPos.z);
                 returnTween = transform.DOLocalMove(localTargetPos, 0.3f).SetEase(Ease.OutQuart);
             }
@@ -142,6 +147,7 @@ public class ItemDraggable : MonoBehaviour
 
     public void TeleportToStart()
     {
+        isReturningToStart = false;
         transform.DOKill();
 
         if (bobEffect != null && bobEffect.isActiveAndEnabled)
@@ -158,7 +164,9 @@ public class ItemDraggable : MonoBehaviour
         {
             if (setParentToReturnTransform)
             {
+                Vector3 worldScaleBeforeParentChange = transform.lossyScale;
                 transform.SetParent(returnTransform);
+                SetWorldScale(transform, worldScaleBeforeParentChange);
                 transform.localPosition = returnToExactReturnTransformPosition ? Vector3.zero : new Vector3(0, 0, originalLocalPos.z);
             }
             else
@@ -181,6 +189,19 @@ public class ItemDraggable : MonoBehaviour
         PlayBobEffectIfEnabled();
     }
 
+    public void RefreshDragParentContext()
+    {
+        originalParent = transform.parent;
+        originalLocalPos = transform.localPosition;
+        originalScale = transform.localScale;
+        hasOriginalScale = true;
+        originalZ = transform.position.z;
+        if (shadowObject != null)
+        {
+            shadowDefaultActive = shadowObject.activeSelf;
+        }
+    }
+
     public bool BeginDrag()
     {
         if (!CanDrag()) return false;
@@ -199,7 +220,9 @@ public class ItemDraggable : MonoBehaviour
 
         PlayBeginDragSound();
 
+        Vector3 worldScaleBeforeParentChange = transform.lossyScale;
         transform.SetParent(originalParent);
+        SetWorldScale(transform, worldScaleBeforeParentChange);
 
         zCoord = mainCam.WorldToScreenPoint(transform.position).z;
         transform.position += mainCam.transform.forward * -liftOffset;
@@ -384,6 +407,22 @@ public class ItemDraggable : MonoBehaviour
         transform.localScale = originalScale;
     }
 
+    private static void SetWorldScale(Transform target, Vector3 worldScale)
+    {
+        if (target.parent == null)
+        {
+            target.localScale = worldScale;
+            return;
+        }
+
+        Vector3 parentScale = target.parent.lossyScale;
+        target.localScale = new Vector3(
+            parentScale.x != 0f ? worldScale.x / parentScale.x : target.localScale.x,
+            parentScale.y != 0f ? worldScale.y / parentScale.y : target.localScale.y,
+            parentScale.z != 0f ? worldScale.z / parentScale.z : target.localScale.z
+        );
+    }
+
     private void PlayDragScale()
     {
         scaleTween?.Kill();
@@ -405,6 +444,7 @@ public class ItemDraggable : MonoBehaviour
     private void FinalizeFailedDrag(bool spawnHeart)
     {
         isForceReturningToStart = false;
+        isReturningToStart = false;
         SetShadowActive(shadowDefaultActive);
         PlayBobEffectIfEnabled();
         PlayReturnToStartFinishSound();

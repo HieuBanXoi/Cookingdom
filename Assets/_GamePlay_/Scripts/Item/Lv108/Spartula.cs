@@ -4,28 +4,27 @@ using UnityEngine;
 public class Spartula : Item
 {
     [Header("Tongs")]
-    public Item caughtItem; // Changed from FishFillet to generic Item
-    public Transform foodPoint;
+    public Item carriedItem;
+    public Transform fishPoint;
     public float catchDuration = 0.2f;
     public float raycastDistance = 100f;
     public LayerMask itemLayerMask;
 
     private Camera mainCamera;
-    private Transform caughtItemOriginalParent; // Added to store original parent
     private bool isDragging;
-    private bool isFoodReady;
-    private Quaternion caughtItemRotationBeforeCatch; // Renamed
-    private Vector3 caughtItemScaleBeforeCatch;       // Renamed
-    private bool caughtItemWasBobbingBeforeCatch;     // Renamed
+    private bool isItemReady;
+    private Quaternion carriedItemRotationBeforeCatch;
+    private Vector3 carriedItemBaseWorldScale;
+    private bool hasCarriedItemBaseWorldScale;
 
     private void OnEnable()
     {
         mainCamera = Camera.main;
         itemLayerMask = LayerMask.GetMask("Item");
 
-        if (foodPoint == null)
+        if (fishPoint == null)
         {
-            foodPoint = transform.Find("FishPoint");
+            fishPoint = transform.Find("FishPoint");
         }
 
         if (itemDraggable == null) return;
@@ -51,20 +50,23 @@ public class Spartula : Item
     private void Update()
     {
         if (!isDragging || mainCamera == null) return;
-        
-        if (caughtItem == null) // Check for generic caughtItem
+
+        if (carriedItem == null)
         {
-            TryCatchItem(); // Renamed method
+            TryCatchItem();
+            return;
         }
-        else if (isFoodReady) // isFishReady now means isItemReady
+
+        if (isItemReady)
         {
-            TryMoveCaughtItemToTarget(); // Renamed method
+            TryMoveCaughtItemToTarget();
         }
     }
 
     private void OnBeginDrag()
     {
-        isFoodReady = false;
+        carriedItem = null;
+        isItemReady = false;
         isDragging = true;
     }
 
@@ -76,101 +78,91 @@ public class Spartula : Item
     private void OnDropFail()
     {
         isDragging = false;
-        
-        if (caughtItem == null) return;
 
-        // Restore original rotation and scale before ItemDraggable takes over to return it.
-        caughtItem.transform.rotation = caughtItemRotationBeforeCatch;
-        SetWorldScale(caughtItem.transform, caughtItemScaleBeforeCatch);
+        if (carriedItem == null) return;
 
-        // Re-enable draggable so it can return to its returnTransform.
-        if (caughtItem.itemDraggable != null)
-        {
-            caughtItem.itemDraggable.enabled = true;
-        }
-
-        // If it was an InWaterItem and was bobbing, restart bob effect.
-        if (caughtItemWasBobbingBeforeCatch && caughtItem is InWaterItem inWaterItem)
-        {
-            inWaterItem.StartWaterEffects();
-        }
-
-        // Release the item from Spartula's control.
-        ReleaseItem();
+        Item itemToReturn = carriedItem;
+        ReleaseCarriedItem();
+        ReturnItemToStart(itemToReturn);
     }
 
-    private void TryCatchItem() // Renamed method
+    private void TryCatchItem()
     {
-        // Raycast for any Item under the foodPoint
-        Item hitItem = FindItemUnderFoodPoint();
-        if(hitItem!=caughtItem)
+        if (fishPoint == null)
         {
+            Debug.LogWarning($"[Tongs] {name} cannot find FishPoint.");
             return;
         }
-        isFoodReady = false;
-        caughtItemRotationBeforeCatch = caughtItem.transform.rotation;
-        caughtItemScaleBeforeCatch = caughtItem.transform.lossyScale;
-        caughtItemOriginalParent = caughtItem.transform.parent; // Store original parent
 
-        // Stop bob effect if it's an InWaterItem
-        caughtItemWasBobbingBeforeCatch = (caughtItem is InWaterItem inWaterItem) && inWaterItem.ply_BobEffect != null && inWaterItem.ply_BobEffect.isActiveAndEnabled;
-        if (caughtItem is InWaterItem inWaterItemToStop) inWaterItemToStop.StopWaterEffects();
+        Item hitItem = FindItemByType(ItemType.FishDone);
+        if (hitItem == null || hitItem == this) return;
 
-        if (caughtItem.itemDraggable != null)
+        carriedItem = hitItem;
+        isItemReady = false;
+        carriedItemRotationBeforeCatch = carriedItem.transform.rotation;
+        if (!hasCarriedItemBaseWorldScale)
         {
-            caughtItem.itemDraggable.enabled = false;
+            carriedItemBaseWorldScale = carriedItem.transform.lossyScale;
+            hasCarriedItemBaseWorldScale = true;
         }
-        animator.SetTrigger("Next");
-        caughtItem.transform.DOKill();
-        caughtItem.transform.SetParent(foodPoint, true);
-        caughtItem.transform.DOLocalMove(Vector3.zero, catchDuration)
+
+        if (carriedItem.itemDraggable != null)
+        {
+            carriedItem.itemDraggable.enabled = false;
+        }
+        itemDraggable.TurnOnSpawnBreakHeartOnFailed(false);
+        carriedItem.transform.DOKill();
+        carriedItem.transform.SetParent(fishPoint, true);
+        carriedItem.transform.DOLocalMove(Vector3.zero, catchDuration)
             .SetEase(Ease.OutQuad)
             .OnUpdate(() =>
             {
-                caughtItem.transform.rotation = caughtItemRotationBeforeCatch;
-                SetWorldScale(caughtItem.transform, caughtItemScaleBeforeCatch);
+                carriedItem.transform.rotation = carriedItemRotationBeforeCatch;
+                SetWorldScale(carriedItem.transform, carriedItemBaseWorldScale);
             })
             .OnComplete(() =>
             {
-                caughtItem.transform.rotation = caughtItemRotationBeforeCatch;
-                SetWorldScale(caughtItem.transform, caughtItemScaleBeforeCatch);
-                isFoodReady = caughtItem == hitItem; // isItemReady
+                carriedItem.transform.rotation = carriedItemRotationBeforeCatch;
+                SetWorldScale(carriedItem.transform, carriedItemBaseWorldScale);
+                isItemReady = carriedItem == hitItem;
             });
     }
 
-    private void TryMoveCaughtItemToTarget() // Renamed method
+    private void TryMoveCaughtItemToTarget()
     {
-        if (caughtItem == null || caughtItem.itemDraggable == null || caughtItem.itemMoveToTarget == null) return;
+        if (carriedItem == null || carriedItem.itemDraggable == null) return;
 
-        ItemType targetType = caughtItem.itemDraggable.targetItemType;
+        ItemType targetType = carriedItem.itemDraggable.targetItemType;
         if (targetType == ItemType.None) return;
 
-        // Use itemMoveToTarget.defaultTarget directly
-        Transform defaultMoveTargetTransform = caughtItem.itemMoveToTarget.defaultTarget;
-        if (defaultMoveTargetTransform == null) return;
+        Item target = FindItemByType(targetType);
+        if (target == null) return;
 
-        Item targetItemComponent = ComponentCache<Item>.Get(defaultMoveTargetTransform);
-        if (targetItemComponent == null) return;
+        Item itemToMove = carriedItem;
+        carriedItem.ChangeItemType(ItemType.None);
+        ReleaseCarriedItem();
 
-        // Check if the target type of the caught item matches the type of the default target.
-        // This ensures the caught item is being moved to an appropriate place.
-        if (caughtItem.itemDraggable.targetItemType != ItemType.None &&
-            targetItemComponent.itemType != caughtItem.itemDraggable.targetItemType)
+        if (itemToMove.itemMoveToTarget != null)
         {
-            return;
+            itemToMove.itemMoveToTarget.ExecuteMove3D(target.transform);
+        }
+        else
+        {
+            itemToMove.transform.SetParent(target.transform, true);
+            itemToMove.transform.position = target.transform.position;
         }
 
-        Item itemToMove = caughtItem;
-        ReleaseItem(); // Release from Spartula's control
-        itemToMove.itemMoveToTarget.ExecuteMove(); // Use generic move
+        if (itemToMove.itemDraggable != null)
+        {
+            itemToMove.itemDraggable.enabled = true;
+        }
     }
 
-    // Helper to find any item under the foodPoint
-    private Item FindItemUnderFoodPoint()
+    private Item FindItemByType(ItemType targetType)
     {
-        if (foodPoint == null) return null;
+        if (fishPoint == null) return null;
 
-        Ray ray = new Ray(foodPoint.position, mainCamera.transform.forward);
+        Ray ray = new Ray(fishPoint.position, mainCamera.transform.forward);
         Debug.DrawRay(ray.origin, ray.direction * raycastDistance, Color.red);
         RaycastHit[] hits = Physics.RaycastAll(
             ray,
@@ -182,7 +174,7 @@ public class Spartula : Item
         for (int i = 0; i < hits.Length; i++)
         {
             Item hitItem = hits[i].collider.GetComponentInParent<Item>();
-            if (hitItem != null && hitItem != this) // Find any item, not filtering by type here
+            if (hitItem != null && hitItem != this && hitItem.itemType == targetType)
             {
                 return hitItem;
             }
@@ -191,15 +183,30 @@ public class Spartula : Item
         return null;
     }
 
-    private void ReleaseItem()
+    private void ReleaseCarriedItem()
     {
-        if (caughtItem != null)
+        if (carriedItem != null)
         {
-            caughtItem.transform.DOKill();
+            carriedItem.transform.DOKill();
         }
 
-        caughtItem = null;
-        isFoodReady = false;
+        carriedItem = null;
+        isItemReady = false;
+    }
+
+    private void ReturnItemToStart(Item itemToReturn)
+    {
+        if (itemToReturn == null) return;
+
+        if (itemToReturn.itemDraggable != null)
+        {
+            itemToReturn.itemDraggable.enabled = true;
+            itemToReturn.itemDraggable.ReturnToStart();
+        }
+        else
+        {
+            itemToReturn.transform.DOKill();
+        }
     }
 
     private static void SetWorldScale(Transform target, Vector3 worldScale)

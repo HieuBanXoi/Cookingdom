@@ -102,12 +102,13 @@ public class Paper : Item
     }
     public void SpawnExtendPaper()
     {
-        Paper paper = Ply_Pool.Ins.Spawn<Paper>(PoolType.Paper, transform.position, transform.rotation);
+        Vector3 spawnPosition = GameManager.Ins.paperBox.transform.position;
+        Paper paper = Ply_Pool.Ins.Spawn<Paper>(PoolType.Paper, spawnPosition, transform.rotation);
 
         if (paper == this)
         {
             // Nếu pool trả về chính object này, hãy yêu cầu một object khác.
-            paper = Ply_Pool.Ins.Spawn<Paper>(PoolType.Paper, transform.position, transform.rotation);
+            paper = Ply_Pool.Ins.Spawn<Paper>(PoolType.Paper, spawnPosition, transform.rotation);
         }
         
         // Thêm kiểm tra null để code an toàn hơn và dễ debug hơn

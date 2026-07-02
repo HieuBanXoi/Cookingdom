@@ -10,6 +10,7 @@ public class Fish : InWaterItem
     public GameObject fishBranchial;
     public Transform panPos;
     public GameObject fishOnPan;
+    public GameObject oilTop;
 
     private Vector3 originalScale;
     private bool wasInWaterOnDrag;
@@ -148,5 +149,15 @@ public class Fish : InWaterItem
         itemMoveToTarget.SetEndScale(0.85f);
         // Cập nhật lại trạng thái có thể kéo thả sau khi thay đổi state.
         UpdateDragAvailability();
+            itemDraggable.onDropSuccess.RemoveListener(OnDropSuccessFish);
+
+        itemDraggable.onDropSuccess.AddListener(() =>
+        {
+            if (fishOnPan != null) fishOnPan.SetActive(true);
+            oilTop.SetActive(true);
+            gameObject.SetActive(false);
+
+        });
+
     }
 }

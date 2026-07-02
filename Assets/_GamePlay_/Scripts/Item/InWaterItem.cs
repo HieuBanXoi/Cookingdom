@@ -9,6 +9,7 @@ public class InWaterItem : Item
     public Transform cuttingBoardTarget;
     public Transform plateTarget;
     public Transform[] childObject;
+    public Transform[] trashObj;
 
     public Ply_TimerEvent ply_TimerEvent;
     public Ply_BobEffect ply_BobEffect;
@@ -69,8 +70,8 @@ public class InWaterItem : Item
     {
         if (isMoving) return;
 
-        // Nếu đang được kéo thì không cập nhật vị trí, để cho ItemDraggable xử lý.
-        if (itemDraggable != null && itemDraggable.IsDragging) return;
+        // Nếu đang được kéo hoặc đang return về start thì không cập nhật vị trí, để cho ItemDraggable xử lý.
+        if (itemDraggable != null && (itemDraggable.IsDragging || itemDraggable.IsReturningToStart)) return;
 
         if (isOnPlate && plateTarget != null)
         {
@@ -126,6 +127,8 @@ public class InWaterItem : Item
         isClean = true;
         isCutDone = false;
         ply_TimerEvent?.StopTimer();
+        itemMoveToTarget.scaleOnMove = true;
+        SpawnBlinkEffect();
         ConfigureNextTarget();
         SetCuttingBoardAsDefaultTarget();
     }
@@ -160,6 +163,8 @@ public class InWaterItem : Item
         UpdateDragAvailability();
         if (itemDraggable != null)
             itemDraggable.enabled = true;
+        Debug.Log("CutDone");
+
     }
 
     public void PlayAnim(bool isTrue)
@@ -368,7 +373,7 @@ public class InWaterItem : Item
                 OnMoveToCuttingBoardComplete();
                 break;
 
-            case MoveDestination.Plate:
+            default:
                 OnMoveToPlateComplete();
                 break;
         }
@@ -536,6 +541,18 @@ public class InWaterItem : Item
         }
     }
 
+    protected override Vector3 GetEffectSpawnPosition()
+    {
+        if (isOnPlate && plateTarget != null)
+        {
+            Vector3 spawnPosition = plateTarget.position;
+            spawnPosition.z = fxSpawnZPos;
+            return spawnPosition;
+        }
+
+        return base.GetEffectSpawnPosition();
+    }
+
     public void ResetChildRotate()
     {
         if(childObject != null)
@@ -561,5 +578,23 @@ public class InWaterItem : Item
     {
         ComponentCache<Knife>.Get(HandTutManager.Ins.knife).SetTarget(transform);
         itemClickable.enabled = false;
+    }
+    public void CanTrashDrag()
+    {
+        animator.enabled = false;
+        for (int i = 0; i < trashObj.Length; i++)
+        {
+            if (trashObj[i] == null) continue;
+
+            Item item = ComponentCache<Item>.Get(trashObj[i]);
+            if (item == null) continue;
+
+            trashObj[i].SetParent(transform.parent, true);
+            if (item.itemDraggable != null)
+            {
+                item.itemDraggable.enabled = true;
+            }
+        }
+
     }
 }

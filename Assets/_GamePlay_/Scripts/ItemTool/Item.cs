@@ -141,6 +141,7 @@ public class Item : Ply_GameUnit
         if (itemDraggable == null) return;
         itemDraggable.targetItemType = ItemType.None;
         itemDraggable.enabled = true;
+        itemClickable.enabled = false;
         animator.enabled = false;
         itemMoveToTarget.defaultTarget = null;
     }
@@ -279,7 +280,7 @@ public class Item : Ply_GameUnit
         });
     }
 
-    private Vector3 GetEffectSpawnPosition()
+    protected virtual Vector3 GetEffectSpawnPosition()
     {
         Vector3 spawnPosition = transform.position;
         spawnPosition.z = fxSpawnZPos;

@@ -9,6 +9,14 @@ public class FishOnPan : Item
     public RectTransform clockSpawnPoint;
     public float cookDuration = 2f;
     public float readyZ = -2f;
+    private void Start()
+    {
+        itemMoveToTarget.onComplete.AddListener(() =>
+        {
+            PhaseManager.Ins.DoOneStep();
+        });
+        
+    }
     public void CanFlip()
     {
         itemType = ItemType.FishFlip;
