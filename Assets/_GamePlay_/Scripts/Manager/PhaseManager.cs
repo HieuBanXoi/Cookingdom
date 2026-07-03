@@ -41,6 +41,8 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
 
     public int currentPhaseIndex = 0;
     public int currentStepCount = 0;
+    [LunaPlaygroundField("EC PopUp", 0, "Build Settings")]
+    public bool isECPopup = false;
 
     private bool isChangingPhase;
     private Tween phaseDelayTween;
@@ -140,6 +142,13 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
         Ply_SoundManager.Ins.PlayFx(FxType.Complete);
         phaseDelayTween?.Kill();
         phaseTransitionSequence?.Kill();
+
+        // Nếu isECPopup là true và phase 1 (index 0) vừa hoàn thành, gọi WinGame thay vì chuyển phase.
+        if (isECPopup && currentPhaseIndex == 0)
+        {
+            phaseDelayTween = DOVirtual.DelayedCall(delayBeforeNextPhase, FinishGameByPhase);
+            return;
+        }
 
         if (!HasNextPhase())
         {
