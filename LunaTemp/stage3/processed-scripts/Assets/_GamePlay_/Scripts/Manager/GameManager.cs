@@ -10,6 +10,9 @@ public class GameManager : Ply_Singleton<GameManager>
     public bool isLoseGame = false;
     public int countMove = 0;
     public int currentLayer;
+    public Transform trashCan;
+    public Transform step1;
+    public PaperBox paperBox;
 
     private void Start()
     {
@@ -33,7 +36,6 @@ public class GameManager : Ply_Singleton<GameManager>
         currentState = newState;
 
         currentState?.OnEnter(this);
-        Debug.Log("ChangeState: " + currentState.ToString());
     }
     public bool IsPlaying()
     {
@@ -76,5 +78,13 @@ public class GameManager : Ply_Singleton<GameManager>
         isLoseGame = true;
         isPlaying = false;
         ChangeState(new LoseState());
+    }
+    public void ChangeTrashTarget(Transform newTarget)
+    {
+        trashCan = newTarget;
+    }
+    public void ChangePaperBoxTarget(PaperBox newTarget)
+    {
+        paperBox = newTarget;
     }
 }

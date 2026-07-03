@@ -16,7 +16,8 @@ public enum PoolType
     FlourSmoke,
     WaterSplash,
     Duck,
-    BrushMask
+    BrushMask,
+    Paper
 }
 
 public class Ply_Pool : Ply_Singleton<Ply_Pool>

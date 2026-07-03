@@ -7,6 +7,8 @@ public class Item : Ply_GameUnit
     [Header("--- HAND TUTORIAL ---")]
     public bool isDone = false;
     public bool onProcess = false;
+    [Tooltip("Nếu bật, hand-tut kéo thả chỉ hiển thị khi ItemType của defaultTarget khớp với targetItemType của ItemDraggable.")]
+    public bool requireMatchingTargetTypeForHandTut = false;
 
     [HideInInspector] public ItemDraggable itemDraggable;
     [HideInInspector] public ItemClickable itemClickable;
@@ -141,7 +143,7 @@ public class Item : Ply_GameUnit
         if (itemDraggable == null) return;
         itemDraggable.targetItemType = ItemType.None;
         itemDraggable.enabled = true;
-        itemClickable.enabled = false;
+        if (itemClickable != null)  itemClickable.enabled = false;
         animator.enabled = false;
         itemMoveToTarget.defaultTarget = null;
     }
@@ -303,54 +305,15 @@ public class Item : Ply_GameUnit
         fxSpawnZPos = minZ;
     }
 
+    public void ResetFxSpawnZPos()
+    {
+        fxSpawnZPos = -1.5f;
+    }
+
     public void PlayMoveToTargetFinishSound()
     {
         if (!playMoveToTargetFinishSound || Ply_SoundManager.Ins == null) return;
 
         Ply_SoundManager.Ins.PlayFx(moveToTargetFinishFxType);
-    }
-    public void PlaySoundFX(FxType fxType)
-    {
-        Ply_SoundManager.Ins.PlayFx(fxType);
-    }
-    public void PlayKnifeCutSound()
-    {
-        PlaySoundFX(FxType.KnifeCut);
-    }
-    public void PlayKnifeSwingSound()
-    {
-        PlaySoundFX(FxType.KnifeSwing);
-    }
-    public void PlayKnifePlaceSound()
-    {
-        PlaySoundFX(FxType.KnifePlace);
-    }
-    public void PlayLemonJuiceSound()
-    {
-        PlaySoundFX(FxType.LemonJuice);
-    }
-    public void PlayWipeSound()
-    {
-        PlaySoundFX(FxType.Wipe);
-    }
-    public void PlayWipe2Sound()
-    {
-        PlaySoundFX(FxType.Wipe2);
-    }
-    public void PlayPeerSound()
-    {
-        PlaySoundFX(FxType.Peer);
-    }
-    public void PlayPlaceFoodSound()
-    {
-        PlaySoundFX(FxType.ItemPlace);
-    }
-    public void PlayCreamSound()
-    {
-        PlaySoundFX(FxType.Cream);
-    }
-    public void PlayLeafSound()
-    {
-        PlaySoundFX(FxType.LeafOn);
     }
 }

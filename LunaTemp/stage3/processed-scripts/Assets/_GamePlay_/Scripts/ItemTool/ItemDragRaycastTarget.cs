@@ -20,6 +20,7 @@ public class ItemDragRaycastTarget : MonoBehaviour
     public bool invokeOnlyWhenTargetChanged = true;
     public bool targetChangeEnabled = false;
     public bool restoreTargetOnDropFail = true;
+    public bool resetCurrentTargetOnNoHit = false;
 
     [Header("--- EVENTS ---")]
     public UnityEvent onTargetFound;
@@ -123,7 +124,14 @@ public class ItemDragRaycastTarget : MonoBehaviour
         }
 
         Item foundTarget = GetMatchingTarget(hits);
-        if (foundTarget == null) return;
+        if (foundTarget == null)
+        {
+            if (resetCurrentTargetOnNoHit)
+            {
+                currentTarget = null; // Đặt lại currentTarget về null khi không tìm thấy mục tiêu nào
+            }
+            return;
+        }
         if (invokeOnlyWhenTargetChanged && foundTarget == currentTarget) return;
 
         currentTarget = foundTarget;

@@ -14,17 +14,28 @@ public class PhaseData
     public UnityEvent onPhaseReady;
 }
 
+public enum PhaseTransitionType
+{
+    HorizontalSlide,
+    VerticalSlide,
+    ObjectTransition
+}
+
 public class PhaseManager : Ply_Singleton<PhaseManager>
 {
     [Header("--- CÀI ĐẶT CÁC PHASE ---")]
     public List<PhaseData> phases;
 
     [Header("--- HIỆU ỨNG CHUYỂN PHASE ---")]
+    public PhaseTransitionType transitionType = PhaseTransitionType.HorizontalSlide;
     public float transitionDuration = 1.0f;
     public float delayBeforeNextPhase = 2.0f;
     public float offScreenLeftX = -15f;
     public float offScreenRightX = 15f;
+    public float offScreenBottomY = -15f;
+    public float offScreenTopY = 15f;
     public float centerScreenX = 0f;
+    private float centerScreenY = 0f;
     public GameObject phaseTransitionObject;
     public float phaseTransitionObjectDuration = 1.5f;
 
@@ -57,6 +68,7 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
                     phases[i].phaseObject.SetActive(true);
                     Vector3 pos = phases[i].phaseObject.transform.position;
                     pos.x = centerScreenX;
+                    centerScreenY = pos.y;
                     phases[i].phaseObject.transform.position = pos;
                     phases[i].onPhaseReady?.Invoke();
                 }
@@ -83,6 +95,7 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
     /// Gọi hàm này từ bất kỳ script nào bằng lệnh: PhaseManager.Ins.DoOneStep();
     /// Trả về true nếu là bước cuối cùng của Phase và bắt đầu chuyển Phase.
     /// </summary>
+    [ContextMenu("Do One Step")]
     public bool DoOneStep()
     {
         if (isChangingPhase) return false;
@@ -134,7 +147,7 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
             return;
         }
 
-        if (phaseTransitionObject != null)
+        if (transitionType == PhaseTransitionType.ObjectTransition && phaseTransitionObject != null)
         {
             phaseDelayTween = DOVirtual.DelayedCall(delayBeforeNextPhase, PlayPhaseObjectTransition);
             return;
@@ -184,6 +197,7 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
                 GameObject newObj = newPhase.phaseObject;
                 Vector3 pos = newObj.transform.position;
                 pos.x = centerScreenX;
+                pos.y = centerScreenY;
                 newObj.transform.position = pos;
                 newObj.SetActive(true);
                 if (GameManager.Ins != null && !GameManager.Ins.isLoseGame)
@@ -221,11 +235,20 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
         if (oldPhase != null && oldPhase.phaseObject != null)
         {
             Ply_SoundManager.Ins.PlayFx(FxType.Swipe);
-
             GameObject oldObj = oldPhase.phaseObject;
-            oldObj.transform.DOMoveX(offScreenLeftX, transitionDuration)
-                .SetEase(Ease.InOutQuad)
-                .OnComplete(() => oldObj.SetActive(false));
+
+            if (transitionType == PhaseTransitionType.VerticalSlide)
+            {
+                oldObj.transform.DOMoveY(offScreenBottomY, transitionDuration)
+                    .SetEase(Ease.InOutQuad)
+                    .OnComplete(() => oldObj.SetActive(false));
+            }
+            else // Mặc định là HorizontalSlide
+            {
+                oldObj.transform.DOMoveX(offScreenLeftX, transitionDuration)
+                    .SetEase(Ease.InOutQuad)
+                    .OnComplete(() => oldObj.SetActive(false));
+            }
         }
 
         // 2. Kiểm tra xem còn phase tiếp theo hay không
@@ -236,25 +259,47 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
             {
                 GameObject newObj = newPhase.phaseObject;
 
-                // Đưa phase mới ra chờ ở bên phải màn hình
                 Vector3 startPos = newObj.transform.position;
-                startPos.x = offScreenRightX;
-                newObj.transform.position = startPos;
+                Vector3 targetPos = startPos;
+                targetPos.x = centerScreenX;
+                targetPos.y = centerScreenY;
 
+                if (transitionType == PhaseTransitionType.VerticalSlide)
+                {
+                    // Đưa phase mới ra chờ ở trên màn hình
+                    startPos.x = centerScreenX;
+                    startPos.y = offScreenBottomY;
+                }
+                else // Mặc định là HorizontalSlide
+                {
+                    // Đưa phase mới ra chờ ở bên phải màn hình
+                    startPos.x = offScreenRightX;
+                    startPos.y = centerScreenY;
+                }
+
+                newObj.transform.position = startPos;
                 newObj.SetActive(true);
 
-                // Di chuyển Phase mới vào chính giữa
-                newObj.transform.DOMoveX(centerScreenX, transitionDuration)
-                    .SetEase(Ease.InOutQuad).OnComplete(() =>
-                    {
-                        isChangingPhase = false;
-                        if (GameManager.Ins != null && !GameManager.Ins.isLoseGame)
+                Tweener moveTween;
+                if (transitionType == PhaseTransitionType.VerticalSlide)
+                {
+                    moveTween = newObj.transform.DOMoveY(targetPos.y, transitionDuration);
+                }
+                else
+                {
+                    moveTween = newObj.transform.DOMoveX(targetPos.x, transitionDuration);
+                }
+
+                moveTween.SetEase(Ease.InOutQuad).OnComplete(() =>
                         {
-                            GameManager.Ins.isPlaying = true;
-                        }
-                        newPhase.onPhaseReady?.Invoke();
-                        StartHandTutAfterPhaseReady();
-                    });
+                            isChangingPhase = false;
+                            if (GameManager.Ins != null && !GameManager.Ins.isLoseGame)
+                            {
+                                GameManager.Ins.isPlaying = true;
+                            }
+                            newPhase.onPhaseReady?.Invoke();
+                            StartHandTutAfterPhaseReady();
+                        });
             }
             else
             {
@@ -295,5 +340,34 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
         }
 
         HandTutManager.Ins?.StartHandTutNoDelay();
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        // Horizontal
+        Vector3 leftPos = new Vector3(offScreenLeftX, centerScreenY, 0);
+        Vector3 rightPos = new Vector3(offScreenRightX, centerScreenY, 0);
+        Vector3 centerHPos = new Vector3(centerScreenX, centerScreenY, 0);
+        Gizmos.DrawWireSphere(leftPos, 0.5f);
+        Gizmos.DrawWireSphere(rightPos, 0.5f);
+        Gizmos.DrawLine(leftPos, centerHPos);
+        Gizmos.DrawLine(rightPos, centerHPos);
+
+        // Vertical
+        Vector3 topPos = new Vector3(centerScreenX, offScreenTopY, 0);
+        Vector3 bottomPos = new Vector3(centerScreenX, offScreenBottomY, 0);
+        Vector3 centerVPos = new Vector3(centerScreenX, centerScreenY, 0);
+        Gizmos.DrawWireSphere(topPos, 0.5f);
+        Gizmos.DrawWireSphere(bottomPos, 0.5f);
+        Gizmos.DrawLine(topPos, centerVPos);
+        Gizmos.DrawLine(bottomPos, centerVPos);
+
+#if UNITY_EDITOR
+        UnityEditor.Handles.Label(leftPos + Vector3.up, "Off-screen Left");
+        UnityEditor.Handles.Label(rightPos + Vector3.up, "Off-screen Right");
+        UnityEditor.Handles.Label(topPos + Vector3.right, "Off-screen Top");
+        UnityEditor.Handles.Label(bottomPos + Vector3.right, "Off-screen Bottom");
+#endif
     }
 }

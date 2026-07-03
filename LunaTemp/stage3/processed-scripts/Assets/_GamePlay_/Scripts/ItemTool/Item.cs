@@ -2,11 +2,13 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Item : MonoBehaviour
+public class Item : Ply_GameUnit
 {
     [Header("--- HAND TUTORIAL ---")]
     public bool isDone = false;
     public bool onProcess = false;
+    [Tooltip("Nếu bật, hand-tut kéo thả chỉ hiển thị khi ItemType của defaultTarget khớp với targetItemType của ItemDraggable.")]
+    public bool requireMatchingTargetTypeForHandTut = false;
 
     [HideInInspector] public ItemDraggable itemDraggable;
     [HideInInspector] public ItemClickable itemClickable;
@@ -63,6 +65,7 @@ public class Item : MonoBehaviour
         if (refreshHiddenReferences || itemSpriteMaskPainter == null) itemSpriteMaskPainter = GetComponent<ItemSpriteMaskPainter>();
         if (refreshHiddenReferences || itemDragSpriteMaskPainter == null) itemDragSpriteMaskPainter = GetComponent<ItemDragSpriteMaskPainter>();
     }
+    
     public virtual void ChangeItemType(ItemType itemType)
     {
         this.itemType = itemType;
@@ -140,6 +143,7 @@ public class Item : MonoBehaviour
         if (itemDraggable == null) return;
         itemDraggable.targetItemType = ItemType.None;
         itemDraggable.enabled = true;
+        if (itemClickable != null)  itemClickable.enabled = false;
         animator.enabled = false;
         itemMoveToTarget.defaultTarget = null;
     }
@@ -183,11 +187,11 @@ public class Item : MonoBehaviour
         CacheActiveEffect(yellowPiece, PoolType.YellowPiece, 1.5f);
         yellowPiece.DeSpawnByTime();
     }
-    public void SpawnWaterSplash(Vector3 position)
+    public void SpawnWaterSplash([Bridge.Ref] Vector3 position)
     {
         Ply_SoundManager.Ins.PlayFx(FxType.FoodToWater);
         TurnOffActiveEffect();
-        position.z = fxSpawnZPos;
+        
         WaterSplash waterSplash = Ply_Pool.Ins.Spawn<WaterSplash>(PoolType.WaterSplash, position, transform.rotation);
         if (waterSplash == null) return;
         CacheActiveEffect(waterSplash, PoolType.WaterSplash, 1f);
@@ -278,7 +282,7 @@ public class Item : MonoBehaviour
         });
     }
 
-    private Vector3 GetEffectSpawnPosition()
+    protected virtual Vector3 GetEffectSpawnPosition()
     {
         Vector3 spawnPosition = transform.position;
         spawnPosition.z = fxSpawnZPos;
@@ -301,54 +305,15 @@ public class Item : MonoBehaviour
         fxSpawnZPos = minZ;
     }
 
+    public void ResetFxSpawnZPos()
+    {
+        fxSpawnZPos = -1.5f;
+    }
+
     public void PlayMoveToTargetFinishSound()
     {
         if (!playMoveToTargetFinishSound || Ply_SoundManager.Ins == null) return;
 
         Ply_SoundManager.Ins.PlayFx(moveToTargetFinishFxType);
-    }
-    public void PlaySoundFX(FxType fxType)
-    {
-        Ply_SoundManager.Ins.PlayFx(fxType);
-    }
-    public void PlayKnifeCutSound()
-    {
-        PlaySoundFX(FxType.KnifeCut);
-    }
-    public void PlayKnifeSwingSound()
-    {
-        PlaySoundFX(FxType.KnifeSwing);
-    }
-    public void PlayKnifePlaceSound()
-    {
-        PlaySoundFX(FxType.KnifePlace);
-    }
-    public void PlayLemonJuiceSound()
-    {
-        PlaySoundFX(FxType.LemonJuice);
-    }
-    public void PlayWipeSound()
-    {
-        PlaySoundFX(FxType.Wipe);
-    }
-    public void PlayWipe2Sound()
-    {
-        PlaySoundFX(FxType.Wipe2);
-    }
-    public void PlayPeerSound()
-    {
-        PlaySoundFX(FxType.Peer);
-    }
-    public void PlayPlaceFoodSound()
-    {
-        PlaySoundFX(FxType.ItemPlace);
-    }
-    public void PlayCreamSound()
-    {
-        PlaySoundFX(FxType.Cream);
-    }
-    public void PlayLeafSound()
-    {
-        PlaySoundFX(FxType.LeafOn);
     }
 }

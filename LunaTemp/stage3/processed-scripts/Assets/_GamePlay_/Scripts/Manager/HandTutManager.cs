@@ -7,7 +7,8 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     [Header("--- HAND TUTORIAL ---")]
     public List<Item> items = new List<Item>();
     public Transform knife;
-    public Transform peeler;
+    public Transform knife2;
+    public Transform salt;
     public GameObject handTutObject;
     public GameObject tapToCookObject;
     public Item oilItem;
@@ -17,6 +18,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     public List<InWaterItem> itemsInWater = new List<InWaterItem>();
     public int noDelayItemCount = 3;
     public int breakHeartNoDelayThreshold = 3;
+    public float shortIdleDelay = 0.5f;
     [Tooltip("So lan hien hand tutorial toi da. De 0 de khong gioi han.")]
     [Min(0)] public int maxHandTutShowCount = 0;
     public bool showSinkWaterTutorialOnStart = true;
@@ -86,7 +88,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         hasStartedHandTut = isWaitingInitialSinkWaterTutorial || !waitForBowlIntro;
         if (tapToCookObject != null)
         {
-            tapToCookObject.SetActive(waitForBowlIntro && !isWaitingInitialSinkWaterTutorial);
+            tapToCookObject.SetActive(true);
         }
     }
 
@@ -148,7 +150,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         }
 
         idleTimer += Time.deltaTime;
-        float currentIdleDelay = ShouldSkipDelayForCurrentItem() ? 0f : GetCurrentIdleDelay();
+        float currentIdleDelay = GetCurrentIdleDelay();
         if (idleTimer >= currentIdleDelay && handSequence == null)
         {
             idleTimer = 0f;
@@ -242,7 +244,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
     private void ShowHandTutIfDelayCanBeSkipped()
     {
-        if (!ShouldSkipDelayForCurrentItem()) return;
+        if (GetCurrentIdleDelay() >= idleDelay) return;
 
         idleTimer = 0f;
         ShowNextHandTut();
@@ -272,6 +274,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         {
             if (stoveToggleEvent != null)
             {
+                Debug.Log("[HandTutManager] ShowNextHandTut: Stove Toggle.", stoveToggleEvent.gameObject);
                 PlayClickHint(stoveToggleEvent.transform);
                 return;
             }
@@ -279,9 +282,28 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
             isWaitingStoveToggle = false;
         }
 
+        // Ưu tiên handtut cho dao nếu có cá trên thớt và dao có thể tác động.
+        if (ShowKnifeToFishHandTut())
+        {
+            return;
+        }
+
+        // Thêm handtut cho Fish (WetItem) khi cần kéo từ PaperBox
+        if (ShowFishWetItemHandTut())
+        {
+            return;
+        }
+
+        // Nếu có item đang muốn kéo vào thùng rác và thùng rác đang đóng, ưu tiên handtut mở thùng rác.
+        if (ShowTrashCanHandTut())
+        {
+            return;
+        }
+
         Item targetItem = GetFirstTutorialReadyItem();
         if (targetItem == null)
         {
+            Debug.Log("[HandTutManager] ShowNextHandTut: No tutorial item found, checking for sink/water tutorial.");
             if (!ShowSinkWaterHandTut(true))
             {
                 HideHandTut();
@@ -289,6 +311,8 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
             return;
         }
+
+        Debug.Log($"[HandTutManager] ShowNextHandTut: Found tutorial item '{targetItem.name}'.", targetItem.gameObject);
 
         if (IsClickableReady(targetItem))
         {
@@ -383,6 +407,17 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     {
         if (item == null || item.isDone) return false;
         if (!item.gameObject.activeInHierarchy) return false;
+        if (DOTween.IsTweening(item.transform))
+        {
+
+            // Cho phép hand-tut nếu chuyển động có khả năng là từ Ply_BobEffect.
+            // Giả định rằng nếu một item có BobEffect đang bật, mọi tween không xác định khác là từ nó.
+            Ply_BobEffect bobEffect = ComponentCache<Ply_BobEffect>.Get(item.transform);
+            if (bobEffect == null || !bobEffect.enabled)
+            {
+                return false;
+            }
+        }
 
         if (IsClickableReady(item)) return true;
         if (IsKnifeSpriteMaskCutterReady(item)) return true;
@@ -391,7 +426,59 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
         if (IsDraggableReady(item))
         {
-            return item.itemMoveToTarget != null && item.itemMoveToTarget.defaultTarget != null;
+            ItemDragRaycastTarget dragRaycastTarget = ComponentCache<ItemDragRaycastTarget>.Get(item.transform);
+            if (dragRaycastTarget != null && dragRaycastTarget.enabled)
+            {
+                ItemType typeToFind = dragRaycastTarget.targetToFind;
+                if (typeToFind != ItemType.None)
+                {
+                    bool targetExists = false;
+                    for (int i = 0; i < items.Count; i++)
+                    {
+                        Item potentialTarget = items[i];
+                        if (potentialTarget != null && !potentialTarget.isDone && potentialTarget.gameObject.activeInHierarchy && potentialTarget.itemType == typeToFind)
+                        {
+                            targetExists = true;
+                            break;
+                        }
+                    }
+
+                    if (!targetExists)
+                    {
+                        return false;
+                    }
+                }
+            }
+            if (item.itemMoveToTarget == null || item.itemMoveToTarget.defaultTarget == null)
+            {
+                return false;
+            }
+
+            if (item.requireMatchingTargetTypeForHandTut)
+            {
+                // Logic đặc thù: Tìm con cá đang trên thớt để kiểm tra type của nó.
+                // Điều này giả định rằng mọi item có `requireMatchingTargetTypeForHandTut` đều nhắm vào con cá trên thớt.
+                Fish fishOnBoard = null;
+                for (int i = 0; i < items.Count; i++)
+                {
+                    if (items[i] is Fish fish && fish.isOnCuttingBoard && fish.gameObject.activeInHierarchy && !fish.isDone)
+                    {
+                        fishOnBoard = fish;
+                        break;
+                    }
+                }
+
+                if (fishOnBoard != null)
+                {
+                    // Chỉ hiện hand-tut nếu type của cá trên thớt khớp với yêu cầu của item đang kéo.
+                    return item.itemDraggable.targetItemType == fishOnBoard.itemType && fishOnBoard.itemType != ItemType.None;
+                }
+
+                // Nếu không tìm thấy cá trên thớt, không hiển thị hand-tut cho trường hợp này.
+                return false;
+            }
+
+            return true;
         }
 
         return GetToolTargetingItem(item) != null;
@@ -450,7 +537,6 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         if (item == null) return null;
 
         if (IsToolTargetingItem(knife, item)) return knife;
-        if (IsToolTargetingItem(peeler, item)) return peeler;
 
         return null;
     }
@@ -602,6 +688,11 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
     private float GetCurrentIdleDelay()
     {
+        if (ShouldSkipDelayForCurrentItem())
+        {
+            return shortIdleDelay;
+        }
+
         return hasShownFirstHandTut ? idleDelay : firstHandTutDelay;
     }
 
@@ -626,6 +717,8 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         Item targetItem = GetFirstTutorialReadyItem();
         if (targetItem != null)
         {
+            if (targetItem.requireMatchingTargetTypeForHandTut) return false;
+
             if (IsClickableReady(targetItem)) return false;
 
             return forceNoDelayForNextHandTut || ShouldUseStartupNoDelayForItem(targetItem);
@@ -769,6 +862,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
         if (sinkBlock != null && !sinkBlock.IsInside)
         {
+            Debug.Log("[HandTutManager] ShowNextHandTut: Sink Block.", sinkBlock.gameObject);
             PlayMoveHint(sinkBlock.transform, sinkBlock.insideDefaultTarget);
             ConsumeStartupNoDelay();
             ConsumeForcedNoDelay();
@@ -777,6 +871,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
         if (ShouldShowWaterToggleHandTut())
         {
+            Debug.Log("[HandTutManager] ShowNextHandTut: Water Toggle.", waterToggleEvent.gameObject);
             PlayClickHint(waterToggleEvent.transform);
             ConsumeStartupNoDelay();
             ConsumeForcedNoDelay();
@@ -786,6 +881,66 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         if (!requireInWaterItem)
         {
             isWaitingInitialSinkWaterTutorial = false;
+        }
+
+        return false;
+    }
+
+    private bool ShowFishWetItemHandTut()
+    {
+        if (GameManager.Ins == null || GameManager.Ins.paperBox == null) return false;
+        for (int i = 0; i < items.Count; i++)
+        {
+            Item item = items[i];
+            // Kiểm tra nếu item là Fish, có itemType là WetItem và chưa hoàn thành
+            if (item is Fish fishItem && fishItem.itemType == ItemType.WetItem && !fishItem.isDone)
+            {
+                // Đảm bảo PaperBox và Fish đều đang hoạt động
+                if (GameManager.Ins.paperBox.gameObject.activeInHierarchy && fishItem.gameObject.activeInHierarchy)
+                {
+                    Debug.Log($"[HandTutManager] ShowNextHandTut: PaperBox to WetItem '{fishItem.name}'.", fishItem.gameObject);
+                    PlayMoveHint(GameManager.Ins.paperBox.transform, fishItem.transform);
+                    ConsumeStartupNoDelayForItem(fishItem);
+                    ConsumeForcedNoDelay();
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private bool ShowTrashCanHandTut()
+    {
+        Item tutorialItem = GetFirstTutorialReadyItem();
+        if (tutorialItem == null || tutorialItem.itemDraggable == null || !IsDraggableReady(tutorialItem) || tutorialItem.itemDraggable.targetItemType != ItemType.Trash)
+        {
+            return false;
+        }
+
+        if (tutorialItem.itemMoveToTarget == null || tutorialItem.itemMoveToTarget.defaultTarget == null)
+        {
+            return false;
+        }
+
+        if (tutorialItem.requireMatchingTargetTypeForHandTut)
+        {
+            Item targetComponent = ComponentCache<Item>.Get(tutorialItem.itemMoveToTarget.defaultTarget);
+            if (targetComponent == null || targetComponent.itemType != tutorialItem.itemDraggable.targetItemType)
+            {
+                return false;
+            }
+        }
+
+        if (GameManager.Ins != null && GameManager.Ins.trashCan != null)
+        {
+            TrashCan trashCan = GameManager.Ins.trashCan.GetComponent<TrashCan>();
+            if (trashCan != null && !trashCan.isOpen)
+            {
+                Debug.Log("[HandTutManager] ShowNextHandTut: Open TrashCan.", trashCan.gameObject);
+                PlayClickHint(trashCan.transform);
+                ConsumeForcedNoDelay();
+                return true;
+            }
         }
 
         return false;
@@ -851,5 +1006,43 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         {
             ConsumeStartupNoDelay();
         }
+    }
+
+    private bool ShowKnifeToFishHandTut()
+    {
+        // Tìm cá đang nằm trên thớt
+        Fish fishOnBoard = null;
+        for (int i = 0; i < items.Count; i++)
+        {
+            Item item = items[i];
+            if (item is Fish fish && fish.isOnCuttingBoard && !fish.isDone && fish.gameObject.activeInHierarchy)
+            {
+                fishOnBoard = fish;
+                break;
+            }
+        }
+
+        if (fishOnBoard == null) return false;
+
+        // Kiểm tra xem dao có thể được kéo đến cá không
+        if (knife != null && knife.gameObject.activeInHierarchy)
+        {
+            ItemDraggable knifeDraggable = knife.GetComponent<ItemDraggable>();
+            if (knifeDraggable != null && knifeDraggable.CanDrag() && knifeDraggable.targetItemType == fishOnBoard.itemType && fishOnBoard.itemType != ItemType.None)
+            {
+                Debug.Log($"[HandTutManager] ShowNextHandTut: Knife to Fish '{fishOnBoard.name}'.", fishOnBoard.gameObject);
+                PlayMoveHint(knife, fishOnBoard.transform);
+                ConsumeForcedNoDelay();
+                return true;
+            }
+        }
+
+        return false;
+    }
+    public void ChangeKnife(Transform newKnife)
+    {
+
+        knife = newKnife;
+
     }
 }

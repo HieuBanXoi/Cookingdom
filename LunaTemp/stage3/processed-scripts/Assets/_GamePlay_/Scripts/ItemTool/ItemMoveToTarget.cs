@@ -8,6 +8,8 @@ public class ItemMoveToTarget : MonoBehaviour
     [Header("--- CẤU HÌNH ĐÍCH ---")]
     public Transform defaultTarget;
     public float duration = 0.5f;
+    public bool useAnimationCurve = false;
+    public AnimationCurve moveCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
     public Ease easeType = Ease.OutQuad;
     public MoveType moveType = MoveType.Smooth;
 
@@ -17,6 +19,12 @@ public class ItemMoveToTarget : MonoBehaviour
     public bool rotate360DuringJump = false;
     public bool flipRotate = false;
     public float angleRotate = -360;
+
+    [Header("--- TÙY CHỌN SCALE KHI MOVE ---")]
+    [Tooltip("Bật/tắt chức năng scale khi di chuyển.")]
+    public bool scaleOnMove = false;
+    [Tooltip("Hệ số nhân với scale hiện tại của vật thể khi di chuyển. Ví dụ: 0 để làm vật thể biến mất.")]
+    public float endScaleMultiplier = 1f;
 
     [Header("--- SAU KHI TỚI NƠI ---")]
     public bool setParentToTarget = false;
@@ -69,26 +77,60 @@ public class ItemMoveToTarget : MonoBehaviour
             GameManager.Ins.isPlaying = false;
         }
 
+        if (scaleOnMove)
+        {
+            Vector3 targetScale = transform.localScale * endScaleMultiplier;
+            if (useAnimationCurve)
+            {
+                transform.DOScale(targetScale, duration)
+                    .SetEase(moveCurve);
+            }
+            else
+            {
+                transform.DOScale(targetScale, duration)
+                    .SetEase(easeType);
+            }
+        }
+
         switch (moveType)
         {
             case MoveType.Smooth:
-                transform.DOMove(targetPos, duration)
-                    .SetEase(easeType)
-                    .OnComplete(FinishAction);
-
+                if (useAnimationCurve)
+                {
+                    transform.DOMove(targetPos, duration)
+                        .SetEase(moveCurve)
+                        .OnComplete(FinishAction);
+                }
+                else
+                {
+                    transform.DOMove(targetPos, duration)
+                        .SetEase(easeType)
+                        .OnComplete(FinishAction);
+                }
                 break;
 
             case MoveType.Jump:
                 // Kiểu nảy vào nồi cực đẹp
-                transform.DOJump(targetPos, jumpPower, numJumps, duration)
-                    .SetEase(easeType)
-                    .OnComplete(FinishAction);
+                if (useAnimationCurve)
+                {
+                    transform.DOJump(targetPos, jumpPower, numJumps, duration)
+                        .SetEase(moveCurve)
+                        .OnComplete(FinishAction);
+                }
+                else
+                {
+                    transform.DOJump(targetPos, jumpPower, numJumps, duration)
+                        .SetEase(easeType)
+                        .OnComplete(FinishAction);
+                }
+
                 if (rotate360DuringJump)
                 {
                     if (flipRotate)
                     {
                         angleRotate = -angleRotate;
                     }
+
                     transform.DORotate(new Vector3(0, 0, angleRotate), duration, RotateMode.FastBeyond360).SetEase(easeType);
                 }
                 break;
@@ -103,7 +145,14 @@ public class ItemMoveToTarget : MonoBehaviour
                 transform.DOShakePosition(0.2f, 0.2f)
                     .OnComplete(() =>
                     {
-                        transform.DOMove(targetPos, duration).SetEase(easeType).OnComplete(FinishAction);
+                        if (useAnimationCurve)
+                        {
+                            transform.DOMove(targetPos, duration).SetEase(moveCurve).OnComplete(FinishAction);
+                        }
+                        else
+                        {
+                            transform.DOMove(targetPos, duration).SetEase(easeType).OnComplete(FinishAction);
+                        }
                     });
                 break;
         }
@@ -158,5 +207,9 @@ public class ItemMoveToTarget : MonoBehaviour
             parentScale.y != 0f ? worldScale.y / parentScale.y : transform.localScale.y,
             parentScale.z != 0f ? worldScale.z / parentScale.z : transform.localScale.z
         );
+    }
+    public void SetEndScale(float scale)
+    {
+        endScaleMultiplier = scale;
     }
 }

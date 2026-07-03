@@ -10,12 +10,13 @@ public enum ItemType
     ItemInWater,
     Plate,
     Sink,
-    FoodOnCuttingBoard,
+    FoodOnCuttingBoard, Pan, PanBoiling,
+    Fish, WetItem, Paper, Trash,
+    FishKnife, FishSalt,
+    FishOnPan, FishFlip,FishDone,
+    PlateChillie,PlateChillieCut,PlateCilantro,PlateCilantroLeaf,PlateGarbe,PlateGarlic
 
-    YellowPickled, SmallBowl, Spinach, Perilla, Carrot, Cucumber, CarbStick, FriedPotato, YellowSingleLeft, Meat,
 
-    RollEmpty,RollRongBien,RollPerilla,
-    SmallBowlTarget, LastTray,
-    ShushiDone, ShushiOilIn, ShushiBeanIn
+    
     
 }

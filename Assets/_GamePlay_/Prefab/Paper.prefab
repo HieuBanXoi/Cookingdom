@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 2217137971974787759}
   - component: {fileID: 2822688037696594288}
   - component: {fileID: 1628804750988078398}
+  - component: {fileID: 638061191209527161}
   m_Layer: 3
   m_Name: Paper
   m_TagString: Untagged
@@ -261,6 +262,8 @@ MonoBehaviour:
   playBeginDragSound: 1
   beginDragFxType: 0
   liftOffset: 1
+  dragScaleMultiplier: 1.1
+  dragScaleDuration: 0.15
   onBeginDrag:
     m_PersistentCalls:
       m_Calls:
@@ -355,6 +358,8 @@ MonoBehaviour:
   rotate360DuringJump: 0
   flipRotate: 0
   angleRotate: -360
+  scaleOnMove: 0
+  endScaleMultiplier: 1
   setParentToTarget: 0
   onComplete:
     m_PersistentCalls:
@@ -388,6 +393,7 @@ MonoBehaviour:
   tf: {fileID: 4340815566981081071}
   isDone: 0
   onProcess: 0
+  requireMatchingTargetTypeForHandTut: 0
   itemDraggable: {fileID: 8613857045038570393}
   itemClickable: {fileID: 0}
   itemStirring: {fileID: 0}
@@ -437,9 +443,22 @@ MonoBehaviour:
   invokeOnlyWhenTargetChanged: 1
   targetChangeEnabled: 0
   restoreTargetOnDropFail: 0
+  resetCurrentTargetOnNoHit: 0
   onTargetFound:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 638061191209527161}
+        m_TargetAssemblyTypeName: ItemSound, Assembly-CSharp
+        m_MethodName: PlayPaperCleanSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onTargetFoundWithItem:
     m_PersistentCalls:
       m_Calls: []
@@ -465,3 +484,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &638061191209527161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6121493167682934418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec3bd0de69278846975db3a42f7a9af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

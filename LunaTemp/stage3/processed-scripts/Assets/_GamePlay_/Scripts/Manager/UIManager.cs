@@ -30,6 +30,7 @@ public class UIManager : Ply_Singleton<UIManager>
     public GameObject horizontalUI;
     public Transform downloadBtn;
     public Transform horizontalDownloadBtn;
+    public Animator textAnim;
     [LunaPlaygroundField("Google Build", 0, "Build Settings")]
     public bool isGoogleBuild = false;
 
@@ -429,6 +430,7 @@ public class UIManager : Ply_Singleton<UIManager>
         {
             horizontalDownloadBtn.gameObject.SetActive(isActive);
         }
+        textAnim.enabled = isActive;
     }
 
     private Transform FindChildByName(Transform root, string childName)

@@ -1,8 +1,8 @@
 {
     "version": "7.1.0",
     "projectId": "8cfa86f1caa935a41ac1489c608212f7",
-    "applicationID": 27599,
-    "creativeName": "Cookingdom_PLY_v59_Kimbap",
+    "applicationID": 27404,
+    "creativeName": "PLY_Cookingdom_Lv108",
     "pgServer": "EU",
     "window": {
         "‐⁙": true
@@ -8773,15 +8773,7 @@
                 "excluded": true
             },
             {
-                "name": "ItemFlyIn",
-                "excluded": true
-            },
-            {
                 "name": "Plate",
-                "excluded": true
-            },
-            {
-                "name": "Spoon",
                 "excluded": true
             },
             {
@@ -8810,6 +8802,10 @@
             },
             {
                 "name": "ItemRaycastTargetEvent",
+                "excluded": false
+            },
+            {
+                "name": "PhaseTransitionType",
                 "excluded": false
             }
         ],
@@ -9470,7 +9466,7 @@
                 "instanceMethods": [
                     {
                         "name": "format",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "equals",
@@ -16746,7 +16742,7 @@
                     },
                     {
                         "name": "RemoveListener",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -17378,7 +17374,7 @@
                     },
                     {
                         "name": "name#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "root#get",
@@ -18828,7 +18824,7 @@
                 "instanceMethods": [
                     {
                         "name": "flipX#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "flipX#set",
@@ -18836,7 +18832,7 @@
                     },
                     {
                         "name": "flipY#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "flipY#set",
@@ -18900,7 +18896,7 @@
                     },
                     {
                         "name": "spriteSortPoint#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "spriteSortPoint#set",
@@ -23021,6 +23017,14 @@
                     {
                         "name": "LoseGame",
                         "excluded": false
+                    },
+                    {
+                        "name": "ChangeTrashTarget",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChangePaperBoxTarget",
+                        "excluded": false
                     }
                 ]
             },
@@ -23202,7 +23206,7 @@
                     },
                     {
                         "name": "HasInWaterItemNeedingHandTut",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ShouldShowWaterToggleHandTut",
@@ -23230,7 +23234,7 @@
                     },
                     {
                         "name": "ShowHandTutIfDelayCanBeSkipped",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "IsStirringReady",
@@ -23266,6 +23270,22 @@
                     },
                     {
                         "name": "HasStartupNoDelayItemCount",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ShowFishWetItemHandTut",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ShowTrashCanHandTut",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ShowKnifeToFishHandTut",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChangeKnife",
                         "excluded": false
                     }
                 ]
@@ -23322,7 +23342,7 @@
                     },
                     {
                         "name": "CurrentPhaseObject#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "init",
@@ -23354,7 +23374,7 @@
                     },
                     {
                         "name": "GoToNextPhase",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "PlayPhaseObjectTransition",
@@ -23379,6 +23399,10 @@
                     {
                         "name": "FinishGameByPhase",
                         "excluded": false
+                    },
+                    {
+                        "name": "OnDrawGizmosSelected",
+                        "excluded": true
                     }
                 ]
             },
@@ -25956,7 +25980,7 @@
                     },
                     {
                         "name": "isTrigger#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "isTrigger#set",
@@ -25964,7 +25988,7 @@
                     },
                     {
                         "name": "material#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "material#set",
@@ -26872,7 +26896,7 @@
                 "instanceMethods": [
                     {
                         "name": "center#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "center#set",
@@ -26880,15 +26904,15 @@
                     },
                     {
                         "name": "radius#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "radius#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "height#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "height#set",
@@ -26896,7 +26920,7 @@
                     },
                     {
                         "name": "direction#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "direction#set",
@@ -27068,7 +27092,7 @@
                     },
                     {
                         "name": "center#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "center#set",
@@ -29440,7 +29464,7 @@
                     },
                     {
                         "name": "Resize",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Resize$1",
@@ -29774,7 +29798,7 @@
                 "instanceMethods": [
                     {
                         "name": "getDefaultValue",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ctor",
@@ -29794,7 +29818,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -30734,7 +30758,7 @@
                     },
                     {
                         "name": "IsTweening",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "TotalActiveTweens",
@@ -30867,34 +30891,6 @@
                         "excluded": true
                     },
                     {
-                        "name": "PlaySoundFX",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PlayKnifeCutSound",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PlayKnifeSwingSound",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PlayKnifePlaceSound",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PlayLemonJuiceSound",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PlayWipeSound",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PlayPeerSound",
-                        "excluded": false
-                    },
-                    {
                         "name": "TurnOffActiveEffect",
                         "excluded": false
                     },
@@ -30911,19 +30907,7 @@
                         "excluded": false
                     },
                     {
-                        "name": "PlayWipe2Sound",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PlayPlaceFoodSound",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PlayCreamSound",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PlayLeafSound",
+                        "name": "ResetFxSpawnZPos",
                         "excluded": false
                     }
                 ]
@@ -31060,6 +31044,26 @@
                     },
                     {
                         "name": "TurnOnSpawnBreakHeartOnFailed",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetWorldScale",
+                        "excluded": false
+                    },
+                    {
+                        "name": "IsDragging#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "IsReturningToStart#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RefreshDragParentContext",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FinalizeFailedDrag",
                         "excluded": false
                     }
                 ]
@@ -34747,6 +34751,10 @@
                     {
                         "name": "Tick",
                         "excluded": false
+                    },
+                    {
+                        "name": "Tick\",this)}this.c$-=t;if(this.c$<=0){pc.Application.getApplication().events.off(\"update",
+                        "excluded": false
                     }
                 ]
             },
@@ -37605,6 +37613,10 @@
                     {
                         "name": "ExecuteMove",
                         "excluded": false
+                    },
+                    {
+                        "name": "SetEndScale",
+                        "excluded": false
                     }
                 ]
             },
@@ -38334,7 +38346,7 @@
                     },
                     {
                         "name": "MoveToWater",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "MoveToCurrentTarget",
@@ -38393,10 +38405,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "JumpToPlate",
-                        "excluded": false
-                    },
-                    {
                         "name": "SpawnWaterSplashOnEnter",
                         "excluded": false
                     },
@@ -38413,14 +38421,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "EnablePeeler",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PeelerDone",
-                        "excluded": false
-                    },
-                    {
                         "name": "SetCuttingBoardAsDefaultTarget",
                         "excluded": false
                     },
@@ -38430,6 +38430,54 @@
                     },
                     {
                         "name": "CacheOriginalColliderRadius",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDragFailReturnComplete",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnMoveToCuttingBoard",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnBeginDragInWater",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDropSuccessInWater",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ResetWaterDragState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetWaterFxActive",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ApplyDragFromWaterScale",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetEffectSpawnPosition",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnableKnife2",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnableSalt",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CanTrashDrag",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CanKnifeCut",
                         "excluded": false
                     }
                 ]
@@ -38692,22 +38740,6 @@
                     },
                     {
                         "name": "Punch",
-                        "excluded": false
-                    },
-                    {
-                        "name": "AddFood",
-                        "excluded": false
-                    },
-                    {
-                        "name": "RongBienIn",
-                        "excluded": false
-                    },
-                    {
-                        "name": "RiceIn",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ShushiDone",
                         "excluded": false
                     }
                 ]
@@ -39137,68 +39169,6 @@
                 ]
             },
             {
-                "className": "Chillie",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "SetTargetBowl",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PutSauceToBowl",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "LastTray",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake$1",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ShushiOn",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SauceOn",
-                        "excluded": false
-                    },
-                    {
-                        "name": "CheckState",
-                        "excluded": false
-                    },
-                    {
-                        "name": "FadeOutItemsSprites",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "Shushi",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "OilInDone",
-                        "excluded": false
-                    },
-                    {
-                        "name": "BeanInDone",
-                        "excluded": false
-                    },
-                    {
-                        "name": "CutDone",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
                 "className": "CuttingItem",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -39220,36 +39190,6 @@
                     },
                     {
                         "name": "TurnOffAnim",
-                        "excluded": true
-                    }
-                ]
-            },
-            {
-                "className": "Dog",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Start",
-                        "excluded": false
-                    },
-                    {
-                        "name": "StartMovementLoop",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SetMoving",
-                        "excluded": true
-                    },
-                    {
-                        "name": "ResetPosition",
-                        "excluded": true
-                    },
-                    {
-                        "name": "OnDisable",
                         "excluded": true
                     }
                 ]
@@ -39781,6 +39721,386 @@
                         "excluded": false
                     }
                 ]
+            },
+            {
+                "className": "PaperBox",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "SpawnPaper",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "FishOnPan",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CanFlip",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FishDone",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StartCooking",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Pan",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "IsFishCooked#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AddOil",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TurnOnStove",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TurnOffStove",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CanFry",
+                        "excluded": true
+                    },
+                    {
+                        "name": "TurnOnFX",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CompleteCookingFish",
+                        "excluded": true
+                    },
+                    {
+                        "name": "TryEnableFishPlateTarget",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdatePanItemType",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UpdateFryingSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayFryingSoundLoop",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StopFryingSoundLoop",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayContinuousStoveShakeAfterDelay",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StopStoveShake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDestroy",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PLayTurnOnStoveSound",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Paper",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDrag",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDrop",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ExecuteMoveToTrash",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SpawnExtendPaper",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Despawn",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnTrashCanFound",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Spartula",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "SetWorldScale",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnBeginDrag",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDropSuccess",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDropFail",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TryCatchItem",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TryMoveCaughtItemToTarget",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FindItemByType",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ReleaseCarriedItem",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ReturnItemToStart",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "TrashCan",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "TrashOpen",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TrashClose",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Fish",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "OnMoveToCuttingBoard",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnablePlateTarget",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ChangerItemType",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChangeToFishKnife",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChangeWetFish",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChangeToFishSalt",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnableFishIntestine",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnableFishBranchial",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnableClick",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FishDone",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AddOilOnPan",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChangeFishTarget",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CutDone",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnMoveIntoWaterComplete",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ResetItemType",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "ItemSound",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "PlaySoundFX",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayKnifeCutSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayKnifeSwingSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayKnifePlaceSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayKnifeFlashSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "StopKnifeFlashSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayLemonJuiceSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayWipeSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayWipe2Sound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayCut2Sound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayPlaceFoodSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayCreamSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayLeafSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayLeafToDishSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayPouringSaltSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayPouringWaterSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayPaperCleanSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayClickSound",
+                        "excluded": true
+                    }
+                ]
             }
         ],
         "stubberDataList": [],
@@ -40088,6 +40408,26 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/Assets/lv46-lady/char.png"
+                    },
+                    {
+                        "maxWidth": 2048,
+                        "maxHeight": 2048,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/114. ThailandFishDish/Main.spriteatlasv2"
+                    },
+                    {
+                        "maxWidth": 1024,
+                        "maxHeight": 1024,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/114. ThailandFishDish/Source/Sprites/BG_1/counterTop.png"
                     }
                 ]
             },
@@ -40151,6 +40491,26 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_GamePlay_/Sound/Magic.ogg"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_GamePlay_/Sound/bgm_AlwaysWithMe.mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_GamePlay_/Sound/AudioClip/clock_1.ogg"
                     }
                 ]
             },

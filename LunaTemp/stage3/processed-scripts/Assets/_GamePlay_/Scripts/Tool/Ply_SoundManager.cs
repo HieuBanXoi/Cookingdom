@@ -22,9 +22,15 @@ public enum FxType
     Peer,
     Cream,
     CapyYay,
-
     LeafOn,
-    Wipe2
+    Wipe2,
+    KnifeFlash,
+    TurnOn,
+    Frying,
+    PouringSalt,
+    PouringWater,
+    PaperClean,
+    Clock,
 }
 
 public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
