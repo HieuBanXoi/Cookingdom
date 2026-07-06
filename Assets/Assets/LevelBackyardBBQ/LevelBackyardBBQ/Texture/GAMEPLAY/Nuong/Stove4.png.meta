@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Stove4_0: 2316164444999453631
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

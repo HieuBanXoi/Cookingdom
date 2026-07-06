@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      melon2_0: -6016378311759058800
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

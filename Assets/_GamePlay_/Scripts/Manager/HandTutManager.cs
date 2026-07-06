@@ -8,7 +8,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     public List<Item> items = new List<Item>();
     public Transform knife;
     public Transform knife2;
-    public Transform salt;
+
     public GameObject handTutObject;
     public GameObject tapToCookObject;
     public Item oilItem;
@@ -274,7 +274,6 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         {
             if (stoveToggleEvent != null)
             {
-                Debug.Log("[HandTutManager] ShowNextHandTut: Stove Toggle.", stoveToggleEvent.gameObject);
                 PlayClickHint(stoveToggleEvent.transform);
                 return;
             }
@@ -290,7 +289,6 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         Item targetItem = GetFirstTutorialReadyItem();
         if (targetItem == null)
         {
-            Debug.Log("[HandTutManager] ShowNextHandTut: No tutorial item found, checking for sink/water tutorial.");
             if (!ShowSinkWaterHandTut(true))
             {
                 HideHandTut();
@@ -299,7 +297,6 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
             return;
         }
 
-        Debug.Log($"[HandTutManager] ShowNextHandTut: Found tutorial item '{targetItem.name}'.", targetItem.gameObject);
 
         if (IsClickableReady(targetItem))
         {

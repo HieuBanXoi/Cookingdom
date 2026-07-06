@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 51e41accd38231e498d44aa8f2c38f24
+guid: dac923cdfb0ce144d9601296aac87db8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6785284364737626205
-    second: Chili2_0
+      213: -8938819534478884857
+    second: Plate_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chili2_0
+      name: Plate_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 266
-        height: 252
+        width: 308
+        height: 302
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d50c2340e2c2a2e50800000000000000
-      internalID: 6785284364737626205
+      spriteID: 70040184efee2f380800000000000000
+      internalID: -8938819534478884857
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Plate_0: -8938819534478884857
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

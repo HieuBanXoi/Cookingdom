@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Chilli_0: 7176290880405574533
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

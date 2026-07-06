@@ -139,7 +139,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -913,7 +913,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -922,7 +922,39 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pepper3_0: -978680208169374964
+      pepper3_1: 4368839729551958436
+      pepper3_10: 15029711540248957
+      pepper3_11: 4820768629732624377
+      pepper3_12: -2779761914301510940
+      pepper3_13: -6011172924223734089
+      pepper3_14: 7449574022205914234
+      pepper3_15: 4975750906181865850
+      pepper3_16: 8846137423802151022
+      pepper3_17: -4367587206923971397
+      pepper3_18: 9195066501933271030
+      pepper3_19: -927457273189671693
+      pepper3_2: 199158928750906423
+      pepper3_20: 5928167463892009353
+      pepper3_21: -5421987327777393985
+      pepper3_22: -2302360223287217763
+      pepper3_23: -7925056857607283276
+      pepper3_24: 1109844362696811788
+      pepper3_25: 7938515562429537206
+      pepper3_26: -77954803196629740
+      pepper3_27: -823438769384046461
+      pepper3_28: -4919070831349354256
+      pepper3_29: 3298135095284130548
+      pepper3_3: -4896257283520085771
+      pepper3_30: 1170142365655082396
+      pepper3_31: -6871650180119781416
+      pepper3_4: -4309238561222073064
+      pepper3_5: -2592073935915601225
+      pepper3_6: 4066360485447427234
+      pepper3_7: 5878197823542478197
+      pepper3_8: 3881114801073834728
+      pepper3_9: -1200552507248110653
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

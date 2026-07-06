@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pork5_0: 3509160896686417093
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

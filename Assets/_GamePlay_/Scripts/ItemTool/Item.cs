@@ -21,6 +21,7 @@ public class Item : Ply_GameUnit
     public ItemType itemType;
     public SpriteRenderer spriteRenderer;
     public UnityEvent onKnifeIn;
+    public Transform knifePos;
 
     [Header("--- EFFECT SCALE ---")]
     [Min(0f)] public float heartEffectScale = 1f;
@@ -139,7 +140,7 @@ public class Item : Ply_GameUnit
             itemDraggable.TeleportToStart();
         }
     }
-    public void DoneAnimation()
+    public virtual void DoneAnimation()
     {
         if (itemDraggable == null) return;
         itemDraggable.targetItemType = ItemType.None;

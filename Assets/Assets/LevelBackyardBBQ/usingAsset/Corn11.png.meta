@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e3aca7ba3782e7849be304888cd01a58
+guid: f143bac6bf721a746a4ba791982ef8b7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1262413951087977086
-    second: pepper1_0
+      213: -7100789809654876989
+    second: Corn11_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pepper1_0
+      name: Corn11_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 197
-        height: 186
+        width: 157
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e72a81acccef48110800000000000000
-      internalID: 1262413951087977086
+      spriteID: 3c4beca2a4de47d90800000000000000
+      internalID: -7100789809654876989
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Corn11_0: -7100789809654876989
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

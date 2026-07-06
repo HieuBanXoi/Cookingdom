@@ -184,7 +184,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -1288,7 +1288,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -1297,7 +1297,54 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pepper4_0: 5557051246685425862
+      pepper4_1: -4435678051459712693
+      pepper4_10: -3365073889278688657
+      pepper4_11: 8957110218835973151
+      pepper4_12: -3556767630281170333
+      pepper4_13: 7695936816021208052
+      pepper4_14: 1960650856965270116
+      pepper4_15: 5316997131695552047
+      pepper4_16: -1099852324032014194
+      pepper4_17: -6718854707576659638
+      pepper4_18: -4935537874336191995
+      pepper4_19: 1252667149698088957
+      pepper4_2: -8180846937768859474
+      pepper4_20: -1026894721027612772
+      pepper4_21: 206173948818062744
+      pepper4_22: 6919623862647909096
+      pepper4_23: 1840542539365770361
+      pepper4_24: -7653243594415010130
+      pepper4_25: -2128026234002752104
+      pepper4_26: -8853588433420116509
+      pepper4_27: 6409227898373202352
+      pepper4_28: 4514994856783072612
+      pepper4_29: -2982458410381946514
+      pepper4_3: -304733001098267868
+      pepper4_30: 1383952681826087709
+      pepper4_31: -4871767489066589195
+      pepper4_32: 8023573665924318499
+      pepper4_33: -8519521373269351217
+      pepper4_34: 3178737463240175696
+      pepper4_35: -8940687469232943079
+      pepper4_36: -6888459622704288430
+      pepper4_37: -3278713058876474074
+      pepper4_38: -8049656274046376611
+      pepper4_39: 2806704814232907930
+      pepper4_4: 1071478080477573657
+      pepper4_40: -6594391155543642635
+      pepper4_41: -3566018398807053826
+      pepper4_42: -2872331971190420869
+      pepper4_43: 4812752354559227288
+      pepper4_44: -6787258322988376872
+      pepper4_45: -2659717082167385389
+      pepper4_46: 803114659977723835
+      pepper4_5: 973092165564621360
+      pepper4_6: 1370117031096552536
+      pepper4_7: 6063770438953791094
+      pepper4_8: -8591618098319133195
+      pepper4_9: -41665322275796583
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
