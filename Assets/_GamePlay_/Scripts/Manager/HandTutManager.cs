@@ -282,19 +282,6 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
             isWaitingStoveToggle = false;
         }
 
-        // Ưu tiên handtut cho dao nếu có cá trên thớt và dao có thể tác động.
-        if (ShowKnifeToFishHandTut())
-        {
-            return;
-        }
-
-        // Thêm handtut cho Fish (WetItem) khi cần kéo từ PaperBox
-        if (ShowFishWetItemHandTut())
-        {
-            return;
-        }
-
-        // Nếu có item đang muốn kéo vào thùng rác và thùng rác đang đóng, ưu tiên handtut mở thùng rác.
         if (ShowTrashCanHandTut())
         {
             return;
@@ -454,29 +441,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
                 return false;
             }
 
-            if (item.requireMatchingTargetTypeForHandTut)
-            {
-                // Logic đặc thù: Tìm con cá đang trên thớt để kiểm tra type của nó.
-                // Điều này giả định rằng mọi item có `requireMatchingTargetTypeForHandTut` đều nhắm vào con cá trên thớt.
-                Fish fishOnBoard = null;
-                for (int i = 0; i < items.Count; i++)
-                {
-                    if (items[i] is Fish fish && fish.isOnCuttingBoard && fish.gameObject.activeInHierarchy && !fish.isDone)
-                    {
-                        fishOnBoard = fish;
-                        break;
-                    }
-                }
-
-                if (fishOnBoard != null)
-                {
-                    // Chỉ hiện hand-tut nếu type của cá trên thớt khớp với yêu cầu của item đang kéo.
-                    return item.itemDraggable.targetItemType == fishOnBoard.itemType && fishOnBoard.itemType != ItemType.None;
-                }
-
-                // Nếu không tìm thấy cá trên thớt, không hiển thị hand-tut cho trường hợp này.
-                return false;
-            }
+            
 
             return true;
         }
@@ -886,28 +851,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         return false;
     }
 
-    private bool ShowFishWetItemHandTut()
-    {
-        if (GameManager.Ins == null || GameManager.Ins.paperBox == null) return false;
-        for (int i = 0; i < items.Count; i++)
-        {
-            Item item = items[i];
-            // Kiểm tra nếu item là Fish, có itemType là WetItem và chưa hoàn thành
-            if (item is Fish fishItem && fishItem.itemType == ItemType.WetItem && !fishItem.isDone)
-            {
-                // Đảm bảo PaperBox và Fish đều đang hoạt động
-                if (GameManager.Ins.paperBox.gameObject.activeInHierarchy && fishItem.gameObject.activeInHierarchy)
-                {
-                    Debug.Log($"[HandTutManager] ShowNextHandTut: PaperBox to WetItem '{fishItem.name}'.", fishItem.gameObject);
-                    PlayMoveHint(GameManager.Ins.paperBox.transform, fishItem.transform);
-                    ConsumeStartupNoDelayForItem(fishItem);
-                    ConsumeForcedNoDelay();
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+    
 
     private bool ShowTrashCanHandTut()
     {
@@ -1008,37 +952,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         }
     }
 
-    private bool ShowKnifeToFishHandTut()
-    {
-        // Tìm cá đang nằm trên thớt
-        Fish fishOnBoard = null;
-        for (int i = 0; i < items.Count; i++)
-        {
-            Item item = items[i];
-            if (item is Fish fish && fish.isOnCuttingBoard && !fish.isDone && fish.gameObject.activeInHierarchy)
-            {
-                fishOnBoard = fish;
-                break;
-            }
-        }
-
-        if (fishOnBoard == null) return false;
-
-        // Kiểm tra xem dao có thể được kéo đến cá không
-        if (knife != null && knife.gameObject.activeInHierarchy)
-        {
-            ItemDraggable knifeDraggable = knife.GetComponent<ItemDraggable>();
-            if (knifeDraggable != null && knifeDraggable.CanDrag() && knifeDraggable.targetItemType == fishOnBoard.itemType && fishOnBoard.itemType != ItemType.None)
-            {
-                Debug.Log($"[HandTutManager] ShowNextHandTut: Knife to Fish '{fishOnBoard.name}'.", fishOnBoard.gameObject);
-                PlayMoveHint(knife, fishOnBoard.transform);
-                ConsumeForcedNoDelay();
-                return true;
-            }
-        }
-
-        return false;
-    }
+    
     public void ChangeKnife(Transform newKnife)
     {
 

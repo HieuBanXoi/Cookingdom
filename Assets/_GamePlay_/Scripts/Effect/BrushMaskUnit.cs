@@ -5,8 +5,9 @@ public class BrushMaskUnit : Ply_GameUnit
 {
     public SpriteMask spriteMask;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         if (tf == null) tf = transform;
         if (spriteMask == null) spriteMask = GetComponent<SpriteMask>();
     }

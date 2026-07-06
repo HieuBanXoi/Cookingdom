@@ -37,8 +37,9 @@ public class Item : Ply_GameUnit
     private Tween activeEffectClearTween;
     public float fxSpawnZPos=0;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         CacheComponents(true);
     }
 

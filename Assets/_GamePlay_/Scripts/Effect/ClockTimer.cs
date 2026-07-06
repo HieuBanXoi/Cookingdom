@@ -25,8 +25,9 @@ public class ClockTimer : Ply_GameUnit
 
     private static int activeClockFxCount;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         if (tf == null)
         {
             tf = transform;
