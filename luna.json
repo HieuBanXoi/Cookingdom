@@ -1,8 +1,8 @@
 {
     "version": "7.1.0",
     "projectId": "8cfa86f1caa935a41ac1489c608212f7",
-    "applicationID": 0,
-    "creativeName": "Cookingdom_PLY_v58_StuffedPotatoCasserole_NoPhase2",
+    "applicationID": 27404,
+    "creativeName": "PLY_Cookingdom_Lv66",
     "pgServer": "EU",
     "window": {
         "‐⁙": true
@@ -1546,10 +1546,6 @@
             },
             {
                 "name": "UnityEngine.ContactPoint2D",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.ContextMenu",
                 "excluded": true
             },
             {
@@ -7441,10 +7437,6 @@
                 "excluded": true
             },
             {
-                "name": "Ply_GameUnit",
-                "excluded": false
-            },
-            {
                 "name": "ConveyorScrollDirection",
                 "excluded": true
             },
@@ -8821,15 +8813,7 @@
                 "excluded": true
             },
             {
-                "name": "ItemFlyIn",
-                "excluded": true
-            },
-            {
                 "name": "Plate",
-                "excluded": true
-            },
-            {
-                "name": "Spoon",
                 "excluded": true
             },
             {
@@ -8847,6 +8831,42 @@
             {
                 "name": "Yielders",
                 "excluded": true
+            },
+            {
+                "name": "Capybara",
+                "excluded": true
+            },
+            {
+                "name": "ItemSpriteMaskPainter.BrushStamp",
+                "excluded": true
+            },
+            {
+                "name": "PaperBox",
+                "excluded": true
+            },
+            {
+                "name": "BrushMaskUnit",
+                "excluded": true
+            },
+            {
+                "name": "TrashCan",
+                "excluded": true
+            },
+            {
+                "name": "PhaseTransitionType",
+                "excluded": false
+            },
+            {
+                "name": "PlaySkinChangeMode",
+                "excluded": true
+            },
+            {
+                "name": "StirMovementMode",
+                "excluded": true
+            },
+            {
+                "name": "ItemRaycastTargetEvent",
+                "excluded": false
             }
         ],
         "unusedMethods": [
@@ -16782,7 +16802,7 @@
                     },
                     {
                         "name": "RemoveListener",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -23057,6 +23077,14 @@
                     {
                         "name": "LoseGame",
                         "excluded": false
+                    },
+                    {
+                        "name": "ChangeTrashTarget",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ChangePaperBoxTarget",
+                        "excluded": true
                     }
                 ]
             },
@@ -23238,7 +23266,7 @@
                     },
                     {
                         "name": "HasInWaterItemNeedingHandTut",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ShouldShowWaterToggleHandTut",
@@ -23259,6 +23287,58 @@
                     {
                         "name": "ConsumeStartupNoDelayForItem",
                         "excluded": false
+                    },
+                    {
+                        "name": "StartHandTutAfterPhaseChange",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ShowHandTutIfDelayCanBeSkipped",
+                        "excluded": false
+                    },
+                    {
+                        "name": "IsStirringReady",
+                        "excluded": false
+                    },
+                    {
+                        "name": "IsDragSpriteMaskPainterReady",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayMoveHint$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayStirringHint",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayCircleHint",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CanShowMoreHandTut",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegisterHandTutShown",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetCurrentIdleDelay",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ShowTrashCanHandTut",
+                        "excluded": false
+                    },
+                    {
+                        "name": "HasStartupNoDelayItemCount",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChangeKnife",
+                        "excluded": true
                     }
                 ]
             },
@@ -23346,7 +23426,7 @@
                     },
                     {
                         "name": "GoToNextPhase",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "PlayPhaseObjectTransition",
@@ -23371,6 +23451,10 @@
                     {
                         "name": "FinishGameByPhase",
                         "excluded": false
+                    },
+                    {
+                        "name": "OnDrawGizmosSelected",
+                        "excluded": true
                     }
                 ]
             },
@@ -23627,6 +23711,10 @@
                     {
                         "name": "FindChildByName",
                         "excluded": true
+                    },
+                    {
+                        "name": "GetScreenHeightOnWidthRatio",
+                        "excluded": false
                     }
                 ]
             },
@@ -30722,7 +30810,7 @@
                     },
                     {
                         "name": "IsTweening",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "TotalActiveTweens",
@@ -30775,14 +30863,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "Reset",
-                        "excluded": true
-                    },
-                    {
-                        "name": "CacheComponents",
-                        "excluded": false
-                    },
-                    {
                         "name": "ChangeItemType",
                         "excluded": false
                     },
@@ -30828,7 +30908,7 @@
                     },
                     {
                         "name": "TeleportToStart",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnValidate",
@@ -30855,32 +30935,32 @@
                         "excluded": true
                     },
                     {
-                        "name": "PlaySoundFX",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PlayKnifeCutSound",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PlayKnifeSwingSound",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PlayKnifePlaceSound",
+                        "name": "Reset$1",
                         "excluded": true
                     },
                     {
-                        "name": "PlayLemonJuiceSound",
+                        "name": "CacheComponents$1",
                         "excluded": false
                     },
                     {
-                        "name": "PlayWipeSound",
+                        "name": "TurnOffActiveEffect",
                         "excluded": false
                     },
                     {
-                        "name": "PlayPeerSound",
+                        "name": "CacheActiveEffect",
                         "excluded": false
+                    },
+                    {
+                        "name": "GetEffectSpawnPosition",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetMinChildZ",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ResetFxSpawnZPos",
+                        "excluded": true
                     }
                 ]
             },
@@ -31008,6 +31088,34 @@
                     },
                     {
                         "name": "PlayBeginDragSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetWorldScale",
+                        "excluded": false
+                    },
+                    {
+                        "name": "IsDragging#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IsReturningToStart#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ForceDropFailReturnToStart",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RefreshDragParentContext",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FinalizeFailedDrag",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TurnOnSpawnBreakHeartOnFailed",
                         "excluded": false
                     }
                 ]
@@ -31157,6 +31265,50 @@
                     {
                         "name": "GetProgress01",
                         "excluded": true
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "BeginPaintAtWorldPoint",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PaintAtWorldPoint",
+                        "excluded": true
+                    },
+                    {
+                        "name": "BeginPaintSession",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PaintAtPoint",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SpawnBrush",
+                        "excluded": true
+                    },
+                    {
+                        "name": "HasBrushSource",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ReleaseBrush",
+                        "excluded": true
+                    },
+                    {
+                        "name": "StartPaintFx",
+                        "excluded": true
+                    },
+                    {
+                        "name": "StopPaintFx",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ProjectPointToPaintPlane",
+                        "excluded": true
                     }
                 ]
             },
@@ -31255,6 +31407,42 @@
                     {
                         "name": "StopStirringFx",
                         "excluded": false
+                    },
+                    {
+                        "name": "GetTutorialCenterPosition",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTutorialRadius",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTutorialLineStartPosition",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTutorialLineEndPosition",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetStirrerPosition",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetLineDirection",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateFlipScaleY",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateRollingSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayRollingFx",
+                        "excluded": true
                     }
                 ]
             },
@@ -34615,6 +34803,10 @@
                     {
                         "name": "Tick",
                         "excluded": false
+                    },
+                    {
+                        "name": "Tick\",this)}this.c$-=t;if(this.c$<=0){pc.Application.getApplication().events.off(\"update",
+                        "excluded": false
                     }
                 ]
             },
@@ -37473,6 +37665,10 @@
                     {
                         "name": "ExecuteMove",
                         "excluded": false
+                    },
+                    {
+                        "name": "SetEndScale",
+                        "excluded": true
                     }
                 ]
             },
@@ -38261,10 +38457,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "JumpToPlate",
-                        "excluded": false
-                    },
-                    {
                         "name": "SpawnWaterSplashOnEnter",
                         "excluded": false
                     },
@@ -38281,14 +38473,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "EnablePeeler",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PeelerDone",
-                        "excluded": false
-                    },
-                    {
                         "name": "SetCuttingBoardAsDefaultTarget",
                         "excluded": false
                     },
@@ -38299,6 +38483,50 @@
                     {
                         "name": "CacheOriginalColliderRadius",
                         "excluded": false
+                    },
+                    {
+                        "name": "OnDragFailReturnComplete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnMoveToCuttingBoard",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnBeginDragInWater",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnDropSuccessInWater",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ResetWaterDragState",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetWaterFxActive",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ApplyDragFromWaterScale",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetEffectSpawnPosition",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EnableKnife2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CanTrashDrag",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CanKnifeCut",
+                        "excluded": true
                     }
                 ]
             },
@@ -38649,6 +38877,462 @@
                         "excluded": true
                     }
                 ]
+            },
+            {
+                "className": "Ply_GameUnit",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "CacheComponents",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Reset",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "ItemTypeDoneManager",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "inherits",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ItemDone",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetGroup",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RemoveFromHandTut",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ClearTarget",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "ItemDragChildRotator",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RotateOnDrag",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RotateBack",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ResetToOriginalRotation",
+                        "excluded": false
+                    },
+                    {
+                        "name": "HandleDropFail",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CacheOriginalRotation",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RotateTo",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetRotateTarget",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "ItemDragRaycastTarget",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "HandleBeginDrag",
+                        "excluded": false
+                    },
+                    {
+                        "name": "HandleDropFail",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FindTargetUnderPointer",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetTargetRay",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnableTarget",
+                        "excluded": true
+                    },
+                    {
+                        "name": "DisableTarget",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetTargetEnabled",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetMatchingTarget",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChangeTargetToFind",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnDrawGizmos",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "ItemDragSpriteMaskPainter",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "IsPaintComplete#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": true
+                    },
+                    {
+                        "name": "HandleBeginDrag",
+                        "excluded": true
+                    },
+                    {
+                        "name": "HandleEndDrag",
+                        "excluded": true
+                    },
+                    {
+                        "name": "BeginPaint",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EndPaint",
+                        "excluded": true
+                    },
+                    {
+                        "name": "HandlePaintComplete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RegisterPaintComplete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UnregisterPaintComplete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTutorialStart",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTutorialTarget",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "ItemSound",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "PlaySoundFX",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayKnifeCutSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayKnifeSwingSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayKnifePlaceSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayKnifeFlashSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "StopKnifeFlashSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayLemonJuiceSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayWipeSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayWipe2Sound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayCut2Sound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayPlaceFoodSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayCreamSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayLeafSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayLeafToDishSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayPouringSaltSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayPouringWaterSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayPaperCleanSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayClickSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayCreamWipingSound",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "ItemTypeDoneManager.ItemTypeGroup",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "OilBrush",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "BrushOil",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "ItemWithTrash",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ShowTrashObjects",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnableKnife",
+                        "excluded": false
+                    },
+                    {
+                        "name": "DoneAnimation",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CheckCanSpawn",
+                        "excluded": false
+                    },
+                    {
+                        "name": "DoOneStep",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "OilFood",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "OilIn",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CanOil",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OilItemDone",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Paper",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDrag",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDrop",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ExecuteMoveToTrash",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SpawnExtendPaper",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Despawn",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnTrashCanFound",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.ContextMenu",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "$ctor2",
+                        "excluded": false
+                    }
+                ]
             }
         ],
         "stubberDataList": [],
@@ -38906,6 +39590,36 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_GamePlay_/Font/LilitaOne-Regular SDF 2.asset"
+                    },
+                    {
+                        "maxWidth": 2048,
+                        "maxHeight": 2048,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/LevelBackyardBBQ/Main.spriteatlasv2"
+                    },
+                    {
+                        "maxWidth": 1449,
+                        "maxHeight": 1145,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/LevelBackyardBBQ/LevelBackyardBBQ/Texture/Update/images/bg2.png"
+                    },
+                    {
+                        "maxWidth": 1261,
+                        "maxHeight": 2048,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/LevelBackyardBBQ/LevelBackyardBBQ/Texture/GAMEPLAY/SoChe1/Layer 50 copy 2.png"
                     }
                 ]
             },

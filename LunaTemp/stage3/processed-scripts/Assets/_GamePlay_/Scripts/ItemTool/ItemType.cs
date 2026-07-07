@@ -12,9 +12,6 @@ public enum ItemType
     Sink,
     FoodOnCuttingBoard, Pan, PanBoiling,
     Fish, WetItem, Paper, Trash,
-    FishKnife, FishSalt,
-    FishOnPan, FishFlip,FishDone,
-    PlateChillie,PlateChillieCut,PlateCilantro,PlateCilantroLeaf,PlateGarbe,PlateGarlic
 
 
     

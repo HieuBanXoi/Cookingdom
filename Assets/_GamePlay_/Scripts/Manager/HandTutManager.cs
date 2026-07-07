@@ -410,35 +410,10 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
         if (IsDraggableReady(item))
         {
-            ItemDragRaycastTarget dragRaycastTarget = ComponentCache<ItemDragRaycastTarget>.Get(item.transform);
-            if (dragRaycastTarget != null && dragRaycastTarget.enabled)
-            {
-                ItemType typeToFind = dragRaycastTarget.targetToFind;
-                if (typeToFind != ItemType.None)
-                {
-                    bool targetExists = false;
-                    for (int i = 0; i < items.Count; i++)
-                    {
-                        Item potentialTarget = items[i];
-                        if (potentialTarget != null && !potentialTarget.isDone && potentialTarget.gameObject.activeInHierarchy && potentialTarget.itemType == typeToFind)
-                        {
-                            targetExists = true;
-                            break;
-                        }
-                    }
-
-                    if (!targetExists)
-                    {
-                        return false;
-                    }
-                }
-            }
             if (item.itemMoveToTarget == null || item.itemMoveToTarget.defaultTarget == null)
             {
                 return false;
             }
-
-            
 
             return true;
         }

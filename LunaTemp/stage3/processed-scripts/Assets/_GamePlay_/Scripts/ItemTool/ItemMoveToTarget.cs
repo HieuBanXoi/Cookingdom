@@ -49,7 +49,9 @@ public class ItemMoveToTarget : MonoBehaviour
     public void ExecuteMove3D(Transform customTarget)
     {
         Transform target = customTarget != null ? customTarget : defaultTarget;
-        defaultTarget = target;
+        Item targetItem = ComponentCache<Item>.Get(defaultTarget);
+
+        // defaultTarget = target;
 
         if (target == null)
         {
@@ -58,6 +60,10 @@ public class ItemMoveToTarget : MonoBehaviour
         }
 
         Vector3 targetPos = target.position;
+        if(targetItem.knifePos != null && target != null)
+        {
+            targetPos = targetItem.knifePos.position;
+        }
 
         // Xóa các Tween cũ để tránh xung đột
         Vector3 worldPosition = transform.position;

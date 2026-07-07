@@ -93,10 +93,6 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
         phaseTransitionSequence?.Kill();
     }
 
-    /// <summary>
-    /// Gọi hàm này từ bất kỳ script nào bằng lệnh: PhaseManager.Ins.DoOneStep();
-    /// Trả về true nếu là bước cuối cùng của Phase và bắt đầu chuyển Phase.
-    /// </summary>
     [ContextMenu("Do One Step")]
     public bool DoOneStep()
     {

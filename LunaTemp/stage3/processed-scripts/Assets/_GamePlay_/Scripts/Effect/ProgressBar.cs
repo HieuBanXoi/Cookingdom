@@ -11,8 +11,9 @@ public class ProgressBar : Ply_GameUnit
 
     private Tween fillTween;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         if (tf == null)
         {
             tf = transform;

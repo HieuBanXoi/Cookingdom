@@ -31,6 +31,7 @@ public enum FxType
     PouringWater,
     PaperClean,
     Clock,
+    CreamWiping
 }
 
 public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>

@@ -27,7 +27,7 @@ public class ItemDragRaycastTarget : MonoBehaviour
     public ItemRaycastTargetEvent onTargetFoundWithItem;
 
     private ItemDraggable itemDraggable;
-    private Item ownerItem;
+    protected Item ownerItem;
     private Collider ownerCollider;
     private Camera mainCam;
     private bool isDragging;

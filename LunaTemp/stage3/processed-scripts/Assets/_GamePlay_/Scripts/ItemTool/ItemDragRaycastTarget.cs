@@ -27,7 +27,7 @@ public class ItemDragRaycastTarget : MonoBehaviour
     public ItemRaycastTargetEvent onTargetFoundWithItem;
 
     private ItemDraggable itemDraggable;
-    private Item ownerItem;
+    protected Item ownerItem;
     private Collider ownerCollider;
     private Camera mainCam;
     private bool isDragging;
@@ -41,7 +41,7 @@ public class ItemDragRaycastTarget : MonoBehaviour
         ownerCollider = ComponentCache<Collider>.Get(transform);
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         if (itemDraggable == null)
         {
@@ -55,7 +55,7 @@ public class ItemDragRaycastTarget : MonoBehaviour
         itemDraggable.onDropFail.AddListener(HandleDropFail);
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         if (itemDraggable != null)
         {
@@ -144,7 +144,6 @@ public class ItemDragRaycastTarget : MonoBehaviour
                 ownerItem.itemMoveToTarget.defaultTarget = foundTarget.transform;
             }
         }
-
         onTargetFound?.Invoke();
         onTargetFoundWithItem?.Invoke(foundTarget);
     }
@@ -204,5 +203,15 @@ public class ItemDragRaycastTarget : MonoBehaviour
     public void ChangeTargetToFind(Item item)
     {
         targetToFind = item.itemType;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (isDragging && mainCam != null)
+        {
+            Ray ray = GetTargetRay();
+            Gizmos.color = Color.blue;
+            Gizmos.DrawRay(ray.origin, ray.direction * rayDistance);
+        }
     }
 }

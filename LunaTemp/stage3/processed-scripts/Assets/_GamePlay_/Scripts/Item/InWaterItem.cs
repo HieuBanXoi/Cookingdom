@@ -663,11 +663,6 @@ public class InWaterItem : Item
         Ply_SoundManager.Ins.PlayFx(FxType.KnifePlace);
 
     }
-    public void EnableSalt()
-    {
-        HandTutManager.Ins.salt.gameObject.SetActive(true);
-        Ply_SoundManager.Ins.PlayFx(FxType.ItemPlace);
-    }
     
     public void CanTrashDrag()
     {

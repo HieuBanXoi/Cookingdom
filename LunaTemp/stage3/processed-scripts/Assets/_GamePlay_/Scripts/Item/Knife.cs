@@ -28,7 +28,6 @@ public class Knife : Item
     }
     public void TargetKnifeFlyEvent()
     {
-        Debug.Log("TargetKnifeFlyEvent");
         Item target = ComponentCache<Item>.Get(itemMoveToTarget.defaultTarget);
         target.KnifeIn();
     }

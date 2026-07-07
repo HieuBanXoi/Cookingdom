@@ -75,5 +75,8 @@ public class ItemSound : MonoBehaviour
     {
         PlaySoundFX(FxType.Click);
     }
-
+    public void PlayCreamWipingSound()
+    {
+        PlaySoundFX(FxType.CreamWiping);
+    }
 }
