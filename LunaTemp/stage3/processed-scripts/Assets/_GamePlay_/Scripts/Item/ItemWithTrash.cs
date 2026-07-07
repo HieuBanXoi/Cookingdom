@@ -34,7 +34,10 @@ public class ItemWithTrash : Item
     }
     public override void DoneAnimation()
     {
-        base.DoneAnimation();
+        if (itemDraggable == null) return;
+        itemDraggable.enabled = true;
+        if (itemClickable != null)  itemClickable.enabled = false;
+        animator.enabled = false;
         itemDraggable.targetItemType = ItemType.Plate;
     }
     public void OnDisable()

@@ -1,12 +1,12 @@
 {
-    "BuildID": "64df2333-c9e9-44af-8b89-63e2e7f07e82",
+    "BuildID": "99ecf8ce-28cf-43c7-9f20-9d5aab172484",
     "Command": "project:upload",
     "ProjectID": "8cfa86f1caa935a41ac1489c608212f7",
-    "ProjectStateHash": "9e37039531c57bf12c0017b55dc32045ef377076c69f46512425898decf243a7",
+    "ProjectStateHash": "c918b479748a452ff50b49c5072a4ff820efc14f8c152a1be53990d571313102",
     "StageCompletedAt": 3,
     "EarliestFatalError": 0,
-    "StartTime": 1783390590580,
-    "EndTime": 1783390624944,
+    "StartTime": 1783394296565,
+    "EndTime": 1783394331861,
     "PlaygroundUserID": 33919,
     "OperatingSystem": "win32",
     "UnityPackageID": null,
@@ -16,9 +16,9 @@
     "LogCount": 7,
     "Logs": [
         {
-            "LogID": "860d62f3-aba5-4add-b11d-eefefd992d84",
+            "LogID": "651b81ea-4ab4-4920-842f-ce4ea72162a3",
             "Order": 6,
-            "Timestamp": 1783390625687,
+            "Timestamp": 1783394332626,
             "Stage": 3,
             "ErrorType": 3,
             "ErrorCode": "LP3007",
@@ -40,9 +40,9 @@
             "Severity": 0
         },
         {
-            "LogID": "9d0a71ff-6846-4a29-a281-90afc68f6667",
+            "LogID": "d57a0137-7054-4234-b446-08ee27a5812d",
             "Order": 6,
-            "Timestamp": 1783390625687,
+            "Timestamp": 1783394332627,
             "Stage": 3,
             "ErrorType": 3,
             "ErrorCode": "LP3012",
@@ -66,9 +66,9 @@
             "Severity": 0
         },
         {
-            "LogID": "4d487581-df82-40a0-b715-c8af6f31bef7",
+            "LogID": "0d6ab570-a8d4-47f3-abe5-9efd5f8c6c5f",
             "Order": 0,
-            "Timestamp": 1783390597125,
+            "Timestamp": 1783394305750,
             "Stage": 1,
             "ErrorType": 2,
             "ErrorCode": "LP1014",
@@ -86,9 +86,9 @@
             "Severity": 0
         },
         {
-            "LogID": "d89776e4-4bf3-445d-b428-c8c143d2b67e",
+            "LogID": "727f5fce-c7d7-4f7c-baa9-dfbec6f5c8d6",
             "Order": 1,
-            "Timestamp": 1783390597147,
+            "Timestamp": 1783394305766,
             "Stage": 1,
             "ErrorType": 0,
             "ErrorCode": "LP1027",
@@ -108,9 +108,9 @@
             "Severity": 0
         },
         {
-            "LogID": "f2a83384-4c52-4594-acb1-e19281d97f8a",
+            "LogID": "9a65281b-6ba4-47e1-9cf5-5d89baa4a3a1",
             "Order": 2,
-            "Timestamp": 1783390597147,
+            "Timestamp": 1783394305766,
             "Stage": 1,
             "ErrorType": 0,
             "ErrorCode": "LP1015",
@@ -130,9 +130,9 @@
             "Severity": 0
         },
         {
-            "LogID": "38eb2dd7-252a-4e86-bb6d-5db4bfb3c7af",
+            "LogID": "e0764c41-32a4-4c89-8c4a-ccb9534f1ddf",
             "Order": 3,
-            "Timestamp": 1783390597147,
+            "Timestamp": 1783394305766,
             "Stage": 1,
             "ErrorType": 0,
             "ErrorCode": "LP1032",
@@ -154,14 +154,18 @@
             "Severity": 0
         },
         {
-            "LogID": "7bb2d5ed-81de-48e5-9065-21cc0927decb",
+            "LogID": "1ff98b6b-3202-4ee5-a61b-4f90e6460040",
             "Order": 4,
-            "Timestamp": 1783390597147,
+            "Timestamp": 1783394305766,
             "Stage": 1,
             "ErrorType": 2,
             "ErrorCode": "LP1010",
             "Description": "Looks like a collider was scaled, this might affect performance.",
             "Details": [
+                "Knife",
+                "Knife",
+                "Knife",
+                "Knife",
                 "Leaf (2)",
                 "Leaf (3)",
                 "Carrot",
@@ -169,7 +173,7 @@
             ],
             "DescriptionValues": [],
             "DetailsValues": [],
-            "LogCount": 4,
+            "LogCount": 8,
             "LinePosition": 0,
             "FilePath": "",
             "ClassName": "",

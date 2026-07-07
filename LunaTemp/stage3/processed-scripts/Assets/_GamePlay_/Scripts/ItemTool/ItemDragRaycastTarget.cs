@@ -181,7 +181,7 @@ public class ItemDragRaycastTarget : MonoBehaviour
 
         for (int i = 0; i < hits.Length; i++)
         {
-            Item hitItem = ComponentCache<Item>.Get(hits[i].collider);
+            Item hitItem = hits[i].collider.GetComponentInParent<Item>();
             if (hitItem == null || hitItem == ownerItem) continue;
             if (hitItem.itemType != targetToFind) continue;
 

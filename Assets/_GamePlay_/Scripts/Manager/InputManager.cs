@@ -119,7 +119,7 @@ public class InputManager : Ply_Singleton<InputManager>
 
         for (int i = 0; i < hits.Length; i++)
         {
-            Item hitItem = ComponentCache<Item>.Get(hits[i].collider);
+            Item hitItem = hits[i].collider.GetComponentInParent<Item>();
             if (hitItem == null || !CanInteract(hitItem)) continue;
 
             float itemZ = hitItem.transform.position.z;
