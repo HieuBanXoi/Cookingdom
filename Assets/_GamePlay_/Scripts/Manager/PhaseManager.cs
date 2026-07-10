@@ -168,6 +168,12 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
 
     private void PlayPhaseObjectTransition()
     {
+        ProgressSlider progressSlider = ProgressSlider.Ins;
+        if(progressSlider != null)
+        {
+            progressSlider.gameObject.SetActive(false);
+            progressSlider.ResetProgress();
+        }
         phaseTransitionObject.SetActive(true);
 
         float safeDuration = Mathf.Max(0.01f, phaseTransitionObjectDuration);
@@ -185,6 +191,7 @@ public class PhaseManager : Ply_Singleton<PhaseManager>
 
     private void SwitchToNextPhaseBehindTransition()
     {
+        
         PhaseData oldPhase = phases[currentPhaseIndex];
         currentPhaseIndex++;
         currentStepCount = 0;

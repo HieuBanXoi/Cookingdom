@@ -137,7 +137,14 @@ public class ItemStirring : MonoBehaviour
         StartStirringFx();
         onStirBegin?.Invoke();
     }
-
+    public void ResetStir()
+    {
+        isDone = false;
+    }
+    public void StopAnimBeforeStir()
+    {
+        SetAnimatorSpeed(stoppedSpeed, true);
+    }
     public void Stir()
     {
         if (!isStirring || isDone || !enabled) return;
@@ -376,7 +383,7 @@ public class ItemStirring : MonoBehaviour
         if (isPlayingStirringFx || Ply_SoundManager.Ins == null) return;
 
         isPlayingStirringFx = true;
-        // Ply_SoundManager.Ins.PlayFxLoop(FxType.Stirring);
+        Ply_SoundManager.Ins.PlayFxLoop(FxType.Stirring);
     }
 
     private void StopStirringFx()
@@ -386,7 +393,7 @@ public class ItemStirring : MonoBehaviour
         isPlayingStirringFx = false;
         if (Ply_SoundManager.Ins != null)
         {
-            // Ply_SoundManager.Ins.StopFxLoop(FxType.Stirring);
+            Ply_SoundManager.Ins.StopFxLoop(FxType.Stirring);
         }
     }
 

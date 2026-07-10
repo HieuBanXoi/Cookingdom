@@ -149,7 +149,11 @@ public class Item : Ply_GameUnit
         animator.enabled = false;
         itemMoveToTarget.defaultTarget = null;
     }
-
+    public void SpawnHeartDone()
+    {
+        SpawnHeart(false);
+        
+    }
     public void ItemDone()
     {
         // SpawnHeart(false);
@@ -317,5 +321,11 @@ public class Item : Ply_GameUnit
         if (!playMoveToTargetFinishSound || Ply_SoundManager.Ins == null) return;
 
         Ply_SoundManager.Ins.PlayFx(moveToTargetFinishFxType);
+    }
+    public void DoOneStep()
+    {
+        PhaseManager.Ins.DoOneStep();
+
+
     }
 }

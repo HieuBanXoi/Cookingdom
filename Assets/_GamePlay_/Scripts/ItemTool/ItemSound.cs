@@ -45,7 +45,7 @@ public class ItemSound : MonoBehaviour
     }
     public void PlayPlaceFoodSound()
     {
-        PlaySoundFX(FxType.ItemPlace);
+        PlaySoundFX(FxType.FoodPlace);
     }
     public void PlayCreamSound()
     {
@@ -78,5 +78,9 @@ public class ItemSound : MonoBehaviour
     public void PlayCreamWipingSound()
     {
         PlaySoundFX(FxType.CreamWiping);
+    }
+    public void PlayItemPlaceSound()
+    {
+        PlaySoundFX(FxType.ItemPlace);
     }
 }

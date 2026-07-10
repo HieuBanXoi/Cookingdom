@@ -67,7 +67,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -313,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      balsamic_vinegar_04_0: -8244172366761134455
+      balsamic_vinegar_04_1: 8227236280223226235
+      balsamic_vinegar_04_2: 6589121048161015125
+      balsamic_vinegar_04_3: -8961065131164652127
+      balsamic_vinegar_04_4: 8273055218646642404
+      balsamic_vinegar_04_5: 5176166587754516274
+      balsamic_vinegar_04_6: -6978655514826630402
+      balsamic_vinegar_04_7: 510439052499477234
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

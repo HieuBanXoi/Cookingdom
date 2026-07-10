@@ -12,6 +12,7 @@ public enum ItemType
     Sink,
     FoodOnCuttingBoard, Pan, PanBoiling,
     Fish, WetItem, Paper, Trash,
+    PanCanStir,LastBowl
 
 
     

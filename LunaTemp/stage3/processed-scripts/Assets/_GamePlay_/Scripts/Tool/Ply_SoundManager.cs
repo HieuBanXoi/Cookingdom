@@ -15,7 +15,7 @@ public enum FxType
     KnifePlace,
     PlaceVege,
     LemonJuice,
-    ItemPlace,
+    FoodPlace,
     Blink,
     Failed,
     Wipe,
@@ -31,7 +31,9 @@ public enum FxType
     PouringWater,
     PaperClean,
     Clock,
-    CreamWiping
+    CreamWiping,
+    Stirring,
+    ItemPlace
 }
 
 public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>

@@ -706,7 +706,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         ResetIdleTimer();
     }
 
-    private void StartStoveToggleTutorial()
+    public void StartStoveToggleTutorial()
     {
         isWaitingStoveToggle = true;
         ignoreInputUntilRelease = true;

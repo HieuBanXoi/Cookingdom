@@ -127,6 +127,7 @@ public class ItemDraggable : MonoBehaviour
             else
             {
                 Vector3 targetPos = returnToExactReturnTransformPosition ? returnTransform.position : new Vector3(returnTransform.position.x, returnTransform.position.y, originalZ);
+                Debug.Log(targetPos);
                 returnTween = transform.DOMove(targetPos, 0.3f).SetEase(Ease.OutQuart);
             }
         }
