@@ -13,6 +13,23 @@ public class Knife : Item
     private Quaternion knifeOnDragOriginalLocalRotation;
     private Tween knifeOnDragRotateTween;
 
+    private void OnEnable()
+    {
+        if (itemDraggable != null)
+        {
+            itemDraggable.onBeginDrag.AddListener(KnifeOnDrag);
+            itemDraggable.onDropFail.AddListener(KnifeIdle);
+            // Gọi hàm di chuyển đến mục tiêu khi thả thành công
+            itemDraggable.onDropSuccess.AddListener(itemMoveToTarget.ExecuteMove);
+        }
+
+        if (itemMoveToTarget != null)
+        {
+            // Gọi hàm xử lý sau khi dao đã bay đến mục tiêu
+            itemMoveToTarget.onComplete.AddListener(TargetKnifeFlyEvent);
+        }
+    }
+
     public void KnifeOnDrag()
     {
         CacheKnifeOnDragRotation();
@@ -59,6 +76,19 @@ public class Knife : Item
     private void OnDisable()
     {
         ResetKnifeOnDragRotation();
+
+        // Hủy đăng ký sự kiện để tránh lỗi
+        if (itemDraggable != null)
+        {
+            itemDraggable.onBeginDrag.RemoveListener(KnifeOnDrag);
+            itemDraggable.onDropFail.RemoveListener(KnifeIdle);
+            itemDraggable.onDropSuccess.RemoveListener(itemMoveToTarget.ExecuteMove);
+        }
+
+        if (itemMoveToTarget != null)
+        {
+            itemMoveToTarget.onComplete.RemoveListener(TargetKnifeFlyEvent);
+        }
     }
 
     private void CacheKnifeOnDragRotation()
