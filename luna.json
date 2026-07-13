@@ -8855,6 +8855,14 @@
             {
                 "name": "ItemRaycastTargetEvent",
                 "excluded": false
+            },
+            {
+                "name": "pc.Debugger.Components.EditorCamera",
+                "excluded": true
+            },
+            {
+                "name": "pc.Debugger.Components.EditorGUI",
+                "excluded": true
             }
         ],
         "unusedMethods": [
@@ -15528,7 +15536,7 @@
                     },
                     {
                         "name": "value#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "value#set",
@@ -27860,7 +27868,7 @@
                 "instanceMethods": [
                     {
                         "name": "uiScaleMode#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "uiScaleMode#set",
@@ -27868,7 +27876,7 @@
                     },
                     {
                         "name": "screenMatchMode#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "screenMatchMode#set",
@@ -27876,7 +27884,7 @@
                     },
                     {
                         "name": "referenceResolution#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "referenceResolution#set",
@@ -27892,7 +27900,7 @@
                     },
                     {
                         "name": "matchWidthOrHeight#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "matchWidthOrHeight#set",
@@ -27900,7 +27908,7 @@
                     },
                     {
                         "name": "referencePixelsPerUnit#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "referencePixelsPerUnit#set",
@@ -28234,7 +28242,7 @@
                     },
                     {
                         "name": "blockingObjects#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "blockingObjects#set",
@@ -34807,10 +34815,6 @@
                     {
                         "name": "Tick",
                         "excluded": false
-                    },
-                    {
-                        "name": "Tick\",this)}this.c$-=t;if(this.c$<=0){pc.Application.getApplication().events.off(\"update",
-                        "excluded": false
                     }
                 ]
             },
@@ -38847,6 +38851,10 @@
                     {
                         "name": "RotateKnifeOnDragTo",
                         "excluded": false
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": true
                     }
                 ]
             },
@@ -39257,10 +39265,6 @@
                     {
                         "name": "CheckCanSpawn",
                         "excluded": false
-                    },
-                    {
-                        "name": "DoOneStep$1",
-                        "excluded": true
                     }
                 ]
             },
@@ -39400,7 +39404,7 @@
                 "instanceMethods": [
                     {
                         "name": "fillRect#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "fillRect#set",
@@ -39408,7 +39412,7 @@
                     },
                     {
                         "name": "handleRect#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "handleRect#set",
@@ -39416,7 +39420,7 @@
                     },
                     {
                         "name": "direction#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "direction#set",
@@ -39540,7 +39544,7 @@
                     },
                     {
                         "name": "OnRectTransformDimensionsChange",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "UpdateVisuals",

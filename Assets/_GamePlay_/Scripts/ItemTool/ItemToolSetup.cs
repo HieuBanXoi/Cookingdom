@@ -5,7 +5,7 @@ using UnityEngine.Events;
 #if UNITY_EDITOR
 using UnityEditor.Events;
 using UnityEditor;
-#endif
+
 
 /// <summary>
 /// Một cửa sổ công cụ editor để tự động thiết lập các đối tượng Item từ SpriteRenderers.
@@ -202,7 +202,7 @@ public class ItemToolSetup : EditorWindow
 
     private void SetupStoveButton(SpriteRenderer stoveSprite)
     {
-#if UNITY_EDITOR
+
         GameObject stoveGO = stoveSprite.gameObject;
 
         // Thêm và cấu hình Collider
@@ -229,8 +229,7 @@ public class ItemToolSetup : EditorWindow
         UnityEventTools.AddPersistentListener(toggleEvent.onTurnOff, panReference.TurnOffStove);
 
         Debug.Log($"Đã kết nối các sự kiện của '{stoveGO.name}' tới '{panReference.name}'.");
-#else
-        Debug.LogWarning("Việc thiết lập sự kiện cho Stove Button chỉ hoạt động trong Unity Editor.");
-#endif
+
     }
 }
+#endif

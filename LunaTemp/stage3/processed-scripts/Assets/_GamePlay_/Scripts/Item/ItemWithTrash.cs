@@ -56,8 +56,4 @@ public class ItemWithTrash : Item
         Debug.Log("SpawnNext");
         gameObject.SetActive(true);
     }
-    public void DoOneStep()
-    {
-        PhaseManager.Ins.DoOneStep();
-    }
 }
