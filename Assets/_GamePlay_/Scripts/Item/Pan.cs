@@ -16,16 +16,16 @@ public class Pan : Item
     public float stoveShakeDuration = 0.25f;
     private float stoveShakeStrength = 0.05f;
     private int stoveShakeVibrato = 12;
-    [Header("Step1")]
-    public int vegeOn = 0;
-    public Item salt;
-    public Item chillie;
-    [Header("Step2")]
-    public Item meat;
-    public Item cream;
-    [Header("Step3")]
-    public Item noodle;
-    public Item lastBowl;
+
+    [Header("--- Plate ---")]
+    public Item[] plates;
+    public int plateCount = 0;
+    [Header("--- OtherPot ---")]
+    public Item waterPot;
+    public Item[] otherPot;
+    public int otherPotCount = 0;
+
+    
 
     private bool isPlayingFryingLoop = false;
     private Tween stoveShakeTween;
@@ -46,7 +46,10 @@ public class Pan : Item
     }
     public void TurnOnStove()
     {
-        stoveBtn.enabled = false;
+        if(stoveBtn != null)
+        {
+            stoveBtn.enabled = false;
+        }
         isTurnOnStove = true;
         PlayContinuousStoveShakeAfterDelay();
         if (isOilIn)
@@ -60,7 +63,6 @@ public class Pan : Item
     }
     public void TurnOffStove()
     {
-        CanDrag();
         isTurnOnStove = false;
         StopStoveShake();
         // if (fryingFX != null) fryingFX.SetActive(false);
@@ -80,102 +82,43 @@ public class Pan : Item
     {
         if (fryingFX != null) fryingFX.SetActive(false);
     }
-    public void AddVege()
-    {
-        ProgressSlider.Ins.AddProgressSlide();
-
-        vegeOn += 1;
-        if(vegeOn >= 4)
-        {
-            salt.itemDraggable.targetItemType = ItemType.PanBoiling;
-            salt.itemMoveToTarget.defaultTarget = transform;
-            chillie.itemDraggable.targetItemType = ItemType.PanBoiling;
-            chillie.itemMoveToTarget.defaultTarget = transform;
-        
-        }
-    }
-    public void AddSalt()
-    {
-        ProgressSlider.Ins.AddProgressSlide();
-
-        vegeOn += 1;
-        animator.SetTrigger("SaltOn");
-        CheckStep1Done();
-    }
-    public void AddChillie()
-    {
-        ProgressSlider.Ins.AddProgressSlide();
-
-        vegeOn += 1;
-        animator.SetTrigger("ChillieOn");
-        CheckStep1Done();
-        
-    }
-    public void CheckStep1Done()
-    {
-        if(vegeOn >= 6)
-        {
-            itemType = ItemType.PanCanStir;
-            spartula.itemDraggable.targetItemType = ItemType.PanCanStir;
-            spartula.itemMoveToTarget.defaultTarget = transform;
-        }
-    }
-    public void OnStir1Done()
-    {
-        spartula.itemDraggable.targetItemType = ItemType.None;
-        spartula.itemMoveToTarget.defaultTarget = null;
-
-        spartula.itemStirring.targetStateName = "Stir2";
-        itemType = ItemType.PanBoiling;
-        meat.itemDraggable.targetItemType = ItemType.PanBoiling;
-        meat.itemMoveToTarget.defaultTarget = transform;
-    }
-    public void MeatOn()
-    {
-        ProgressSlider.Ins.AddProgressSlide();
-
-        cream.itemDraggable.targetItemType = ItemType.PanBoiling;
-        cream.itemMoveToTarget.defaultTarget = transform;
-        animator.SetTrigger("MeatOn");
-
-    }
+    
     public void CanStir()
     {
         itemType = ItemType.PanCanStir;
         spartula.itemDraggable.targetItemType = ItemType.PanCanStir;
         spartula.itemMoveToTarget.defaultTarget = transform;
-
     }
-    public void OnStir2Done()
-    {
-        spartula.itemDraggable.targetItemType = ItemType.None;
-        spartula.itemMoveToTarget.defaultTarget = null;
-
-        spartula.itemStirring.targetStateName = "Stir3";
-        itemType = ItemType.PanBoiling;
-        noodle.itemDraggable.targetItemType = ItemType.PanBoiling;
-        noodle.itemMoveToTarget.defaultTarget = transform;
-    }
-    public void OnStir3Done()
-    {
-        spartula.itemDraggable.targetItemType = ItemType.None;
-        spartula.itemMoveToTarget.defaultTarget = null;
-        stoveBtn.enabled = true;
-        HandTutManager.Ins.StartStoveToggleTutorial();
-    }
-    public void CanDrag()
-    {
-        spartula.itemDraggable.targetItemType = ItemType.None;
-        itemType = ItemType.None;
-        itemDraggable.targetItemType = ItemType.LastBowl;
-        itemMoveToTarget.defaultTarget = lastBowl.transform;
-        itemDraggable.enabled = true;
-    }
-    private void UpdatePanItemType()
+    public void UpdatePanItemType()
     {
         ChangeItemType(isOilIn && isTurnOnStove
             ? ItemType.PanBoiling
             : ItemType.Pan);
+    }
+    public void CanPlateIn()
+    {
+        for (int i = 0; i < plates.Length; i++)
+        {
+            SetItemTargetToPan(plates[i]);
+        }
+    }
+    public void CanWaterPotIn()
+    {
+        SetItemTargetToPan(waterPot);
+    }
+    public void CanOtherPotIn()
+    {
+        for (int i = 0; i < otherPot.Length; i++)
+        {
+            SetItemTargetToPan(otherPot[i]);
+        }
+    }
+
+    private void SetItemTargetToPan(Item item)
+    {
+        itemType = ItemType.PanBoiling;
+        item.itemDraggable.targetItemType = ItemType.PanBoiling;
+        item.itemMoveToTarget.defaultTarget = tf;
     }
 
     private void UpdateFryingSound()

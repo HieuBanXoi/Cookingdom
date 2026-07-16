@@ -125,14 +125,13 @@ public class ItemToolSetup : EditorWindow
         // Đặt SpriteRenderer làm con
         originalGO.transform.SetParent(parentGO.transform, true);
 
-        // Thêm các component cần thiết vào cha
-        parentGO.AddComponent<Item>();
+        AddCollider(parentGO, spriteRenderer);
         parentGO.AddComponent<ItemDraggable>();
         parentGO.AddComponent<ItemMoveToTarget>();
         parentGO.AddComponent<Animator>();
+        parentGO.AddComponent<Item>();
 
         // Thêm và cấu hình Collider
-        AddCollider(parentGO, spriteRenderer);
     }
 
     private void SetupPan(SpriteRenderer spriteRenderer)
