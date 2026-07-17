@@ -7461,10 +7461,6 @@
                 "excluded": false
             },
             {
-                "name": "Ply_SoundManager.FxAudio",
-                "excluded": false
-            },
-            {
                 "name": "PoolType",
                 "excluded": false
             },
@@ -23537,10 +23533,6 @@
                         "excluded": true
                     },
                     {
-                        "name": "GetAudioClip",
-                        "excluded": false
-                    },
-                    {
                         "name": "GetOrCreateFxSource",
                         "excluded": false
                     },
@@ -23558,6 +23550,10 @@
                     },
                     {
                         "name": "GetFxTypeCount",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetFxAudio",
                         "excluded": false
                     }
                 ]
@@ -36797,20 +36793,6 @@
                 ]
             },
             {
-                "className": "SortChildByZPos",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SortChildrenByZPosition",
-                        "excluded": true
-                    }
-                ]
-            },
-            {
                 "className": "Spine.Unity.BlendModeMaterials",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -39887,6 +39869,16 @@
                     {
                         "name": "DOShapeCircle",
                         "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Ply_SoundManager.FxAudio",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
                     }
                 ]
             }

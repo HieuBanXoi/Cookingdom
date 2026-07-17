@@ -400,7 +400,7 @@ MonoBehaviour:
     - _STRAIGHT_ALPHA_INPUT
   _includedShaderVariants: []
   _excludedShaderVariants: []
-  version: 2019
+  version: 2067
   _shaderParsedShaders:
   - ParsedSubShaders:
     - Index: 0

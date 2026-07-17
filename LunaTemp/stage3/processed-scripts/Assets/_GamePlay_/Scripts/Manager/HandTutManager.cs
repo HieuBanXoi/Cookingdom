@@ -16,16 +16,26 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     public Ply_ToggleEvent waterToggleEvent;
     public SinkBlock sinkBlock;
     public List<InWaterItem> itemsInWater = new List<InWaterItem>();
+    [LunaPlaygroundField("StartNumberItemNoDelay", 0, "HandTut Settings")]
+
     public int noDelayItemCount = 3;
+    [LunaPlaygroundField("HandTutAfterWrongTimes", 1, "HandTut Settings")]
+
     public int breakHeartNoDelayThreshold = 3;
+    [LunaPlaygroundField("Short", 2, "HandTut Settings")]
+
     public float shortIdleDelay = 0.5f;
     [Tooltip("So lan hien hand tutorial toi da. De 0 de khong gioi han.")]
+    [LunaPlaygroundField("MaxHandTutShowCount", 3, "HandTut Settings")]
+
     [Min(0)] public int maxHandTutShowCount = 0;
     public bool showSinkWaterTutorialOnStart = true;
     public bool waitForBowlIntro = true;
 
 
     [Header("--- TIMING ---")]
+    [LunaPlaygroundField("DefaultTimeDelay", 4, "HandTut Settings")]
+
     public float idleDelay = 5f;
     [Min(0f)] public float firstHandTutDelay = 5f;
     [Min(0f)] public float phaseHandTutDelay = 0f;
@@ -59,6 +69,15 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     private bool isWaitingPhaseHandTutDelay;
     private float phaseHandTutDelayTimer;
     private readonly List<Item> noDelayItems = new List<Item>();
+    private readonly HashSet<Item> tutoredItems = new HashSet<Item>();
+
+    [Header("--- DEBUG ---")]
+    [SerializeField]
+    private float currentDelayHandtut;
+    [SerializeField]
+    private bool isBreakingHeartNoDelay;
+    [SerializeField]
+    private int tutoredItemCount;
 
     public bool ShouldBlockGameplayInput => isWaitingTapToCook || ignoreInputUntilRelease;
 
@@ -83,6 +102,9 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     {
         RemoveDoneAndNullItems();
         CacheNoDelayItems();
+        tutoredItems.Clear();
+        tutoredItemCount = 0;
+        isBreakingHeartNoDelay = false;
         isWaitingTapToCook = false;
         isWaitingInitialSinkWaterTutorial = showSinkWaterTutorialOnStart;
         hasStartedHandTut = isWaitingInitialSinkWaterTutorial || !waitForBowlIntro;
@@ -150,8 +172,8 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         }
 
         idleTimer += Time.deltaTime;
-        float currentIdleDelay = GetCurrentIdleDelay();
-        if (idleTimer >= currentIdleDelay && handSequence == null)
+        currentDelayHandtut = GetCurrentIdleDelay();
+        if (idleTimer >= currentDelayHandtut && handSequence == null)
         {
             idleTimer = 0f;
             ShowNextHandTut();
@@ -295,6 +317,11 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
             }
 
             return;
+        }
+
+        if (tutoredItems.Add(targetItem))
+        {
+            tutoredItemCount = tutoredItems.Count;
         }
 
 
@@ -751,6 +778,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         if (consecutiveBreakHeartDropFails >= breakHeartNoDelayThreshold)
         {
             forceNoDelayForNextHandTut = true;
+            isBreakingHeartNoDelay = true;
             ResetIdleTimer();
         }
     }
@@ -759,6 +787,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     {
         consecutiveBreakHeartDropFails = 0;
         forceNoDelayForNextHandTut = false;
+        isBreakingHeartNoDelay = false;
     }
 
     public void RegisterItemInWater(InWaterItem item)
