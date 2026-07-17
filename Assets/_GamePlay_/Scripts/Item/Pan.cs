@@ -39,10 +39,11 @@ public class Pan : Item
         if (isTurnOnStove)
         {
             TurnOnFX();
+            CanPlateIn();
         }
         UpdatePanItemType();
         UpdateFryingSound();
-        ProgressSlider.Ins.AddProgressSlide();
+        // ProgressSlider.Ins.AddProgressSlide();
     }
     public void TurnOnStove()
     {
@@ -55,6 +56,7 @@ public class Pan : Item
         if (isOilIn)
         {
             TurnOnFX();
+            CanPlateIn();
         }
         UpdatePanItemType();
         UpdateFryingSound();
@@ -89,6 +91,12 @@ public class Pan : Item
         spartula.itemDraggable.targetItemType = ItemType.PanCanStir;
         spartula.itemMoveToTarget.defaultTarget = transform;
     }
+    public void StirDone()
+    {
+        itemType = ItemType.PanBoiling;
+        spartula.itemDraggable.targetItemType = ItemType.None;
+        spartula.itemMoveToTarget.defaultTarget = null;
+    }
     public void UpdatePanItemType()
     {
         ChangeItemType(isOilIn && isTurnOnStove
@@ -111,6 +119,22 @@ public class Pan : Item
         for (int i = 0; i < otherPot.Length; i++)
         {
             SetItemTargetToPan(otherPot[i]);
+        }
+    }
+    public void AddPlate()
+    {
+        plateCount++;
+        if(plateCount >= plates.Length)
+        {
+            CanStir();
+        }
+    }
+    public void AddPot()
+    {
+        otherPotCount++;
+        if(otherPotCount >= otherPot.Length)
+        {
+            CanStir();
         }
     }
 

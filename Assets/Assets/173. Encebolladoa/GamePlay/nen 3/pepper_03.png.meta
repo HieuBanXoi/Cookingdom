@@ -109,7 +109,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -663,7 +663,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -672,7 +672,29 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pepper_03_0: 2748105851887238928
+      pepper_03_1: -2862213239253914354
+      pepper_03_10: 6652177751603537286
+      pepper_03_11: -8301167660603234928
+      pepper_03_12: 3060482714979872470
+      pepper_03_13: 6845810280510402014
+      pepper_03_14: 198788135702854050
+      pepper_03_15: 6481796570630932398
+      pepper_03_16: 6922254818161332456
+      pepper_03_17: -4265643041175058884
+      pepper_03_18: -345263192764430357
+      pepper_03_19: -2192351373082754662
+      pepper_03_2: -3863950795849151956
+      pepper_03_20: -3554614513977674569
+      pepper_03_21: -6922617348935691111
+      pepper_03_3: 6583412225209930791
+      pepper_03_4: -5638076490915944293
+      pepper_03_5: -4451874331954127632
+      pepper_03_6: 6706598082483532347
+      pepper_03_7: -6493671334599703909
+      pepper_03_8: -4694153333455742992
+      pepper_03_9: 2547176224408529754
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
