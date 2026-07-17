@@ -33,7 +33,8 @@ public enum FxType
     Clock,
     CreamWiping,
     Stirring,
-    ItemPlace
+    ItemPlace,
+    PourOil
 }
 
 public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>

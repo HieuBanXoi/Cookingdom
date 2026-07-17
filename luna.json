@@ -2,7 +2,7 @@
     "version": "7.1.0",
     "projectId": "8cfa86f1caa935a41ac1489c608212f7",
     "applicationID": 27404,
-    "creativeName": "Cookingdom_PLY_v62_Spaghetti_TurkeySauce",
+    "creativeName": "Cookingdom_PLY_v65_StyleBurrito",
     "pgServer": "EU",
     "window": {
         "‐⁙": true
@@ -8855,14 +8855,6 @@
             {
                 "name": "ItemRaycastTargetEvent",
                 "excluded": false
-            },
-            {
-                "name": "pc.Debugger.Components.EditorCamera",
-                "excluded": true
-            },
-            {
-                "name": "pc.Debugger.Components.EditorGUI",
-                "excluded": true
             }
         ],
         "unusedMethods": [
@@ -26576,7 +26568,7 @@
                     },
                     {
                         "name": "Play$4",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Play$1",
@@ -34815,6 +34807,10 @@
                     {
                         "name": "Tick",
                         "excluded": false
+                    },
+                    {
+                        "name": "Tick\",this)}this.c$-=t;if(this.c$<=0){pc.Application.getApplication().events.off(\"update",
+                        "excluded": false
                     }
                 ]
             },
@@ -39154,7 +39150,7 @@
                     },
                     {
                         "name": "PlayWipeSound",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "PlayWipe2Sound",
@@ -39202,6 +39198,10 @@
                     },
                     {
                         "name": "PlayItemPlaceSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayPourOilSound",
                         "excluded": false
                     }
                 ]
@@ -39633,43 +39633,7 @@
                         "excluded": false
                     },
                     {
-                        "name": "AddVege",
-                        "excluded": false
-                    },
-                    {
-                        "name": "AddSalt",
-                        "excluded": false
-                    },
-                    {
-                        "name": "AddChillie",
-                        "excluded": false
-                    },
-                    {
-                        "name": "CheckStep1Done",
-                        "excluded": false
-                    },
-                    {
-                        "name": "OnStir1Done",
-                        "excluded": false
-                    },
-                    {
-                        "name": "MeatOn",
-                        "excluded": false
-                    },
-                    {
                         "name": "CanStir",
-                        "excluded": false
-                    },
-                    {
-                        "name": "OnStir2Done",
-                        "excluded": false
-                    },
-                    {
-                        "name": "OnStir3Done",
-                        "excluded": false
-                    },
-                    {
-                        "name": "CanDrag",
                         "excluded": false
                     },
                     {
@@ -39707,6 +39671,34 @@
                     {
                         "name": "PLayTurnOnStoveSound",
                         "excluded": true
+                    },
+                    {
+                        "name": "StirDone",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CanPlateIn",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CanWaterPotIn",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CanOtherPotIn",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AddPlate",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AddPot",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetItemTargetToPan",
+                        "excluded": false
                     }
                 ]
             },
@@ -39715,11 +39707,11 @@
                 "staticMethods": [],
                 "instanceMethods": [
                     {
-                        "name": "Start",
+                        "name": "init",
                         "excluded": false
                     },
                     {
-                        "name": "Update",
+                        "name": "ToPot",
                         "excluded": false
                     }
                 ]
@@ -40214,6 +40206,36 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/Assets/132. mi y voi sot ga tay/132. mi y voi sot ga tay/arts/BG/bg 1/background_02.png"
+                    },
+                    {
+                        "maxWidth": 2048,
+                        "maxHeight": 2048,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/173. Encebolladoa/Main.spriteatlasv2"
+                    },
+                    {
+                        "maxWidth": 1025,
+                        "maxHeight": 1547,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/173. Encebolladoa/GamePlay/bg/bg 1/bg 3.png"
+                    },
+                    {
+                        "maxWidth": 1536,
+                        "maxHeight": 2048,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/173. Encebolladoa/GamePlay/bg/bg 1/bg2.png"
                     }
                 ]
             },

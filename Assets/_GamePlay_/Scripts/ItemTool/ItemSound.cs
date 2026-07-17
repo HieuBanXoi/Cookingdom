@@ -83,4 +83,8 @@ public class ItemSound : MonoBehaviour
     {
         PlaySoundFX(FxType.ItemPlace);
     }
+    public void PlayPourOilSound()
+    {
+        PlaySoundFX(FxType.PourOil);
+    }
 }

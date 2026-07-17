@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class Spartula : Item
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public bool isStir1 = false;
+    public void ToPot()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(isStir1)
+        {
+            GameManager.Ins.LoseGame();
+        }
+        isStir1 = true;
     }
 }

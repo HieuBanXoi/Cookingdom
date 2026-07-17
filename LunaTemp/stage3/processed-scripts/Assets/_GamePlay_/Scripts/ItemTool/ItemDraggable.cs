@@ -11,6 +11,8 @@ public class ItemDraggable : MonoBehaviour
     public bool setParentToReturnTransform = true;
     public bool returnToStartOnDragFailed = true;
     public bool returnToExactReturnTransformPosition = true;
+    [Tooltip("Nếu bật, vị trí của returnTransform sẽ được cache lại lúc Start và luôn trở về điểm đó, thay vì vị trí động.")]
+    public bool cacheStartPosWhenStart = false;
     public ItemType targetItemType;
     public Item item;
     public bool checkState = false;
@@ -56,6 +58,9 @@ public class ItemDraggable : MonoBehaviour
     private bool isForceReturningToStart;
     private bool isDraggingSession;
     private bool isReturningToStart;
+    
+    private Vector3 cachedReturnPosition;
+    private bool hasCachedReturnPosition;
     private ItemDragChildRotator itemDragChildRotator;
 
     public bool IsDragging => isDraggingSession;
@@ -77,6 +82,19 @@ public class ItemDraggable : MonoBehaviour
         if (shadowObject != null)
         {
             shadowDefaultActive = shadowObject.activeSelf;
+        }
+
+        if (cacheStartPosWhenStart)
+        {
+            if (returnTransform != null)
+            {
+                cachedReturnPosition = returnTransform.position;
+            }
+            else
+            {
+                cachedReturnPosition = transform.position;
+            }
+            hasCachedReturnPosition = true;
         }
     }
 
@@ -114,7 +132,11 @@ public class ItemDraggable : MonoBehaviour
             bobEffect.Stop(false);
         }
 
-        if (returnTransform != null)
+        if (cacheStartPosWhenStart && hasCachedReturnPosition)
+        {
+            returnTween = transform.DOMove(cachedReturnPosition, 0.3f).SetEase(Ease.OutQuart);
+        }
+        else if (returnTransform != null)
         {
             if (setParentToReturnTransform)
             {
@@ -161,7 +183,11 @@ public class ItemDraggable : MonoBehaviour
 
         SetShadowActive(shadowDefaultActive);
 
-        if (returnTransform != null)
+        if (cacheStartPosWhenStart && hasCachedReturnPosition)
+        {
+            transform.position = cachedReturnPosition;
+        }
+        else if (returnTransform != null)
         {
             if (setParentToReturnTransform)
             {
