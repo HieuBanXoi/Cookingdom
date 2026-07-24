@@ -34803,10 +34803,6 @@
                     {
                         "name": "Tick",
                         "excluded": false
-                    },
-                    {
-                        "name": "Tick\",this)}this.c$-=t;if(this.c$<=0){pc.Application.getApplication().events.off(\"update",
-                        "excluded": false
                     }
                 ]
             },
@@ -39900,8 +39896,8 @@
         "rules": {
             "texture": {
                 "default": {
-                    "maxWidth": 512,
-                    "maxHeight": 512,
+                    "maxWidth": 2048,
+                    "maxHeight": 2048,
                     "format": "png32",
                     "compression": "quantSize",
                     "quality": 65,
@@ -39950,8 +39946,8 @@
                         "name": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset"
                     },
                     {
-                        "maxWidth": 512,
-                        "maxHeight": 512,
+                        "maxWidth": 2048,
+                        "maxHeight": 2048,
                         "format": "png32",
                         "compression": "none",
                         "quality": 65,
@@ -39980,8 +39976,8 @@
                         "name": "Assets/Assets/UsingAsset/bg 1.png"
                     },
                     {
-                        "maxWidth": 512,
-                        "maxHeight": 512,
+                        "maxWidth": 2048,
+                        "maxHeight": 2048,
                         "format": "png32",
                         "compression": "none",
                         "quality": 65,
@@ -39990,8 +39986,8 @@
                         "name": "Assets/_GamePlay_/Font/LilitaOne-Regular SDF.asset"
                     },
                     {
-                        "maxWidth": 512,
-                        "maxHeight": 512,
+                        "maxWidth": 2048,
+                        "maxHeight": 2048,
                         "format": "png32",
                         "compression": "none",
                         "quality": 65,
