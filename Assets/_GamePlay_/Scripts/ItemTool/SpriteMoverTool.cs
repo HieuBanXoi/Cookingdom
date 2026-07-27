@@ -76,8 +76,9 @@ public class SpriteMoverTool : EditorWindow
         AssetDatabase.StartAssetEditing();
         try
         {
-            foreach (SpriteRenderer sr in spriteRenderers)
+            for (int i = 0; i < spriteRenderers.Length; i++)
             {
+                SpriteRenderer sr = spriteRenderers[i];
                 if (sr.sprite != null)
                 {
                     string oldPath = AssetDatabase.GetAssetPath(sr.sprite);

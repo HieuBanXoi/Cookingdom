@@ -5,8 +5,8 @@ using UnityEditor;
 public class SortChildByZPosEditor : EditorWindow
 {
     private Transform transformToSort;
-    private float zOffset = -0.1f;
-    private float baseZ = -0.1f;
+    private float zOffset = -0.01f;
+    private float baseZ = 0f;
 
     [SerializeField]
     private List<Transform> childrenToSort = new List<Transform>();

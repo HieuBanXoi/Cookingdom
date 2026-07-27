@@ -2,7 +2,7 @@
     "version": "7.1.0",
     "projectId": "8cfa86f1caa935a41ac1489c608212f7",
     "applicationID": 27404,
-    "creativeName": "Cookingdom_PLY_v65_StyleBurrito",
+    "creativeName": "Cookingdom_PLY_v64_BBQ_grillscene",
     "pgServer": "EU",
     "window": {
         "‐⁙": true
@@ -8851,6 +8851,10 @@
             {
                 "name": "ItemRaycastTargetEvent",
                 "excluded": false
+            },
+            {
+                "name": "ItemToTarget",
+                "excluded": true
             }
         ],
         "unusedMethods": [
@@ -9280,7 +9284,7 @@
                     },
                     {
                         "name": "toString",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "parse",
@@ -30670,7 +30674,7 @@
                     },
                     {
                         "name": "CompleteAndReturnKilledTot$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "CompleteAndReturnKilledTot$2",
@@ -32572,7 +32576,7 @@
                     },
                     {
                         "name": "Complete",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Flip",
@@ -39181,6 +39185,14 @@
                     {
                         "name": "PlayPourOilSound",
                         "excluded": false
+                    },
+                    {
+                        "name": "PlayFryingSound",
+                        "excluded": true
+                    },
+                    {
+                        "name": "StopFryingSound",
+                        "excluded": true
                     }
                 ]
             },
@@ -39877,6 +39889,156 @@
                         "excluded": false
                     }
                 ]
+            },
+            {
+                "className": "OvenManager",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "inherits",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ActivateFoodOnOven",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ActivateFoodsWithDelay",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UpdateAllFoodTargets",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnOvenSlotFreed",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AssignTargetToFood",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StartFryingSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StopFryingSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OneFoodJumped",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "FoodOnOvenType",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "FoodOnOven",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetOvenSlot",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StartCook",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnCookingStepComplete",
+                        "excluded": false
+                    },
+                    {
+                        "name": "HandleClick",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Flip",
+                        "excluded": false
+                    },
+                    {
+                        "name": "MoveToPlate",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetNextFoodState",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "FoodOnPlate",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SubscribeMovementEvents",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UnsubscribeMovementEvents",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDropSuccess",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "OvenSlot",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlaceFood",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnFoodRemoved",
+                        "excluded": false
+                    }
+                ]
             }
         ],
         "stubberDataList": [],
@@ -39896,8 +40058,8 @@
         "rules": {
             "texture": {
                 "default": {
-                    "maxWidth": 2048,
-                    "maxHeight": 2048,
+                    "maxWidth": 512,
+                    "maxHeight": 512,
                     "format": "png32",
                     "compression": "quantSize",
                     "quality": 65,
@@ -39946,8 +40108,8 @@
                         "name": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset"
                     },
                     {
-                        "maxWidth": 2048,
-                        "maxHeight": 2048,
+                        "maxWidth": 512,
+                        "maxHeight": 512,
                         "format": "png32",
                         "compression": "none",
                         "quality": 65,
@@ -39976,8 +40138,8 @@
                         "name": "Assets/Assets/UsingAsset/bg 1.png"
                     },
                     {
-                        "maxWidth": 2048,
-                        "maxHeight": 2048,
+                        "maxWidth": 512,
+                        "maxHeight": 512,
                         "format": "png32",
                         "compression": "none",
                         "quality": 65,
@@ -39986,8 +40148,8 @@
                         "name": "Assets/_GamePlay_/Font/LilitaOne-Regular SDF.asset"
                     },
                     {
-                        "maxWidth": 2048,
-                        "maxHeight": 2048,
+                        "maxWidth": 512,
+                        "maxHeight": 512,
                         "format": "png32",
                         "compression": "none",
                         "quality": 65,
@@ -40224,6 +40386,66 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/Assets/173. Encebolladoa/GamePlay/bg/bg 1/bg2.png"
+                    },
+                    {
+                        "maxWidth": 2048,
+                        "maxHeight": 2048,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/LevelBackyardBBQ/MAin.spriteatlasv2"
+                    },
+                    {
+                        "maxWidth": 938,
+                        "maxHeight": 500,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/LevelBackyardBBQ/LevelBackyardBBQ/Texture/GAMEPLAY/Nuong/Fix/than 4.png"
+                    },
+                    {
+                        "maxWidth": 1455,
+                        "maxHeight": 1146,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/LevelBackyardBBQ/LevelBackyardBBQ/Texture/Update/images/images/Bg2.png"
+                    },
+                    {
+                        "maxWidth": 1416,
+                        "maxHeight": 1633,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/LevelBackyardBBQ/LevelBackyardBBQ/Texture/Update/BGPhase3.png"
+                    },
+                    {
+                        "maxWidth": 1036,
+                        "maxHeight": 526,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/LevelBackyardBBQ/LevelBackyardBBQ/Texture/Update/bep than 2.png"
+                    },
+                    {
+                        "maxWidth": 1443,
+                        "maxHeight": 1718,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/LevelBackyardBBQ/LevelBackyardBBQ/Texture/Update/images/images/bg1.png"
                     }
                 ]
             },

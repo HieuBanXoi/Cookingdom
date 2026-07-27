@@ -13,6 +13,9 @@ public enum ItemType
     FoodOnCuttingBoard, Pan, PanBoiling,
     Fish, WetItem, Paper, Trash,
     PanCanStir,
+    Thit3Chi, BoTang, XucXich, Ngo, OtChuong, Cachua,
+    OvenSlot
+
 
 
     

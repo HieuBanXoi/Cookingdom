@@ -154,7 +154,7 @@ public class Item : Ply_GameUnit
         SpawnHeart(false);
         
     }
-    public void ItemDone()
+    public virtual void ItemDone()
     {
         // SpawnHeart(false);
         ItemTypeDoneManager.Ins?.ItemDone(this);

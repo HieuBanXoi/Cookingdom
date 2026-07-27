@@ -19,6 +19,8 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
     [LunaPlaygroundField("StartNumberItemNoDelay", 0, "HandTut Settings")]
 
     public int noDelayItemCount = 3;
+    [Tooltip("Nếu bật, chỉ các item đầu tiên trong list 'items' được hưởng no-delay. Nếu tắt, no-delay áp dụng cho các item bất kỳ đầu tiên được hướng dẫn.")]
+    public bool noDelayInList = true;
     [LunaPlaygroundField("HandTutAfterWrongTimes", 1, "HandTut Settings")]
 
     public int breakHeartNoDelayThreshold = 3;
@@ -652,6 +654,11 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
     private float GetCurrentIdleDelay()
     {
+        if (!noDelayInList && tutoredItemCount < noDelayItemCount)
+        {
+            return shortIdleDelay;
+        }
+
         if (ShouldSkipDelayForCurrentItem())
         {
             return shortIdleDelay;
@@ -675,6 +682,10 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
 
     private bool ShouldSkipDelayForCurrentItem()
     {
+        // Ưu tiên cao nhất: Nếu đang bị ép buộc no-delay (ví dụ: sau khi fail nhiều lần),
+        // thì luôn dùng short delay.
+        if (forceNoDelayForNextHandTut) return true;
+
         if (isWaitingInitialSinkWaterTutorial) return HasStartupNoDelayItemCount();
         if (isWaitingStoveToggle) return false;
 
@@ -683,12 +694,21 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         {
             if (targetItem.requireMatchingTargetTypeForHandTut) return false;
 
-            if (IsClickableReady(targetItem)) return false;
+            if (IsClickableReady(targetItem))
+            {
+                // Chỉ áp dụng độ trễ dài cho item có thể click SAU KHI đã qua giai đoạn hướng dẫn nhanh ban đầu.
+                bool inInitialPhase = (noDelayInList && ShouldUseStartupNoDelayForItem(targetItem)) ||
+                                      (!noDelayInList && tutoredItemCount < noDelayItemCount);
 
-            return forceNoDelayForNextHandTut || ShouldUseStartupNoDelayForItem(targetItem);
+                if (!inInitialPhase)
+                {
+                    // Nếu không còn trong giai đoạn đầu, quay lại logic cũ là dùng độ trễ dài cho item click.
+                    return false;
+                }
+            }
+
+            return ShouldUseStartupNoDelayForItem(targetItem);
         }
-
-        if (forceNoDelayForNextHandTut) return true;
 
         return HasInWaterItemNeedingHandTut();
     }

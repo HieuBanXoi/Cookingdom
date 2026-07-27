@@ -76,8 +76,9 @@ public class ItemToolSetup : EditorWindow
         // 2. Setup other items
         if (otherItemSprites != null && otherItemSprites.Count > 0)
         {
-            foreach (var spriteRenderer in otherItemSprites)
+            for (int i = 0; i < otherItemSprites.Count; i++)
             {
+                var spriteRenderer = otherItemSprites[i];
                 if (spriteRenderer != null)
                 {
                     SetupGenericItem(spriteRenderer);

@@ -87,4 +87,12 @@ public class ItemSound : MonoBehaviour
     {
         PlaySoundFX(FxType.PourOil);
     }
+    public void PlayFryingSound()
+    {
+        Ply_SoundManager.Ins.PlayFxLoop(FxType.Frying);
+    }
+    public void StopFryingSound()
+    {
+        Ply_SoundManager.Ins.StopFxLoop(FxType.Frying);
+    }
 }

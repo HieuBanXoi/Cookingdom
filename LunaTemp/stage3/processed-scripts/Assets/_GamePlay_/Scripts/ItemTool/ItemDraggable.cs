@@ -327,14 +327,14 @@ public class ItemDraggable : MonoBehaviour
             if (targetItem != null && targetItem != this.item) // Đảm bảo không phải chính nó
             {
                 if (targetItem.itemType == ItemType.None) continue;
-
+                
                 bool matchesTargetType = targetItem.itemType == targetItemType;
                 bool matchesDefaultTarget = targetItemType == ItemType.None
                     && item != null
                     && item.itemMoveToTarget != null
-                    && item.itemMoveToTarget.defaultTarget != null
-                    && targetItem.transform == item.itemMoveToTarget.defaultTarget;
-
+                    && item.itemMoveToTarget.defaultTarget != null;
+                    // && targetItem.transform == item.itemMoveToTarget.defaultTarget;
+                Debug.Log(matchesTargetType + " " + matchesDefaultTarget);
                 if (matchesTargetType || matchesDefaultTarget)
                 {
                     isHitValid = true;
