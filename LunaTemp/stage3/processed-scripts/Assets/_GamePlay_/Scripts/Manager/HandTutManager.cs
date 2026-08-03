@@ -124,6 +124,7 @@ public class HandTutManager : Ply_Singleton<HandTutManager>
         {
             hasHiddenTapToCook = true;
             tapToCookObject.SetActive(false);
+            AppLovinAnalytics.Track(ALEvent.CHALLENGE_STARTED);
         }
 
         if (!hasStartedHandTut) return;

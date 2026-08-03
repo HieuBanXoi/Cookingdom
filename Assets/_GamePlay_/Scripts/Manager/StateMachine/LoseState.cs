@@ -7,7 +7,6 @@ public class LoseState : IGameState
         UIManager.Ins.ActiveGameLoseUI(true);
         gameManager.isGotoStore = true;
         gameManager.isPlaying = false;
-
     }
 
     public void OnExecute(GameManager gameManager)

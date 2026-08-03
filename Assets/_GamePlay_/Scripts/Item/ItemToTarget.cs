@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ItemToTarget : ToolObject
 {
+    [Header("Target")]
     public Transform targetPosition;
     public Item targetItem;
     public string targetItemAnimationName;
@@ -79,7 +80,13 @@ public class ItemToTarget : ToolObject
         {
             targetItem.animator.SetTrigger(targetItemAnimationName);
         }
-        
+        if(ItemTypeDoneManager.Ins != null && itemDoneWhenArrive)
+        {
+            ItemTypeDoneManager.Ins.ItemDone(this);
+        }
+        {
+            HandTutManager.Ins?.ItemDone(this);
+        }
     }
     public override void ItemDone()
     {

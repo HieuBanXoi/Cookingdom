@@ -2,7 +2,7 @@
     "version": "7.1.0",
     "projectId": "8cfa86f1caa935a41ac1489c608212f7",
     "applicationID": 27404,
-    "creativeName": "Cookingdom_PLY_v64_BBQ_grillscene",
+    "creativeName": "Cookingdom_PLY_v66_sushi",
     "pgServer": "EU",
     "window": {
         "‐⁙": true
@@ -8789,10 +8789,6 @@
                 "excluded": true
             },
             {
-                "name": "ToolObject",
-                "excluded": true
-            },
-            {
                 "name": "CuttingItem",
                 "excluded": true
             },
@@ -8853,8 +8849,8 @@
                 "excluded": false
             },
             {
-                "name": "ItemToTarget",
-                "excluded": true
+                "name": "ALEvent",
+                "excluded": false
             }
         ],
         "unusedMethods": [
@@ -23073,6 +23069,22 @@
                     {
                         "name": "ChangePaperBoxTarget",
                         "excluded": true
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Aplovin25",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Aplovin50",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Aplovin75",
+                        "excluded": false
                     }
                 ]
             },
@@ -38908,11 +38920,11 @@
                     },
                     {
                         "name": "RemoveFromHandTut",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ClearTarget",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -39128,7 +39140,7 @@
                     },
                     {
                         "name": "PlayLemonJuiceSound",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "PlayWipeSound",
@@ -39136,7 +39148,7 @@
                     },
                     {
                         "name": "PlayWipe2Sound",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "PlayCut2Sound",
@@ -40039,6 +40051,114 @@
                         "excluded": false
                     }
                 ]
+            },
+            {
+                "className": "AppLovinAnalytics",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Track",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "ToolObject",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "FlyIn",
+                        "excluded": true
+                    },
+                    {
+                        "name": "MoveToTarget",
+                        "excluded": true
+                    },
+                    {
+                        "name": "MoveAndCallBack$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "MoveAndCallBack",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CallBackAfterMove",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FlyOut",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "RongBien",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RiceIn",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SauceIn",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FoodIn",
+                        "excluded": false
+                    },
+                    {
+                        "name": "NextRongBienIn",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EnableSushiDone",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "ItemToTarget",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SubscribeMovementEvents",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UnsubscribeMovementEvents",
+                        "excluded": false
+                    },
+                    {
+                        "name": "MoveToCurrentTarget",
+                        "excluded": false
+                    },
+                    {
+                        "name": "HandleMoveComplete",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ItemDone",
+                        "excluded": true
+                    }
+                ]
             }
         ],
         "stubberDataList": [],
@@ -40446,6 +40566,26 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/Assets/LevelBackyardBBQ/LevelBackyardBBQ/Texture/Update/images/images/bg1.png"
+                    },
+                    {
+                        "maxWidth": 946,
+                        "maxHeight": 2048,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/LvMakeSushi/Textures/BG-roll.png"
+                    },
+                    {
+                        "maxWidth": 2048,
+                        "maxHeight": 2048,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Assets/Main.spriteatlasv2"
                     }
                 ]
             },
@@ -40509,6 +40649,16 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_GamePlay_/Sound/Magic.ogg"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:00.000",
+                        "lengthInSeconds": 0.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_GamePlay_/Sound/bgm_AlwaysWithMe.mp3"
                     }
                 ]
             },

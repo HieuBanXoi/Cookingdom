@@ -13,9 +13,15 @@ public class GameManager : Ply_Singleton<GameManager>
     public Transform trashCan;
     public ClockTimer clockTimerPrefab;
     public PaperBox paperBox;
-
+    public override void Awake()
+    {
+        base.Awake();
+        AppLovinAnalytics.Track(ALEvent.LOADING);
+    }
     private void Start()
     {
+        AppLovinAnalytics.Track(ALEvent.LOADED);
+        AppLovinAnalytics.Track(ALEvent.DISPLAYED);
         ChangeState(new OnPlayState());
     }
     private void Update()
@@ -49,6 +55,8 @@ public class GameManager : Ply_Singleton<GameManager>
     {
         LifeCycle.GameEnded();
         Playable.InstallFullGame();
+        AppLovinAnalytics.Track(ALEvent.CTA_CLICKED);
+
     }
     public void MoveOne()
     {
@@ -86,5 +94,17 @@ public class GameManager : Ply_Singleton<GameManager>
     public void ChangePaperBoxTarget(PaperBox newTarget)
     {
         paperBox = newTarget;
+    }
+    public void Aplovin25()
+    {
+        AppLovinAnalytics.Track(ALEvent.CHALLENGE_PASS_25);
+    }
+    public void Aplovin50()
+    {
+        AppLovinAnalytics.Track(ALEvent.CHALLENGE_PASS_50);
+    }
+    public void Aplovin75()
+    {
+        AppLovinAnalytics.Track(ALEvent.CHALLENGE_PASS_75);
     }
 }

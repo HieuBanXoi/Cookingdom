@@ -7,6 +7,9 @@ public class WinState : IGameState
         UIManager.Ins.ActiveGameWinUI(true);
         UIManager.Ins.ActiveDownloadButtons(false);
         gameManager.isGotoStore = true;
+        AppLovinAnalytics.Track(ALEvent.CHALLENGE_SOLVED);
+        AppLovinAnalytics.Track(ALEvent.ENDCARD_SHOWN);
+
     }
 
     public void OnExecute(GameManager gameManager)
